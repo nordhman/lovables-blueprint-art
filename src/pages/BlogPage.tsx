@@ -5,16 +5,15 @@ import { WireframeCard } from "@/components/wireframe/WireframeCard";
 import { blogPosts, categories } from "@/data/mockData";
 
 const BlogPage = () => {
-  const [activeCategory, setActiveCategory] = useState("Alla");
-  const filtered = activeCategory === "Alla" ? blogPosts : blogPosts.filter((p) => p.category === activeCategory);
+  const [activeCategory, setActiveCategory] = useState("All");
+  const filtered = activeCategory === "All" ? blogPosts : blogPosts.filter((p) => p.category === activeCategory);
 
   return (
     <div className="container mx-auto px-4 py-12">
-      <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Insikter</span>
+      <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Insights</span>
       <h1 className="text-3xl md:text-4xl font-bold mt-2">Blog</h1>
-      <p className="text-muted-foreground mt-2 max-w-2xl">Tips, strategier och guider för affiliate marketing.</p>
+      <p className="text-muted-foreground mt-2 max-w-2xl">Tips, strategies, and guides for affiliate marketing.</p>
 
-      {/* Category filter */}
       <div className="flex flex-wrap gap-2 mt-8">
         {categories.map((cat) => (
           <button
@@ -47,7 +46,7 @@ const BlogPage = () => {
 
       <div className="mt-8 text-center">
         <button className="px-6 py-3 border-2 border-dashed border-border rounded font-mono text-sm text-muted-foreground hover:border-foreground hover:text-foreground transition-colors">
-          Visa fler inlägg
+          Show More Posts
         </button>
       </div>
     </div>

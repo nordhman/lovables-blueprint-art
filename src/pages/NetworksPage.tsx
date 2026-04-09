@@ -5,9 +5,9 @@ import { Globe } from "lucide-react";
 
 const NetworksPage = () => (
   <div className="container mx-auto px-4 py-12">
-    <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Plattformar</span>
-    <h1 className="text-3xl md:text-4xl font-bold mt-2">Affiliate-nätverk</h1>
-    <p className="text-muted-foreground mt-2 max-w-2xl">Översikt av de viktigaste affiliate-nätverken. Hitta rätt nätverk för din nisch och målgrupp.</p>
+    <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Platforms</span>
+    <h1 className="text-3xl md:text-4xl font-bold mt-2">Affiliate Networks</h1>
+    <p className="text-muted-foreground mt-2 max-w-2xl">Overview of the most important affiliate networks. Find the right network for your niche and audience.</p>
 
     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
       {networks.map((network) => (
@@ -20,15 +20,15 @@ const NetworksPage = () => (
           </div>
           <p className="text-sm text-muted-foreground">{network.description}</p>
           <div className="flex items-center justify-between mt-4">
-            <span className="font-mono text-xs text-muted-foreground">Provision: {network.commission}</span>
-            <WireframeCTA label="Gå med →" to="#" variant="secondary" className="text-xs py-2 px-4" />
+            <span className="font-mono text-xs text-muted-foreground">Commission: {network.commission}</span>
+            <WireframeCTA label="Join →" to="#" variant="secondary" className="text-xs py-2 px-4" />
           </div>
         </WireframeCard>
       ))}
     </div>
 
     <div className="mt-12 text-center">
-      <WireframeCTA label="Se bästa nätverken 2026 →" to="/best-affiliate-networks" variant="secondary" />
+      <WireframeCTA label="See Best Networks 2026 →" to="/best-affiliate-networks" variant="secondary" />
     </div>
   </div>
 );

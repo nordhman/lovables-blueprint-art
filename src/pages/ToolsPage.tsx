@@ -1,4 +1,3 @@
-import { PlaceholderImage } from "@/components/wireframe/PlaceholderImage";
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
 import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
 import { tools } from "@/data/mockData";
@@ -9,9 +8,9 @@ const ToolsPage = () => {
 
   return (
     <div className="container mx-auto px-4 py-12">
-      <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Resurser</span>
-      <h1 className="text-3xl md:text-4xl font-bold mt-2">Verktyg & Resurser</h1>
-      <p className="text-muted-foreground mt-2 max-w-2xl">Handplockade verktyg som hjälper dig bygga och växa din affiliate-verksamhet.</p>
+      <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Resources</span>
+      <h1 className="text-3xl md:text-4xl font-bold mt-2">Tools & Resources</h1>
+      <p className="text-muted-foreground mt-2 max-w-2xl">Handpicked tools to help you build and grow your affiliate business.</p>
 
       {categories.map((cat) => (
         <section key={cat} className="mt-12">
@@ -37,7 +36,7 @@ const ToolsPage = () => {
                 </div>
                 <p className="text-sm text-muted-foreground mt-3">{tool.description}</p>
                 <div className="mt-4">
-                  <WireframeCTA label="Prova verktyget →" to="#" variant="secondary" className="text-xs py-2 px-4" />
+                  <WireframeCTA label="Try Tool →" to="#" variant="secondary" className="text-xs py-2 px-4" />
                 </div>
               </WireframeCard>
             ))}
@@ -46,7 +45,7 @@ const ToolsPage = () => {
       ))}
 
       <div className="mt-12 text-center">
-        <WireframeCTA label="Se bästa verktygen 2026 →" to="/best-affiliate-tools" variant="secondary" />
+        <WireframeCTA label="See Best Tools 2026 →" to="/best-affiliate-tools" variant="secondary" />
       </div>
     </div>
   );
