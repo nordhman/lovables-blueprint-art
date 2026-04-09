@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { WireframeLayout } from "@/components/wireframe/WireframeLayout";
 import HomePage from "./pages/HomePage";
 import CoursesPage from "./pages/CoursesPage";
+import CoursesListPage from "./pages/CoursesListPage";
 import CourseDetailPage from "./pages/CourseDetailPage";
 import ToolsPage from "./pages/ToolsPage";
 import NetworksPage from "./pages/NetworksPage";
@@ -26,6 +27,7 @@ const App = () => (
           <Route element={<WireframeLayout />}>
             <Route path="/" element={<HomePage />} />
             <Route path="/courses" element={<CoursesPage />} />
+            <Route path="/courses/list" element={<CoursesListPage />} />
             <Route path="/courses/:slug" element={<CourseDetailPage />} />
             <Route path="/tools" element={<ToolsPage />} />
             <Route path="/networks" element={<NetworksPage />} />
