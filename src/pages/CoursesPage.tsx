@@ -47,7 +47,7 @@ const CoursesPage = () => {
               </div>
             </div>
             <div className="mt-auto pt-6">
-              <WireframeCTA label="Access My Courses →" to="/courses?type=own" />
+              <WireframeCTA label="Access My Courses →" to="/courses/list?type=own" />
             </div>
           </WireframeCard>
 
@@ -66,7 +66,7 @@ const CoursesPage = () => {
               </div>
             </div>
             <div className="mt-auto pt-6">
-              <WireframeCTA label="Best Online Courses →" to="/courses?type=affiliate" />
+              <WireframeCTA label="Best Online Courses →" to="/courses/list?type=affiliate" />
             </div>
           </WireframeCard>
         </div>
