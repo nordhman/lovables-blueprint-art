@@ -8,8 +8,8 @@ const navItems = [
     label: "Courses",
     to: "/courses",
     children: [
-      { label: "My Courses", to: "/courses?type=own" },
-      { label: "Recommended", to: "/courses?type=affiliate" },
+      { label: "My Courses", to: "/courses/list?type=own" },
+      { label: "Recommended", to: "/courses/list?type=affiliate" },
     ],
   },
   { label: "Tools", to: "/tools" },
