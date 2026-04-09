@@ -12,23 +12,23 @@ const BlogPostPage = () => {
   if (!post) {
     return (
       <div className="container mx-auto px-4 py-12 text-center">
-        <p className="text-muted-foreground">Inlägget hittades inte.</p>
-        <WireframeCTA label="← Tillbaka" to="/blog" className="mt-4" />
+        <p className="text-muted-foreground">Post not found.</p>
+        <WireframeCTA label="← Back" to="/blog" className="mt-4" />
       </div>
     );
   }
 
   const landingLabel: Record<string, string> = {
-    "/best-affiliate-tools": "Se bästa verktygen 2026 →",
-    "/best-affiliate-courses": "Se bästa kurserna 2026 →",
-    "/best-affiliate-networks": "Se bästa nätverken 2026 →",
-    "/courses": "Utforska kurser →",
+    "/best-affiliate-tools": "See Best Tools 2026 →",
+    "/best-affiliate-courses": "See Best Courses 2026 →",
+    "/best-affiliate-networks": "See Best Networks 2026 →",
+    "/courses": "Explore Courses →",
   };
 
   return (
     <div className="container mx-auto px-4 py-12 max-w-3xl">
       <Link to="/blog" className="inline-flex items-center gap-1 font-mono text-xs text-muted-foreground hover:text-foreground mb-8">
-        <ArrowLeft className="h-3 w-3" /> Tillbaka till bloggen
+        <ArrowLeft className="h-3 w-3" /> Back to blog
       </Link>
 
       <div className="flex items-center gap-2 mb-3">
@@ -41,7 +41,6 @@ const BlogPostPage = () => {
 
       <PlaceholderImage label="Featured image" className="w-full mt-8" />
 
-      {/* Article body placeholder */}
       <div className="mt-8 space-y-4">
         {Array.from({ length: 6 }).map((_, i) => (
           <div key={i} className="space-y-2">
@@ -53,21 +52,19 @@ const BlogPostPage = () => {
         ))}
       </div>
 
-      {/* Landing page CTA banner */}
       {post.relatedLanding && (
         <WireframeCard className="mt-12 text-center py-8 bg-muted">
-          <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Relaterad resurs</span>
-          <h3 className="text-lg font-bold mt-2">Vill du veta mer?</h3>
-          <p className="text-sm text-muted-foreground mt-1">Kolla in vår dedikerade jämförelsesida.</p>
+          <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Related Resource</span>
+          <h3 className="text-lg font-bold mt-2">Want to learn more?</h3>
+          <p className="text-sm text-muted-foreground mt-1">Check out our dedicated comparison page.</p>
           <div className="mt-4">
-            <WireframeCTA label={landingLabel[post.relatedLanding] || "Läs mer →"} to={post.relatedLanding} />
+            <WireframeCTA label={landingLabel[post.relatedLanding] || "Read More →"} to={post.relatedLanding} />
           </div>
         </WireframeCard>
       )}
 
-      {/* Related posts */}
       <section className="mt-12">
-        <h3 className="text-lg font-bold mb-4">Relaterade inlägg</h3>
+        <h3 className="text-lg font-bold mb-4">Related Posts</h3>
         <div className="grid md:grid-cols-2 gap-4">
           {blogPosts.filter((p) => p.slug !== slug).slice(0, 2).map((p) => (
             <Link key={p.slug} to={`/blog/${p.slug}`}>

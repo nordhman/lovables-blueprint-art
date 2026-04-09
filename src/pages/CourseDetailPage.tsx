@@ -13,45 +13,41 @@ const CourseDetailPage = () => {
   if (!course) {
     return (
       <div className="container mx-auto px-4 py-12 text-center">
-        <p className="text-muted-foreground">Kursen hittades inte.</p>
-        <WireframeCTA label="← Tillbaka" to="/courses" className="mt-4" />
+        <p className="text-muted-foreground">Course not found.</p>
+        <WireframeCTA label="← Back" to="/courses" className="mt-4" />
       </div>
     );
   }
 
-  const outlineItems = Array.from({ length: course.modules }, (_, i) => `Modul ${i + 1}: [Modulnamn placeholder]`);
+  const outlineItems = Array.from({ length: course.modules }, (_, i) => `Module ${i + 1}: [Module name placeholder]`);
 
   return (
     <div className="container mx-auto px-4 py-12">
       <Link to="/courses" className="inline-flex items-center gap-1 font-mono text-xs text-muted-foreground hover:text-foreground mb-8">
-        <ArrowLeft className="h-3 w-3" /> Tillbaka till kurser
+        <ArrowLeft className="h-3 w-3" /> Back to courses
       </Link>
 
-      {/* Hero */}
       <div className="grid md:grid-cols-2 gap-12 items-start">
         <div>
           <div className="flex items-center gap-2 mb-3">
             <Badge variant="outline" className="font-mono text-xs border-dashed">
-              {course.type === "own" ? "Egen kurs" : "Partner"}
+              {course.type === "own" ? "Own course" : "Partner"}
             </Badge>
             <span className="font-mono text-xs text-muted-foreground">{course.level}</span>
           </div>
           <h1 className="text-3xl md:text-4xl font-bold">{course.title}</h1>
           <p className="text-muted-foreground mt-4 text-lg">{course.description}</p>
-          {course.partner && (
-            <p className="font-mono text-xs text-muted-foreground mt-2">Via {course.partner}</p>
-          )}
+          {course.partner && <p className="font-mono text-xs text-muted-foreground mt-2">Via {course.partner}</p>}
           <div className="flex items-center gap-4 mt-6">
             <span className="text-2xl font-bold">{course.price}</span>
-            <WireframeCTA label={course.type === "own" ? "Starta kurs" : "Gå till kurs →"} to="#" />
+            <WireframeCTA label={course.type === "own" ? "Start Course" : "Go to Course →"} to="#" />
           </div>
         </div>
-        <PlaceholderImage label="Kursbild / Video" className="w-full" />
+        <PlaceholderImage label="Course image / Video" className="w-full" />
       </div>
 
-      {/* Course outline */}
       <section className="mt-16">
-        <h2 className="text-xl font-bold mb-6">Kursinnehåll</h2>
+        <h2 className="text-xl font-bold mb-6">Course Content</h2>
         <div className="space-y-2">
           {outlineItems.map((item, i) => (
             <WireframeCard key={i} className="flex items-center gap-3 py-3">
@@ -62,14 +58,13 @@ const CourseDetailPage = () => {
         </div>
       </section>
 
-      {/* Related */}
       <section className="mt-16">
         <WireframeCard className="text-center py-8">
-          <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Relaterat</span>
-          <h3 className="text-lg font-bold mt-2">Vill du jämföra kurser?</h3>
-          <p className="text-sm text-muted-foreground mt-1">Se vår jämförelse av de bästa kurserna för affiliate marketing.</p>
+          <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Related</span>
+          <h3 className="text-lg font-bold mt-2">Want to compare courses?</h3>
+          <p className="text-sm text-muted-foreground mt-1">Check out our comparison of the best affiliate marketing courses.</p>
           <div className="mt-4">
-            <WireframeCTA label="Bästa kurserna 2026 →" to="/best-affiliate-courses" variant="secondary" />
+            <WireframeCTA label="Best Courses 2026 →" to="/best-affiliate-courses" variant="secondary" />
           </div>
         </WireframeCard>
       </section>

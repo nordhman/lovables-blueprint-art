@@ -1,21 +1,22 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import { Menu, X, Search, ChevronDown } from "lucide-react";
+import { useLocation } from "react-router-dom";
 
 const navItems = [
   {
-    label: "Kurser",
+    label: "Courses",
     to: "/courses",
     children: [
-      { label: "Mina kurser", to: "/courses?type=own" },
-      { label: "Rekommenderade", to: "/courses?type=affiliate" },
+      { label: "My Courses", to: "/courses?type=own" },
+      { label: "Recommended", to: "/courses?type=affiliate" },
     ],
   },
-  { label: "Verktyg", to: "/tools" },
-  { label: "Nätverk", to: "/networks" },
+  { label: "Tools", to: "/tools" },
+  { label: "Networks", to: "/networks" },
   { label: "Blog", to: "/blog" },
-  { label: "Om", to: "/about" },
-  { label: "Kontakt", to: "/contact" },
+  { label: "About", to: "/about" },
+  { label: "Contact", to: "/contact" },
 ];
 
 export const Header = () => {
@@ -30,7 +31,6 @@ export const Header = () => {
           [ Affiliate Tour ]
         </Link>
 
-        {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-1">
           {navItems.map((item) =>
             item.children ? (
@@ -72,31 +72,20 @@ export const Header = () => {
           </button>
         </nav>
 
-        {/* Mobile hamburger */}
         <button className="md:hidden p-2" onClick={() => setMobileOpen(!mobileOpen)}>
           {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
 
-      {/* Mobile menu */}
       {mobileOpen && (
         <div className="md:hidden border-t-2 border-dashed border-border bg-card px-4 py-4 space-y-1">
           {navItems.map((item) => (
             <div key={item.label}>
-              <Link
-                to={item.to}
-                onClick={() => setMobileOpen(false)}
-                className="block px-3 py-2 text-sm font-medium hover:bg-accent rounded"
-              >
+              <Link to={item.to} onClick={() => setMobileOpen(false)} className="block px-3 py-2 text-sm font-medium hover:bg-accent rounded">
                 {item.label}
               </Link>
               {item.children?.map((child) => (
-                <Link
-                  key={child.label}
-                  to={child.to}
-                  onClick={() => setMobileOpen(false)}
-                  className="block px-6 py-2 text-sm text-muted-foreground hover:bg-accent rounded"
-                >
+                <Link key={child.label} to={child.to} onClick={() => setMobileOpen(false)} className="block px-6 py-2 text-sm text-muted-foreground hover:bg-accent rounded">
                   {child.label}
                 </Link>
               ))}

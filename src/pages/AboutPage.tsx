@@ -5,34 +5,32 @@ import { CheckCircle } from "lucide-react";
 
 const AboutPage = () => (
   <div className="container mx-auto px-4 py-12">
-    {/* Hero */}
     <div className="grid md:grid-cols-2 gap-12 items-center">
       <div>
-        <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Om oss</span>
-        <h1 className="text-3xl md:text-4xl font-bold mt-2">Om Affiliate Tour</h1>
+        <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">About</span>
+        <h1 className="text-3xl md:text-4xl font-bold mt-2">About Affiliate Tour</h1>
         <p className="text-muted-foreground mt-4 text-lg">
-          Affiliate Tour hjälper dig navigera världen av affiliate marketing med ärliga recensioner, utbildning och beprövade strategier.
+          Affiliate Tour helps you navigate the world of affiliate marketing with honest reviews, education, and proven strategies.
         </p>
         <div className="mt-6">
-          <WireframeCTA label="Kontakta oss" to="/contact" />
+          <WireframeCTA label="Contact Us" to="/contact" />
         </div>
       </div>
       <PlaceholderImage label="About hero image" className="w-full" />
     </div>
 
-    {/* About the blog */}
     <section className="mt-16">
       <WireframeCard className="p-8">
-        <h2 className="text-xl font-bold">Om bloggen</h2>
+        <h2 className="text-xl font-bold">About the Blog</h2>
         <p className="text-muted-foreground mt-3">
-          Affiliate Tour startades för att fylla ett gap i den svenska affiliate-marknaden. Vi erbjuder:
+          Affiliate Tour was created to fill a gap in the affiliate marketing space. We offer:
         </p>
         <div className="mt-4 space-y-3">
           {[
-            "Ärliga och opartiska verktygsrecensioner",
-            "Kurser för både nybörjare och erfarna",
-            "Uppdaterade guider om affiliate-nätverk",
-            "SEO- och innehållsstrategier som fungerar",
+            "Honest and unbiased tool reviews",
+            "Courses for both beginners and experienced marketers",
+            "Up-to-date guides on affiliate networks",
+            "SEO and content strategies that actually work",
           ].map((item) => (
             <div key={item} className="flex items-center gap-2">
               <CheckCircle className="h-4 w-4 text-muted-foreground flex-shrink-0" />
@@ -43,22 +41,21 @@ const AboutPage = () => (
       </WireframeCard>
     </section>
 
-    {/* Creator */}
     <section className="mt-12">
       <div className="grid md:grid-cols-[200px_1fr] gap-8 items-start">
-        <PlaceholderImage label="Profilbild" aspectRatio="square" />
+        <PlaceholderImage label="Profile photo" aspectRatio="square" />
         <div>
-          <h2 className="text-xl font-bold">Om skaparen</h2>
+          <h2 className="text-xl font-bold">About the Creator</h2>
           <h3 className="text-lg font-semibold mt-2">Daniel</h3>
           <p className="text-muted-foreground mt-2">
-            Daniel har arbetat med affiliate marketing sedan 2015. Med erfarenhet från både svenska och internationella marknader delar han med sig av sina bästa strategier och lärdomar.
+            Daniel has been working with affiliate marketing since 2015. With experience from both Nordic and international markets, he shares his best strategies and lessons learned.
           </p>
           <div className="mt-4 space-y-2">
             {[
-              "10+ års erfarenhet av affiliate marketing",
-              "Byggt flertalet lönsamma nischsajter",
-              "Testat 50+ verktyg och plattformar",
-              "Utbildat hundratals affiliates",
+              "10+ years of affiliate marketing experience",
+              "Built multiple profitable niche sites",
+              "Tested 50+ tools and platforms",
+              "Trained hundreds of affiliates",
             ].map((item) => (
               <div key={item} className="flex items-center gap-2">
                 <span className="font-mono text-xs text-muted-foreground">—</span>
@@ -67,7 +64,7 @@ const AboutPage = () => (
             ))}
           </div>
           <div className="mt-6">
-            <WireframeCTA label="Kontakta mig →" to="/contact" variant="secondary" />
+            <WireframeCTA label="Contact Me →" to="/contact" variant="secondary" />
           </div>
         </div>
       </div>
