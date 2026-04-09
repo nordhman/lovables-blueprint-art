@@ -1,0 +1,36 @@
+import { WireframeCard } from "@/components/wireframe/WireframeCard";
+import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
+import { networks } from "@/data/mockData";
+import { Globe } from "lucide-react";
+
+const NetworksPage = () => (
+  <div className="container mx-auto px-4 py-12">
+    <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Plattformar</span>
+    <h1 className="text-3xl md:text-4xl font-bold mt-2">Affiliate-nätverk</h1>
+    <p className="text-muted-foreground mt-2 max-w-2xl">Översikt av de viktigaste affiliate-nätverken. Hitta rätt nätverk för din nisch och målgrupp.</p>
+
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+      {networks.map((network) => (
+        <WireframeCard key={network.slug}>
+          <div className="flex items-center gap-3 mb-3">
+            <div className="w-10 h-10 border-2 border-dashed border-border rounded-full flex items-center justify-center">
+              <Globe className="h-4 w-4 text-muted-foreground" />
+            </div>
+            <h3 className="font-semibold">{network.name}</h3>
+          </div>
+          <p className="text-sm text-muted-foreground">{network.description}</p>
+          <div className="flex items-center justify-between mt-4">
+            <span className="font-mono text-xs text-muted-foreground">Provision: {network.commission}</span>
+            <WireframeCTA label="Gå med →" to="#" variant="secondary" className="text-xs py-2 px-4" />
+          </div>
+        </WireframeCard>
+      ))}
+    </div>
+
+    <div className="mt-12 text-center">
+      <WireframeCTA label="Se bästa nätverken 2026 →" to="/best-affiliate-networks" variant="secondary" />
+    </div>
+  </div>
+);
+
+export default NetworksPage;
