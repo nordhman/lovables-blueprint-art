@@ -1,22 +1,42 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import Index from "./pages/Index.tsx";
-import NotFound from "./pages/NotFound.tsx";
+import { WireframeLayout } from "@/components/wireframe/WireframeLayout";
+import HomePage from "./pages/HomePage";
+import CoursesPage from "./pages/CoursesPage";
+import CourseDetailPage from "./pages/CourseDetailPage";
+import ToolsPage from "./pages/ToolsPage";
+import NetworksPage from "./pages/NetworksPage";
+import BlogPage from "./pages/BlogPage";
+import BlogPostPage from "./pages/BlogPostPage";
+import LandingTools from "./pages/LandingTools";
+import LandingCourses from "./pages/LandingCourses";
+import LandingNetworks from "./pages/LandingNetworks";
+import AboutPage from "./pages/AboutPage";
+import ContactPage from "./pages/ContactPage";
+import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
-      <Toaster />
-      <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route element={<WireframeLayout />}>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/courses" element={<CoursesPage />} />
+            <Route path="/courses/:slug" element={<CourseDetailPage />} />
+            <Route path="/tools" element={<ToolsPage />} />
+            <Route path="/networks" element={<NetworksPage />} />
+            <Route path="/blog" element={<BlogPage />} />
+            <Route path="/blog/:slug" element={<BlogPostPage />} />
+            <Route path="/best-affiliate-tools" element={<LandingTools />} />
+            <Route path="/best-affiliate-courses" element={<LandingCourses />} />
+            <Route path="/best-affiliate-networks" element={<LandingNetworks />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+          </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
