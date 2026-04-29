@@ -1,15 +1,10 @@
-import { Link } from "react-router-dom";
 import { PlaceholderImage } from "@/components/wireframe/PlaceholderImage";
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
 import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
-import { courses } from "@/data/mockData";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle, BookOpen, Award } from "lucide-react";
+import { BookOpen, Award, Sparkles } from "lucide-react";
 
 const CoursesPage = () => {
-  const ownCourses = courses.filter((c) => c.type === "own");
-  const affiliateCourses = courses.filter((c) => c.type === "affiliate");
-
   return (
     <div>
       {/* Hero */}
@@ -70,78 +65,32 @@ const CoursesPage = () => {
             </div>
           </WireframeCard>
         </div>
-      </section>
 
-      {/* Personal Story */}
-      <section className="border-y-2 border-dashed border-border bg-muted/20 py-16">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-3 gap-8 items-center">
-            <div className="flex justify-center">
-              <div className="w-40 h-40 border-2 border-dashed border-border rounded-full flex items-center justify-center">
-                <span className="font-mono text-xs text-muted-foreground">Profile photo</span>
-              </div>
-            </div>
-            <div className="md:col-span-2">
-              <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Get to Know Me</span>
-              <h2 className="text-xl font-bold mt-2">The Story Behind My Affiliate Marketing Journey</h2>
-              <p className="text-sm text-muted-foreground mt-3">I've spent years building affiliate sites and testing strategies. Now I share what works – through my own courses and by recommending the best resources from industry experts.</p>
-              <div className="mt-4">
-                <WireframeCTA label="Read My Story →" to="/about" variant="secondary" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Courses Preview */}
-      <section className="container mx-auto px-4 py-16">
-        <h2 className="text-xl font-bold mb-2">Featured Courses</h2>
-        <p className="text-muted-foreground text-sm mb-8">A selection of our most popular courses – both free and premium.</p>
-        <div className="grid md:grid-cols-3 gap-6">
-          {[...ownCourses.slice(0, 1), ...affiliateCourses.slice(0, 2)].map((course) => (
-            <Link key={course.slug} to={`/courses/${course.slug}`}>
-              <WireframeCard className="hover:border-foreground h-full">
-                <PlaceholderImage label="Course image" aspectRatio="video" />
-                <div className="mt-3">
-                  <div className="flex items-center gap-2">
-                    <Badge variant="outline" className="font-mono text-xs border-dashed">{course.type === "own" ? "Own" : "Partner"}</Badge>
-                    <span className="font-mono text-xs text-muted-foreground">{course.level}</span>
-                  </div>
-                  <h3 className="font-semibold mt-1">{course.title}</h3>
-                  <p className="text-sm text-muted-foreground mt-1">{course.description}</p>
-                  <span className="inline-block mt-3 font-mono text-xs border border-dashed border-border rounded px-2 py-1">{course.price}</span>
+        {/* Recommendation box under both options */}
+        <div className="mt-8">
+          <WireframeCard className="p-6 bg-muted/30">
+            <div className="flex gap-4">
+              <div className="shrink-0">
+                <div className="w-12 h-12 border-2 border-dashed border-border rounded flex items-center justify-center">
+                  <Sparkles className="h-6 w-6 text-muted-foreground" />
                 </div>
-              </WireframeCard>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      {/* What You'll Learn */}
-      <section className="container mx-auto px-4 pb-16">
-        <WireframeCard className="p-6">
-          <h2 className="text-xl font-bold">What You'll Learn</h2>
-          <div className="grid md:grid-cols-2 gap-3 mt-4">
-            {[
-              "Finding profitable niches",
-              "Building authority websites",
-              "SEO and content strategy",
-              "Choosing the right affiliate programs",
-              "Tracking and optimizing conversions",
-              "Scaling to passive income",
-            ].map((item) => (
-              <div key={item} className="flex items-center gap-2">
-                <CheckCircle className="h-4 w-4 text-muted-foreground shrink-0" />
-                <span className="text-sm">{item}</span>
               </div>
-            ))}
-          </div>
-        </WireframeCard>
-      </section>
-
-      {/* CTA */}
-      <section className="container mx-auto px-4 pb-16 text-center">
-        <WireframeCTA label="See Best Courses 2026 →" to="/best-affiliate-courses" variant="secondary" />
+              <div className="flex-1">
+                <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Hard to choose?</span>
+                <h3 className="text-lg font-bold mt-1">Option 2 is Our Advice if You Want More Personal Guidance</h3>
+                <p className="text-sm text-muted-foreground mt-3">
+                  Option 2 is our top choice for those ready to invest time in building a business from scratch with the help of a professional learning platform. It's perfect for those seeking tangible results while laying a strong foundation.
+                </p>
+                <p className="text-sm text-muted-foreground mt-2">
+                  Learning on your own can be overwhelming, but our top course selections save you time and provide clear, actionable guidance to support your growth and income. Explore our list and take your next step today!
+                </p>
+                <div className="mt-5">
+                  <WireframeCTA label="See Recommended Courses →" to="/courses/list?type=affiliate" />
+                </div>
+              </div>
+            </div>
+          </WireframeCard>
+        </div>
       </section>
     </div>
   );
