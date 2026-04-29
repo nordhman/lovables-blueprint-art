@@ -2,8 +2,7 @@ import { PlaceholderImage } from "@/components/wireframe/PlaceholderImage";
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
 import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
 import { Badge } from "@/components/ui/badge";
-import { Award, BookOpen, Check, Star } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Check, Star } from "lucide-react";
 
 const CoursesPage = () => {
   return (
@@ -22,16 +21,59 @@ const CoursesPage = () => {
         </div>
       </section>
 
-      {/* How to Get Started — Asymmetric Hero pattern */}
+      {/* How to Get Started */}
       <section className="container mx-auto px-4 py-16">
         <div className="text-center max-w-2xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold">How to Get Started</h2>
-          <p className="text-muted-foreground mt-3">There are two ways forward. Here's the one I actually recommend — and a free path if you're just exploring.</p>
+          <h2 className="text-2xl md:text-3xl font-bold">How to Get Started with Affiliate Marketing — Two Proven Paths</h2>
+          <p className="text-muted-foreground mt-3">Start free with my own guide, or fast-track your growth with the premium courses I personally recommend.</p>
         </div>
 
-        {/* Option 2 — Primary, recommended */}
-        <div className="mt-10 relative">
-          {/* Recommended ribbon */}
+        {/* Option 1 — Free, exploratory */}
+        <div className="mt-10">
+          <WireframeCard className="p-6 md:p-8">
+            <div className="grid md:grid-cols-[280px_1fr] gap-6 md:gap-8 items-start">
+              <PlaceholderImage label="Free guide image" aspectRatio="video" className="w-full" />
+
+              <div>
+                <div className="flex items-center gap-3 flex-wrap">
+                  <Badge variant="outline" className="font-mono text-xs border-dashed">Option 1</Badge>
+                  <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Just exploring? Start here free</span>
+                </div>
+
+                <h3 className="text-xl md:text-2xl font-bold mt-3 leading-tight">
+                  My Free Affiliate Marketing Guide, Step-by-Step
+                </h3>
+
+                <p className="text-muted-foreground mt-3">
+                  A beginner-friendly, carefully structured resource at no cost. Build a solid foundation for a successful affiliate business — even if you're starting from scratch.
+                </p>
+
+                <ul className="mt-5 space-y-2.5">
+                  <li className="flex items-start gap-3">
+                    <Check className="h-5 w-5 text-foreground shrink-0 mt-0.5" />
+                    <span className="text-sm"><strong>100% free</strong> — no signup required to read</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Check className="h-5 w-5 text-foreground shrink-0 mt-0.5" />
+                    <span className="text-sm"><strong>Beginner-friendly</strong> — clear steps from zero to first commission</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Check className="h-5 w-5 text-foreground shrink-0 mt-0.5" />
+                    <span className="text-sm"><strong>Learn at your own pace</strong> — perfect for testing the waters</span>
+                  </li>
+                </ul>
+
+                <div className="mt-6 flex flex-wrap items-center gap-4">
+                  <WireframeCTA label="Access My Free Guide →" to="/courses/list?type=own" variant="secondary" />
+                  <span className="font-mono text-xs text-muted-foreground">Free · No credit card</span>
+                </div>
+              </div>
+            </div>
+          </WireframeCard>
+        </div>
+
+        {/* Option 2 — Recommended */}
+        <div className="mt-6 relative">
           <div className="absolute -top-3 left-6 z-10">
             <div className="inline-flex items-center gap-1.5 bg-foreground text-background font-mono text-xs uppercase tracking-wider px-3 py-1.5 rounded">
               <Star className="h-3 w-3 fill-current" />
@@ -39,45 +81,39 @@ const CoursesPage = () => {
             </div>
           </div>
 
-          <WireframeCard className="p-8 md:p-10 border-foreground border-2">
-            <div className="grid md:grid-cols-[1fr_auto] gap-8 items-start">
+          <WireframeCard className="p-6 md:p-8">
+            <div className="grid md:grid-cols-[280px_1fr] gap-6 md:gap-8 items-start">
+              <PlaceholderImage label="Premium courses image" aspectRatio="video" className="w-full" />
+
               <div>
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3 flex-wrap">
                   <Badge variant="outline" className="font-mono text-xs border-dashed">Option 2</Badge>
                   <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Premium Path</span>
                 </div>
 
-                <h3 className="text-2xl md:text-3xl font-bold mt-3 leading-tight">
+                <h3 className="text-xl md:text-2xl font-bold mt-3 leading-tight">
                   Top-Rated Premium Courses for Serious Beginners
                 </h3>
 
-                <p className="text-muted-foreground mt-4">
+                <p className="text-muted-foreground mt-3">
                   My top choice for those ready to invest time in building a business with the help of a professional learning platform. Perfect for those seeking tangible results while laying a strong foundation.
                 </p>
 
-                {/* Benefit bullets */}
-                <ul className="mt-6 space-y-3">
+                <ul className="mt-5 space-y-2.5">
                   <li className="flex items-start gap-3">
                     <Check className="h-5 w-5 text-foreground shrink-0 mt-0.5" />
-                    <span className="text-sm">
-                      <strong>Professional learning platform</strong> — proven curriculum used by thousands of affiliates
-                    </span>
+                    <span className="text-sm"><strong>Professional learning platform</strong> — proven curriculum used by thousands of affiliates</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <Check className="h-5 w-5 text-foreground shrink-0 mt-0.5" />
-                    <span className="text-sm">
-                      <strong>Save time, skip guesswork</strong> — clear, actionable steps instead of months of trial and error
-                    </span>
+                    <span className="text-sm"><strong>Save time, skip guesswork</strong> — clear, actionable steps instead of months of trial and error</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <Check className="h-5 w-5 text-foreground shrink-0 mt-0.5" />
-                    <span className="text-sm">
-                      <strong>Built for real income</strong> — strategies designed to support sustainable growth, not just traffic
-                    </span>
+                    <span className="text-sm"><strong>Built for real income</strong> — strategies designed to support sustainable growth, not just traffic</span>
                   </li>
                 </ul>
 
-                {/* Personal note / trust */}
                 <div className="mt-6 border-l-2 border-dashed border-border pl-4">
                   <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Why I recommend this</span>
                   <p className="text-sm text-muted-foreground mt-1 italic">
@@ -85,52 +121,13 @@ const CoursesPage = () => {
                   </p>
                 </div>
 
-                <div className="mt-8 flex flex-wrap items-center gap-4">
+                <div className="mt-6 flex flex-wrap items-center gap-4">
                   <WireframeCTA label="See Recommended Courses →" to="/courses/list?type=affiliate" />
                   <span className="font-mono text-xs text-muted-foreground">Trusted picks · Updated 2026</span>
                 </div>
               </div>
-
-              {/* Visual side */}
-              <div className="hidden md:flex flex-col items-center gap-4 w-48">
-                <div className="w-24 h-24 border-2 border-dashed border-border rounded-full flex items-center justify-center">
-                  <Award className="h-12 w-12 text-muted-foreground" />
-                </div>
-                <div className="text-center">
-                  <div className="font-mono text-xs text-muted-foreground uppercase tracking-wider">My Pick</div>
-                  <div className="text-sm font-semibold mt-1">Best for serious learners</div>
-                </div>
-              </div>
             </div>
           </WireframeCard>
-        </div>
-
-        {/* Option 1 — Secondary, low-friction */}
-        <div className="mt-6">
-          <Link to="/courses/list?type=own" className="block group">
-            <WireframeCard className="p-6 bg-muted/20 hover:border-foreground transition-colors">
-              <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-                <div className="shrink-0">
-                  <div className="w-12 h-12 border-2 border-dashed border-border rounded flex items-center justify-center">
-                    <BookOpen className="h-6 w-6 text-muted-foreground" />
-                  </div>
-                </div>
-                <div className="flex-1">
-                  <div className="flex items-center gap-3">
-                    <Badge variant="outline" className="font-mono text-xs border-dashed">Option 1</Badge>
-                    <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Just exploring? Start here free</span>
-                  </div>
-                  <h3 className="text-lg font-bold mt-2">My Free Affiliate Marketing Guide</h3>
-                  <p className="text-sm text-muted-foreground mt-1">
-                    A beginner-friendly, step-by-step resource at no cost. Build a solid foundation before deciding if you want to go further.
-                  </p>
-                </div>
-                <div className="shrink-0">
-                  <span className="font-mono text-xs text-muted-foreground group-hover:text-foreground transition-colors">Browse free guide →</span>
-                </div>
-              </div>
-            </WireframeCard>
-          </Link>
         </div>
       </section>
     </div>
