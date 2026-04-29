@@ -46,29 +46,6 @@ const HomePage = () => (
       </div>
     </section>
 
-    {/* Featured courses */}
-    <section className="container mx-auto px-4 py-12">
-      <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl font-bold">Popular Courses</h2>
-        <Link to="/courses" className="font-mono text-xs text-muted-foreground hover:text-foreground">All courses →</Link>
-      </div>
-      <div className="grid md:grid-cols-3 gap-6">
-        {courses.filter(c => c.type === "own").map((course) => (
-          <Link key={course.slug} to={`/courses/${course.slug}`}>
-            <WireframeCard className="hover:border-foreground">
-              <PlaceholderImage label="Course image" aspectRatio="video" />
-              <div className="mt-3">
-                <span className="font-mono text-xs text-muted-foreground">{course.level} · {course.modules} modules</span>
-                <h3 className="font-semibold mt-1">{course.title}</h3>
-                <p className="text-sm text-muted-foreground mt-1 line-clamp-2">{course.description}</p>
-                <span className="inline-block mt-2 font-mono text-xs border border-dashed border-border rounded px-2 py-1">{course.price}</span>
-              </div>
-            </WireframeCard>
-          </Link>
-        ))}
-      </div>
-    </section>
-
     {/* Latest blog posts */}
     <section className="container mx-auto px-4 py-12">
       <div className="flex justify-between items-center mb-6">
