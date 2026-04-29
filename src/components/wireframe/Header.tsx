@@ -44,7 +44,7 @@ export const Header = () => {
                   <ChevronDown className="h-3 w-3" />
                 </button>
                 {dropdownOpen && (
-                  <div className="absolute top-full left-0 mt-1 border-2 border-dashed border-border bg-card text-foreground rounded p-1 min-w-[180px] shadow-sm">
+                  <div className="absolute top-full left-0 mt-1 border-2 border-dashed border-border bg-card text-foreground rounded p-1 min-w-[280px] shadow-sm">
                     {item.children.map((child) => (
                       <Link
                         key={child.label}
