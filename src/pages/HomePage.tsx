@@ -7,9 +7,9 @@ import { BookOpen, Wrench, Globe, FileText, Mail } from "lucide-react";
 
 const stats = [
   { value: "50+", label: "Tools Reviewed" },
-  { value: "20+", label: "Courses" },
-  { value: "15", label: "Networks" },
-  { value: "100+", label: "Guides" },
+  { value: "15", label: "Networks Reviewed" },
+  { value: "100+", label: "Guide Reviews" },
+  { value: "8", label: "My Courses" },
 ];
 
 const features = [
@@ -39,7 +39,10 @@ const HomePage = () => (
 
     {/* Features grid */}
     <section className="container mx-auto px-4 py-12">
-      <h2 className="font-mono text-xs text-muted-foreground uppercase tracking-wider text-center mb-8">Explore</h2>
+      <div className="mb-8">
+        <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">— Explore</span>
+        <h2 className="text-2xl font-bold mt-2">What You'll Find Here</h2>
+      </div>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {features.map((f) => (
           <Link key={f.label} to={f.to}>
@@ -54,7 +57,11 @@ const HomePage = () => (
     </section>
 
     {/* By the numbers */}
-    <section className="container mx-auto px-4 py-8">
+    <section className="container mx-auto px-4 py-12">
+      <div className="mb-8">
+        <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">— By the Numbers</span>
+        <h2 className="text-2xl font-bold mt-2">What's Inside</h2>
+      </div>
       <WireframeCard className="py-6">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
           {stats.map((s) => (
@@ -69,8 +76,11 @@ const HomePage = () => (
 
     {/* Latest blog posts */}
     <section className="container mx-auto px-4 py-12">
-      <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl font-bold">Latest Posts</h2>
+      <div className="flex justify-between items-end mb-8">
+        <div>
+          <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">— Blog</span>
+          <h2 className="text-2xl font-bold mt-2">Latest Posts</h2>
+        </div>
         <Link to="/blog" className="font-mono text-xs text-muted-foreground hover:text-foreground">All posts →</Link>
       </div>
       <div className="grid md:grid-cols-3 gap-6">
