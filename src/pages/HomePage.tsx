@@ -38,7 +38,7 @@ const HomePage = () => (
     </section>
 
     {/* Features grid */}
-    <section className="container mx-auto px-4 py-12">
+    <section className="container mx-auto px-4 py-16">
       <div className="mb-8">
         <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">— Explore</span>
         <h2 className="text-2xl font-bold mt-2">What You'll Find Here</h2>
@@ -57,10 +57,10 @@ const HomePage = () => (
     </section>
 
     {/* By the numbers */}
-    <section className="container mx-auto px-4 py-12">
+    <section className="container mx-auto px-4 py-16">
       <div className="mb-8">
-        <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">— By the Numbers</span>
-        <h2 className="text-2xl font-bold mt-2">What's Inside</h2>
+        <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">— Stats</span>
+        <h2 className="text-2xl font-bold mt-2">By the Numbers</h2>
       </div>
       <WireframeCard className="py-6">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
@@ -75,13 +75,10 @@ const HomePage = () => (
     </section>
 
     {/* Latest blog posts */}
-    <section className="container mx-auto px-4 py-12">
-      <div className="flex justify-between items-end mb-8">
-        <div>
-          <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">— Blog</span>
-          <h2 className="text-2xl font-bold mt-2">Latest Posts</h2>
-        </div>
-        <Link to="/blog" className="font-mono text-xs text-muted-foreground hover:text-foreground">All posts →</Link>
+    <section className="container mx-auto px-4 py-16">
+      <div className="mb-8">
+        <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">— Blog</span>
+        <h2 className="text-2xl font-bold mt-2">Latest Posts</h2>
       </div>
       <div className="grid md:grid-cols-3 gap-6">
         {blogPosts.slice(0, 3).map((post) => (
@@ -97,17 +94,22 @@ const HomePage = () => (
           </Link>
         ))}
       </div>
+      <div className="text-center mt-8">
+        <Link to="/blog" className="font-mono text-xs text-muted-foreground hover:text-foreground">All posts →</Link>
+      </div>
     </section>
 
     {/* About Daniel */}
-    <section className="container mx-auto px-4 py-12">
+    <section className="container mx-auto px-4 py-16">
+      <div className="mb-8">
+        <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">— About</span>
+        <h2 className="text-2xl font-bold mt-2">Hi, I'm Daniel</h2>
+      </div>
       <WireframeCard className="p-8">
         <div className="grid md:grid-cols-[200px_1fr] gap-8 items-center">
           <PlaceholderImage label="Profile photo" aspectRatio="square" />
           <div>
-            <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">— About</span>
-            <h2 className="text-2xl font-bold mt-2">Hi, I'm Daniel</h2>
-            <p className="text-muted-foreground mt-3">
+            <p className="text-muted-foreground">
               I've been working with affiliate marketing since 2015. On Affiliate Tour I share the strategies, tools and courses that have actually worked for me — across both Nordic and international markets.
             </p>
             <ul className="mt-4 space-y-1 text-sm text-muted-foreground">
@@ -124,11 +126,14 @@ const HomePage = () => (
     </section>
 
     {/* Newsletter CTA */}
-    <section className="container mx-auto px-4 py-12">
+    <section className="container mx-auto px-4 py-16">
+      <div className="mb-8">
+        <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">— Newsletter</span>
+        <h2 className="text-2xl font-bold mt-2">Get Tips Straight to Your Inbox</h2>
+      </div>
       <WireframeCard className="text-center py-12">
         <Mail className="h-10 w-10 mx-auto text-muted-foreground mb-4" />
-        <h2 className="text-2xl font-bold">Get Tips Straight to Your Inbox</h2>
-        <p className="text-muted-foreground mt-2 max-w-md mx-auto">Subscribe to the newsletter and get the latest affiliate marketing tips delivered weekly.</p>
+        <p className="text-muted-foreground max-w-md mx-auto">Subscribe to the newsletter and get the latest affiliate marketing tips delivered weekly.</p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center mt-6 max-w-md mx-auto">
           <div className="flex-1 border-2 border-dashed border-border rounded px-4 py-3 font-mono text-xs text-muted-foreground text-left">your@email.com</div>
           <WireframeCTA label="Subscribe" to="#" />
