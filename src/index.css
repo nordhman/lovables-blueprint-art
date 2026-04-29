@@ -46,6 +46,9 @@
     --sidebar-ring: 0 0% 60%;
 
     --wireframe-annotation: 0 0% 60%;
+
+    --header-background: 0 0% 20%;
+    --header-foreground: 0 0% 96%;
   }
 }
 
