@@ -5,6 +5,13 @@ import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
 import { blogPosts } from "@/data/mockData";
 import { BookOpen, Wrench, Globe, FileText, Mail } from "lucide-react";
 
+const stats = [
+  { value: "50+", label: "Tools Reviewed" },
+  { value: "20+", label: "Courses" },
+  { value: "15", label: "Networks" },
+  { value: "100+", label: "Guides" },
+];
+
 const features = [
   { icon: BookOpen, label: "Courses", desc: "Learn affiliate marketing", to: "/courses" },
   { icon: Wrench, label: "Tools", desc: "The best tools reviewed", to: "/tools" },
@@ -46,6 +53,20 @@ const HomePage = () => (
       </div>
     </section>
 
+    {/* By the numbers */}
+    <section className="container mx-auto px-4 py-8">
+      <WireframeCard className="py-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+          {stats.map((s) => (
+            <div key={s.label}>
+              <div className="text-2xl md:text-3xl font-bold">{s.value}</div>
+              <div className="font-mono text-xs text-muted-foreground uppercase tracking-wider mt-1">{s.label}</div>
+            </div>
+          ))}
+        </div>
+      </WireframeCard>
+    </section>
+
     {/* Latest blog posts */}
     <section className="container mx-auto px-4 py-12">
       <div className="flex justify-between items-center mb-6">
@@ -66,6 +87,30 @@ const HomePage = () => (
           </Link>
         ))}
       </div>
+    </section>
+
+    {/* About Daniel */}
+    <section className="container mx-auto px-4 py-12">
+      <WireframeCard className="p-8">
+        <div className="grid md:grid-cols-[200px_1fr] gap-8 items-center">
+          <PlaceholderImage label="Profile photo" aspectRatio="square" />
+          <div>
+            <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">— About</span>
+            <h2 className="text-2xl font-bold mt-2">Hi, I'm Daniel</h2>
+            <p className="text-muted-foreground mt-3">
+              I've been working with affiliate marketing since 2015. On Affiliate Tour I share the strategies, tools and courses that have actually worked for me — across both Nordic and international markets.
+            </p>
+            <ul className="mt-4 space-y-1 text-sm text-muted-foreground">
+              <li>— 10+ years of affiliate marketing experience</li>
+              <li>— Built multiple profitable niche sites</li>
+              <li>— Tested 50+ tools and platforms</li>
+            </ul>
+            <div className="mt-6">
+              <WireframeCTA label="More about me →" to="/about" variant="secondary" />
+            </div>
+          </div>
+        </div>
+      </WireframeCard>
     </section>
 
     {/* Newsletter CTA */}
