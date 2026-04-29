@@ -83,30 +83,6 @@ const HomePage = () => (
         </div>
         <Link to="/blog" className="font-mono text-xs text-muted-foreground hover:text-foreground">All posts →</Link>
       </div>
-
-    {/* By the numbers */}
-    <section className="container mx-auto px-4 py-8">
-      <WireframeCard className="py-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-          {stats.map((s) => (
-            <div key={s.label}>
-              <div className="text-2xl md:text-3xl font-bold">{s.value}</div>
-              <div className="font-mono text-xs text-muted-foreground uppercase tracking-wider mt-1">{s.label}</div>
-            </div>
-          ))}
-        </div>
-      </WireframeCard>
-    </section>
-
-    {/* Latest blog posts */}
-    <section className="container mx-auto px-4 py-12">
-      <div className="flex justify-between items-end mb-8">
-        <div>
-          <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">— Blog</span>
-          <h2 className="text-2xl font-bold mt-2">Latest Posts</h2>
-        </div>
-        <Link to="/blog" className="font-mono text-xs text-muted-foreground hover:text-foreground">All posts →</Link>
-      </div>
       <div className="grid md:grid-cols-3 gap-6">
         {blogPosts.slice(0, 3).map((post) => (
           <Link key={post.slug} to={`/blog/${post.slug}`}>
