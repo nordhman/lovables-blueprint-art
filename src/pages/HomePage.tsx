@@ -19,14 +19,19 @@ const features = [
   { icon: FileText, label: "Blog", desc: "Tips & strategies", to: "/blog" },
 ];
 
+const SectionDivider = () => (
+  <div className="container mx-auto px-4">
+    <hr className="border-t-2 border-dashed border-border" />
+  </div>
+);
+
 const HomePage = () => (
   <div>
     {/* Hero */}
     <section className="container mx-auto px-4 py-16 md:py-24">
       <div className="grid md:grid-cols-2 gap-12 items-center">
         <div>
-          <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">— Affiliate Marketing Guide</span>
-          <h1 className="text-4xl md:text-5xl font-bold mt-4 leading-tight">Your Guide to Successful Affiliate Marketing</h1>
+          <h1 className="text-4xl md:text-5xl font-bold leading-tight">Your Guide to Successful Affiliate Marketing</h1>
           <p className="text-muted-foreground mt-4 text-lg">Courses, tools, and strategies to build profitable affiliate sites. Whether you're a beginner or experienced.</p>
           <div className="flex flex-wrap gap-4 mt-8">
             <WireframeCTA label="Get Started" to="/courses" />
@@ -37,12 +42,11 @@ const HomePage = () => (
       </div>
     </section>
 
+    <SectionDivider />
+
     {/* Features grid */}
     <section className="container mx-auto px-4 py-16">
-      <div className="mb-8">
-        <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">— Explore</span>
-        <h2 className="text-2xl font-bold mt-2">What You'll Find Here</h2>
-      </div>
+      <h2 className="text-2xl font-bold mb-8">What You'll Find Here</h2>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {features.map((f) => (
           <Link key={f.label} to={f.to}>
@@ -56,12 +60,11 @@ const HomePage = () => (
       </div>
     </section>
 
+    <SectionDivider />
+
     {/* By the numbers */}
     <section className="container mx-auto px-4 py-16">
-      <div className="mb-8">
-        <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">— Stats</span>
-        <h2 className="text-2xl font-bold mt-2">By the Numbers</h2>
-      </div>
+      <h2 className="text-2xl font-bold mb-8">By the Numbers</h2>
       <WireframeCard className="py-6">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
           {stats.map((s) => (
@@ -74,12 +77,11 @@ const HomePage = () => (
       </WireframeCard>
     </section>
 
+    <SectionDivider />
+
     {/* Latest blog posts */}
     <section className="container mx-auto px-4 py-16">
-      <div className="mb-8">
-        <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">— Blog</span>
-        <h2 className="text-2xl font-bold mt-2">Latest Posts</h2>
-      </div>
+      <h2 className="text-2xl font-bold mb-8">Latest Posts</h2>
       <div className="grid md:grid-cols-3 gap-6">
         {blogPosts.slice(0, 3).map((post) => (
           <Link key={post.slug} to={`/blog/${post.slug}`}>
@@ -99,12 +101,11 @@ const HomePage = () => (
       </div>
     </section>
 
+    <SectionDivider />
+
     {/* About Daniel */}
     <section className="container mx-auto px-4 py-16">
-      <div className="mb-8">
-        <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">— About</span>
-        <h2 className="text-2xl font-bold mt-2">Hi, I'm Daniel</h2>
-      </div>
+      <h2 className="text-2xl font-bold mb-8">Hi, I'm Daniel</h2>
       <WireframeCard className="p-8">
         <div className="grid md:grid-cols-[200px_1fr] gap-8 items-center">
           <PlaceholderImage label="Profile photo" aspectRatio="square" />
@@ -125,12 +126,11 @@ const HomePage = () => (
       </WireframeCard>
     </section>
 
+    <SectionDivider />
+
     {/* Newsletter CTA */}
     <section className="container mx-auto px-4 py-16">
-      <div className="mb-8">
-        <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">— Newsletter</span>
-        <h2 className="text-2xl font-bold mt-2">Get Tips Straight to Your Inbox</h2>
-      </div>
+      <h2 className="text-2xl font-bold mb-8">Get Tips Straight to Your Inbox</h2>
       <WireframeCard className="text-center py-12">
         <Mail className="h-10 w-10 mx-auto text-muted-foreground mb-4" />
         <p className="text-muted-foreground max-w-md mx-auto">Subscribe to the newsletter and get the latest affiliate marketing tips delivered weekly.</p>
