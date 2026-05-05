@@ -177,7 +177,7 @@ const CoursesListPage = () => {
                     </a>
                     <WireframeCTA
                       label="Read Review →"
-                      to={`/courses/${course.slug}`}
+                      to={`/courses/${course.slug}/review`}
                       variant="secondary"
                       className="w-full"
                     />
