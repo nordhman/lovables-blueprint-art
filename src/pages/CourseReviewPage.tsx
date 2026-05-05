@@ -280,7 +280,7 @@ const CourseReviewPage = () => {
           </div>
           <div className="mt-2 text-5xl font-bold">{course.price}</div>
           <p className="text-muted-foreground mt-2">One-time payment · {m.refundDays}-day money-back guarantee</p>
-          <div className="mt-6 flex items-center justify-center gap-3 flex-wrap">
+          <div className="mt-6 flex items-center justify-center">
             <a
               href={affiliateHref}
               target="_blank"
@@ -289,36 +289,8 @@ const CourseReviewPage = () => {
             >
               Get {course.title} <ExternalLink className="h-4 w-4" />
             </a>
-            <WireframeCTA label="Compare alternatives →" to="/courses/list?type=affiliate" variant="secondary" />
           </div>
         </WireframeCard>
-      </section>
-
-      {/* Alternatives */}
-      <section id="alternatives" className="mt-12 scroll-mt-6">
-        <div className="flex items-center gap-2">
-          <h2 className="text-2xl font-bold">How it compares</h2>
-          <DataSource label="related courses (CMS)" />
-        </div>
-        <p className="text-muted-foreground mt-1">Other premium courses worth considering.</p>
-        <div className="grid md:grid-cols-3 gap-4 mt-6">
-          {courses
-            .filter((c) => c.type === "affiliate" && c.slug !== course.slug)
-            .slice(0, 3)
-            .map((c) => (
-              <Link key={c.slug} to={`/courses/${c.slug}/review`}>
-                <WireframeCard className="p-4 h-full hover:border-foreground">
-                  <PlaceholderImage label="Course image" aspectRatio="video" />
-                  <h3 className="font-semibold mt-3">{c.title}</h3>
-                  <p className="text-sm text-muted-foreground mt-1 line-clamp-2">{c.description}</p>
-                  <div className="mt-3 flex items-center justify-between">
-                    <span className="font-mono text-xs">{c.price}</span>
-                    <span className="font-mono text-xs text-muted-foreground">Read review →</span>
-                  </div>
-                </WireframeCard>
-              </Link>
-            ))}
-        </div>
       </section>
 
       {/* FAQ */}
