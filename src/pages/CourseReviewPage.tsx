@@ -223,21 +223,6 @@ const CourseReviewPage = () => {
         </WireframeCard>
       </section>
 
-      {/* What's inside (curriculum) */}
-      <section className="mt-12">
-        <SectionHeader title="What's inside" source={{ type: "auto", label: "scraped from official site" }} />
-        <WireframeCard className="p-6">
-          <ul className="space-y-2">
-            {m.curriculum.map((c) => (
-              <li key={c} className="flex items-start gap-2 text-sm">
-                <Check className="h-4 w-4 mt-0.5 shrink-0" />
-                <span>{c}</span>
-              </li>
-            ))}
-          </ul>
-        </WireframeCard>
-      </section>
-
       {/* Pros & cons */}
       <section className="mt-12">
         <SectionHeader title="Pros & Cons" source={{ type: "manual", label: "your take" }} />
