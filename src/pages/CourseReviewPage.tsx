@@ -329,12 +329,16 @@ const CourseReviewPage = () => {
                 <td className="p-3 font-semibold">{course.title} (this review)</td>
                 <td className="p-3 font-mono text-xs">{course.price}</td>
                 <td className="p-3">
-                  <div className="flex items-center gap-2">
-                    <Stars rating={m.rating} size="sm" />
-                    <span className="font-mono text-xs text-muted-foreground">
-                      {m.rating.toFixed(1)} ({m.reviews.toLocaleString()})
-                    </span>
-                  </div>
+                  {m.rating !== null && m.reviews !== null ? (
+                    <div className="flex items-center gap-2">
+                      <Stars rating={m.rating} size="sm" />
+                      <span className="font-mono text-xs text-muted-foreground">
+                        {m.rating.toFixed(1)} ({m.reviews.toLocaleString()})
+                      </span>
+                    </div>
+                  ) : (
+                    <span className="font-mono text-xs text-muted-foreground">No rating</span>
+                  )}
                 </td>
                 <td className="p-3 font-mono text-xs text-muted-foreground">— current —</td>
               </tr>
