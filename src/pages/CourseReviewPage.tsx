@@ -31,7 +31,7 @@ const reviewMeta: Record<
     curriculum: string[];
     instructor: { name: string; bio: string };
     studentQuotes: { text: string; source: string }[];
-    alternatives: { name: string; price: string; note: string }[];
+    alternatives: { name: string; price: string; rating: number; reviews: number; href: string }[];
     faqs: { q: string; a: string }[];
     refundDays: number;
     lastUpdated: string;
