@@ -20,10 +20,8 @@ import {
 const reviewMeta: Record<
   string,
   {
-    rating: number;
-    reviews: number;
-    editorialScore: number;
-    subscores: { label: string; score: number }[];
+    rating: number | null;
+    reviews: number | null;
     verdict: string;
     intro: string;
     bestFor: string;
@@ -43,12 +41,6 @@ const reviewMeta: Record<
   "authority-hacker-pro": {
     rating: 4.9,
     reviews: 1280,
-    editorialScore: 8.7,
-    subscores: [
-      { label: "Content", score: 9.0 },
-      { label: "Value", score: 8.0 },
-      { label: "Community", score: 9.0 },
-    ],
     verdict:
       "The most complete authority-site system on the market. Worth the price if you're serious about building a long-term affiliate business.",
     intro:
