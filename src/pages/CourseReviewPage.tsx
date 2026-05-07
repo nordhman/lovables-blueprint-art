@@ -31,7 +31,7 @@ const reviewMeta: Record<
     curriculum: string[];
     instructor: { name: string; bio: string };
     studentQuotes: { text: string; source: string }[];
-    alternatives: { name: string; price: string; note: string }[];
+    alternatives: { name: string; price: string; rating: number; reviews: number; href: string }[];
     faqs: { q: string; a: string }[];
     refundDays: number;
     lastUpdated: string;
@@ -74,8 +74,8 @@ const reviewMeta: Record<
       { text: "Heavy on theory in the first modules — push through, the gold is later.", source: "YouTube review" },
     ],
     alternatives: [
-      { name: "The Affiliate Lab", price: "$997", note: "More technical SEO focus" },
-      { name: "Fat Stacks Bundle", price: "$299", note: "Cheaper, ad-revenue focus" },
+      { name: "The Affiliate Lab", price: "$997", rating: 4.7, reviews: 540, href: "#" },
+      { name: "Fat Stacks Bundle", price: "$299", rating: 4.5, reviews: 320, href: "#" },
     ],
     faqs: [
       { q: "Is there a refund policy?", a: "Yes — 30-day money-back guarantee, no questions asked." },
@@ -294,27 +294,56 @@ const CourseReviewPage = () => {
 
       {/* Alternatives */}
       <section className="mt-12">
-        <SectionHeader title="Alternatives to consider" source={{ type: "manual", label: "your comparison" }} />
+        <SectionHeader
+          title="Alternatives to consider"
+          source={{ type: "auto", label: "Trustpilot ratings" }}
+        />
         <div className="border-2 border-dashed border-border rounded overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-dashed border-border">
                 <th className="text-left p-3 font-mono text-xs text-muted-foreground">Course</th>
                 <th className="text-left p-3 font-mono text-xs text-muted-foreground">Price</th>
-                <th className="text-left p-3 font-mono text-xs text-muted-foreground">Notes</th>
+                <th className="text-left p-3 font-mono text-xs text-muted-foreground">Trustpilot</th>
+                <th className="text-left p-3 font-mono text-xs text-muted-foreground">Link</th>
               </tr>
             </thead>
             <tbody>
               <tr className="border-b border-dashed border-border bg-muted/40">
                 <td className="p-3 font-semibold">{course.title} (this review)</td>
                 <td className="p-3 font-mono text-xs">{course.price}</td>
-                <td className="p-3 text-muted-foreground">{m.bestFor}</td>
+                <td className="p-3">
+                  <div className="flex items-center gap-2">
+                    <Stars rating={m.rating} size="sm" />
+                    <span className="font-mono text-xs text-muted-foreground">
+                      {m.rating.toFixed(1)} ({m.reviews.toLocaleString()})
+                    </span>
+                  </div>
+                </td>
+                <td className="p-3 font-mono text-xs text-muted-foreground">— current —</td>
               </tr>
               {m.alternatives.map((a) => (
                 <tr key={a.name} className="border-b border-dashed border-border last:border-0">
                   <td className="p-3 font-semibold">{a.name}</td>
                   <td className="p-3 font-mono text-xs">{a.price}</td>
-                  <td className="p-3 text-muted-foreground">{a.note}</td>
+                  <td className="p-3">
+                    <div className="flex items-center gap-2">
+                      <Stars rating={a.rating} size="sm" />
+                      <span className="font-mono text-xs text-muted-foreground">
+                        {a.rating.toFixed(1)} ({a.reviews.toLocaleString()})
+                      </span>
+                    </div>
+                  </td>
+                  <td className="p-3">
+                    <a
+                      href={a.href}
+                      target="_blank"
+                      rel="noopener sponsored"
+                      className="inline-flex items-center gap-1 font-mono text-xs underline hover:text-foreground"
+                    >
+                      Visit <ExternalLink className="h-3 w-3" />
+                    </a>
+                  </td>
                 </tr>
               ))}
             </tbody>
