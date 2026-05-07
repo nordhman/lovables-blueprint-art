@@ -74,8 +74,8 @@ const reviewMeta: Record<
       { text: "Heavy on theory in the first modules — push through, the gold is later.", source: "YouTube review" },
     ],
     alternatives: [
-      { name: "The Affiliate Lab", price: "$997", note: "More technical SEO focus" },
-      { name: "Fat Stacks Bundle", price: "$299", note: "Cheaper, ad-revenue focus" },
+      { name: "The Affiliate Lab", price: "$997", rating: 4.7, reviews: 540, href: "#" },
+      { name: "Fat Stacks Bundle", price: "$299", rating: 4.5, reviews: 320, href: "#" },
     ],
     faqs: [
       { q: "Is there a refund policy?", a: "Yes — 30-day money-back guarantee, no questions asked." },
