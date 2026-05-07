@@ -20,10 +20,8 @@ import {
 const reviewMeta: Record<
   string,
   {
-    rating: number;
-    reviews: number;
-    editorialScore: number;
-    subscores: { label: string; score: number }[];
+    rating: number | null;
+    reviews: number | null;
     verdict: string;
     intro: string;
     bestFor: string;
@@ -43,12 +41,6 @@ const reviewMeta: Record<
   "authority-hacker-pro": {
     rating: 4.9,
     reviews: 1280,
-    editorialScore: 8.7,
-    subscores: [
-      { label: "Content", score: 9.0 },
-      { label: "Value", score: 8.0 },
-      { label: "Community", score: 9.0 },
-    ],
     verdict:
       "The most complete authority-site system on the market. Worth the price if you're serious about building a long-term affiliate business.",
     intro:
@@ -184,40 +176,28 @@ const CourseReviewPage = () => {
             <SourceBadge type="manual" label="your intro" />
           </div>
 
-          <div className="mt-6 grid sm:grid-cols-2 gap-3">
-            {/* Editorial score */}
-            <div className="border-2 border-dashed border-foreground rounded p-3">
-              <div className="flex items-center justify-between gap-2 mb-2">
-                <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">Our score</span>
-                <SourceBadge type="manual" label="editorial" />
-              </div>
-              <div className="flex items-baseline gap-1">
-                <span className="text-3xl font-bold">{m.editorialScore.toFixed(1)}</span>
-                <span className="font-mono text-xs text-muted-foreground">/ 10</span>
-              </div>
-              <ul className="mt-2 space-y-0.5">
-                {m.subscores.map((s) => (
-                  <li key={s.label} className="flex justify-between font-mono text-[11px] text-muted-foreground">
-                    <span>{s.label}</span>
-                    <span>{s.score.toFixed(1)}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
+          <div className="mt-6">
             {/* Trustpilot */}
-            <div className="border-2 border-dashed border-border rounded p-3">
+            <div className="border-2 border-dashed border-border rounded p-4 max-w-sm">
               <div className="flex items-center justify-between gap-2 mb-2">
                 <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">Trustpilot</span>
                 <SourceBadge type="auto" label="scraped" />
               </div>
-              <div className="flex items-center gap-2">
-                <span className="text-3xl font-bold">{m.rating.toFixed(1)}</span>
-                <Stars rating={m.rating} size="sm" />
-              </div>
-              <p className="font-mono text-[11px] text-muted-foreground mt-2">
-                {m.reviews.toLocaleString()} reviews
-              </p>
+              {m.rating !== null && m.reviews !== null ? (
+                <>
+                  <div className="flex items-center gap-2">
+                    <span className="text-3xl font-bold">{m.rating.toFixed(1)}</span>
+                    <Stars rating={m.rating} size="sm" />
+                  </div>
+                  <p className="font-mono text-[11px] text-muted-foreground mt-2">
+                    {m.reviews.toLocaleString()} reviews on Trustpilot
+                  </p>
+                </>
+              ) : (
+                <p className="font-mono text-xs text-muted-foreground">
+                  No Trustpilot rating available for this course yet.
+                </p>
+              )}
             </div>
           </div>
         </div>
@@ -349,12 +329,16 @@ const CourseReviewPage = () => {
                 <td className="p-3 font-semibold">{course.title} (this review)</td>
                 <td className="p-3 font-mono text-xs">{course.price}</td>
                 <td className="p-3">
-                  <div className="flex items-center gap-2">
-                    <Stars rating={m.rating} size="sm" />
-                    <span className="font-mono text-xs text-muted-foreground">
-                      {m.rating.toFixed(1)} ({m.reviews.toLocaleString()})
-                    </span>
-                  </div>
+                  {m.rating !== null && m.reviews !== null ? (
+                    <div className="flex items-center gap-2">
+                      <Stars rating={m.rating} size="sm" />
+                      <span className="font-mono text-xs text-muted-foreground">
+                        {m.rating.toFixed(1)} ({m.reviews.toLocaleString()})
+                      </span>
+                    </div>
+                  ) : (
+                    <span className="font-mono text-xs text-muted-foreground">No rating</span>
+                  )}
                 </td>
                 <td className="p-3 font-mono text-xs text-muted-foreground">— current —</td>
               </tr>
