@@ -22,6 +22,8 @@ const reviewMeta: Record<
   {
     rating: number;
     reviews: number;
+    editorialScore: number;
+    subscores: { label: string; score: number }[];
     verdict: string;
     intro: string;
     bestFor: string;
