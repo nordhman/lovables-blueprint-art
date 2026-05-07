@@ -2,6 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { PlaceholderImage } from "@/components/wireframe/PlaceholderImage";
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
 import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
+import { SourceBadge } from "@/components/wireframe/SourceBadge";
 import { courses } from "@/data/mockData";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -12,23 +13,29 @@ import {
   ExternalLink,
   ShieldCheck,
   ChevronRight,
+  Quote,
+  Pencil,
 } from "lucide-react";
 
-// Wireframe-only review meta. Real data would come from a CMS / review form.
 const reviewMeta: Record<
   string,
   {
     rating: number;
     reviews: number;
     verdict: string;
+    intro: string;
     bestFor: string;
     notFor: string;
     pros: string[];
     cons: string[];
-    scores: { label: string; score: number }[];
+    curriculum: string[];
+    instructor: { name: string; bio: string };
+    studentQuotes: { text: string; source: string }[];
+    alternatives: { name: string; price: string; note: string }[];
     faqs: { q: string; a: string }[];
     refundDays: number;
     lastUpdated: string;
+    lastScraped: string;
   }
 > = {
   "authority-hacker-pro": {
@@ -36,25 +43,39 @@ const reviewMeta: Record<
     reviews: 1280,
     verdict:
       "The most complete authority-site system on the market. Worth the price if you're serious about building a long-term affiliate business.",
+    intro:
+      "Authority Hacker Pro has been around since 2017 and is widely considered the gold standard for building content-driven affiliate sites. In this guide we break down what's actually inside, what real students say, and who should (and shouldn't) buy it.",
     bestFor: "Serious affiliates building long-term sites",
     notFor: "Total beginners on a tight budget",
     pros: [
       "Step-by-step blueprint, nothing left to guess",
       "Active private community with real operators",
       "Lifetime updates included",
-      "Proven case studies and templates",
     ],
     cons: [
       "Premium price point",
       "Requires real time investment (10+ hrs/week)",
       "Some content overlaps with their free material",
     ],
-    scores: [
-      { label: "Content quality", score: 5 },
-      { label: "Value for money", score: 4 },
-      { label: "Community", score: 5 },
-      { label: "Beginner friendly", score: 3 },
-      { label: "Support", score: 5 },
+    curriculum: [
+      "Module 1 — Niche & keyword research",
+      "Module 2 — Site setup & technical SEO",
+      "Module 3 — Content production system",
+      "Module 4 — Link building at scale",
+      "Module 5 — Monetization & scaling",
+    ],
+    instructor: {
+      name: "Gael Breton & Mark Webster",
+      bio: "Co-founders of Authority Hacker. Building and selling authority sites since 2014. Featured speakers at Chiang Mai SEO, BrightonSEO and Ahrefs Evolve.",
+    },
+    studentQuotes: [
+      { text: "Worth every penny. The community alone is worth the price.", source: "Trustpilot" },
+      { text: "Most structured course I've taken in 10 years of SEO.", source: "r/juststart" },
+      { text: "Heavy on theory in the first modules — push through, the gold is later.", source: "YouTube review" },
+    ],
+    alternatives: [
+      { name: "The Affiliate Lab", price: "$997", note: "More technical SEO focus" },
+      { name: "Fat Stacks Bundle", price: "$299", note: "Cheaper, ad-revenue focus" },
     ],
     faqs: [
       { q: "Is there a refund policy?", a: "Yes — 30-day money-back guarantee, no questions asked." },
@@ -63,6 +84,7 @@ const reviewMeta: Record<
     ],
     refundDays: 30,
     lastUpdated: "March 2026",
+    lastScraped: "2 days ago",
   },
 };
 
@@ -80,20 +102,17 @@ const Stars = ({ rating, size = "md" }: { rating: number; size?: "sm" | "md" | "
   );
 };
 
-const ScoreBar = ({ score }: { score: number }) => (
-  <div className="flex items-center gap-2">
-    <div className="flex-1 h-2 border border-dashed border-border rounded overflow-hidden bg-muted">
-      <div className="h-full bg-foreground" style={{ width: `${(score / 5) * 100}%` }} />
-    </div>
-    <span className="font-mono text-xs text-muted-foreground w-8 text-right">{score}/5</span>
+const SectionHeader = ({
+  title,
+  source,
+}: {
+  title: string;
+  source: { type: "auto" | "manual"; label: string };
+}) => (
+  <div className="flex items-center justify-between gap-3 flex-wrap mb-4">
+    <h2 className="text-2xl font-bold">{title}</h2>
+    <SourceBadge type={source.type} label={source.label} />
   </div>
-);
-
-// Tiny tag that shows where each block's data comes from (wireframe annotation only)
-const DataSource = ({ label }: { label: string }) => (
-  <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground border border-dashed border-border rounded px-1.5 py-0.5">
-    data: {label}
-  </span>
 );
 
 const CourseReviewPage = () => {
@@ -123,62 +142,62 @@ const CourseReviewPage = () => {
         <span className="text-foreground">{course.title}</span>
       </nav>
 
-      <Link
-        to="/courses/list?type=affiliate"
-        className="inline-flex items-center gap-1 font-mono text-xs text-muted-foreground hover:text-foreground mb-6"
-      >
-        <ArrowLeft className="h-3 w-3" /> Back to all reviews
-      </Link>
+      <div className="flex items-center justify-between mb-6 gap-3 flex-wrap">
+        <Link
+          to="/courses/list?type=affiliate"
+          className="inline-flex items-center gap-1 font-mono text-xs text-muted-foreground hover:text-foreground"
+        >
+          <ArrowLeft className="h-3 w-3" /> Back to all reviews
+        </Link>
+        <Link
+          to={`/courses/${course.slug}/review/edit`}
+          className="inline-flex items-center gap-1 font-mono text-xs border-2 border-dashed border-border rounded px-2 py-1 hover:border-foreground"
+        >
+          <Pencil className="h-3 w-3" /> Edit review (admin)
+        </Link>
+      </div>
 
       {/* Trust strip */}
       <div className="border-2 border-dashed border-border rounded p-3 mb-8 flex flex-wrap items-center justify-between gap-3 text-xs font-mono text-muted-foreground">
-        <span className="flex items-center gap-2"><ShieldCheck className="h-4 w-4" /> Independently reviewed</span>
+        <span className="flex items-center gap-2"><ShieldCheck className="h-4 w-4" /> Independently reviewed · <Link to="/about" className="underline">How we evaluate</Link></span>
         <span>Last updated: {m.lastUpdated}</span>
-        <span>Affiliate disclosure</span>
+        <span>Auto-data refreshed: {m.lastScraped}</span>
       </div>
 
       {/* HERO */}
       <section className="grid md:grid-cols-[1fr_320px] gap-8 items-start">
         <div>
-          <div className="flex items-center gap-2 flex-wrap">
-            <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Review</span>
-            <DataSource label="course (CMS)" />
-          </div>
+          <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Buyer's guide</span>
           <h1 className="text-3xl md:text-5xl font-bold mt-2 leading-tight">
             {course.title} Review ({new Date().getFullYear()})
           </h1>
-          <p className="text-lg text-muted-foreground mt-4">
-            Is {course.title} worth it? An honest, hands-on review broken down by content, value and results.
-          </p>
+          <p className="text-lg text-muted-foreground mt-4">{m.intro}</p>
+          <div className="mt-3">
+            <SourceBadge type="manual" label="your intro" />
+          </div>
 
-          <div className="mt-5 flex items-center gap-3 flex-wrap">
+          <div className="mt-6 flex items-center gap-3 flex-wrap">
             <Stars rating={m.rating} size="lg" />
             <span className="text-2xl font-bold">{m.rating.toFixed(1)}</span>
             <span className="font-mono text-xs text-muted-foreground">
-              ({m.reviews.toLocaleString()} verified reviews)
+              ({m.reviews.toLocaleString()} reviews)
             </span>
-            <DataSource label="reviews aggregate" />
+            <SourceBadge type="auto" label="Trustpilot" />
           </div>
         </div>
 
-        {/* Sticky verdict / conversion card */}
+        {/* Sticky conversion card */}
         <WireframeCard className="md:sticky md:top-6 p-6">
-          <PlaceholderImage label="Course image" aspectRatio="video" />
-          <div className="mt-4 text-center">
-            <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Our verdict</span>
-            <div className="flex items-center justify-center gap-2 mt-1">
-              <span className="text-3xl font-bold">{m.rating.toFixed(1)}</span>
-              <span className="font-mono text-xs text-muted-foreground">/ 5</span>
-            </div>
-            <Stars rating={m.rating} />
-          </div>
-
-          <div className="mt-5 border-2 border-dashed border-border rounded p-3 text-center">
+          <PlaceholderImage label="Course image (auto)" aspectRatio="video" />
+          <div className="mt-4 border-2 border-dashed border-border rounded p-3 text-center">
             <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider block">Price</span>
             <span className="text-2xl font-bold">{course.price}</span>
             <span className="font-mono text-[10px] text-muted-foreground block mt-1">
               {m.refundDays}-day money-back guarantee
             </span>
+            <div className="mt-2 flex justify-center">
+              <SourceBadge type="auto" label="official site" />
+            </div>
           </div>
 
           <a
@@ -189,18 +208,12 @@ const CourseReviewPage = () => {
           >
             Visit {course.title} <ExternalLink className="h-4 w-4" />
           </a>
-          <div className="mt-3 text-center">
-            <DataSource label="affiliate link (network)" />
-          </div>
         </WireframeCard>
       </section>
 
-      {/* TL;DR */}
+      {/* Verdict */}
       <section className="mt-12">
-        <div className="flex items-center gap-2 mb-2">
-          <h2 className="font-mono text-xs text-muted-foreground uppercase tracking-wider">TL;DR</h2>
-          <DataSource label="manual verdict" />
-        </div>
+        <SectionHeader title="Our verdict" source={{ type: "manual", label: "you write this" }} />
         <WireframeCard className="p-6">
           <p className="text-lg">{m.verdict}</p>
           <div className="mt-4 flex items-center gap-2 flex-wrap">
@@ -210,17 +223,29 @@ const CourseReviewPage = () => {
         </WireframeCard>
       </section>
 
+      {/* What's inside (curriculum) */}
+      <section className="mt-12">
+        <SectionHeader title="What's inside" source={{ type: "auto", label: "scraped from official site" }} />
+        <WireframeCard className="p-6">
+          <ul className="space-y-2">
+            {m.curriculum.map((c) => (
+              <li key={c} className="flex items-start gap-2 text-sm">
+                <Check className="h-4 w-4 mt-0.5 shrink-0" />
+                <span>{c}</span>
+              </li>
+            ))}
+          </ul>
+        </WireframeCard>
+      </section>
+
       {/* Pros & cons */}
-      <section id="pros-cons" className="mt-12 scroll-mt-6">
-        <div className="flex items-center gap-2">
-          <h2 className="text-2xl font-bold">Pros & Cons</h2>
-          <DataSource label="manual review" />
-        </div>
-        <div className="grid md:grid-cols-2 gap-6 mt-6">
+      <section className="mt-12">
+        <SectionHeader title="Pros & Cons" source={{ type: "manual", label: "your take" }} />
+        <div className="grid md:grid-cols-2 gap-6">
           <WireframeCard className="p-6">
             <div className="flex items-center gap-2 mb-4">
               <Check className="h-5 w-5" />
-              <h3 className="font-bold">What we loved</h3>
+              <h3 className="font-bold">What works</h3>
             </div>
             <ul className="space-y-3">
               {m.pros.map((p) => (
@@ -248,36 +273,74 @@ const CourseReviewPage = () => {
         </div>
       </section>
 
-      {/* Scorecard */}
-      <section id="scorecard" className="mt-12 scroll-mt-6">
-        <div className="flex items-center gap-2">
-          <h2 className="text-2xl font-bold">Scorecard</h2>
-          <DataSource label="manual scores (1–5)" />
+      {/* What students say */}
+      <section className="mt-12">
+        <SectionHeader
+          title="What students say"
+          source={{ type: "auto", label: "Trustpilot, Reddit, YouTube" }}
+        />
+        <div className="grid md:grid-cols-3 gap-4">
+          {m.studentQuotes.map((q) => (
+            <WireframeCard key={q.text} className="p-5">
+              <Quote className="h-5 w-5 text-muted-foreground mb-2" />
+              <p className="text-sm">"{q.text}"</p>
+              <p className="font-mono text-xs text-muted-foreground mt-3">— {q.source}</p>
+            </WireframeCard>
+          ))}
         </div>
-        <p className="text-muted-foreground mt-1">How {course.title} performs across the criteria that matter.</p>
-        <WireframeCard className="p-6 mt-6">
-          <div className="space-y-4">
-            {m.scores.map((s) => (
-              <div key={s.label} className="grid grid-cols-[180px_1fr] gap-4 items-center">
-                <span className="text-sm font-medium">{s.label}</span>
-                <ScoreBar score={s.score} />
-              </div>
-            ))}
-            <div className="pt-4 border-t border-dashed border-border grid grid-cols-[180px_1fr] gap-4 items-center">
-              <span className="text-sm font-bold">Overall</span>
-              <ScoreBar score={m.rating} />
-            </div>
+      </section>
+
+      {/* Instructor */}
+      <section className="mt-12">
+        <SectionHeader
+          title="Who teaches it"
+          source={{ type: "auto", label: "official site + LinkedIn" }}
+        />
+        <WireframeCard className="p-6 flex gap-4 items-start">
+          <div className="w-20 shrink-0">
+            <PlaceholderImage label="Photo" aspectRatio="square" />
+          </div>
+          <div>
+            <h3 className="font-bold">{m.instructor.name}</h3>
+            <p className="text-sm text-muted-foreground mt-2">{m.instructor.bio}</p>
           </div>
         </WireframeCard>
       </section>
 
-      {/* Pricing + primary CTA */}
-      <section id="pricing" className="mt-12 scroll-mt-6">
+      {/* Alternatives */}
+      <section className="mt-12">
+        <SectionHeader title="Alternatives to consider" source={{ type: "manual", label: "your comparison" }} />
+        <div className="border-2 border-dashed border-border rounded overflow-x-auto">
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="border-b border-dashed border-border">
+                <th className="text-left p-3 font-mono text-xs text-muted-foreground">Course</th>
+                <th className="text-left p-3 font-mono text-xs text-muted-foreground">Price</th>
+                <th className="text-left p-3 font-mono text-xs text-muted-foreground">Notes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="border-b border-dashed border-border bg-muted/40">
+                <td className="p-3 font-semibold">{course.title} (this review)</td>
+                <td className="p-3 font-mono text-xs">{course.price}</td>
+                <td className="p-3 text-muted-foreground">{m.bestFor}</td>
+              </tr>
+              {m.alternatives.map((a) => (
+                <tr key={a.name} className="border-b border-dashed border-border last:border-0">
+                  <td className="p-3 font-semibold">{a.name}</td>
+                  <td className="p-3 font-mono text-xs">{a.price}</td>
+                  <td className="p-3 text-muted-foreground">{a.note}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      {/* Pricing CTA */}
+      <section className="mt-12">
         <WireframeCard className="p-8 text-center">
-          <div className="flex items-center justify-center gap-2">
-            <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Pricing</span>
-            <DataSource label="affiliate API / manual" />
-          </div>
+          <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Ready to start?</span>
           <div className="mt-2 text-5xl font-bold">{course.price}</div>
           <p className="text-muted-foreground mt-2">One-time payment · {m.refundDays}-day money-back guarantee</p>
           <div className="mt-6 flex items-center justify-center">
@@ -294,12 +357,9 @@ const CourseReviewPage = () => {
       </section>
 
       {/* FAQ */}
-      <section id="faq" className="mt-12 scroll-mt-6">
-        <div className="flex items-center gap-2">
-          <h2 className="text-2xl font-bold">Frequently asked questions</h2>
-          <DataSource label="manual FAQ" />
-        </div>
-        <div className="mt-6 space-y-3">
+      <section className="mt-12">
+        <SectionHeader title="Frequently asked questions" source={{ type: "auto", label: "official FAQ + Reddit" }} />
+        <div className="space-y-3">
           {m.faqs.map((f) => (
             <WireframeCard key={f.q} className="p-5">
               <h3 className="font-semibold">{f.q}</h3>
