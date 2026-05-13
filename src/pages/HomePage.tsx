@@ -46,7 +46,8 @@ const HomePage = () => (
 
     {/* Features grid */}
     <section className="container mx-auto px-4 py-16">
-      <h2 className="text-2xl font-bold mb-8">What You'll Find Here</h2>
+      <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Explore</span>
+      <h2 className="text-2xl font-bold mt-2 mb-8">What You'll Find Here</h2>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {features.map((f) => (
           <Link key={f.label} to={f.to}>
@@ -64,7 +65,8 @@ const HomePage = () => (
 
     {/* By the numbers */}
     <section className="container mx-auto px-4 py-16">
-      <h2 className="text-2xl font-bold mb-8">By the Numbers</h2>
+      <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Stats</span>
+      <h2 className="text-2xl font-bold mt-2 mb-8">By the Numbers</h2>
       <WireframeCard className="py-6">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
           {stats.map((s) => (
@@ -81,7 +83,8 @@ const HomePage = () => (
 
     {/* Latest blog posts */}
     <section className="container mx-auto px-4 py-16">
-      <h2 className="text-2xl font-bold mb-8">Latest Posts</h2>
+      <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Blog</span>
+      <h2 className="text-2xl font-bold mt-2 mb-8">Latest Posts</h2>
       <div className="grid md:grid-cols-3 gap-6">
         {blogPosts.slice(0, 3).map((post) => (
           <Link key={post.slug} to={`/blog/${post.slug}`}>
