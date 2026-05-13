@@ -6,10 +6,10 @@ import { blogPosts } from "@/data/mockData";
 import { BookOpen, Wrench, Globe, FileText, Mail } from "lucide-react";
 
 const stats = [
-  { value: "50+", label: "Tools Reviewed" },
-  { value: "15", label: "Networks Reviewed" },
-  { value: "100+", label: "Guide Reviews" },
-  { value: "8", label: "My Courses" },
+  { value: "165+", label: "Total Reviews" },
+  { value: "3", label: "Own Courses" },
+  { value: "6", label: "Blog Posts" },
+  { value: "10+", label: "Years Experience" },
 ];
 
 const features = [
