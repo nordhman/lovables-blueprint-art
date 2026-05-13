@@ -6,10 +6,10 @@ import { blogPosts } from "@/data/mockData";
 import { BookOpen, Wrench, Globe, FileText, Mail } from "lucide-react";
 
 const stats = [
-  { value: "50+", label: "Tools Reviewed" },
-  { value: "15", label: "Networks Reviewed" },
-  { value: "100+", label: "Guide Reviews" },
-  { value: "8", label: "My Courses" },
+  { value: "165+", label: "Total Reviews" },
+  { value: "3", label: "Own Courses" },
+  { value: "6", label: "Blog Posts" },
+  { value: "10+", label: "Years Experience" },
 ];
 
 const features = [
@@ -47,7 +47,7 @@ const HomePage = () => (
     {/* Features grid */}
     <section className="container mx-auto px-4 py-16">
       <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Explore</span>
-      <h2 className="text-2xl font-bold mt-2 mb-8">What You'll Find Here</h2>
+      <h2 className="text-2xl font-bold mt-2 mb-8">What You Find on Affiliate Tour</h2>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {features.map((f) => (
           <Link key={f.label} to={f.to}>
