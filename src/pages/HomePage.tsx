@@ -74,7 +74,8 @@ const HomePage = () => (
     {/* By the numbers */}
     <section className="container mx-auto px-4 py-16">
       <Eyebrow>Stats</Eyebrow>
-      <h2 className="text-2xl font-bold mt-2 mb-8">Built on Real Affiliate Marketing Experience</h2>
+      <h2 className="text-2xl font-bold mt-2 mb-2">Built on Affiliate Marketing Experience</h2>
+      <p className="text-muted-foreground mb-8 max-w-2xl">A growing library of reviews, courses and insights — built from over a decade of hands-on work.</p>
       <WireframeCard className="py-6">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
           {stats.map((s) => (
