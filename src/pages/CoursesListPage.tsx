@@ -84,20 +84,18 @@ const CoursesListPage = () => {
           <H1 className="mt-2">{title}</H1>
           <Lead className="mt-4 max-w-4xl">{intro}</Lead>
           {isAffiliate && (
-            <div className="mt-8 flex items-center gap-4 flex-wrap">
-              <div className="flex items-center gap-2">
+            <div className="mt-8 flex items-center gap-3 flex-wrap">
+              <div className="inline-flex items-center gap-2 border-2 border-dashed border-foreground rounded px-3 py-2 bg-background">
                 <Check className="h-4 w-4" />
-                <Meta>{affiliateCourses.length} courses tested</Meta>
+                <MetaLabel className="text-foreground">{affiliateCourses.length} courses tested</MetaLabel>
               </div>
-              <Meta>·</Meta>
-              <div className="flex items-center gap-2">
+              <div className="inline-flex items-center gap-2 border-2 border-dashed border-foreground rounded px-3 py-2 bg-background">
                 <Check className="h-4 w-4" />
-                <Meta>Independent reviews</Meta>
+                <MetaLabel className="text-foreground">Independent reviews</MetaLabel>
               </div>
-              <Meta>·</Meta>
-              <div className="flex items-center gap-2">
+              <div className="inline-flex items-center gap-2 border-2 border-dashed border-foreground rounded px-3 py-2 bg-background">
                 <Check className="h-4 w-4" />
-                <Meta>Updated 2026</Meta>
+                <MetaLabel className="text-foreground">Updated 2026</MetaLabel>
               </div>
             </div>
           )}
