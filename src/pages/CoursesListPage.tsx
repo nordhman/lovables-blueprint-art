@@ -143,20 +143,13 @@ const CoursesListPage = () => {
                 key={course.slug}
                 className={`p-6 ${idx === 0 ? "border-foreground" : ""}`}
               >
-                <div className="grid md:grid-cols-[80px_240px_1fr_220px] gap-6 items-start">
-                  {/* Rank + score */}
+                <div className="grid md:grid-cols-[60px_220px_1fr_200px] gap-6 items-start">
+                  {/* Rank */}
                   <div className="flex md:flex-col items-center md:items-start gap-2">
                     <MetaLabel>Rank</MetaLabel>
                     <span className="text-4xl font-bold leading-none">#{idx + 1}</span>
-                    {course.meta && (
-                      <div className="hidden md:block mt-2 border-2 border-dashed border-border rounded px-2 py-1 text-center">
-                        <MetaLabel className="block text-[9px]">Our score</MetaLabel>
-                        <span className="font-bold text-sm">{course.meta.ourScore.toFixed(1)}</span>
-                        <span className="font-mono text-[10px] text-muted-foreground">/10</span>
-                      </div>
-                    )}
                     {idx === 0 && (
-                      <span className="hidden md:inline-flex items-center gap-1 mt-1 font-mono text-[10px] uppercase tracking-wider border-2 border-dashed border-foreground rounded px-2 py-1">
+                      <span className="hidden md:inline-flex items-center gap-1 mt-2 font-mono text-[10px] uppercase tracking-wider border-2 border-dashed border-foreground rounded px-2 py-1">
                         <Star className="h-3 w-3 fill-current" />
                         Editor's Choice
                       </span>
@@ -168,26 +161,33 @@ const CoursesListPage = () => {
 
                   {/* Content */}
                   <div>
-                    <div className="flex items-center gap-2 flex-wrap">
-                      <Meta>{course.modules} modules</Meta>
-                      {course.partner && <Meta>· via {course.partner}</Meta>}
-                      {course.meta && (
-                        <Badge variant="outline" className="font-mono text-xs border-dashed">
-                          Best for: {course.meta.bestFor}
-                        </Badge>
-                      )}
-                    </div>
-                    <H3 className="mt-1">{course.title}</H3>
+                    <H3>{course.title}</H3>
                     {course.meta && (
                       <p className="mt-1 text-sm italic text-muted-foreground">
-                        {course.meta.tagline}
+                        {course.meta.tagline}{" "}
+                        <Link
+                          to={`/courses/${course.slug}/review`}
+                          className="not-italic underline underline-offset-4 hover:no-underline text-foreground"
+                        >
+                          Read the review →
+                        </Link>
                       </p>
                     )}
+
+                    <div className="mt-3 flex items-center gap-x-4 gap-y-2 flex-wrap">
+                      <Meta>{course.modules} modules</Meta>
+                      {course.partner && <Meta>via {course.partner}</Meta>}
+                      {course.meta && (
+                        <Meta>Best for: {course.meta.bestFor}</Meta>
+                      )}
+                    </div>
+
                     {course.meta && (
-                      <div className="mt-3 flex items-center gap-2 flex-wrap border border-dashed border-border rounded px-3 py-2 w-fit">
-                        <MetaLabel className="border-r border-dashed border-border pr-2">Trustpilot</MetaLabel>
+                      <div className="mt-2 flex items-center gap-2 flex-wrap">
                         <Stars rating={course.meta.trustpilot} />
-                        <Meta>({course.meta.reviews.toLocaleString()} reviews)</Meta>
+                        <Meta>
+                          {course.meta.reviews.toLocaleString()} reviews on Trustpilot
+                        </Meta>
                       </div>
                     )}
 
@@ -212,10 +212,21 @@ const CoursesListPage = () => {
 
                   {/* Actions */}
                   <div className="flex flex-col gap-3">
-                    <div className="flex items-baseline justify-between gap-2 border-b border-dashed border-border pb-3">
+                    {course.meta && (
+                      <div className="border-2 border-dashed border-border rounded p-3 text-center">
+                        <MetaLabel className="block">Our score</MetaLabel>
+                        <div className="mt-1">
+                          <span className="text-2xl font-bold">{course.meta.ourScore.toFixed(1)}</span>
+                          <span className="font-mono text-xs text-muted-foreground">/10</span>
+                        </div>
+                      </div>
+                    )}
+
+                    <div className="flex items-baseline justify-between gap-2">
                       <MetaLabel>Price</MetaLabel>
                       <span className="text-base font-bold">{course.price}</span>
                     </div>
+
                     <a
                       href="#"
                       target="_blank"
@@ -224,13 +235,8 @@ const CoursesListPage = () => {
                     >
                       Visit Course <ExternalLink className="h-4 w-4" />
                     </a>
-                    <Link
-                      to={`/courses/${course.slug}/review`}
-                      className="text-center text-sm underline underline-offset-4 hover:no-underline"
-                    >
-                      Read review →
-                    </Link>
-                    <div className="space-y-1 pt-1 border-t border-dashed border-border mt-1 pt-3">
+
+                    <div className="space-y-1 pt-3 border-t border-dashed border-border">
                       <div className="flex items-center gap-2">
                         <Check className="h-3.5 w-3.5 shrink-0" />
                         <Meta>30-day money-back</Meta>
