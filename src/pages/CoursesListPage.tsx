@@ -82,7 +82,7 @@ const CoursesListPage = () => {
         <div className="container mx-auto px-4">
           <Eyebrow>Comparison · 2026</Eyebrow>
           <H1 className="mt-3">{title}</H1>
-          <Lead className="mt-3 max-w-2xl">{intro}</Lead>
+          <Lead className="mt-3 max-w-4xl">{intro}</Lead>
           {isAffiliate && (
             <div className="mt-5 flex items-center gap-4 flex-wrap">
               <div className="flex items-center gap-2">
@@ -104,7 +104,7 @@ const CoursesListPage = () => {
         </div>
       </section>
 
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 py-10">
 
       {(!typeFilter || isOwn) && (
         <section className="mt-12">
@@ -134,10 +134,10 @@ const CoursesListPage = () => {
       )}
 
       {(!typeFilter || isAffiliate) && (
-        <section className="mt-12">
-          <H2 className="mb-6">Ranked Premium Courses</H2>
+        <section className={!typeFilter ? "mt-12" : "mt-2"}>
+          <H2 className="mb-8">Ranked Premium Courses</H2>
 
-          <div className="space-y-6">
+          <div className="space-y-10">
             {affiliateCourses.map((course, idx) => {
               const allBenefits = course.meta
                 ? [`${course.modules} learning modules`, ...course.meta.pros, "30-day money-back", "Lifetime access"]
