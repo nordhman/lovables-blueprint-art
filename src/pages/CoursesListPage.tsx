@@ -142,15 +142,17 @@ const CoursesListPage = () => {
               return (
                 <WireframeCard
                   key={course.slug}
-                  className={`relative p-6 ${idx === 0 ? "border-foreground" : ""}`}
+                  className={`relative overflow-hidden p-0 ${idx === 0 ? "border-foreground" : ""}`}
                 >
                   {idx === 0 && (
-                    <span className="absolute -top-3 left-6 inline-flex items-center gap-1 bg-background font-mono text-[10px] uppercase tracking-wider border-2 border-dashed border-foreground rounded px-2 py-1">
-                      <Star className="h-3 w-3 fill-current" />
-                      Editor's Choice
-                    </span>
+                    <div className="flex items-center gap-2 bg-foreground text-background px-6 py-2 border-b-2 border-dashed border-foreground">
+                      <Star className="h-3.5 w-3.5 fill-current" />
+                      <span className="font-mono text-[10px] uppercase tracking-wider font-semibold">
+                        Editor's Choice
+                      </span>
+                    </div>
                   )}
-                  <div className="grid md:grid-cols-[56px_200px_1fr_260px] gap-6 items-stretch">
+                  <div className="grid md:grid-cols-[56px_200px_1fr_260px] gap-6 items-stretch p-6">
                     {/* Rank */}
                     <div className="flex md:flex-col items-center md:items-start gap-2">
                       <MetaLabel className="leading-none">Rank</MetaLabel>
