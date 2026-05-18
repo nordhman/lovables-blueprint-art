@@ -1,14 +1,9 @@
 import { PlaceholderImage } from "@/components/wireframe/PlaceholderImage";
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
 import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
+import { Eyebrow, H1, H2, H3, Lead, Meta, MetaLabel } from "@/components/wireframe/Typography";
 import { Badge } from "@/components/ui/badge";
 import { Check, Star } from "lucide-react";
-
-const Eyebrow = ({ children }: { children: React.ReactNode }) => (
-  <span className="inline-block font-mono text-xs text-muted-foreground uppercase tracking-wider border-2 border-dashed border-border rounded px-2 py-1">
-    {children}
-  </span>
-);
 
 const CoursesPage = () => {
   return (
@@ -19,8 +14,8 @@ const CoursesPage = () => {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
               <Eyebrow>Learn Affiliate Marketing</Eyebrow>
-              <h1 className="text-4xl md:text-5xl font-bold leading-tight mt-4">Ready to Learn Affiliate Marketing?</h1>
-              <p className="text-muted-foreground mt-4 text-lg">We'll take you from beginner to pro, covering all the essential tools and strategies you need.</p>
+              <H1 className="mt-4">Ready to Learn Affiliate Marketing?</H1>
+              <Lead className="mt-4">We'll take you from beginner to pro, covering all the essential tools and strategies you need.</Lead>
             </div>
             <PlaceholderImage label="Hero illustration" aspectRatio="video" />
           </div>
@@ -30,7 +25,7 @@ const CoursesPage = () => {
       {/* How to Get Started */}
       <section className="container mx-auto px-4 py-16">
         <Eyebrow>Get Started</Eyebrow>
-        <h2 className="text-2xl font-bold mt-2 mb-2">How to Get Started with Affiliate Marketing — Two Proven Paths</h2>
+        <H2 className="mt-2 mb-2">How to Get Started with Affiliate Marketing — Two Proven Paths</H2>
         <p className="text-muted-foreground mb-8">Start free with my own guide, or fast-track your growth with the premium courses I personally recommend.</p>
 
         {/* Option 1 — Free, exploratory */}
