@@ -14,10 +14,15 @@ const stats = [
 
 const features = [
   { icon: BookOpen, label: "Courses", desc: "Learn affiliate marketing", to: "/courses" },
-  { icon: Wrench, label: "Tools", desc: "The best tools reviewed", to: "/tools" },
+  { icon: Wrench, label: "Tools", desc: "Explore Best Tools for Affiliates", to: "/tools" },
   { icon: Globe, label: "Networks", desc: "Find the right network", to: "/networks" },
-  { icon: FileText, label: "Blog", desc: "Tips & strategies", to: "/blog" },
 ];
+
+const Eyebrow = ({ children }: { children: React.ReactNode }) => (
+  <span className="inline-block font-mono text-xs text-muted-foreground uppercase tracking-wider border-2 border-dashed border-border rounded px-2 py-1">
+    {children}
+  </span>
+);
 
 const SectionDivider = () => (
   <div className="container mx-auto px-4">
