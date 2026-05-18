@@ -150,9 +150,8 @@ const CoursesListPage = () => {
                     <span className="text-4xl font-bold leading-none">#{idx + 1}</span>
                     {course.meta && (
                       <div className="hidden md:block mt-2 border-2 border-dashed border-border rounded px-2 py-1 text-center">
-                        <span className="font-bold text-sm">
-                          {((course.meta.rating / 5) * 10).toFixed(1)}
-                        </span>
+                        <MetaLabel className="block text-[9px]">Our score</MetaLabel>
+                        <span className="font-bold text-sm">{course.meta.ourScore.toFixed(1)}</span>
                         <span className="font-mono text-[10px] text-muted-foreground">/10</span>
                       </div>
                     )}
