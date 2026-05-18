@@ -140,12 +140,9 @@ const CoursesListPage = () => {
               const contentBenefits = course.meta?.pros ?? [];
               const trustItems = ["30-day money-back", "Lifetime access", `${course.modules} learning modules`];
               return (
-                <WireframeCard
-                  key={course.slug}
-                  className={`relative overflow-hidden p-0 ${idx === 0 ? "border-foreground" : ""}`}
-                >
+                <div key={course.slug}>
                   {idx === 0 && (
-                    <div className="flex items-center justify-center gap-2.5 bg-foreground text-background px-6 py-2 border-b-2 border-dashed border-foreground">
+                    <div className="inline-flex items-center justify-center gap-2.5 bg-foreground text-background px-5 py-2 rounded-t border-2 border-b-0 border-dashed border-foreground ml-6">
                       <Star className="h-4 w-4 fill-current" />
                       <span className="font-mono text-sm uppercase tracking-[0.2em] font-semibold leading-none">
                         Our Top Pick
@@ -153,7 +150,10 @@ const CoursesListPage = () => {
                       <Star className="h-4 w-4 fill-current" />
                     </div>
                   )}
-                  <div className="grid md:grid-cols-[56px_200px_1fr_260px] gap-6 items-stretch p-6">
+                  <WireframeCard
+                    className={`relative overflow-hidden p-0 ${idx === 0 ? "border-foreground" : ""}`}
+                  >
+                    <div className="grid md:grid-cols-[56px_200px_1fr_260px] gap-6 items-stretch p-6">
                     {/* Rank */}
                     <div className="flex md:flex-col items-center md:items-start gap-2">
                       <MetaLabel className="leading-none">Rank</MetaLabel>
@@ -254,7 +254,8 @@ const CoursesListPage = () => {
                       </span>
                     </div>
                   </div>
-                </WireframeCard>
+                  </WireframeCard>
+                </div>
               );
             })}
           </div>
