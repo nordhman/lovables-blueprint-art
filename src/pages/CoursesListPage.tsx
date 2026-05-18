@@ -161,7 +161,7 @@ const CoursesListPage = () => {
                     </div>
 
                     {/* Image + Our score */}
-                    <div className="flex flex-col gap-3">
+                    <div className="flex flex-col gap-5">
                       <PlaceholderImage label="Course image" aspectRatio="video" className="w-full" />
                       {course.meta && (
                         <div className="border-2 border-dashed border-foreground rounded p-3 text-center">
