@@ -72,7 +72,7 @@ const CoursesPage = () => {
         </div>
 
         {/* Option 2 — Recommended */}
-        <div className="mt-6 relative">
+        <div className="mt-12 relative">
           <div className="absolute -top-3 left-6 z-10">
             <div className="inline-flex items-center gap-1.5 bg-foreground text-background font-mono text-xs uppercase tracking-wider px-3 py-1.5 rounded">
               <Star className="h-3 w-3 fill-current" />
