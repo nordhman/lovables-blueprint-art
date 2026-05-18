@@ -22,12 +22,6 @@ const features = [
   { icon: Globe, label: "Networks", desc: "Find & Explore Reviews of Top Affiliate Networks", to: "/networks" },
 ];
 
-const Eyebrow = ({ children }: { children: React.ReactNode }) => (
-  <span className="inline-block font-mono text-xs text-muted-foreground uppercase tracking-wider border-2 border-dashed border-border rounded px-2 py-1">
-    {children}
-  </span>
-);
-
 const SectionDivider = () => (
   <div className="container mx-auto px-4">
     <hr className="border-t-2 border-dashed border-border" />
@@ -40,8 +34,8 @@ const HomePage = () => (
     <section className="container mx-auto px-4 py-16 md:py-24">
       <div className="grid md:grid-cols-2 gap-12 items-center">
         <div>
-          <h1 className="text-4xl md:text-5xl font-bold leading-tight">Your Guide to Successful Affiliate Marketing</h1>
-          <p className="text-muted-foreground mt-4 text-lg">Courses, tools, and strategies to build profitable affiliate sites. Whether you're a beginner or experienced.</p>
+          <H1>Your Guide to Successful Affiliate Marketing</H1>
+          <Lead className="mt-4">Courses, tools, and strategies to build profitable affiliate sites. Whether you're a beginner or experienced.</Lead>
           <div className="flex flex-wrap gap-4 mt-8">
             <WireframeCTA label="Free Starter Guide" to="/courses" />
           </div>
