@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { PlaceholderImage } from "@/components/wireframe/PlaceholderImage";
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
+import { Eyebrow, H1, H4, Lead, BodySmall, Meta } from "@/components/wireframe/Typography";
 import { blogPosts, categories } from "@/data/mockData";
 
 const BlogPage = () => {
@@ -10,9 +11,9 @@ const BlogPage = () => {
 
   return (
     <div className="container mx-auto px-4 py-12">
-      <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Insights</span>
-      <h1 className="text-3xl md:text-4xl font-bold mt-2">Blog</h1>
-      <p className="text-muted-foreground mt-2 max-w-2xl">Tips, strategies, and guides for affiliate marketing.</p>
+      <Eyebrow>Insights</Eyebrow>
+      <H1 className="mt-2">Blog</H1>
+      <Lead className="mt-2 max-w-2xl">Tips, strategies, and guides for affiliate marketing.</Lead>
 
       <div className="flex flex-wrap gap-2 mt-8">
         {categories.map((cat) => (
