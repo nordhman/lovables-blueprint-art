@@ -135,7 +135,7 @@ const CoursesListPage = () => {
         <section className={!typeFilter ? "mt-16" : ""}>
           <H2 className="mb-8">Ranked Premium Courses</H2>
 
-          <div className="space-y-6">
+          <div className="space-y-4">
             {affiliateCourses.map((course, idx) => {
               const contentBenefits = course.meta?.pros ?? [];
               const trustItems = ["30-day money-back", "Lifetime access", `${course.modules} learning modules`];
@@ -155,7 +155,7 @@ const CoursesListPage = () => {
                   <WireframeCard
                     className={`relative overflow-hidden p-0 ${idx === 0 ? "border-foreground" : ""}`}
                   >
-                    <div className="grid md:grid-cols-[56px_200px_1fr_260px] gap-6 items-stretch p-6">
+                    <div className="grid md:grid-cols-[56px_200px_1fr_260px] gap-6 items-stretch px-6 py-5">
                     {/* Rank */}
                     <div className="flex md:flex-col items-center md:items-start gap-2">
                       <MetaLabel className="leading-none">Rank</MetaLabel>
