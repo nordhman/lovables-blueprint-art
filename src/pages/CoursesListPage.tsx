@@ -246,7 +246,7 @@ const CoursesListPage = () => {
                         Visit Course <ExternalLink className="h-4 w-4" />
                       </a>
 
-                      <span className="mt-auto font-mono text-[10px] text-muted-foreground text-center leading-snug">
+                      <span className="mt-auto font-mono text-[9px] italic text-muted-foreground text-center leading-snug">
                         Affiliate link · We may earn a commission
                       </span>
                     </div>
