@@ -145,9 +145,9 @@ const CoursesListPage = () => {
                   className={`relative overflow-hidden p-0 ${idx === 0 ? "border-foreground" : ""}`}
                 >
                   {idx === 0 && (
-                    <div className="flex items-center gap-2 bg-foreground text-background px-6 py-2 border-b-2 border-dashed border-foreground">
-                      <Star className="h-3.5 w-3.5 fill-current" />
-                      <span className="font-mono text-[10px] uppercase tracking-wider font-semibold">
+                    <div className="flex items-center gap-2 bg-foreground text-background px-6 py-2.5 border-b-2 border-dashed border-foreground">
+                      <Star className="h-4 w-4 fill-current" />
+                      <span className="font-mono text-xs uppercase tracking-wider font-bold">
                         Editor's Choice
                       </span>
                     </div>
