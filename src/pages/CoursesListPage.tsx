@@ -37,7 +37,7 @@ const Stars = ({ rating }: { rating: number }) => (
         className={`h-4 w-4 ${i < Math.round(rating) ? "fill-foreground text-foreground" : "text-muted-foreground"}`}
       />
     ))}
-    <span className="font-mono text-xs text-muted-foreground ml-1">{rating.toFixed(1)}</span>
+    <Meta className="ml-1">{rating.toFixed(1)}</Meta>
   </div>
 );
 
