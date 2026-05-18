@@ -102,7 +102,6 @@ const CoursesListPage = () => {
         <section className="mt-12">
           <div className="flex items-center gap-3 mb-6">
             <H2>Ranked Premium Courses</H2>
-            <Badge variant="outline" className="font-mono text-xs border-dashed">Affiliate</Badge>
             <Meta>Updated 2026</Meta>
           </div>
 
