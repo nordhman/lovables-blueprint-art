@@ -218,7 +218,7 @@ const CoursesListPage = () => {
                     </div>
 
                     {/* Conversion column */}
-                    <div className="flex flex-col gap-3 border-l border-dashed border-border pl-5">
+                    <div className="flex flex-col items-center gap-3 border-l border-dashed border-border pl-5">
                       <div className="text-center">
                         <MetaLabel className="block">Price</MetaLabel>
                         <div className="mt-1 text-xl font-bold leading-none">{course.price}</div>
@@ -233,7 +233,7 @@ const CoursesListPage = () => {
                         Visit Course <ExternalLink className="h-4 w-4" />
                       </a>
 
-                      <ul className="space-y-1.5">
+                      <ul className="space-y-1.5 inline-block">
                         {trustItems.map((t) => (
                           <li key={t} className="flex items-start gap-2">
                             <Check className="h-3.5 w-3.5 text-foreground shrink-0 mt-0.5" />
