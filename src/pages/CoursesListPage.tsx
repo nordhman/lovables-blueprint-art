@@ -102,9 +102,9 @@ const CoursesListPage = () => {
       {(!typeFilter || isAffiliate) && (
         <section className="mt-12">
           <div className="flex items-center gap-3 mb-6">
-            <h2 className="text-xl font-bold">Ranked Premium Courses</h2>
+            <H2>Ranked Premium Courses</H2>
             <Badge variant="outline" className="font-mono text-xs border-dashed">Affiliate</Badge>
-            <span className="font-mono text-xs text-muted-foreground">Updated 2026</span>
+            <Meta>Updated 2026</Meta>
           </div>
 
           <div className="space-y-6">
