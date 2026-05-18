@@ -88,12 +88,12 @@ const CoursesPage = () => {
               <div>
                 <div className="flex items-center gap-3 flex-wrap">
                   <Badge variant="outline" className="font-mono text-xs border-dashed">Option 2</Badge>
-                  <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Premium Path</span>
+                  <MetaLabel>Premium Path</MetaLabel>
                 </div>
 
-                <h3 className="text-lg md:text-xl font-bold mt-3 leading-tight">
+                <H3 className="mt-3">
                   Top-Rated Premium Courses for Serious Beginners
-                </h3>
+                </H3>
 
                 <p className="text-muted-foreground mt-3">
                   My top choice for those ready to invest time in building a business with the help of a professional learning platform. Perfect for those seeking tangible results while laying a strong foundation.
