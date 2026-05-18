@@ -51,7 +51,7 @@ const HomePage = () => (
     {/* Features grid */}
     <section className="container mx-auto px-4 py-16">
       <Eyebrow>Site Content</Eyebrow>
-      <h2 className="text-2xl font-bold mt-2 mb-8">Explore All You Need to Start in Affiliate Marketing</h2>
+      <h2 className="text-2xl font-bold mt-2 mb-8">Affiliate Marketing Essentials</h2>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
         {features.map((f) => (
           <Link key={f.label} to={f.to}>
