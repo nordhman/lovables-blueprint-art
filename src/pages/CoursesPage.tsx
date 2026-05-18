@@ -115,7 +115,7 @@ const CoursesPage = () => {
                 </ul>
 
                 <div className="mt-6 border-l-2 border-dashed border-border pl-4">
-                  <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Why I recommend this</span>
+                  <MetaLabel>Why I recommend this</MetaLabel>
                   <p className="text-sm text-muted-foreground mt-1 italic">
                     "Learning on your own can be overwhelming. These are the courses I personally vetted — the ones I'd take if I started today."
                   </p>
@@ -123,7 +123,7 @@ const CoursesPage = () => {
 
                 <div className="mt-6 flex flex-wrap items-center gap-4">
                   <WireframeCTA label="See Recommended Courses →" to="/courses/list?type=affiliate" />
-                  <span className="font-mono text-xs text-muted-foreground">Trusted picks · Updated 2026</span>
+                  <Meta>Trusted picks · Updated 2026</Meta>
                 </div>
               </div>
             </div>
