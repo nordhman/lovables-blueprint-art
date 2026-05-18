@@ -113,7 +113,7 @@ const CoursesListPage = () => {
                 <div className="grid md:grid-cols-[80px_260px_1fr_220px] gap-6 items-start">
                   {/* Rank */}
                   <div className="flex md:flex-col items-center md:items-start gap-2">
-                    <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Rank</span>
+                    <MetaLabel>Rank</MetaLabel>
                     <span className="text-4xl font-bold leading-none">#{idx + 1}</span>
                   </div>
 
@@ -123,25 +123,25 @@ const CoursesListPage = () => {
                   {/* Content */}
                   <div>
                     <div className="flex items-center gap-2 flex-wrap">
-                      <span className="font-mono text-xs text-muted-foreground">{course.level}</span>
-                      <span className="font-mono text-xs text-muted-foreground">· {course.modules} modules</span>
+                      <Meta>{course.level}</Meta>
+                      <Meta>· {course.modules} modules</Meta>
                       {course.partner && (
-                        <span className="font-mono text-xs text-muted-foreground">· via {course.partner}</span>
+                        <Meta>· via {course.partner}</Meta>
                       )}
                     </div>
-                    <h3 className="text-lg md:text-xl font-bold mt-1">{course.title}</h3>
+                    <H3 className="mt-1">{course.title}</H3>
                     {course.meta && (
                       <div className="mt-2 flex items-center gap-3 flex-wrap">
                         <Stars rating={course.meta.rating} />
-                        <span className="font-mono text-xs text-muted-foreground">
+                        <Meta>
                           ({course.meta.reviews.toLocaleString()} reviews)
-                        </span>
+                        </Meta>
                         <Badge variant="outline" className="font-mono text-xs border-dashed">
                           Best for: {course.meta.bestFor}
                         </Badge>
                       </div>
                     )}
-                    <p className="text-sm text-muted-foreground mt-3">{course.description}</p>
+                    <BodySmall className="mt-3">{course.description}</BodySmall>
 
                     {course.meta && (
                       <div className="mt-4">
