@@ -212,10 +212,9 @@ const CoursesListPage = () => {
 
                   {/* Actions */}
                   <div className="flex flex-col gap-3">
-                    <div className="border-2 border-dashed border-border rounded p-3 text-center">
-                      <MetaLabel className="block">Price</MetaLabel>
-                      <span className="text-2xl font-bold">{course.price}</span>
-                      <Meta className="block mt-0.5">One-time payment</Meta>
+                    <div className="flex items-baseline justify-between gap-2 border-b border-dashed border-border pb-3">
+                      <MetaLabel>Price</MetaLabel>
+                      <span className="text-base font-bold">{course.price}</span>
                     </div>
                     <a
                       href="#"
