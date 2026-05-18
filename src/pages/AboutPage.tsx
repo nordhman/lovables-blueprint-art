@@ -1,17 +1,18 @@
 import { PlaceholderImage } from "@/components/wireframe/PlaceholderImage";
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
 import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
+import { Eyebrow, H1, H2, H4, Lead } from "@/components/wireframe/Typography";
 import { CheckCircle } from "lucide-react";
 
 const AboutPage = () => (
   <div className="container mx-auto px-4 py-12">
     <div className="grid md:grid-cols-2 gap-12 items-center">
       <div>
-        <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">About</span>
-        <h1 className="text-3xl md:text-4xl font-bold mt-2">About Affiliate Tour</h1>
-        <p className="text-muted-foreground mt-4 text-lg">
+        <Eyebrow>About</Eyebrow>
+        <H1 className="mt-2">About Affiliate Tour</H1>
+        <Lead className="mt-4">
           Affiliate Tour helps you navigate the world of affiliate marketing with honest reviews, education, and proven strategies.
-        </p>
+        </Lead>
         <div className="mt-6">
           <WireframeCTA label="Contact Us" to="/contact" />
         </div>
