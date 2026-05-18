@@ -179,12 +179,12 @@ const CoursesListPage = () => {
                       <H3 className="!mb-0 leading-none">{course.title}</H3>
 
                       {course.meta && (
-                        <p className="mt-3 text-sm italic text-muted-foreground leading-relaxed">
+                        <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
                           {course.meta.tagline}
                           <br />
                           <Link
                             to={`/courses/${course.slug}/review`}
-                            className="not-italic underline underline-offset-4 hover:no-underline text-foreground"
+                            className="underline underline-offset-4 hover:no-underline text-foreground"
                           >
                             Read full review →
                           </Link>
@@ -214,7 +214,7 @@ const CoursesListPage = () => {
                           <MetaLabel className="block">Best for</MetaLabel>
                           <p className="mt-1.5 text-sm leading-relaxed">
                             <span>{course.meta.bestFor}.</span>{" "}
-                            <span className="italic text-muted-foreground">{course.meta.bottomLine}</span>
+                            <span className="text-muted-foreground">{course.meta.bottomLine}</span>
                           </p>
                         </div>
                       )}
