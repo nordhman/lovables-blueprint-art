@@ -68,9 +68,8 @@ const CoursesListPage = () => {
 
   return (
     <div className="container mx-auto px-4 py-12">
-      <Eyebrow>Learning</Eyebrow>
-      <H1 className="mt-2">{title}</H1>
-      <Lead className="mt-2 max-w-2xl">{intro}</Lead>
+      <H1>{title}</H1>
+      <Lead className="mt-4">{intro}</Lead>
 
       {(!typeFilter || isOwn) && (
         <section className="mt-12">
@@ -103,7 +102,6 @@ const CoursesListPage = () => {
         <section className="mt-12">
           <div className="flex items-center gap-3 mb-6">
             <H2>Ranked Premium Courses</H2>
-            <Badge variant="outline" className="font-mono text-xs border-dashed">Affiliate</Badge>
             <Meta>Updated 2026</Meta>
           </div>
 
@@ -115,6 +113,12 @@ const CoursesListPage = () => {
                   <div className="flex md:flex-col items-center md:items-start gap-2">
                     <MetaLabel>Rank</MetaLabel>
                     <span className="text-4xl font-bold leading-none">#{idx + 1}</span>
+                    {course.meta && (
+                      <div className="mt-3 hidden md:block">
+                        <MetaLabel>Best for</MetaLabel>
+                        <p className="text-sm mt-1">{course.meta.bestFor}</p>
+                      </div>
+                    )}
                   </div>
 
                   {/* Image */}
@@ -123,8 +127,7 @@ const CoursesListPage = () => {
                   {/* Content */}
                   <div>
                     <div className="flex items-center gap-2 flex-wrap">
-                      <Meta>{course.level}</Meta>
-                      <Meta>· {course.modules} modules</Meta>
+                      <Meta>{course.modules} modules</Meta>
                       {course.partner && (
                         <Meta>· via {course.partner}</Meta>
                       )}
@@ -136,9 +139,6 @@ const CoursesListPage = () => {
                         <Meta>
                           ({course.meta.reviews.toLocaleString()} reviews)
                         </Meta>
-                        <Badge variant="outline" className="font-mono text-xs border-dashed">
-                          Best for: {course.meta.bestFor}
-                        </Badge>
                       </div>
                     )}
                     <BodySmall className="mt-3">{course.description}</BodySmall>
