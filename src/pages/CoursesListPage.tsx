@@ -68,14 +68,14 @@ const CoursesListPage = () => {
 
   return (
     <div className="container mx-auto px-4 py-12">
-      <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Learning</span>
-      <h1 className="text-3xl md:text-4xl font-bold mt-2">{title}</h1>
-      <p className="text-muted-foreground mt-2 max-w-2xl">{intro}</p>
+      <Eyebrow>Learning</Eyebrow>
+      <H1 className="mt-2">{title}</H1>
+      <Lead className="mt-2 max-w-2xl">{intro}</Lead>
 
       {(!typeFilter || isOwn) && (
         <section className="mt-12">
           <div className="flex items-center gap-3 mb-6">
-            <h2 className="text-xl font-bold">My Courses</h2>
+            <H2>My Courses</H2>
             <Badge variant="outline" className="font-mono text-xs border-dashed">Own</Badge>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
