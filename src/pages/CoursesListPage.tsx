@@ -69,7 +69,7 @@ const CoursesListPage = () => {
   return (
     <div className="container mx-auto px-4 py-12">
       <H1>{title}</H1>
-      <Lead className="mt-4">{intro}</Lead>
+      <Lead className="mt-4 max-w-2xl">{intro}</Lead>
 
       {(!typeFilter || isOwn) && (
         <section className="mt-12">
@@ -100,153 +100,107 @@ const CoursesListPage = () => {
 
       {(!typeFilter || isAffiliate) && (
         <section className="mt-12">
-          <div className="flex items-end justify-between flex-wrap gap-3 mb-2">
+          <div className="flex items-end justify-between flex-wrap gap-3 mb-6">
             <H2>Ranked Premium Courses</H2>
             <div className="flex items-center gap-3">
               <Meta>{affiliateCourses.length} courses tested</Meta>
               <Meta>· Updated 2026</Meta>
             </div>
           </div>
-          <BodySmall className="mb-8 max-w-2xl">
-            Each course below is personally vetted. Rankings are based on curriculum quality, community, results from real students, and value for money.
-          </BodySmall>
 
-          <div className="space-y-8">
-            {affiliateCourses.map((course, idx) => {
-              const isTop = idx === 0;
-              const ribbon = idx === 0 ? "Editor's Choice" : idx === 1 ? "Best Value" : null;
-              return (
-                <WireframeCard
-                  key={course.slug}
-                  className={`p-0 overflow-hidden ${isTop ? "border-foreground" : ""}`}
-                >
-                  {ribbon && (
-                    <div className="bg-foreground text-background px-6 py-2 flex items-center justify-between">
-                      <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-wider">
+          <div className="space-y-6">
+            {affiliateCourses.map((course, idx) => (
+              <WireframeCard
+                key={course.slug}
+                className={`p-6 ${idx === 0 ? "border-foreground" : ""}`}
+              >
+                <div className="grid md:grid-cols-[80px_240px_1fr_220px] gap-6 items-start">
+                  {/* Rank */}
+                  <div className="flex md:flex-col items-center md:items-start gap-2">
+                    <MetaLabel>Rank</MetaLabel>
+                    <span className="text-4xl font-bold leading-none">#{idx + 1}</span>
+                    {idx === 0 && (
+                      <span className="hidden md:inline-flex items-center gap-1 mt-2 font-mono text-[10px] uppercase tracking-wider border-2 border-dashed border-foreground rounded px-2 py-1">
                         <Star className="h-3 w-3 fill-current" />
-                        {ribbon}
-                      </div>
-                      {course.meta && (
-                        <span className="font-mono text-xs uppercase tracking-wider opacity-80">
+                        Editor's Choice
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Image */}
+                  <PlaceholderImage label="Course image" aspectRatio="video" className="w-full" />
+
+                  {/* Content */}
+                  <div>
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <Meta>{course.modules} modules</Meta>
+                      {course.partner && <Meta>· via {course.partner}</Meta>}
+                    </div>
+                    <H3 className="mt-1">{course.title}</H3>
+                    {course.meta && (
+                      <div className="mt-2 flex items-center gap-3 flex-wrap">
+                        <Stars rating={course.meta.rating} />
+                        <Meta>({course.meta.reviews.toLocaleString()} reviews)</Meta>
+                        <Badge variant="outline" className="font-mono text-xs border-dashed">
                           Best for: {course.meta.bestFor}
-                        </span>
-                      )}
-                    </div>
-                  )}
-
-                  <div className="p-6 grid md:grid-cols-[60px_1fr_260px] gap-6 items-start">
-                    {/* Rank */}
-                    <div className="flex md:flex-col items-center md:items-start gap-1">
-                      <MetaLabel>Rank</MetaLabel>
-                      <span className="text-4xl font-bold leading-none">#{idx + 1}</span>
-                    </div>
-
-                    {/* Main content */}
-                    <div>
-                      <div className="grid sm:grid-cols-[200px_1fr] gap-5">
-                        <PlaceholderImage label="Course image" aspectRatio="video" className="w-full" />
-                        <div>
-                          <H3>{course.title}</H3>
-                          {course.meta && (
-                            <div className="mt-2 flex items-center gap-3 flex-wrap">
-                              <Stars rating={course.meta.rating} />
-                              <Meta>({course.meta.reviews.toLocaleString()} reviews)</Meta>
-                            </div>
-                          )}
-                          <div className="mt-2 flex items-center gap-2 flex-wrap">
-                            <Meta>{course.modules} modules</Meta>
-                            {course.partner && <Meta>· via {course.partner}</Meta>}
-                            {!ribbon && course.meta && (
-                              <Badge variant="outline" className="font-mono text-xs border-dashed">
-                                Best for: {course.meta.bestFor}
-                              </Badge>
-                            )}
-                          </div>
-                          <BodySmall className="mt-3">{course.description}</BodySmall>
-                        </div>
+                        </Badge>
                       </div>
+                    )}
+                    <BodySmall className="mt-3">{course.description}</BodySmall>
 
-                      {course.meta && (
-                        <ul className="mt-5 grid sm:grid-cols-2 gap-x-6 gap-y-2">
-                          {course.meta.pros.slice(0, 4).map((p) => (
+                    {course.meta && (
+                      <div className="mt-4">
+                        <MetaLabel>Key benefits</MetaLabel>
+                        <ul className="mt-2 grid sm:grid-cols-2 gap-x-6 gap-y-2">
+                          {course.meta.pros.map((p) => (
                             <li key={p} className="flex items-start gap-2">
                               <Check className="h-4 w-4 text-foreground shrink-0 mt-0.5" />
                               <span className="text-sm">{p}</span>
                             </li>
                           ))}
                         </ul>
-                      )}
-                    </div>
-
-                    {/* Conversion column */}
-                    <div className="flex flex-col gap-3 bg-muted/40 border-2 border-dashed border-border rounded p-4">
-                      <div className="text-center">
-                        <MetaLabel className="block">Price</MetaLabel>
-                        <div className="text-2xl font-bold mt-1 leading-none">{course.price}</div>
-                        <Meta className="block mt-1">One-time payment</Meta>
                       </div>
-
-                      <a
-                        href="#"
-                        target="_blank"
-                        rel="noopener sponsored"
-                        className="inline-flex items-center justify-center gap-2 px-4 py-3 bg-foreground text-background hover:opacity-90 transition-opacity rounded font-semibold text-sm"
-                      >
-                        Visit Course <ExternalLink className="h-4 w-4" />
-                      </a>
-
-                      <Link
-                        to={`/courses/${course.slug}/review`}
-                        className="text-center text-sm underline underline-offset-4 hover:no-underline"
-                      >
-                        Read full review
-                      </Link>
-
-                      <div className="border-t border-dashed border-border pt-3 space-y-1.5">
-                        <div className="flex items-center gap-2">
-                          <Check className="h-3.5 w-3.5 shrink-0" />
-                          <Meta>30-day money-back</Meta>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <Check className="h-3.5 w-3.5 shrink-0" />
-                          <Meta>Lifetime access</Meta>
-                        </div>
-                      </div>
-
-                      <span className="font-mono text-[10px] text-muted-foreground text-center">
-                        Affiliate link · We may earn a commission
-                      </span>
-                    </div>
+                    )}
                   </div>
-                </WireframeCard>
-              );
-            })}
-          </div>
 
-          {/* Final conversion nudge */}
-          <WireframeCard className="mt-10 p-6 text-center">
-            <H3>Still not sure which course to pick?</H3>
-            <BodySmall className="mt-2 max-w-xl mx-auto">
-              Our #1 pick is the safest bet for most beginners — proven curriculum, active community, and a 30-day money-back guarantee.
-            </BodySmall>
-            <div className="mt-4 flex items-center justify-center gap-3 flex-wrap">
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener sponsored"
-                className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-foreground text-background hover:opacity-90 transition-opacity rounded font-semibold text-sm"
-              >
-                Visit #1 Course <ExternalLink className="h-4 w-4" />
-              </a>
-              {affiliateCourses[0] && (
-                <WireframeCTA
-                  label="Read the Review →"
-                  to={`/courses/${affiliateCourses[0].slug}/review`}
-                  variant="secondary"
-                />
-              )}
-            </div>
-          </WireframeCard>
+                  {/* Actions */}
+                  <div className="flex flex-col gap-3">
+                    <div className="border-2 border-dashed border-border rounded p-3 text-center">
+                      <MetaLabel className="block">Price</MetaLabel>
+                      <span className="text-xl font-bold">{course.price}</span>
+                    </div>
+                    <a
+                      href="#"
+                      target="_blank"
+                      rel="noopener sponsored"
+                      className="inline-flex items-center justify-center gap-2 px-4 py-3 bg-foreground text-background hover:opacity-90 transition-opacity rounded font-semibold text-sm"
+                    >
+                      Visit Course <ExternalLink className="h-4 w-4" />
+                    </a>
+                    <WireframeCTA
+                      label="Read Review →"
+                      to={`/courses/${course.slug}/review`}
+                      variant="secondary"
+                      className="w-full"
+                    />
+                    <div className="space-y-1 pt-1">
+                      <div className="flex items-center gap-2">
+                        <Check className="h-3.5 w-3.5 shrink-0" />
+                        <Meta>30-day money-back</Meta>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Check className="h-3.5 w-3.5 shrink-0" />
+                        <Meta>Lifetime access</Meta>
+                      </div>
+                    </div>
+                    <span className="font-mono text-[10px] text-muted-foreground text-center">
+                      Affiliate link · We may earn a commission
+                    </span>
+                  </div>
+                </div>
+              </WireframeCard>
+            ))}
+          </div>
         </section>
       )}
 
