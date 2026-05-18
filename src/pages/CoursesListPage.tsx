@@ -150,7 +150,7 @@ const CoursesListPage = () => {
                       Editor's Choice
                     </span>
                   )}
-                  <div className="grid md:grid-cols-[56px_200px_1fr_180px] gap-6 items-stretch">
+                  <div className="grid md:grid-cols-[56px_200px_1fr_220px] gap-6 items-stretch">
                     {/* Rank */}
                     <div className="flex md:flex-col items-center md:items-start gap-2">
                       <MetaLabel className="leading-none">Rank</MetaLabel>
