@@ -224,6 +224,8 @@ const CoursesListPage = () => {
                         <div className="mt-1 text-xl font-bold leading-none">{course.price}</div>
                       </div>
 
+                      <hr className="w-full border-t border-dashed border-border" />
+
                       <ul className="space-y-1.5 inline-block">
                         {trustItems.map((t) => (
                           <li key={t} className="flex items-start gap-2">
@@ -232,6 +234,8 @@ const CoursesListPage = () => {
                           </li>
                         ))}
                       </ul>
+
+                      <hr className="w-full border-t border-dashed border-border" />
 
                       <a
                         href="#"
