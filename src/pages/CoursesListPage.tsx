@@ -179,7 +179,7 @@ const CoursesListPage = () => {
                       <H3 className="!mb-0 leading-none">{course.title}</H3>
 
                       {course.meta && (
-                        <p className="mt-3 text-sm italic text-muted-foreground leading-relaxed">
+                        <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
                           {course.meta.tagline}
                           <br />
                           <Link
