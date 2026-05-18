@@ -121,8 +121,7 @@ const CoursesListPage = () => {
                   {/* Content */}
                   <div>
                     <div className="flex items-center gap-2 flex-wrap">
-                      <Meta>{course.level}</Meta>
-                      <Meta>· {course.modules} modules</Meta>
+                      <Meta>{course.modules} modules</Meta>
                       {course.partner && (
                         <Meta>· via {course.partner}</Meta>
                       )}
@@ -134,9 +133,6 @@ const CoursesListPage = () => {
                         <Meta>
                           ({course.meta.reviews.toLocaleString()} reviews)
                         </Meta>
-                        <Badge variant="outline" className="font-mono text-xs border-dashed">
-                          Best for: {course.meta.bestFor}
-                        </Badge>
                       </div>
                     )}
                     <BodySmall className="mt-3">{course.description}</BodySmall>
