@@ -224,15 +224,6 @@ const CoursesListPage = () => {
                         <div className="mt-1 text-xl font-bold leading-none">{course.price}</div>
                       </div>
 
-                      <a
-                        href="#"
-                        target="_blank"
-                        rel="noopener sponsored"
-                        className="w-full inline-flex items-center justify-center gap-2 px-4 py-4 bg-foreground text-background hover:opacity-90 transition-opacity rounded font-semibold text-base"
-                      >
-                        Visit Course <ExternalLink className="h-4 w-4" />
-                      </a>
-
                       <ul className="space-y-1.5 inline-block">
                         {trustItems.map((t) => (
                           <li key={t} className="flex items-start gap-2">
@@ -241,6 +232,15 @@ const CoursesListPage = () => {
                           </li>
                         ))}
                       </ul>
+
+                      <a
+                        href="#"
+                        target="_blank"
+                        rel="noopener sponsored"
+                        className="w-full inline-flex items-center justify-center gap-2 px-4 py-4 bg-foreground text-background hover:opacity-90 transition-opacity rounded font-semibold text-base"
+                      >
+                        Visit Course <ExternalLink className="h-4 w-4" />
+                      </a>
 
                       <span className="mt-auto font-mono text-[10px] text-muted-foreground text-center leading-snug">
                         Affiliate link · We may earn a commission
