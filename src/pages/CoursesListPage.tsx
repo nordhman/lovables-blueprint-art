@@ -67,9 +67,16 @@ const CoursesListPage = () => {
     : "Curated courses for affiliate marketing – our own and recommended.";
 
   return (
-    <div className="container mx-auto px-4 py-12">
-      <H1>{title}</H1>
-      <Lead className="mt-4 max-w-2xl">{intro}</Lead>
+    <div>
+      {/* Compact hero */}
+      <section className="border-b-2 border-dashed border-border bg-muted/30 py-10">
+        <div className="container mx-auto px-4">
+          <H1>{title}</H1>
+          <Lead className="mt-3 max-w-2xl">{intro}</Lead>
+        </div>
+      </section>
+
+      <div className="container mx-auto px-4 py-12">
 
       {(!typeFilter || isOwn) && (
         <section className="mt-12">
@@ -177,12 +184,12 @@ const CoursesListPage = () => {
                     >
                       Visit Course <ExternalLink className="h-4 w-4" />
                     </a>
-                    <WireframeCTA
-                      label="Read Review →"
+                    <Link
                       to={`/courses/${course.slug}/review`}
-                      variant="secondary"
-                      className="w-full"
-                    />
+                      className="text-center text-sm underline underline-offset-4 hover:no-underline"
+                    >
+                      Read review →
+                    </Link>
                     <div className="space-y-1 pt-1">
                       <div className="flex items-center gap-2">
                         <Check className="h-3.5 w-3.5 shrink-0" />
@@ -209,6 +216,7 @@ const CoursesListPage = () => {
           <WireframeCTA label="See Best Courses 2026 →" to="/best-affiliate-courses" variant="secondary" />
         </div>
       )}
+      </div>
     </div>
   );
 };
