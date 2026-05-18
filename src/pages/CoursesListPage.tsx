@@ -211,8 +211,8 @@ const CoursesListPage = () => {
                         <div className="border-2 border-dashed border-border rounded p-3 text-center">
                           <MetaLabel className="block">Our score</MetaLabel>
                           <div className="mt-1">
-                            <span className="text-2xl font-bold">{course.meta.ourScore.toFixed(1)}</span>
-                            <span className="font-mono text-xs text-muted-foreground">/10</span>
+                            <span className="text-2xl font-bold">{(course.meta.ourScore / 2).toFixed(1)}</span>
+                            <span className="font-mono text-xs text-muted-foreground">/5</span>
                           </div>
                         </div>
                       )}
