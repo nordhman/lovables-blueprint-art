@@ -8,9 +8,10 @@ import { Badge } from "@/components/ui/badge";
 import { Star, Check, ExternalLink } from "lucide-react";
 
 // Wireframe-only enrichment for affiliate (premium) courses
-const affiliateMeta: Record<string, { rating: number; reviews: number; bestFor: string; tagline: string; pros: string[]; bottomLine: string }> = {
+const affiliateMeta: Record<string, { ourScore: number; trustpilot: number; reviews: number; bestFor: string; tagline: string; pros: string[]; bottomLine: string }> = {
   "authority-hacker-pro": {
-    rating: 4.9,
+    ourScore: 9.8,
+    trustpilot: 4.9,
     reviews: 1280,
     bestFor: "Building authority sites",
     tagline: "The most complete system for building authority sites that scale.",
@@ -18,7 +19,8 @@ const affiliateMeta: Record<string, { rating: number; reviews: number; bestFor: 
     bottomLine: "If you're serious about a long-term content business, this is the safest bet.",
   },
   "affiliate-lab": {
-    rating: 4.8,
+    ourScore: 9.4,
+    trustpilot: 4.7,
     reviews: 940,
     bestFor: "SEO-driven affiliate sites",
     tagline: "SEO-first playbook for ranking and flipping niche sites.",
@@ -26,7 +28,8 @@ const affiliateMeta: Record<string, { rating: number; reviews: number; bestFor: 
     bottomLine: "Best pick if your strategy hinges on organic search traffic.",
   },
   "fat-stacks-bundle": {
-    rating: 4.6,
+    ourScore: 8.9,
+    trustpilot: 4.5,
     reviews: 610,
     bestFor: "Display-ad niche sites",
     tagline: "Niche-site fundamentals built around display-ad revenue.",
@@ -55,7 +58,7 @@ const CoursesListPage = () => {
   const affiliateCourses = courses
     .filter((c) => c.type === "affiliate")
     .map((c) => ({ ...c, meta: affiliateMeta[c.slug] }))
-    .sort((a, b) => (b.meta?.rating ?? 0) - (a.meta?.rating ?? 0));
+    .sort((a, b) => (b.meta?.ourScore ?? 0) - (a.meta?.ourScore ?? 0));
 
   const isAffiliate = typeFilter === "affiliate";
   const isOwn = typeFilter === "own";
@@ -147,9 +150,8 @@ const CoursesListPage = () => {
                     <span className="text-4xl font-bold leading-none">#{idx + 1}</span>
                     {course.meta && (
                       <div className="hidden md:block mt-2 border-2 border-dashed border-border rounded px-2 py-1 text-center">
-                        <span className="font-bold text-sm">
-                          {((course.meta.rating / 5) * 10).toFixed(1)}
-                        </span>
+                        <MetaLabel className="block text-[9px]">Our score</MetaLabel>
+                        <span className="font-bold text-sm">{course.meta.ourScore.toFixed(1)}</span>
                         <span className="font-mono text-[10px] text-muted-foreground">/10</span>
                       </div>
                     )}
@@ -182,8 +184,9 @@ const CoursesListPage = () => {
                       </p>
                     )}
                     {course.meta && (
-                      <div className="mt-2 flex items-center gap-3 flex-wrap">
-                        <Stars rating={course.meta.rating} />
+                      <div className="mt-3 flex items-center gap-2 flex-wrap border border-dashed border-border rounded px-3 py-2 w-fit">
+                        <MetaLabel className="border-r border-dashed border-border pr-2">Trustpilot</MetaLabel>
+                        <Stars rating={course.meta.trustpilot} />
                         <Meta>({course.meta.reviews.toLocaleString()} reviews)</Meta>
                       </div>
                     )}
@@ -209,10 +212,9 @@ const CoursesListPage = () => {
 
                   {/* Actions */}
                   <div className="flex flex-col gap-3">
-                    <div className="border-2 border-dashed border-border rounded p-3 text-center">
-                      <MetaLabel className="block">Price</MetaLabel>
-                      <span className="text-2xl font-bold">{course.price}</span>
-                      <Meta className="block mt-0.5">One-time payment</Meta>
+                    <div className="flex items-baseline justify-between gap-2 border-b border-dashed border-border pb-3">
+                      <MetaLabel>Price</MetaLabel>
+                      <span className="text-base font-bold">{course.price}</span>
                     </div>
                     <a
                       href="#"
