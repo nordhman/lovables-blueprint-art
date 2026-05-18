@@ -138,7 +138,11 @@ const CoursesListPage = () => {
           <div className="space-y-6">
             {affiliateCourses.map((course, idx) => {
               const contentBenefits = course.meta?.pros ?? [];
-              const trustItems = ["30-day money-back", "Lifetime access", `${course.modules} learning modules`];
+              const trustItems: { label: string; sub: string }[] = [
+                { label: "30-day money-back", sub: "Guaranteed" },
+                { label: "Lifetime access", sub: "Permanent" },
+                { label: `${course.modules} learning modules`, sub: "Curriculum" },
+              ];
               return (
                 <WireframeCard
                   key={course.slug}
@@ -218,37 +222,42 @@ const CoursesListPage = () => {
                     </div>
 
                     {/* Conversion column */}
-                    <div className="flex flex-col border-l border-dashed border-border pl-5">
-                      {/* Price block */}
-                      <div className="text-center pb-4 border-b border-dashed border-border">
-                        <MetaLabel className="block">Price</MetaLabel>
-                        <div className="mt-1.5 text-2xl font-bold leading-none">{course.price}</div>
-                        <Meta className="mt-1.5 block">one-time payment</Meta>
+                    <div className="flex flex-col border-2 border-dashed border-border bg-muted/30 overflow-hidden">
+                      {/* Price */}
+                      <div className="p-5 flex flex-col items-center border-b-2 border-dashed border-border">
+                        <MetaLabel>Price</MetaLabel>
+                        <span className="mt-1 text-3xl font-bold leading-none">{course.price}</span>
+                        <Meta className="mt-1">one-time payment</Meta>
                       </div>
 
-                      {/* CTA */}
-                      <a
-                        href="#"
-                        target="_blank"
-                        rel="noopener sponsored"
-                        className="mt-4 w-full inline-flex items-center justify-center gap-2 px-4 py-4 bg-foreground text-background hover:opacity-90 transition-opacity rounded font-semibold text-base"
-                      >
-                        Visit Course <ExternalLink className="h-4 w-4" />
-                      </a>
+                      {/* Action + trust */}
+                      <div className="p-5 flex flex-col gap-4">
+                        <a
+                          href="#"
+                          target="_blank"
+                          rel="noopener sponsored"
+                          className="group w-full inline-flex items-center justify-center gap-2 bg-foreground text-background py-3 px-4 font-semibold text-sm hover:opacity-90 transition-opacity rounded"
+                        >
+                          Visit Course
+                          <ExternalLink className="h-4 w-4" />
+                        </a>
 
-                      {/* Trust items */}
-                      <ul className="mt-4 space-y-2">
-                        {trustItems.map((t) => (
-                          <li key={t} className="flex items-center gap-2">
-                            <Check className="h-3.5 w-3.5 text-foreground shrink-0" />
-                            <span className="text-xs leading-none">{t}</span>
-                          </li>
-                        ))}
-                      </ul>
+                        <ul className="space-y-3 pt-2">
+                          {trustItems.map((t) => (
+                            <li key={t.label} className="flex items-start gap-3">
+                              <Check className="h-4 w-4 text-muted-foreground shrink-0 mt-0.5" strokeWidth={2.5} />
+                              <div className="flex flex-col">
+                                <span className="text-[11px] font-medium leading-tight">{t.label}</span>
+                                <Meta className="text-[9px] mt-0.5">{t.sub}</Meta>
+                              </div>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
 
-                      {/* Disclaimer pinned to bottom */}
-                      <div className="mt-auto pt-4">
-                        <span className="block font-mono text-[10px] text-muted-foreground text-center leading-snug">
+                      {/* Disclaimer footer */}
+                      <div className="mt-auto p-4 border-t border-dashed border-border bg-muted/50">
+                        <span className="block font-mono text-[10px] text-muted-foreground text-center leading-relaxed uppercase">
                           Affiliate link · We may earn a commission
                         </span>
                       </div>
