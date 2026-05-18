@@ -132,13 +132,7 @@ const CoursesListPage = () => {
 
       {(!typeFilter || isAffiliate) && (
         <section className="mt-12">
-          <div className="flex items-end justify-between flex-wrap gap-3 mb-6">
-            <H2>Ranked Premium Courses</H2>
-            <div className="flex items-center gap-3">
-              <Meta>{affiliateCourses.length} courses tested</Meta>
-              <Meta>· Updated 2026</Meta>
-            </div>
-          </div>
+          <H2 className="mb-6">Ranked Premium Courses</H2>
 
           <div className="space-y-6">
             {affiliateCourses.map((course, idx) => (
