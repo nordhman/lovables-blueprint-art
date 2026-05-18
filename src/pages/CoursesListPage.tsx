@@ -218,7 +218,7 @@ const CoursesListPage = () => {
                     </div>
 
                     {/* Conversion column */}
-                    <div className="flex flex-col justify-center gap-3 border-l border-dashed border-border pl-5">
+                    <div className="flex flex-col gap-3 border-l border-dashed border-border pl-5">
                       <div className="text-center">
                         <MetaLabel className="block">Price</MetaLabel>
                         <div className="mt-1 text-xl font-bold leading-none">{course.price}</div>
