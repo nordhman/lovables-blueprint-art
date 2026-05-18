@@ -54,7 +54,8 @@ const HomePage = () => (
     {/* Features grid */}
     <section className="container mx-auto px-4 py-16">
       <Eyebrow>Our Services</Eyebrow>
-      <h2 className="text-2xl font-bold mt-2 mb-8">Affiliate Marketing Essentials</h2>
+      <h2 className="text-2xl font-bold mt-2 mb-2">Affiliate Marketing Essentials</h2>
+      <p className="text-muted-foreground mb-8 max-w-2xl">Everything you need to get started — handpicked courses, reviewed tools, and trusted networks in one place.</p>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
         {features.map((f) => (
           <Link key={f.label} to={f.to}>
