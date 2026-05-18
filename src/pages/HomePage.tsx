@@ -49,7 +49,7 @@ const HomePage = () => (
     {/* Features grid */}
     <section className="container mx-auto px-4 py-16">
       <Eyebrow>Our Services</Eyebrow>
-      <H2 className="mt-2 mb-2">Affiliate Marketing Essentials</H2>
+      <H2 className="mt-3 mb-2">Affiliate Marketing Essentials</H2>
       <p className="text-muted-foreground mb-8">Everything you need to get started — handpicked courses, reviewed tools, and trusted networks in one place.</p>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
         {features.map((f) => (
@@ -69,7 +69,7 @@ const HomePage = () => (
     {/* By the numbers */}
     <section className="container mx-auto px-4 py-16">
       <Eyebrow>Stats</Eyebrow>
-      <H2 className="mt-2 mb-2">Built on Affiliate Marketing Experience</H2>
+      <H2 className="mt-3 mb-2">Built on Affiliate Marketing Experience</H2>
       <p className="text-muted-foreground mb-8">A growing library of reviews, courses and insights — built from over a decade of hands-on work.</p>
       <WireframeCard className="py-6">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
@@ -88,7 +88,7 @@ const HomePage = () => (
     {/* Latest blog posts */}
     <section className="container mx-auto px-4 py-16">
       <Eyebrow>Latest Blog Posts</Eyebrow>
-      <H2 className="mt-2 mb-2">Latest Insights on Affiliate Marketing</H2>
+      <H2 className="mt-3 mb-2">Latest Insights on Affiliate Marketing</H2>
       <p className="text-muted-foreground mb-8">Fresh guides, strategies and tips to help you build and grow your affiliate business.</p>
       <div className="grid md:grid-cols-3 gap-6">
         {blogPosts.slice(0, 3).map((post) => (

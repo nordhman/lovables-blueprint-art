@@ -5,7 +5,7 @@ import { Eyebrow, H1, Lead, MetaLabel } from "@/components/wireframe/Typography"
 const ContactPage = () => (
   <div className="container mx-auto px-4 py-12 max-w-2xl">
     <Eyebrow>Contact</Eyebrow>
-    <H1 className="mt-2">Get in Touch</H1>
+    <H1 className="mt-3">Get in Touch</H1>
     <Lead className="mt-2">Have questions, suggestions, or want to collaborate? Fill out the form below.</Lead>
 
     <WireframeCard className="mt-8 p-6">

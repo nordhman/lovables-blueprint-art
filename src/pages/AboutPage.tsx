@@ -9,7 +9,7 @@ const AboutPage = () => (
     <div className="grid md:grid-cols-2 gap-12 items-center">
       <div>
         <Eyebrow>About</Eyebrow>
-        <H1 className="mt-2">About Affiliate Tour</H1>
+        <H1 className="mt-3">About Affiliate Tour</H1>
         <Lead className="mt-4">
           Affiliate Tour helps you navigate the world of affiliate marketing with honest reviews, education, and proven strategies.
         </Lead>

@@ -10,7 +10,7 @@ const ToolsPage = () => {
   return (
     <div className="container mx-auto px-4 py-12">
       <Eyebrow>Resources</Eyebrow>
-      <H1 className="mt-2">Tools & Resources</H1>
+      <H1 className="mt-3">Tools & Resources</H1>
       <Lead className="mt-2 max-w-2xl">Handpicked tools to help you build and grow your affiliate business.</Lead>
 
       {categories.map((cat) => (

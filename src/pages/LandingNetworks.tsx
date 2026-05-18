@@ -8,14 +8,14 @@ const LandingNetworks = () => (
   <div className="container mx-auto px-4 py-12">
     <div className="text-center max-w-2xl mx-auto">
       <Eyebrow>Comparison 2026</Eyebrow>
-      <H1 className="mt-2">Best Affiliate Networks</H1>
+      <H1 className="mt-3">Best Affiliate Networks</H1>
       <p className="text-muted-foreground mt-4">Which networks should you use? We compare the top options based on commission, selection, and ease of use.</p>
     </div>
 
     <section className="mt-16">
       <WireframeCard className="p-6">
         <Eyebrow>New to this? Start here</Eyebrow>
-        <H2 className="mt-2">Start with These Networks</H2>
+        <H2 className="mt-3">Start with These Networks</H2>
         <p className="text-sm text-muted-foreground mt-2">Easy to get started with and great for beginners.</p>
         <div className="grid md:grid-cols-2 gap-4 mt-6">
           {networks.slice(0, 2).map((n) => (
@@ -61,7 +61,7 @@ const LandingNetworks = () => (
     <section className="mt-12">
       <WireframeCard className="p-6">
         <Eyebrow>Advanced</Eyebrow>
-        <H2 className="mt-2">Multi-Network Strategies</H2>
+        <H2 className="mt-3">Multi-Network Strategies</H2>
         <div className="mt-4 space-y-2">
           {["Diversify revenue with multiple networks", "Compare commissions by niche", "Negotiate higher rates with volume"].map((item) => (
             <div key={item} className="flex items-center gap-2">
