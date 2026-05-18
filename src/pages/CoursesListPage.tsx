@@ -68,9 +68,8 @@ const CoursesListPage = () => {
 
   return (
     <div className="container mx-auto px-4 py-12">
-      <Eyebrow>Learning</Eyebrow>
-      <H1 className="mt-2">{title}</H1>
-      <Lead className="mt-2 max-w-2xl">{intro}</Lead>
+      <H1>{title}</H1>
+      <Lead className="mt-4">{intro}</Lead>
 
       {(!typeFilter || isOwn) && (
         <section className="mt-12">
