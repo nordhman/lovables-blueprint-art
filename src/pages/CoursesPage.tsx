@@ -65,7 +65,7 @@ const CoursesPage = () => {
 
                 <div className="mt-6 flex flex-wrap items-center gap-4">
                   <WireframeCTA label="Access My Free Guide →" to="/courses/list?type=own" variant="secondary" />
-                  <span className="font-mono text-xs text-muted-foreground">Free · No credit card</span>
+                  <Meta>Free · No credit card</Meta>
                 </div>
               </div>
             </div>
