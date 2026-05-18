@@ -1,4 +1,5 @@
 import { useParams, Link } from "react-router-dom";
+import { H1 } from "@/components/wireframe/Typography";
 import { useState } from "react";
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
 import { SourceBadge } from "@/components/wireframe/SourceBadge";
