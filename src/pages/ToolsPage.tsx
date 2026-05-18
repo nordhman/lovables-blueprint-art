@@ -1,5 +1,6 @@
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
 import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
+import { Eyebrow, H1, H2, H5, Lead, Meta, BodySmall } from "@/components/wireframe/Typography";
 import { tools } from "@/data/mockData";
 import { Star } from "lucide-react";
 
@@ -8,13 +9,13 @@ const ToolsPage = () => {
 
   return (
     <div className="container mx-auto px-4 py-12">
-      <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Resources</span>
-      <h1 className="text-3xl md:text-4xl font-bold mt-2">Tools & Resources</h1>
-      <p className="text-muted-foreground mt-2 max-w-2xl">Handpicked tools to help you build and grow your affiliate business.</p>
+      <Eyebrow>Resources</Eyebrow>
+      <H1 className="mt-2">Tools & Resources</H1>
+      <Lead className="mt-2 max-w-2xl">Handpicked tools to help you build and grow your affiliate business.</Lead>
 
       {categories.map((cat) => (
         <section key={cat} className="mt-12">
-          <h2 className="text-xl font-bold mb-4">{cat}</h2>
+          <H2 className="mb-4">{cat}</H2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {tools.filter((t) => t.category === cat).map((tool) => (
               <WireframeCard key={tool.slug}>
