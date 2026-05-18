@@ -185,7 +185,7 @@ const CoursesListPage = () => {
                       {course.meta && (
                         <div className="mt-2 flex items-center gap-2 flex-wrap">
                           <Stars rating={course.meta.trustpilot} />
-                          <Meta>{course.meta.trustpilot.toFixed(1)} · {course.meta.reviews.toLocaleString()} Trustpilot reviews</Meta>
+                          <Meta>{course.meta.reviews.toLocaleString()} Trustpilot reviews</Meta>
                         </div>
                       )}
 
