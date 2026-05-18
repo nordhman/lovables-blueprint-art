@@ -145,9 +145,7 @@ const CoursesListPage = () => {
 
                     {course.meta && (
                       <div className="mt-4">
-                        <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">
-                          Key benefits
-                        </span>
+                        <MetaLabel>Key benefits</MetaLabel>
                         <ul className="mt-2 grid sm:grid-cols-2 gap-x-6 gap-y-2">
                           {course.meta.pros.map((p) => (
                             <li key={p} className="flex items-start gap-2">
