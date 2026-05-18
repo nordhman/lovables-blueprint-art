@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Eyebrow, H1, H2 } from "@/components/wireframe/Typography";
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
 import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
 import { courses } from "@/data/mockData";

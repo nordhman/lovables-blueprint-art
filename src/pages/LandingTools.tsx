@@ -1,4 +1,5 @@
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
+import { Eyebrow, H1, H2 } from "@/components/wireframe/Typography";
 import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
 import { tools } from "@/data/mockData";
 import { Star, CheckCircle } from "lucide-react";

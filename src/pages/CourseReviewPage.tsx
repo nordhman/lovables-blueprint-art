@@ -1,4 +1,5 @@
 import { useParams, Link } from "react-router-dom";
+import { Eyebrow, H1, H2 } from "@/components/wireframe/Typography";
 import { PlaceholderImage } from "@/components/wireframe/PlaceholderImage";
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
 import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
