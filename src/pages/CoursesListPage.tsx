@@ -140,7 +140,7 @@ const CoursesListPage = () => {
           <div className="space-y-6">
             {affiliateCourses.map((course, idx) => {
               const allBenefits = course.meta
-                ? [...course.meta.pros, "30-day money-back", "Lifetime access"]
+                ? [`${course.modules} learning modules`, ...course.meta.pros, "30-day money-back", "Lifetime access"]
                 : [];
               return (
                 <WireframeCard
@@ -160,8 +160,19 @@ const CoursesListPage = () => {
                       <span className="text-4xl font-bold leading-none">#{idx + 1}</span>
                     </div>
 
-                    {/* Image */}
-                    <PlaceholderImage label="Course image" aspectRatio="video" className="w-full" />
+                    {/* Image + Our score */}
+                    <div className="flex flex-col gap-3">
+                      <PlaceholderImage label="Course image" aspectRatio="video" className="w-full" />
+                      {course.meta && (
+                        <div className="border-2 border-dashed border-foreground rounded p-3 text-center">
+                          <MetaLabel className="block">Our score</MetaLabel>
+                          <div className="mt-1">
+                            <span className="text-3xl font-bold">{(course.meta.ourScore / 2).toFixed(1)}</span>
+                            <span className="font-mono text-xs text-muted-foreground">/5</span>
+                          </div>
+                        </div>
+                      )}
+                    </div>
 
                     {/* Content */}
                     <div className="min-w-0">
@@ -185,13 +196,6 @@ const CoursesListPage = () => {
                           <Meta>{course.meta.reviews.toLocaleString()} Trustpilot reviews</Meta>
                         </div>
                       )}
-
-                      <div className="mt-1.5">
-                        <Meta>
-                          {course.modules} learning modules
-                          {` · ${course.price}`}
-                        </Meta>
-                      </div>
 
                       {allBenefits.length > 0 && (
                         <ul className="mt-3 grid sm:grid-cols-3 gap-x-4 gap-y-1.5">
@@ -217,15 +221,6 @@ const CoursesListPage = () => {
 
                     {/* Conversion column */}
                     <div className="flex flex-col gap-3">
-                      {course.meta && (
-                        <div className="border-2 border-dashed border-foreground rounded p-3 text-center">
-                          <MetaLabel className="block">Our score</MetaLabel>
-                          <div className="mt-1">
-                            <span className="text-3xl font-bold">{(course.meta.ourScore / 2).toFixed(1)}</span>
-                            <span className="font-mono text-xs text-muted-foreground">/5</span>
-                          </div>
-                        </div>
-                      )}
 
                       <a
                         href="#"
