@@ -137,116 +137,108 @@ const CoursesListPage = () => {
         <section className="mt-12">
           <H2 className="mb-6">Ranked Premium Courses</H2>
 
-          <div className="space-y-8">
-            {affiliateCourses.map((course, idx) => (
-              <WireframeCard
-                key={course.slug}
-                className={`p-0 overflow-hidden ${idx === 0 ? "border-foreground" : ""}`}
-              >
-                {/* Top strip: rank + editor's choice */}
-                <div className="flex items-center justify-between gap-4 px-6 py-3 border-b-2 border-dashed border-border">
-                  <div className="flex items-baseline gap-3">
-                    <MetaLabel>Rank</MetaLabel>
-                    <span className="text-2xl font-bold leading-none">#{idx + 1}</span>
-                  </div>
-                  {idx === 0 && (
-                    <span className="inline-flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-wider border border-dashed border-foreground rounded px-2 py-1">
-                      <Star className="h-3 w-3 fill-current" />
-                      Editor's Choice
-                    </span>
-                  )}
-                </div>
+          <div className="space-y-6">
+            {affiliateCourses.map((course, idx) => {
+              const allBenefits = course.meta
+                ? [...course.meta.pros, "30-day money-back", "Lifetime access"]
+                : [];
+              return (
+                <WireframeCard
+                  key={course.slug}
+                  className={`p-6 ${idx === 0 ? "border-foreground" : ""}`}
+                >
+                  <div className="grid md:grid-cols-[64px_220px_1fr_180px] gap-6 items-start">
+                    {/* Rank */}
+                    <div className="flex md:flex-col items-center md:items-start gap-2">
+                      <MetaLabel>Rank</MetaLabel>
+                      <span className="text-4xl font-bold leading-none">#{idx + 1}</span>
+                      {idx === 0 && (
+                        <span className="hidden md:inline-flex items-center gap-1 mt-2 font-mono text-[10px] uppercase tracking-wider border-2 border-dashed border-foreground rounded px-2 py-1">
+                          <Star className="h-3 w-3 fill-current" />
+                          Editor's Choice
+                        </span>
+                      )}
+                    </div>
 
-                {/* Body */}
-                <div className="p-8 grid md:grid-cols-[240px_1fr] gap-8">
-                  <PlaceholderImage label="Course image" aspectRatio="video" className="w-full" />
+                    {/* Image */}
+                    <PlaceholderImage label="Course image" aspectRatio="video" className="w-full" />
 
-                  <div className="min-w-0">
-                    <H3>{course.title}</H3>
-                    {course.meta && (
-                      <p className="mt-2 text-base italic text-muted-foreground">
-                        {course.meta.tagline}{" "}
-                        <Link
-                          to={`/courses/${course.slug}/review`}
-                          className="not-italic underline underline-offset-4 hover:no-underline text-foreground whitespace-nowrap"
-                        >
-                          Read the review →
-                        </Link>
-                      </p>
-                    )}
+                    {/* Content */}
+                    <div className="min-w-0">
+                      <H3>{course.title}</H3>
+                      {course.meta && (
+                        <p className="mt-1 text-sm italic text-muted-foreground">
+                          {course.meta.tagline}{" "}
+                          <Link
+                            to={`/courses/${course.slug}/review`}
+                            className="not-italic underline underline-offset-4 hover:no-underline text-foreground whitespace-nowrap"
+                          >
+                            Read the review →
+                          </Link>
+                        </p>
+                      )}
 
-                    {course.meta && (
-                      <div className="mt-5 flex items-center gap-x-6 gap-y-3 flex-wrap">
-                        <div className="flex items-baseline gap-1.5">
-                          <MetaLabel>Our score</MetaLabel>
-                          <span className="text-lg font-bold leading-none">
-                            {course.meta.ourScore.toFixed(1)}
-                          </span>
-                          <span className="font-mono text-xs text-muted-foreground">/10</span>
-                        </div>
-                        <span className="text-muted-foreground">·</span>
-                        <div className="flex items-center gap-2">
+                      {course.meta && (
+                        <div className="mt-3 flex items-center gap-2 flex-wrap">
                           <Stars rating={course.meta.trustpilot} />
                           <Meta>
                             ({course.meta.reviews.toLocaleString()} Trustpilot reviews)
                           </Meta>
                         </div>
-                      </div>
-                    )}
+                      )}
 
-                    <div className="mt-3 flex items-center gap-x-4 gap-y-1 flex-wrap">
-                      <Meta>{course.modules} modules</Meta>
-                      {course.partner && <Meta>· via {course.partner}</Meta>}
-                      {course.meta && <Meta>· Best for: {course.meta.bestFor}</Meta>}
+                      <div className="mt-2 flex items-center gap-x-3 gap-y-1 flex-wrap">
+                        <Meta>{course.modules} modules</Meta>
+                        {course.partner && <Meta>· via {course.partner}</Meta>}
+                        {course.meta && <Meta>· Best for: {course.meta.bestFor}</Meta>}
+                      </div>
+
+                      {allBenefits.length > 0 && (
+                        <ul className="mt-4 grid sm:grid-cols-2 gap-x-6 gap-y-2">
+                          {allBenefits.map((p) => (
+                            <li key={p} className="flex items-start gap-2">
+                              <Check className="h-4 w-4 text-foreground shrink-0 mt-0.5" />
+                              <span className="text-sm">{p}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )}
                     </div>
 
-                    {course.meta && (
-                      <ul className="mt-6 grid sm:grid-cols-3 gap-x-6 gap-y-2">
-                        {course.meta.pros.map((p) => (
-                          <li key={p} className="flex items-start gap-2">
-                            <Check className="h-4 w-4 text-foreground shrink-0 mt-0.5" />
-                            <span className="text-sm">{p}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    )}
+                    {/* Actions */}
+                    <div className="flex flex-col gap-3">
+                      {course.meta && (
+                        <div className="border-2 border-dashed border-border rounded p-3 text-center">
+                          <MetaLabel className="block">Our score</MetaLabel>
+                          <div className="mt-1">
+                            <span className="text-2xl font-bold">{course.meta.ourScore.toFixed(1)}</span>
+                            <span className="font-mono text-xs text-muted-foreground">/10</span>
+                          </div>
+                        </div>
+                      )}
 
-                    {course.meta && (
-                      <div className="mt-6 border-l-2 border-dashed border-border pl-4">
-                        <MetaLabel>Bottom line</MetaLabel>
-                        <p className="text-sm mt-1">{course.meta.bottomLine}</p>
+                      <div className="flex items-baseline justify-between gap-2">
+                        <MetaLabel>Price</MetaLabel>
+                        <span className="text-base font-bold">{course.price}</span>
                       </div>
-                    )}
-                  </div>
-                </div>
 
-                {/* Conversion footer */}
-                <div className="border-t-2 border-dashed border-border bg-muted/40 px-6 py-4">
-                  <div className="flex items-center justify-between gap-6 flex-wrap">
-                    <div className="flex items-baseline gap-2">
-                      <MetaLabel>Price</MetaLabel>
-                      <span className="text-lg font-bold">{course.price}</span>
-                      <Meta>· one-time</Meta>
-                    </div>
-
-                    <div className="flex items-center gap-3 flex-wrap">
-                      <Meta className="hidden sm:inline">30-day money-back · Lifetime access</Meta>
                       <a
                         href="#"
                         target="_blank"
                         rel="noopener sponsored"
-                        className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-foreground text-background hover:opacity-90 transition-opacity rounded font-semibold text-sm"
+                        className="inline-flex items-center justify-center gap-2 px-4 py-3 bg-foreground text-background hover:opacity-90 transition-opacity rounded font-semibold text-sm"
                       >
                         Visit Course <ExternalLink className="h-4 w-4" />
                       </a>
+
+                      <span className="font-mono text-[10px] text-muted-foreground text-center">
+                        Affiliate link · We may earn a commission
+                      </span>
                     </div>
                   </div>
-                  <Meta className="block mt-2">
-                    Affiliate link · We may earn a commission
-                  </Meta>
-                </div>
-              </WireframeCard>
-            ))}
+                </WireframeCard>
+              );
+            })}
           </div>
         </section>
       )}
