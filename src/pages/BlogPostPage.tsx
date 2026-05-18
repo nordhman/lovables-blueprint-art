@@ -2,6 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { PlaceholderImage } from "@/components/wireframe/PlaceholderImage";
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
 import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
+import { H1, H3, H5, Lead, BodySmall, Meta, MetaLabel, typo } from "@/components/wireframe/Typography";
 import { blogPosts } from "@/data/mockData";
 import { ArrowLeft } from "lucide-react";
 
