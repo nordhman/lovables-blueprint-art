@@ -46,8 +46,8 @@ const AboutPage = () => (
       <div className="grid md:grid-cols-[200px_1fr] gap-8 items-start">
         <PlaceholderImage label="Profile photo" aspectRatio="square" />
         <div>
-          <h2 className="text-xl font-bold">About the Creator</h2>
-          <h3 className="text-lg font-semibold mt-2">Daniel</h3>
+          <H2>About the Creator</H2>
+          <H4 className="mt-2">Daniel</H4>
           <p className="text-muted-foreground mt-2">
             Daniel has been working with affiliate marketing since 2015. With experience from both Nordic and international markets, he shares his best strategies and lessons learned.
           </p>
