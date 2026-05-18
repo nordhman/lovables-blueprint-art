@@ -2,14 +2,17 @@ import { Link } from "react-router-dom";
 import { PlaceholderImage } from "@/components/wireframe/PlaceholderImage";
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
 import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
-import { blogPosts } from "@/data/mockData";
+import { blogPosts, courses, tools, networks } from "@/data/mockData";
 import { BookOpen, Wrench, Globe, Mail } from "lucide-react";
 
+const ownCoursesCount = courses.filter((c) => c.type === "own").length;
+const reviewsCount = tools.length + networks.length + courses.filter((c) => c.type === "affiliate").length;
+
 const stats = [
-  { value: "165+", label: "Total Reviews" },
-  { value: "3", label: "Own Courses" },
-  { value: "6", label: "Blog Posts" },
-  { value: "10+", label: "Years Experience" },
+  { value: `${reviewsCount}+`, label: "Total Reviews" },
+  { value: `${ownCoursesCount}`, label: "Own Courses" },
+  { value: `${blogPosts.length}`, label: "Blog Posts" },
+  { value: "10+", label: "Years Online Business Experience" },
 ];
 
 const features = [
@@ -70,7 +73,7 @@ const HomePage = () => (
     {/* By the numbers */}
     <section className="container mx-auto px-4 py-16">
       <Eyebrow>Stats</Eyebrow>
-      <h2 className="text-2xl font-bold mt-2 mb-8">Proven Results & Experience</h2>
+      <h2 className="text-2xl font-bold mt-2 mb-8">Built on Real Affiliate Marketing Experience</h2>
       <WireframeCard className="py-6">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
           {stats.map((s) => (
