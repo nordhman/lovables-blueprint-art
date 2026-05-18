@@ -93,7 +93,8 @@ const HomePage = () => (
     {/* Latest blog posts */}
     <section className="container mx-auto px-4 py-16">
       <Eyebrow>Latest Blog Posts</Eyebrow>
-      <h2 className="text-2xl font-bold mt-2 mb-8">Latest Insights on Affiliate Marketing</h2>
+      <h2 className="text-2xl font-bold mt-2 mb-2">Latest Insights on Affiliate Marketing</h2>
+      <p className="text-muted-foreground mb-8 max-w-2xl">Fresh guides, strategies and tips to help you build and grow your affiliate business.</p>
       <div className="grid md:grid-cols-3 gap-6">
         {blogPosts.slice(0, 3).map((post) => (
           <Link key={post.slug} to={`/blog/${post.slug}`}>
