@@ -218,33 +218,40 @@ const CoursesListPage = () => {
                     </div>
 
                     {/* Conversion column */}
-                    <div className="flex flex-col gap-3 border-l border-dashed border-border pl-5">
-                      <div className="text-center">
+                    <div className="flex flex-col border-l border-dashed border-border pl-5">
+                      {/* Price block */}
+                      <div className="text-center pb-4 border-b border-dashed border-border">
                         <MetaLabel className="block">Price</MetaLabel>
-                        <div className="mt-1 text-xl font-bold leading-none">{course.price}</div>
+                        <div className="mt-1.5 text-2xl font-bold leading-none">{course.price}</div>
+                        <Meta className="mt-1.5 block">one-time payment</Meta>
                       </div>
 
+                      {/* CTA */}
                       <a
                         href="#"
                         target="_blank"
                         rel="noopener sponsored"
-                        className="w-full inline-flex items-center justify-center gap-2 px-4 py-4 bg-foreground text-background hover:opacity-90 transition-opacity rounded font-semibold text-base"
+                        className="mt-4 w-full inline-flex items-center justify-center gap-2 px-4 py-4 bg-foreground text-background hover:opacity-90 transition-opacity rounded font-semibold text-base"
                       >
                         Visit Course <ExternalLink className="h-4 w-4" />
                       </a>
 
-                      <ul className="space-y-1.5">
+                      {/* Trust items */}
+                      <ul className="mt-4 space-y-2">
                         {trustItems.map((t) => (
-                          <li key={t} className="flex items-start gap-2">
-                            <Check className="h-3.5 w-3.5 text-foreground shrink-0 mt-0.5" />
-                            <span className="text-xs leading-snug">{t}</span>
+                          <li key={t} className="flex items-center gap-2">
+                            <Check className="h-3.5 w-3.5 text-foreground shrink-0" />
+                            <span className="text-xs leading-none">{t}</span>
                           </li>
                         ))}
                       </ul>
 
-                      <span className="mt-auto font-mono text-[10px] text-muted-foreground text-center leading-snug">
-                        Affiliate link · We may earn a commission
-                      </span>
+                      {/* Disclaimer pinned to bottom */}
+                      <div className="mt-auto pt-4">
+                        <span className="block font-mono text-[10px] text-muted-foreground text-center leading-snug">
+                          Affiliate link · We may earn a commission
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </WireframeCard>
