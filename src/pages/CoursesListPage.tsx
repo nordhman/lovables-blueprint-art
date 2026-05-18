@@ -178,14 +178,7 @@ const CoursesListPage = () => {
                         </p>
                       )}
 
-                      {course.meta && (
-                        <div className="mt-3 flex items-center gap-2 flex-wrap">
-                          <Stars rating={course.meta.trustpilot} />
-                          <Meta>
-                            ({course.meta.reviews.toLocaleString()} Trustpilot reviews)
-                          </Meta>
-                        </div>
-                      )}
+
 
                       <div className="mt-2 flex items-center gap-x-3 gap-y-1 flex-wrap">
                         <Meta>{course.modules} modules</Meta>
