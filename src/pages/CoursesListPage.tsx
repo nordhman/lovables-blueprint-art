@@ -161,9 +161,7 @@ const CoursesListPage = () => {
                   {/* Actions */}
                   <div className="flex flex-col gap-3 md:items-stretch">
                     <div className="border-2 border-dashed border-border rounded p-3 text-center">
-                      <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider block">
-                        Price
-                      </span>
+                      <MetaLabel className="block">Price</MetaLabel>
                       <span className="text-xl font-bold">{course.price}</span>
                     </div>
                     <a
