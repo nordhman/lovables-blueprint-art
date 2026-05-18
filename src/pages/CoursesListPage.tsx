@@ -184,8 +184,9 @@ const CoursesListPage = () => {
                       </p>
                     )}
                     {course.meta && (
-                      <div className="mt-2 flex items-center gap-3 flex-wrap">
-                        <Stars rating={course.meta.rating} />
+                      <div className="mt-3 flex items-center gap-2 flex-wrap border border-dashed border-border rounded px-3 py-2 w-fit">
+                        <MetaLabel className="border-r border-dashed border-border pr-2">Trustpilot</MetaLabel>
+                        <Stars rating={course.meta.trustpilot} />
                         <Meta>({course.meta.reviews.toLocaleString()} reviews)</Meta>
                       </div>
                     )}
