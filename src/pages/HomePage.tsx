@@ -3,7 +3,7 @@ import { PlaceholderImage } from "@/components/wireframe/PlaceholderImage";
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
 import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
 import { blogPosts } from "@/data/mockData";
-import { BookOpen, Wrench, Globe, FileText, Mail } from "lucide-react";
+import { BookOpen, Wrench, Globe, Mail } from "lucide-react";
 
 const stats = [
   { value: "165+", label: "Total Reviews" },
@@ -14,10 +14,15 @@ const stats = [
 
 const features = [
   { icon: BookOpen, label: "Courses", desc: "Learn affiliate marketing", to: "/courses" },
-  { icon: Wrench, label: "Tools", desc: "The best tools reviewed", to: "/tools" },
+  { icon: Wrench, label: "Tools", desc: "Explore Best Tools for Affiliates", to: "/tools" },
   { icon: Globe, label: "Networks", desc: "Find the right network", to: "/networks" },
-  { icon: FileText, label: "Blog", desc: "Tips & strategies", to: "/blog" },
 ];
+
+const Eyebrow = ({ children }: { children: React.ReactNode }) => (
+  <span className="inline-block font-mono text-xs text-muted-foreground uppercase tracking-wider border-2 border-dashed border-border rounded px-2 py-1">
+    {children}
+  </span>
+);
 
 const SectionDivider = () => (
   <div className="container mx-auto px-4">
@@ -35,7 +40,6 @@ const HomePage = () => (
           <p className="text-muted-foreground mt-4 text-lg">Courses, tools, and strategies to build profitable affiliate sites. Whether you're a beginner or experienced.</p>
           <div className="flex flex-wrap gap-4 mt-8">
             <WireframeCTA label="Get Started" to="/courses" />
-            <WireframeCTA label="Browse Courses →" to="/courses" variant="secondary" />
           </div>
         </div>
         <PlaceholderImage label="Hero image" className="w-full" />
@@ -46,9 +50,9 @@ const HomePage = () => (
 
     {/* Features grid */}
     <section className="container mx-auto px-4 py-16">
-      <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Explore</span>
-      <h2 className="text-2xl font-bold mt-2 mb-8">What You Find on Affiliate Tour</h2>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <Eyebrow>Site Content</Eyebrow>
+      <h2 className="text-2xl font-bold mt-2 mb-8">Explore All You Need to Start in Affiliate Marketing</h2>
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
         {features.map((f) => (
           <Link key={f.label} to={f.to}>
             <WireframeCard className="text-center hover:border-foreground">
@@ -65,8 +69,8 @@ const HomePage = () => (
 
     {/* By the numbers */}
     <section className="container mx-auto px-4 py-16">
-      <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Stats</span>
-      <h2 className="text-2xl font-bold mt-2 mb-8">By the Numbers</h2>
+      <Eyebrow>Stats</Eyebrow>
+      <h2 className="text-2xl font-bold mt-2 mb-8">Proven Results & Experience</h2>
       <WireframeCard className="py-6">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
           {stats.map((s) => (
@@ -83,8 +87,8 @@ const HomePage = () => (
 
     {/* Latest blog posts */}
     <section className="container mx-auto px-4 py-16">
-      <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Blog</span>
-      <h2 className="text-2xl font-bold mt-2 mb-8">Latest Posts</h2>
+      <Eyebrow>Latest Blog Posts</Eyebrow>
+      <h2 className="text-2xl font-bold mt-2 mb-8">Latest Insights on Affiliate Marketing</h2>
       <div className="grid md:grid-cols-3 gap-6">
         {blogPosts.slice(0, 3).map((post) => (
           <Link key={post.slug} to={`/blog/${post.slug}`}>
