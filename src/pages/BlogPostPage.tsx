@@ -28,17 +28,17 @@ const BlogPostPage = () => {
 
   return (
     <div className="container mx-auto px-4 py-12 max-w-3xl">
-      <Link to="/blog" className="inline-flex items-center gap-1 font-mono text-xs text-muted-foreground hover:text-foreground mb-8">
+      <Link to="/blog" className={`inline-flex items-center gap-1 mb-8 ${typo.link}`}>
         <ArrowLeft className="h-3 w-3" /> Back to blog
       </Link>
 
       <div className="flex items-center gap-2 mb-3">
-        <span className="font-mono text-xs text-muted-foreground">{post.category}</span>
-        <span className="font-mono text-xs text-muted-foreground">· {post.date}</span>
+        <Meta>{post.category}</Meta>
+        <Meta>· {post.date}</Meta>
       </div>
 
-      <h1 className="text-3xl md:text-4xl font-bold">{post.title}</h1>
-      <p className="text-lg text-muted-foreground mt-4">{post.excerpt}</p>
+      <H1>{post.title}</H1>
+      <Lead className="mt-4">{post.excerpt}</Lead>
 
       <PlaceholderImage label="Featured image" className="w-full mt-8" />
 
