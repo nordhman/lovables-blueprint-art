@@ -2,14 +2,17 @@ import { Link } from "react-router-dom";
 import { PlaceholderImage } from "@/components/wireframe/PlaceholderImage";
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
 import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
-import { blogPosts } from "@/data/mockData";
+import { blogPosts, courses, tools, networks } from "@/data/mockData";
 import { BookOpen, Wrench, Globe, Mail } from "lucide-react";
 
+const ownCoursesCount = courses.filter((c) => c.type === "own").length;
+const reviewsCount = tools.length + networks.length + courses.filter((c) => c.type === "affiliate").length;
+
 const stats = [
-  { value: "165+", label: "Total Reviews" },
-  { value: "3", label: "Own Courses" },
-  { value: "6", label: "Blog Posts" },
-  { value: "10+", label: "Years Experience" },
+  { value: `${reviewsCount}+`, label: "Total Reviews" },
+  { value: `${ownCoursesCount}`, label: "Own Courses" },
+  { value: `${blogPosts.length}`, label: "Blog Posts" },
+  { value: "10+", label: "Years Online Business Experience" },
 ];
 
 const features = [
