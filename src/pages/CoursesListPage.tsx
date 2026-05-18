@@ -142,12 +142,14 @@ const CoursesListPage = () => {
               return (
                 <div key={course.slug}>
                   {idx === 0 && (
-                    <div className="relative z-10 inline-flex items-center justify-center gap-2.5 bg-foreground text-background px-5 py-2 rounded border-2 border-dashed border-foreground ml-6 mb-[-18px]">
-                      <Star className="h-4 w-4 fill-current" />
-                      <span className="font-mono text-sm uppercase tracking-[0.2em] font-semibold leading-none">
-                        Our Top Pick
-                      </span>
-                      <Star className="h-4 w-4 fill-current" />
+                    <div className="flex justify-center mb-[-18px]">
+                      <div className="relative z-10 inline-flex items-center justify-center gap-2.5 bg-foreground text-background px-5 py-2 rounded border-2 border-dashed border-foreground">
+                        <Star className="h-4 w-4 fill-current" />
+                        <span className="font-mono text-sm uppercase tracking-[0.2em] font-semibold leading-none">
+                          Our Top Pick
+                        </span>
+                        <Star className="h-4 w-4 fill-current" />
+                      </div>
                     </div>
                   )}
                   <WireframeCard
