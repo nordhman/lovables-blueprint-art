@@ -19,9 +19,9 @@ const NetworksPage = () => (
             </div>
             <H4>{network.name}</H4>
           </div>
-          <p className="text-sm text-muted-foreground">{network.description}</p>
+          <BodySmall>{network.description}</BodySmall>
           <div className="flex items-center justify-between mt-4">
-            <span className="font-mono text-xs text-muted-foreground">Commission: {network.commission}</span>
+            <Meta>Commission: {network.commission}</Meta>
             <WireframeCTA label="Join →" to="#" variant="secondary" className="text-xs py-2 px-4" />
           </div>
         </WireframeCard>
