@@ -8,9 +8,10 @@ import { Badge } from "@/components/ui/badge";
 import { Star, Check, ExternalLink } from "lucide-react";
 
 // Wireframe-only enrichment for affiliate (premium) courses
-const affiliateMeta: Record<string, { rating: number; reviews: number; bestFor: string; tagline: string; pros: string[]; bottomLine: string }> = {
+const affiliateMeta: Record<string, { ourScore: number; trustpilot: number; reviews: number; bestFor: string; tagline: string; pros: string[]; bottomLine: string }> = {
   "authority-hacker-pro": {
-    rating: 4.9,
+    ourScore: 9.8,
+    trustpilot: 4.9,
     reviews: 1280,
     bestFor: "Building authority sites",
     tagline: "The most complete system for building authority sites that scale.",
@@ -18,7 +19,8 @@ const affiliateMeta: Record<string, { rating: number; reviews: number; bestFor: 
     bottomLine: "If you're serious about a long-term content business, this is the safest bet.",
   },
   "affiliate-lab": {
-    rating: 4.8,
+    ourScore: 9.4,
+    trustpilot: 4.7,
     reviews: 940,
     bestFor: "SEO-driven affiliate sites",
     tagline: "SEO-first playbook for ranking and flipping niche sites.",
@@ -26,7 +28,8 @@ const affiliateMeta: Record<string, { rating: number; reviews: number; bestFor: 
     bottomLine: "Best pick if your strategy hinges on organic search traffic.",
   },
   "fat-stacks-bundle": {
-    rating: 4.6,
+    ourScore: 8.9,
+    trustpilot: 4.5,
     reviews: 610,
     bestFor: "Display-ad niche sites",
     tagline: "Niche-site fundamentals built around display-ad revenue.",
