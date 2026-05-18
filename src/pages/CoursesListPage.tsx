@@ -153,9 +153,9 @@ const CoursesListPage = () => {
                       Editor's Choice
                     </span>
                   )}
-                  <div className="grid md:grid-cols-[64px_220px_1fr_180px] gap-6 items-start">
+                  <div className="grid md:grid-cols-[56px_200px_1fr_160px] gap-5 items-start">
                     {/* Rank */}
-                    <div className="flex md:flex-col items-center md:items-start gap-2">
+                    <div className="flex md:flex-col items-center md:items-start gap-1">
                       <MetaLabel>Rank</MetaLabel>
                       <span className="text-4xl font-bold leading-none">#{idx + 1}</span>
                     </div>
@@ -165,26 +165,22 @@ const CoursesListPage = () => {
 
                     {/* Content */}
                     <div className="min-w-0">
-                      <H3>{course.title}</H3>
+                      <div className="flex items-start justify-between gap-3">
+                        <H3 className="!mb-0">{course.title}</H3>
+                        <span className="text-base font-bold whitespace-nowrap">{course.price}</span>
+                      </div>
 
                       {course.meta && (
                         <p className="mt-1 text-sm italic text-muted-foreground">
-                          {course.meta.tagline}
+                          {course.meta.tagline}{" "}
+                          <Link
+                            to={`/courses/${course.slug}/review`}
+                            className="not-italic underline underline-offset-4 hover:no-underline text-foreground whitespace-nowrap"
+                          >
+                            Read full review →
+                          </Link>
                         </p>
                       )}
-
-                      {course.meta && (
-                        <Link
-                          to={`/courses/${course.slug}/review`}
-                          className="mt-1 inline-block text-sm underline underline-offset-4 hover:no-underline text-foreground"
-                        >
-                          Read full review →
-                        </Link>
-                      )}
-
-                      <div className="mt-3">
-                        <Meta>{course.modules} modules{course.partner && ` · via ${course.partner}`}</Meta>
-                      </div>
 
                       {course.meta && (
                         <div className="mt-2 flex items-center gap-2 flex-wrap">
@@ -193,42 +189,56 @@ const CoursesListPage = () => {
                         </div>
                       )}
 
+                      <div className="mt-1">
+                        <Meta>{course.modules} modules{course.partner && ` · via ${course.partner}`}</Meta>
+                      </div>
+
                       {course.meta && (
-                        <p className="mt-3 text-sm">
+                        <p className="mt-2 text-sm">
                           <MetaLabel>Best for:</MetaLabel>{" "}
-                          <span className="italic text-muted-foreground">{course.meta.bottomLine}</span>{" "}
-                          <span className="not-italic">— {course.meta.bestFor}.</span>
+                          <span>{course.meta.bestFor}.</span>{" "}
+                          <span className="italic text-muted-foreground">{course.meta.bottomLine}</span>
                         </p>
                       )}
 
                       {allBenefits.length > 0 && (
-                        <ul className="mt-4 grid sm:grid-cols-2 gap-x-6 gap-y-2">
+                        <ul className="mt-3 grid sm:grid-cols-3 gap-x-4 gap-y-1.5">
                           {allBenefits.map((p) => (
-                            <li key={p} className="flex items-start gap-2">
-                              <Check className="h-4 w-4 text-foreground shrink-0 mt-0.5" />
-                              <span className="text-sm">{p}</span>
+                            <li key={p} className="flex items-start gap-1.5">
+                              <Check className="h-3.5 w-3.5 text-foreground shrink-0 mt-0.5" />
+                              <span className="text-xs">{p}</span>
                             </li>
                           ))}
                         </ul>
                       )}
                     </div>
 
-                    {/* Actions */}
+                    {/* Conversion column */}
                     <div className="flex flex-col gap-3">
                       {course.meta && (
-                        <div className="border-2 border-dashed border-border rounded p-3 text-center">
+                        <div className="border-2 border-dashed border-foreground rounded p-3 text-center">
                           <MetaLabel className="block">Our score</MetaLabel>
                           <div className="mt-1">
-                            <span className="text-2xl font-bold">{(course.meta.ourScore / 2).toFixed(1)}</span>
+                            <span className="text-3xl font-bold">{(course.meta.ourScore / 2).toFixed(1)}</span>
                             <span className="font-mono text-xs text-muted-foreground">/5</span>
                           </div>
                         </div>
                       )}
 
-                      <div className="flex items-baseline justify-between gap-2">
-                        <MetaLabel>Price</MetaLabel>
-                        <span className="text-base font-bold">{course.price}</span>
-                      </div>
+                      <a
+                        href="#"
+                        target="_blank"
+                        rel="noopener sponsored"
+                        className="inline-flex items-center justify-center gap-2 px-4 py-3 bg-foreground text-background hover:opacity-90 transition-opacity rounded font-semibold text-sm"
+                      >
+                        Visit Course <ExternalLink className="h-4 w-4" />
+                      </a>
+
+                      <span className="font-mono text-[10px] text-muted-foreground text-center leading-snug">
+                        Affiliate link · We may earn a commission
+                      </span>
+                    </div>
+                  </div>
 
                       <a
                         href="#"
