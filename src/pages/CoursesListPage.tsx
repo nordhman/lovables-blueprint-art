@@ -150,7 +150,7 @@ const CoursesListPage = () => {
                       Editor's Choice
                     </span>
                   )}
-                  <div className="grid md:grid-cols-[56px_200px_1fr_220px] gap-6 items-stretch">
+                  <div className="grid md:grid-cols-[56px_200px_1fr_260px] gap-6 items-stretch">
                     {/* Rank */}
                     <div className="flex md:flex-col items-center md:items-start gap-2">
                       <MetaLabel className="leading-none">Rank</MetaLabel>
@@ -218,7 +218,7 @@ const CoursesListPage = () => {
                     </div>
 
                     {/* Conversion column */}
-                    <div className="flex flex-col justify-center gap-3 border-l border-dashed border-border pl-5">
+                    <div className="flex flex-col gap-3 border-l border-dashed border-border pl-5">
                       <div className="text-center">
                         <MetaLabel className="block">Price</MetaLabel>
                         <div className="mt-1 text-xl font-bold leading-none">{course.price}</div>
@@ -242,7 +242,7 @@ const CoursesListPage = () => {
                         ))}
                       </ul>
 
-                      <span className="font-mono text-[10px] text-muted-foreground text-center leading-snug">
+                      <span className="mt-auto font-mono text-[10px] text-muted-foreground text-center leading-snug">
                         Affiliate link · We may earn a commission
                       </span>
                     </div>
