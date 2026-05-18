@@ -78,13 +78,13 @@ const CoursesListPage = () => {
   return (
     <div>
       {/* Hero */}
-      <section className="border-b-2 border-dashed border-border bg-muted/30 py-10">
+      <section className="border-b-2 border-dashed border-border bg-muted/30 py-16 md:py-24">
         <div className="container mx-auto px-4">
           <Eyebrow>Comparison · 2026</Eyebrow>
-          <H1 className="mt-3">{title}</H1>
-          <Lead className="mt-3 max-w-4xl">{intro}</Lead>
+          <H1 className="mt-2">{title}</H1>
+          <Lead className="mt-4 max-w-4xl">{intro}</Lead>
           {isAffiliate && (
-            <div className="mt-5 flex items-center gap-4 flex-wrap">
+            <div className="mt-8 flex items-center gap-4 flex-wrap">
               <div className="flex items-center gap-2">
                 <Check className="h-4 w-4" />
                 <Meta>{affiliateCourses.length} courses tested</Meta>
@@ -104,11 +104,11 @@ const CoursesListPage = () => {
         </div>
       </section>
 
-      <div className="container mx-auto px-4 py-10">
+      <div className="container mx-auto px-4 py-16">
 
       {(!typeFilter || isOwn) && (
-        <section className="mt-12">
-          <div className="flex items-center gap-3 mb-6">
+        <section>
+          <div className="flex items-center gap-3 mb-8">
             <H2>My Courses</H2>
             <Badge variant="outline" className="font-mono text-xs border-dashed">Own</Badge>
           </div>
@@ -134,10 +134,10 @@ const CoursesListPage = () => {
       )}
 
       {(!typeFilter || isAffiliate) && (
-        <section className={!typeFilter ? "mt-12" : "mt-2"}>
+        <section className={!typeFilter ? "mt-16" : ""}>
           <H2 className="mb-8">Ranked Premium Courses</H2>
 
-          <div className="space-y-10">
+          <div className="space-y-6">
             {affiliateCourses.map((course, idx) => {
               const allBenefits = course.meta
                 ? [`${course.modules} learning modules`, ...course.meta.pros, "30-day money-back", "Lifetime access"]
