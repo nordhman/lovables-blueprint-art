@@ -74,11 +74,30 @@ const CoursesListPage = () => {
 
   return (
     <div>
-      {/* Compact hero */}
+      {/* Hero */}
       <section className="border-b-2 border-dashed border-border bg-muted/30 py-10">
         <div className="container mx-auto px-4">
-          <H1>{title}</H1>
+          <Eyebrow>Comparison · 2026</Eyebrow>
+          <H1 className="mt-3">{title}</H1>
           <Lead className="mt-3 max-w-2xl">{intro}</Lead>
+          {isAffiliate && (
+            <div className="mt-5 flex items-center gap-4 flex-wrap">
+              <div className="flex items-center gap-2">
+                <Check className="h-4 w-4" />
+                <Meta>{affiliateCourses.length} courses tested</Meta>
+              </div>
+              <Meta>·</Meta>
+              <div className="flex items-center gap-2">
+                <Check className="h-4 w-4" />
+                <Meta>Independent reviews</Meta>
+              </div>
+              <Meta>·</Meta>
+              <div className="flex items-center gap-2">
+                <Check className="h-4 w-4" />
+                <Meta>Updated 2026</Meta>
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
