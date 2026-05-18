@@ -153,7 +153,7 @@ const CoursesListPage = () => {
                       Editor's Choice
                     </span>
                   )}
-                  <div className="grid md:grid-cols-[56px_200px_1fr_160px] gap-5 items-start">
+                  <div className="grid md:grid-cols-[56px_200px_1fr_180px] gap-6 items-stretch">
                     {/* Rank */}
                     <div className="flex md:flex-col items-center md:items-start gap-1">
                       <MetaLabel>Rank</MetaLabel>
@@ -175,11 +175,11 @@ const CoursesListPage = () => {
                     </div>
 
                     {/* Content */}
-                    <div className="min-w-0">
+                    <div className="min-w-0 py-1">
                       <H3 className="!mb-0">{course.title}</H3>
 
                       {course.meta && (
-                        <p className="mt-1.5 text-sm italic text-muted-foreground">
+                        <p className="mt-3 text-sm italic text-muted-foreground">
                           {course.meta.tagline}{" "}
                           <Link
                             to={`/courses/${course.slug}/review`}
@@ -191,14 +191,14 @@ const CoursesListPage = () => {
                       )}
 
                       {course.meta && (
-                        <div className="mt-3 flex items-center gap-2 flex-wrap">
+                        <div className="mt-5 flex items-center gap-2 flex-wrap">
                           <Stars rating={course.meta.trustpilot} />
                           <Meta>{course.meta.reviews.toLocaleString()} Trustpilot reviews</Meta>
                         </div>
                       )}
 
                       {allBenefits.length > 0 && (
-                        <ul className="mt-3 grid sm:grid-cols-3 gap-x-4 gap-y-1.5">
+                        <ul className="mt-5 grid sm:grid-cols-3 gap-x-4 gap-y-2">
                           {allBenefits.map((p) => (
                             <li key={p} className="flex items-start gap-1.5">
                               <Check className="h-3.5 w-3.5 text-foreground shrink-0 mt-0.5" />
@@ -209,9 +209,9 @@ const CoursesListPage = () => {
                       )}
 
                       {course.meta && (
-                        <div className="mt-4 border-l-2 border-dashed border-border pl-3 py-1">
+                        <div className="mt-6 border-l-2 border-dashed border-border pl-3 py-1">
                           <MetaLabel className="block">Best for</MetaLabel>
-                          <p className="mt-0.5 text-sm">
+                          <p className="mt-1 text-sm">
                             <span>{course.meta.bestFor}.</span>{" "}
                             <span className="italic text-muted-foreground">{course.meta.bottomLine}</span>
                           </p>
@@ -220,13 +220,13 @@ const CoursesListPage = () => {
                     </div>
 
                     {/* Conversion column */}
-                    <div className="flex flex-col gap-3">
+                    <div className="flex flex-col items-center justify-center gap-3 border-l border-dashed border-border pl-5">
 
                       <a
                         href="#"
                         target="_blank"
                         rel="noopener sponsored"
-                        className="inline-flex items-center justify-center gap-2 px-4 py-3 bg-foreground text-background hover:opacity-90 transition-opacity rounded font-semibold text-sm"
+                        className="w-full inline-flex items-center justify-center gap-2 px-4 py-4 bg-foreground text-background hover:opacity-90 transition-opacity rounded font-semibold text-base"
                       >
                         Visit Course <ExternalLink className="h-4 w-4" />
                       </a>
