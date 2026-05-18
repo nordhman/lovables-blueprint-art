@@ -169,9 +169,9 @@ const CourseReviewPage = () => {
       <section className="grid md:grid-cols-[1fr_320px] gap-8 items-start">
         <div>
           <Eyebrow>Buyer's guide</Eyebrow>
-          <h1 className="text-3xl md:text-5xl font-bold mt-2 leading-tight">
+          <H1 className="mt-2">
             {course.title} Review ({new Date().getFullYear()})
-          </h1>
+          </H1>
           <p className="text-lg text-muted-foreground mt-4">{m.intro}</p>
           <div className="mt-3">
             <SourceBadge type="manual" label="your intro" />
