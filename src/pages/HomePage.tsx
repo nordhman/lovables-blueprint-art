@@ -14,8 +14,8 @@ const stats = [
 
 const features = [
   { icon: BookOpen, label: "Courses", desc: "Learn affiliate marketing", to: "/courses" },
-  { icon: Wrench, label: "Tools", desc: "Explore Best Tools for Affiliates", to: "/tools" },
-  { icon: Globe, label: "Networks", desc: "Find the right network", to: "/networks" },
+  { icon: Wrench, label: "Tools", desc: "Find & Explore Reviews of the Best Affiliate Tools", to: "/tools" },
+  { icon: Globe, label: "Networks", desc: "Find & Explore Reviews of Top Affiliate Networks", to: "/networks" },
 ];
 
 const Eyebrow = ({ children }: { children: React.ReactNode }) => (
@@ -50,7 +50,7 @@ const HomePage = () => (
 
     {/* Features grid */}
     <section className="container mx-auto px-4 py-16">
-      <Eyebrow>Site Content</Eyebrow>
+      <Eyebrow>Our Services</Eyebrow>
       <h2 className="text-2xl font-bold mt-2 mb-8">Affiliate Marketing Essentials</h2>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
         {features.map((f) => (
