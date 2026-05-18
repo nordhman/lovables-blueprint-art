@@ -78,7 +78,7 @@ const CoursesListPage = () => {
   return (
     <div>
       {/* Hero */}
-      <section className="border-b-2 border-dashed border-border bg-muted/30 py-16 md:py-24">
+      <section className="border-b-2 border-dashed border-border bg-muted/30 py-10 md:py-12">
         <div className="container mx-auto px-4">
           <Eyebrow>Comparison · 2026</Eyebrow>
           <H1 className="mt-2">{title}</H1>
