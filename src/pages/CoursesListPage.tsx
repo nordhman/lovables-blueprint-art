@@ -81,7 +81,7 @@ const CoursesListPage = () => {
       <section className="border-b-2 border-dashed border-border bg-muted/30 py-10 md:py-12">
         <div className="container mx-auto px-4">
           <Eyebrow>Comparison · 2026</Eyebrow>
-          <H1 className="mt-2">{title}</H1>
+          <H1 className="mt-3">{title}</H1>
           <Lead className="mt-4 max-w-4xl">{intro}</Lead>
           {isAffiliate && (
             <div className="mt-8 flex items-center gap-x-8 gap-y-3 flex-wrap">

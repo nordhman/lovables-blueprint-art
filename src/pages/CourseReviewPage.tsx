@@ -169,7 +169,7 @@ const CourseReviewPage = () => {
       <section className="grid md:grid-cols-[1fr_320px] gap-8 items-start">
         <div>
           <Eyebrow>Buyer's guide</Eyebrow>
-          <H1 className="mt-2">
+          <H1 className="mt-3">
             {course.title} Review ({new Date().getFullYear()})
           </H1>
           <p className="text-lg text-muted-foreground mt-4">{m.intro}</p>

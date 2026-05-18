@@ -12,7 +12,7 @@ const BlogPage = () => {
   return (
     <div className="container mx-auto px-4 py-12">
       <Eyebrow>Insights</Eyebrow>
-      <H1 className="mt-2">Blog</H1>
+      <H1 className="mt-3">Blog</H1>
       <Lead className="mt-2 max-w-2xl">Tips, strategies, and guides for affiliate marketing.</Lead>
 
       <div className="flex flex-wrap gap-2 mt-8">

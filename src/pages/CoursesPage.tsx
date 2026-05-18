@@ -24,7 +24,7 @@ const CoursesPage = () => {
       {/* How to Get Started */}
       <section className="container mx-auto px-4 py-16">
         <Eyebrow>Get Started</Eyebrow>
-        <H2 className="mt-2 mb-2">How to Get Started with Affiliate Marketing — Two Proven Paths</H2>
+        <H2 className="mt-3 mb-2">How to Get Started with Affiliate Marketing — Two Proven Paths</H2>
         <p className="text-muted-foreground mb-8">Start free with my own guide, or fast-track your growth with the premium courses I personally recommend.</p>
 
         {/* Option 1 — Free, exploratory */}

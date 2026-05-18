@@ -8,14 +8,14 @@ const LandingTools = () => (
   <div className="container mx-auto px-4 py-12">
     <div className="text-center max-w-2xl mx-auto">
       <Eyebrow>Comparison 2026</Eyebrow>
-      <H1 className="mt-2">Best Tools for Affiliate Marketing</H1>
+      <H1 className="mt-3">Best Tools for Affiliate Marketing</H1>
       <p className="text-muted-foreground mt-4">We've tested and compared the most popular tools. Here are our recommendations.</p>
     </div>
 
     <section className="mt-16">
       <WireframeCard className="p-6">
         <Eyebrow>New to this? Start here</Eyebrow>
-        <H2 className="mt-2">Starter Pack – Get Going Fast</H2>
+        <H2 className="mt-3">Starter Pack – Get Going Fast</H2>
         <p className="text-sm text-muted-foreground mt-2">The three tools you need to launch your first affiliate site.</p>
         <div className="grid md:grid-cols-3 gap-4 mt-6">
           {tools.slice(0, 3).map((tool) => (
@@ -67,7 +67,7 @@ const LandingTools = () => (
     <section className="mt-12">
       <WireframeCard className="p-6">
         <Eyebrow>Advanced</Eyebrow>
-        <H2 className="mt-2">Pro Tools for Experienced Affiliates</H2>
+        <H2 className="mt-3">Pro Tools for Experienced Affiliates</H2>
         <div className="mt-4 space-y-2">
           {["Advanced keyword analysis with Ahrefs", "Campaign tracking with Voluum", "A/B testing with Thrive Themes"].map((item) => (
             <div key={item} className="flex items-center gap-2">
