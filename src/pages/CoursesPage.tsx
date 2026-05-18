@@ -4,6 +4,12 @@ import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
 import { Badge } from "@/components/ui/badge";
 import { Check, Star } from "lucide-react";
 
+const Eyebrow = ({ children }: { children: React.ReactNode }) => (
+  <span className="inline-block font-mono text-xs text-muted-foreground uppercase tracking-wider border-2 border-dashed border-border rounded px-2 py-1">
+    {children}
+  </span>
+);
+
 const CoursesPage = () => {
   return (
     <div>
@@ -12,8 +18,8 @@ const CoursesPage = () => {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
-              <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Learn Affiliate Marketing</span>
-              <h1 className="text-3xl md:text-4xl font-bold mt-2">Ready to Learn Affiliate Marketing?</h1>
+              <Eyebrow>Learn Affiliate Marketing</Eyebrow>
+              <h1 className="text-4xl md:text-5xl font-bold leading-tight mt-4">Ready to Learn Affiliate Marketing?</h1>
               <p className="text-muted-foreground mt-4 text-lg">We'll take you from beginner to pro, covering all the essential tools and strategies you need.</p>
             </div>
             <PlaceholderImage label="Hero illustration" aspectRatio="video" />
@@ -23,10 +29,9 @@ const CoursesPage = () => {
 
       {/* How to Get Started */}
       <section className="container mx-auto px-4 py-16">
-        <div className="text-center max-w-2xl mx-auto">
-          <h2 className="text-2xl md:text-3xl font-bold">How to Get Started with Affiliate Marketing — Two Proven Paths</h2>
-          <p className="text-muted-foreground mt-3">Start free with my own guide, or fast-track your growth with the premium courses I personally recommend.</p>
-        </div>
+        <Eyebrow>Get Started</Eyebrow>
+        <h2 className="text-2xl font-bold mt-2 mb-2">How to Get Started with Affiliate Marketing — Two Proven Paths</h2>
+        <p className="text-muted-foreground mb-8">Start free with my own guide, or fast-track your growth with the premium courses I personally recommend.</p>
 
         {/* Option 1 — Free, exploratory */}
         <div className="mt-10">
