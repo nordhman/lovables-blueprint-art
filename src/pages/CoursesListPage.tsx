@@ -58,7 +58,7 @@ const CoursesListPage = () => {
   const affiliateCourses = courses
     .filter((c) => c.type === "affiliate")
     .map((c) => ({ ...c, meta: affiliateMeta[c.slug] }))
-    .sort((a, b) => (b.meta?.rating ?? 0) - (a.meta?.rating ?? 0));
+    .sort((a, b) => (b.meta?.ourScore ?? 0) - (a.meta?.ourScore ?? 0));
 
   const isAffiliate = typeFilter === "affiliate";
   const isOwn = typeFilter === "own";
