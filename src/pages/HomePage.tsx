@@ -50,9 +50,9 @@ const HomePage = () => (
 
     {/* Features grid */}
     <section className="container mx-auto px-4 py-16">
-      <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Explore</span>
-      <h2 className="text-2xl font-bold mt-2 mb-8">What You Find on Affiliate Tour</h2>
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <Eyebrow>Site Content</Eyebrow>
+      <h2 className="text-2xl font-bold mt-2 mb-8">Explore All You Need to Start in Affiliate Marketing</h2>
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
         {features.map((f) => (
           <Link key={f.label} to={f.to}>
             <WireframeCard className="text-center hover:border-foreground">
