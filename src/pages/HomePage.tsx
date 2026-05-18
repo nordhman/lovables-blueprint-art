@@ -69,8 +69,8 @@ const HomePage = () => (
 
     {/* By the numbers */}
     <section className="container mx-auto px-4 py-16">
-      <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Stats</span>
-      <h2 className="text-2xl font-bold mt-2 mb-8">By the Numbers</h2>
+      <Eyebrow>Stats</Eyebrow>
+      <h2 className="text-2xl font-bold mt-2 mb-8">Proven Results & Experience</h2>
       <WireframeCard className="py-6">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
           {stats.map((s) => (
