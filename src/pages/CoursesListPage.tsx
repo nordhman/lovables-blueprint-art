@@ -141,12 +141,20 @@ const CoursesListPage = () => {
                 className={`p-6 ${idx === 0 ? "border-foreground" : ""}`}
               >
                 <div className="grid md:grid-cols-[80px_240px_1fr_220px] gap-6 items-start">
-                  {/* Rank */}
+                  {/* Rank + score */}
                   <div className="flex md:flex-col items-center md:items-start gap-2">
                     <MetaLabel>Rank</MetaLabel>
                     <span className="text-4xl font-bold leading-none">#{idx + 1}</span>
+                    {course.meta && (
+                      <div className="hidden md:block mt-2 border-2 border-dashed border-border rounded px-2 py-1 text-center">
+                        <span className="font-bold text-sm">
+                          {((course.meta.rating / 5) * 10).toFixed(1)}
+                        </span>
+                        <span className="font-mono text-[10px] text-muted-foreground">/10</span>
+                      </div>
+                    )}
                     {idx === 0 && (
-                      <span className="hidden md:inline-flex items-center gap-1 mt-2 font-mono text-[10px] uppercase tracking-wider border-2 border-dashed border-foreground rounded px-2 py-1">
+                      <span className="hidden md:inline-flex items-center gap-1 mt-1 font-mono text-[10px] uppercase tracking-wider border-2 border-dashed border-foreground rounded px-2 py-1">
                         <Star className="h-3 w-3 fill-current" />
                         Editor's Choice
                       </span>
@@ -161,30 +169,40 @@ const CoursesListPage = () => {
                     <div className="flex items-center gap-2 flex-wrap">
                       <Meta>{course.modules} modules</Meta>
                       {course.partner && <Meta>· via {course.partner}</Meta>}
+                      {course.meta && (
+                        <Badge variant="outline" className="font-mono text-xs border-dashed">
+                          Best for: {course.meta.bestFor}
+                        </Badge>
+                      )}
                     </div>
                     <H3 className="mt-1">{course.title}</H3>
+                    {course.meta && (
+                      <p className="mt-1 text-sm italic text-muted-foreground">
+                        {course.meta.tagline}
+                      </p>
+                    )}
                     {course.meta && (
                       <div className="mt-2 flex items-center gap-3 flex-wrap">
                         <Stars rating={course.meta.rating} />
                         <Meta>({course.meta.reviews.toLocaleString()} reviews)</Meta>
-                        <Badge variant="outline" className="font-mono text-xs border-dashed">
-                          Best for: {course.meta.bestFor}
-                        </Badge>
                       </div>
                     )}
-                    <BodySmall className="mt-3">{course.description}</BodySmall>
 
                     {course.meta && (
-                      <div className="mt-4">
-                        <MetaLabel>Key benefits</MetaLabel>
-                        <ul className="mt-2 grid sm:grid-cols-2 gap-x-6 gap-y-2">
-                          {course.meta.pros.map((p) => (
-                            <li key={p} className="flex items-start gap-2">
-                              <Check className="h-4 w-4 text-foreground shrink-0 mt-0.5" />
-                              <span className="text-sm">{p}</span>
-                            </li>
-                          ))}
-                        </ul>
+                      <ul className="mt-4 grid sm:grid-cols-3 gap-x-4 gap-y-2">
+                        {course.meta.pros.map((p) => (
+                          <li key={p} className="flex items-start gap-2">
+                            <Check className="h-4 w-4 text-foreground shrink-0 mt-0.5" />
+                            <span className="text-sm">{p}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+
+                    {course.meta && (
+                      <div className="mt-4 border-l-2 border-dashed border-border pl-3">
+                        <MetaLabel>Bottom line</MetaLabel>
+                        <p className="text-sm mt-1">{course.meta.bottomLine}</p>
                       </div>
                     )}
                   </div>
@@ -193,7 +211,8 @@ const CoursesListPage = () => {
                   <div className="flex flex-col gap-3">
                     <div className="border-2 border-dashed border-border rounded p-3 text-center">
                       <MetaLabel className="block">Price</MetaLabel>
-                      <span className="text-xl font-bold">{course.price}</span>
+                      <span className="text-2xl font-bold">{course.price}</span>
+                      <Meta className="block mt-0.5">One-time payment</Meta>
                     </div>
                     <a
                       href="#"
@@ -209,7 +228,7 @@ const CoursesListPage = () => {
                     >
                       Read review →
                     </Link>
-                    <div className="space-y-1 pt-1">
+                    <div className="space-y-1 pt-1 border-t border-dashed border-border mt-1 pt-3">
                       <div className="flex items-center gap-2">
                         <Check className="h-3.5 w-3.5 shrink-0" />
                         <Meta>30-day money-back</Meta>
