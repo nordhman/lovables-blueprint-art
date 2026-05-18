@@ -84,18 +84,18 @@ const CoursesListPage = () => {
           <H1 className="mt-2">{title}</H1>
           <Lead className="mt-4 max-w-4xl">{intro}</Lead>
           {isAffiliate && (
-            <div className="mt-8 flex items-center gap-3 flex-wrap">
-              <div className="inline-flex items-center gap-2 border-2 border-dashed border-foreground rounded px-3 py-2 bg-background">
-                <Check className="h-4 w-4" />
-                <MetaLabel className="text-foreground">{affiliateCourses.length} courses tested</MetaLabel>
+            <div className="mt-8 flex items-center gap-x-8 gap-y-3 flex-wrap">
+              <div className="flex items-center gap-2">
+                <Check className="h-5 w-5" strokeWidth={2.5} />
+                <span className="font-semibold text-sm">{affiliateCourses.length} courses tested</span>
               </div>
-              <div className="inline-flex items-center gap-2 border-2 border-dashed border-foreground rounded px-3 py-2 bg-background">
-                <Check className="h-4 w-4" />
-                <MetaLabel className="text-foreground">Independent reviews</MetaLabel>
+              <div className="flex items-center gap-2">
+                <Check className="h-5 w-5" strokeWidth={2.5} />
+                <span className="font-semibold text-sm">Independent reviews</span>
               </div>
-              <div className="inline-flex items-center gap-2 border-2 border-dashed border-foreground rounded px-3 py-2 bg-background">
-                <Check className="h-4 w-4" />
-                <MetaLabel className="text-foreground">Updated 2026</MetaLabel>
+              <div className="flex items-center gap-2">
+                <Check className="h-5 w-5" strokeWidth={2.5} />
+                <span className="font-semibold text-sm">Updated 2026</span>
               </div>
             </div>
           )}
