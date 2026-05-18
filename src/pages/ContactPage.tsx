@@ -1,11 +1,12 @@
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
 import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
+import { Eyebrow, H1, Lead, MetaLabel } from "@/components/wireframe/Typography";
 
 const ContactPage = () => (
   <div className="container mx-auto px-4 py-12 max-w-2xl">
-    <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Contact</span>
-    <h1 className="text-3xl md:text-4xl font-bold mt-2">Get in Touch</h1>
-    <p className="text-muted-foreground mt-2">Have questions, suggestions, or want to collaborate? Fill out the form below.</p>
+    <Eyebrow>Contact</Eyebrow>
+    <H1 className="mt-2">Get in Touch</H1>
+    <Lead className="mt-2">Have questions, suggestions, or want to collaborate? Fill out the form below.</Lead>
 
     <WireframeCard className="mt-8 p-6">
       <div className="space-y-6">
