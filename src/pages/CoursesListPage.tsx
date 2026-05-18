@@ -113,6 +113,12 @@ const CoursesListPage = () => {
                   <div className="flex md:flex-col items-center md:items-start gap-2">
                     <MetaLabel>Rank</MetaLabel>
                     <span className="text-4xl font-bold leading-none">#{idx + 1}</span>
+                    {course.meta && (
+                      <div className="mt-3 hidden md:block">
+                        <MetaLabel>Best for</MetaLabel>
+                        <p className="text-sm mt-1">{course.meta.bestFor}</p>
+                      </div>
+                    )}
                   </div>
 
                   {/* Image */}
