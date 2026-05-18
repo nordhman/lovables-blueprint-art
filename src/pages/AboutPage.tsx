@@ -22,7 +22,7 @@ const AboutPage = () => (
 
     <section className="mt-16">
       <WireframeCard className="p-8">
-        <h2 className="text-xl font-bold">About the Blog</h2>
+        <H2>About the Blog</H2>
         <p className="text-muted-foreground mt-3">
           Affiliate Tour was created to fill a gap in the affiliate marketing space. We offer:
         </p>
