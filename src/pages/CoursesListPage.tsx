@@ -8,24 +8,30 @@ import { Badge } from "@/components/ui/badge";
 import { Star, Check, ExternalLink } from "lucide-react";
 
 // Wireframe-only enrichment for affiliate (premium) courses
-const affiliateMeta: Record<string, { rating: number; reviews: number; bestFor: string; pros: string[] }> = {
+const affiliateMeta: Record<string, { rating: number; reviews: number; bestFor: string; tagline: string; pros: string[]; bottomLine: string }> = {
   "authority-hacker-pro": {
     rating: 4.9,
     reviews: 1280,
     bestFor: "Building authority sites",
-    pros: ["Step-by-step system", "Active community", "Lifetime updates", "Proven case studies"],
+    tagline: "The most complete system for building authority sites that scale.",
+    pros: ["Step-by-step system", "Active community", "Lifetime updates"],
+    bottomLine: "If you're serious about a long-term content business, this is the safest bet.",
   },
   "affiliate-lab": {
     rating: 4.8,
     reviews: 940,
     bestFor: "SEO-driven affiliate sites",
-    pros: ["SEO-first approach", "Site flipping playbook", "Private community", "Ranking templates"],
+    tagline: "SEO-first playbook for ranking and flipping niche sites.",
+    pros: ["SEO-first approach", "Site flipping playbook", "Ranking templates"],
+    bottomLine: "Best pick if your strategy hinges on organic search traffic.",
   },
   "fat-stacks-bundle": {
     rating: 4.6,
     reviews: 610,
     bestFor: "Display-ad niche sites",
-    pros: ["Niche selection guide", "Content production system", "Ad optimization", "Beginner friendly"],
+    tagline: "Niche-site fundamentals built around display-ad revenue.",
+    pros: ["Niche selection guide", "Content production system", "Beginner friendly"],
+    bottomLine: "Great starting point for ad-revenue sites on a smaller budget.",
   },
 };
 
