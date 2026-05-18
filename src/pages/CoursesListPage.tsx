@@ -189,7 +189,6 @@ const CoursesListPage = () => {
                       <div className="mt-1.5">
                         <Meta>
                           {course.modules} learning modules
-                          {course.partner && ` · via ${course.partner}`}
                           {` · ${course.price}`}
                         </Meta>
                       </div>
