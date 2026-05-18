@@ -184,12 +184,12 @@ const CoursesListPage = () => {
                     >
                       Visit Course <ExternalLink className="h-4 w-4" />
                     </a>
-                    <WireframeCTA
-                      label="Read Review →"
+                    <Link
                       to={`/courses/${course.slug}/review`}
-                      variant="secondary"
-                      className="w-full"
-                    />
+                      className="text-center text-sm underline underline-offset-4 hover:no-underline"
+                    >
+                      Read review →
+                    </Link>
                     <div className="space-y-1 pt-1">
                       <div className="flex items-center gap-2">
                         <Check className="h-3.5 w-3.5 shrink-0" />
