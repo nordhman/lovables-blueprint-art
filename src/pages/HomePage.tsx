@@ -3,7 +3,7 @@ import { PlaceholderImage } from "@/components/wireframe/PlaceholderImage";
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
 import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
 import { blogPosts } from "@/data/mockData";
-import { BookOpen, Wrench, Globe, FileText, Mail } from "lucide-react";
+import { BookOpen, Wrench, Globe, Mail } from "lucide-react";
 
 const stats = [
   { value: "165+", label: "Total Reviews" },
