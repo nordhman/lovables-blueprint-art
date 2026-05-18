@@ -13,8 +13,7 @@ const CoursesPage = () => {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
-              <Eyebrow>Learn Affiliate Marketing</Eyebrow>
-              <H1 className="mt-4">Ready to Learn Affiliate Marketing?</H1>
+              <H1>Ready to Learn Affiliate Marketing?</H1>
               <Lead className="mt-4">We'll take you from beginner to pro, covering all the essential tools and strategies you need.</Lead>
             </div>
             <PlaceholderImage label="Hero illustration" aspectRatio="video" />
