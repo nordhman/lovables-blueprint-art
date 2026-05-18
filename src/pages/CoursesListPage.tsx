@@ -135,7 +135,7 @@ const CoursesListPage = () => {
         <section className={!typeFilter ? "mt-16" : ""}>
           <H2 className="mb-8">Ranked Premium Courses</H2>
 
-          <div className="space-y-4">
+          <div className="space-y-6">
             {affiliateCourses.map((course, idx) => {
               const contentBenefits = course.meta?.pros ?? [];
               const trustItems = ["30-day money-back", "Lifetime access", `${course.modules} learning modules`];
