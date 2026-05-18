@@ -2,6 +2,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import { PlaceholderImage } from "@/components/wireframe/PlaceholderImage";
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
 import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
+import { Eyebrow, H1, H2, H3, H4, Lead, BodySmall, Meta, MetaLabel } from "@/components/wireframe/Typography";
 import { courses } from "@/data/mockData";
 import { Badge } from "@/components/ui/badge";
 import { Star, Check, ExternalLink } from "lucide-react";
@@ -36,7 +37,7 @@ const Stars = ({ rating }: { rating: number }) => (
         className={`h-4 w-4 ${i < Math.round(rating) ? "fill-foreground text-foreground" : "text-muted-foreground"}`}
       />
     ))}
-    <span className="font-mono text-xs text-muted-foreground ml-1">{rating.toFixed(1)}</span>
+    <Meta className="ml-1">{rating.toFixed(1)}</Meta>
   </div>
 );
 
@@ -67,14 +68,14 @@ const CoursesListPage = () => {
 
   return (
     <div className="container mx-auto px-4 py-12">
-      <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Learning</span>
-      <h1 className="text-3xl md:text-4xl font-bold mt-2">{title}</h1>
-      <p className="text-muted-foreground mt-2 max-w-2xl">{intro}</p>
+      <Eyebrow>Learning</Eyebrow>
+      <H1 className="mt-2">{title}</H1>
+      <Lead className="mt-2 max-w-2xl">{intro}</Lead>
 
       {(!typeFilter || isOwn) && (
         <section className="mt-12">
           <div className="flex items-center gap-3 mb-6">
-            <h2 className="text-xl font-bold">My Courses</h2>
+            <H2>My Courses</H2>
             <Badge variant="outline" className="font-mono text-xs border-dashed">Own</Badge>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
@@ -84,11 +85,11 @@ const CoursesListPage = () => {
                   <PlaceholderImage label="Course image" aspectRatio="video" />
                   <div className="mt-3">
                     <div className="flex items-center gap-2">
-                      <span className="font-mono text-xs text-muted-foreground">{course.level}</span>
-                      <span className="font-mono text-xs text-muted-foreground">· {course.modules} modules</span>
+                      <Meta>{course.level}</Meta>
+                      <Meta>· {course.modules} modules</Meta>
                     </div>
-                    <h3 className="font-semibold mt-1">{course.title}</h3>
-                    <p className="text-sm text-muted-foreground mt-1">{course.description}</p>
+                    <H4 className="mt-1">{course.title}</H4>
+                    <BodySmall className="mt-1">{course.description}</BodySmall>
                     <span className="inline-block mt-3 font-mono text-xs border border-dashed border-border rounded px-2 py-1">{course.price}</span>
                   </div>
                 </WireframeCard>
@@ -101,9 +102,9 @@ const CoursesListPage = () => {
       {(!typeFilter || isAffiliate) && (
         <section className="mt-12">
           <div className="flex items-center gap-3 mb-6">
-            <h2 className="text-xl font-bold">Ranked Premium Courses</h2>
+            <H2>Ranked Premium Courses</H2>
             <Badge variant="outline" className="font-mono text-xs border-dashed">Affiliate</Badge>
-            <span className="font-mono text-xs text-muted-foreground">Updated 2026</span>
+            <Meta>Updated 2026</Meta>
           </div>
 
           <div className="space-y-6">
@@ -112,7 +113,7 @@ const CoursesListPage = () => {
                 <div className="grid md:grid-cols-[80px_260px_1fr_220px] gap-6 items-start">
                   {/* Rank */}
                   <div className="flex md:flex-col items-center md:items-start gap-2">
-                    <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Rank</span>
+                    <MetaLabel>Rank</MetaLabel>
                     <span className="text-4xl font-bold leading-none">#{idx + 1}</span>
                   </div>
 
@@ -122,31 +123,29 @@ const CoursesListPage = () => {
                   {/* Content */}
                   <div>
                     <div className="flex items-center gap-2 flex-wrap">
-                      <span className="font-mono text-xs text-muted-foreground">{course.level}</span>
-                      <span className="font-mono text-xs text-muted-foreground">· {course.modules} modules</span>
+                      <Meta>{course.level}</Meta>
+                      <Meta>· {course.modules} modules</Meta>
                       {course.partner && (
-                        <span className="font-mono text-xs text-muted-foreground">· via {course.partner}</span>
+                        <Meta>· via {course.partner}</Meta>
                       )}
                     </div>
-                    <h3 className="text-lg md:text-xl font-bold mt-1">{course.title}</h3>
+                    <H3 className="mt-1">{course.title}</H3>
                     {course.meta && (
                       <div className="mt-2 flex items-center gap-3 flex-wrap">
                         <Stars rating={course.meta.rating} />
-                        <span className="font-mono text-xs text-muted-foreground">
+                        <Meta>
                           ({course.meta.reviews.toLocaleString()} reviews)
-                        </span>
+                        </Meta>
                         <Badge variant="outline" className="font-mono text-xs border-dashed">
                           Best for: {course.meta.bestFor}
                         </Badge>
                       </div>
                     )}
-                    <p className="text-sm text-muted-foreground mt-3">{course.description}</p>
+                    <BodySmall className="mt-3">{course.description}</BodySmall>
 
                     {course.meta && (
                       <div className="mt-4">
-                        <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">
-                          Key benefits
-                        </span>
+                        <MetaLabel>Key benefits</MetaLabel>
                         <ul className="mt-2 grid sm:grid-cols-2 gap-x-6 gap-y-2">
                           {course.meta.pros.map((p) => (
                             <li key={p} className="flex items-start gap-2">
@@ -162,9 +161,7 @@ const CoursesListPage = () => {
                   {/* Actions */}
                   <div className="flex flex-col gap-3 md:items-stretch">
                     <div className="border-2 border-dashed border-border rounded p-3 text-center">
-                      <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider block">
-                        Price
-                      </span>
+                      <MetaLabel className="block">Price</MetaLabel>
                       <span className="text-xl font-bold">{course.price}</span>
                     </div>
                     <a

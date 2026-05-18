@@ -1,17 +1,18 @@
 import { PlaceholderImage } from "@/components/wireframe/PlaceholderImage";
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
 import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
+import { Eyebrow, H1, H2, H4, Lead } from "@/components/wireframe/Typography";
 import { CheckCircle } from "lucide-react";
 
 const AboutPage = () => (
   <div className="container mx-auto px-4 py-12">
     <div className="grid md:grid-cols-2 gap-12 items-center">
       <div>
-        <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">About</span>
-        <h1 className="text-3xl md:text-4xl font-bold mt-2">About Affiliate Tour</h1>
-        <p className="text-muted-foreground mt-4 text-lg">
+        <Eyebrow>About</Eyebrow>
+        <H1 className="mt-2">About Affiliate Tour</H1>
+        <Lead className="mt-4">
           Affiliate Tour helps you navigate the world of affiliate marketing with honest reviews, education, and proven strategies.
-        </p>
+        </Lead>
         <div className="mt-6">
           <WireframeCTA label="Contact Us" to="/contact" />
         </div>
@@ -21,7 +22,7 @@ const AboutPage = () => (
 
     <section className="mt-16">
       <WireframeCard className="p-8">
-        <h2 className="text-xl font-bold">About the Blog</h2>
+        <H2>About the Blog</H2>
         <p className="text-muted-foreground mt-3">
           Affiliate Tour was created to fill a gap in the affiliate marketing space. We offer:
         </p>
@@ -45,8 +46,8 @@ const AboutPage = () => (
       <div className="grid md:grid-cols-[200px_1fr] gap-8 items-start">
         <PlaceholderImage label="Profile photo" aspectRatio="square" />
         <div>
-          <h2 className="text-xl font-bold">About the Creator</h2>
-          <h3 className="text-lg font-semibold mt-2">Daniel</h3>
+          <H2>About the Creator</H2>
+          <H4 className="mt-2">Daniel</H4>
           <p className="text-muted-foreground mt-2">
             Daniel has been working with affiliate marketing since 2015. With experience from both Nordic and international markets, he shares his best strategies and lessons learned.
           </p>

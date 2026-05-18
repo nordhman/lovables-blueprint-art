@@ -1,4 +1,5 @@
 import { useParams, Link } from "react-router-dom";
+import { Eyebrow, H1, H2 } from "@/components/wireframe/Typography";
 import { PlaceholderImage } from "@/components/wireframe/PlaceholderImage";
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
 import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
@@ -35,7 +36,7 @@ const CourseDetailPage = () => {
             </Badge>
             <span className="font-mono text-xs text-muted-foreground">{course.level}</span>
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold">{course.title}</h1>
+          <H1>{course.title}</H1>
           <p className="text-muted-foreground mt-4 text-lg">{course.description}</p>
           {course.partner && <p className="font-mono text-xs text-muted-foreground mt-2">Via {course.partner}</p>}
           <div className="flex items-center gap-4 mt-6">
@@ -47,7 +48,7 @@ const CourseDetailPage = () => {
       </div>
 
       <section className="mt-16">
-        <h2 className="text-xl font-bold mb-6">Course Content</h2>
+        <H2 className="mb-6">Course Content</H2>
         <div className="space-y-2">
           {outlineItems.map((item, i) => (
             <WireframeCard key={i} className="flex items-center gap-3 py-3">
@@ -60,7 +61,7 @@ const CourseDetailPage = () => {
 
       <section className="mt-16">
         <WireframeCard className="text-center py-8">
-          <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Related</span>
+          <Eyebrow>Related</Eyebrow>
           <h3 className="text-lg font-bold mt-2">Want to compare courses?</h3>
           <p className="text-sm text-muted-foreground mt-1">Check out our comparison of the best affiliate marketing courses.</p>
           <div className="mt-4">

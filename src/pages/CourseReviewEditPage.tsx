@@ -1,4 +1,5 @@
 import { useParams, Link } from "react-router-dom";
+import { H1 } from "@/components/wireframe/Typography";
 import { useState } from "react";
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
 import { SourceBadge } from "@/components/wireframe/SourceBadge";
@@ -85,7 +86,7 @@ const CourseReviewEditPage = () => {
         </Link>
       </div>
 
-      <h1 className="text-3xl md:text-4xl font-bold">Edit review: {course.title}</h1>
+      <H1>Edit review: {course.title}</H1>
       <p className="text-muted-foreground mt-2">
         Step 1: paste source URLs · Step 2: auto-fill via scraper · Step 3: write your own take
       </p>

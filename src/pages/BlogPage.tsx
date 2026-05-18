@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { PlaceholderImage } from "@/components/wireframe/PlaceholderImage";
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
+import { Eyebrow, H1, H4, Lead, BodySmall, Meta } from "@/components/wireframe/Typography";
 import { blogPosts, categories } from "@/data/mockData";
 
 const BlogPage = () => {
@@ -10,9 +11,9 @@ const BlogPage = () => {
 
   return (
     <div className="container mx-auto px-4 py-12">
-      <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Insights</span>
-      <h1 className="text-3xl md:text-4xl font-bold mt-2">Blog</h1>
-      <p className="text-muted-foreground mt-2 max-w-2xl">Tips, strategies, and guides for affiliate marketing.</p>
+      <Eyebrow>Insights</Eyebrow>
+      <H1 className="mt-2">Blog</H1>
+      <Lead className="mt-2 max-w-2xl">Tips, strategies, and guides for affiliate marketing.</Lead>
 
       <div className="flex flex-wrap gap-2 mt-8">
         {categories.map((cat) => (
@@ -33,11 +34,11 @@ const BlogPage = () => {
               <PlaceholderImage label="Featured image" aspectRatio="video" />
               <div className="mt-3">
                 <div className="flex items-center gap-2">
-                  <span className="font-mono text-xs text-muted-foreground">{post.category}</span>
-                  <span className="font-mono text-xs text-muted-foreground">· {post.date}</span>
+                  <Meta>{post.category}</Meta>
+                  <Meta>· {post.date}</Meta>
                 </div>
-                <h3 className="font-semibold mt-1">{post.title}</h3>
-                <p className="text-sm text-muted-foreground mt-1 line-clamp-2">{post.excerpt}</p>
+                <H4 className="mt-1">{post.title}</H4>
+                <BodySmall className="mt-1 line-clamp-2">{post.excerpt}</BodySmall>
               </div>
             </WireframeCard>
           </Link>

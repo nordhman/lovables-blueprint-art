@@ -1,14 +1,9 @@
 import { PlaceholderImage } from "@/components/wireframe/PlaceholderImage";
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
 import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
+import { Eyebrow, H1, H2, H3, Lead, Meta, MetaLabel } from "@/components/wireframe/Typography";
 import { Badge } from "@/components/ui/badge";
 import { Check, Star } from "lucide-react";
-
-const Eyebrow = ({ children }: { children: React.ReactNode }) => (
-  <span className="inline-block font-mono text-xs text-muted-foreground uppercase tracking-wider border-2 border-dashed border-border rounded px-2 py-1">
-    {children}
-  </span>
-);
 
 const CoursesPage = () => {
   return (
@@ -19,8 +14,8 @@ const CoursesPage = () => {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
               <Eyebrow>Learn Affiliate Marketing</Eyebrow>
-              <h1 className="text-4xl md:text-5xl font-bold leading-tight mt-4">Ready to Learn Affiliate Marketing?</h1>
-              <p className="text-muted-foreground mt-4 text-lg">We'll take you from beginner to pro, covering all the essential tools and strategies you need.</p>
+              <H1 className="mt-4">Ready to Learn Affiliate Marketing?</H1>
+              <Lead className="mt-4">We'll take you from beginner to pro, covering all the essential tools and strategies you need.</Lead>
             </div>
             <PlaceholderImage label="Hero illustration" aspectRatio="video" />
           </div>
@@ -30,7 +25,7 @@ const CoursesPage = () => {
       {/* How to Get Started */}
       <section className="container mx-auto px-4 py-16">
         <Eyebrow>Get Started</Eyebrow>
-        <h2 className="text-2xl font-bold mt-2 mb-2">How to Get Started with Affiliate Marketing — Two Proven Paths</h2>
+        <H2 className="mt-2 mb-2">How to Get Started with Affiliate Marketing — Two Proven Paths</H2>
         <p className="text-muted-foreground mb-8">Start free with my own guide, or fast-track your growth with the premium courses I personally recommend.</p>
 
         {/* Option 1 — Free, exploratory */}
@@ -42,12 +37,12 @@ const CoursesPage = () => {
               <div>
                 <div className="flex items-center gap-3 flex-wrap">
                   <Badge variant="outline" className="font-mono text-xs border-dashed">Option 1</Badge>
-                  <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Just exploring? Start here free</span>
+                  <MetaLabel>Just exploring? Start here free</MetaLabel>
                 </div>
 
-                <h3 className="text-lg md:text-xl font-bold mt-3 leading-tight">
+                <H3 className="mt-3">
                   My Free Affiliate Marketing Guide, Step-by-Step
-                </h3>
+                </H3>
 
                 <p className="text-muted-foreground mt-3">
                   A beginner-friendly, carefully structured resource at no cost. Build a solid foundation for a successful affiliate business — even if you're starting from scratch.
@@ -70,7 +65,7 @@ const CoursesPage = () => {
 
                 <div className="mt-6 flex flex-wrap items-center gap-4">
                   <WireframeCTA label="Access My Free Guide →" to="/courses/list?type=own" variant="secondary" />
-                  <span className="font-mono text-xs text-muted-foreground">Free · No credit card</span>
+                  <Meta>Free · No credit card</Meta>
                 </div>
               </div>
             </div>
@@ -93,12 +88,12 @@ const CoursesPage = () => {
               <div>
                 <div className="flex items-center gap-3 flex-wrap">
                   <Badge variant="outline" className="font-mono text-xs border-dashed">Option 2</Badge>
-                  <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Premium Path</span>
+                  <MetaLabel>Premium Path</MetaLabel>
                 </div>
 
-                <h3 className="text-lg md:text-xl font-bold mt-3 leading-tight">
+                <H3 className="mt-3">
                   Top-Rated Premium Courses for Serious Beginners
-                </h3>
+                </H3>
 
                 <p className="text-muted-foreground mt-3">
                   My top choice for those ready to invest time in building a business with the help of a professional learning platform. Perfect for those seeking tangible results while laying a strong foundation.
@@ -120,7 +115,7 @@ const CoursesPage = () => {
                 </ul>
 
                 <div className="mt-6 border-l-2 border-dashed border-border pl-4">
-                  <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Why I recommend this</span>
+                  <MetaLabel>Why I recommend this</MetaLabel>
                   <p className="text-sm text-muted-foreground mt-1 italic">
                     "Learning on your own can be overwhelming. These are the courses I personally vetted — the ones I'd take if I started today."
                   </p>
@@ -128,7 +123,7 @@ const CoursesPage = () => {
 
                 <div className="mt-6 flex flex-wrap items-center gap-4">
                   <WireframeCTA label="See Recommended Courses →" to="/courses/list?type=affiliate" />
-                  <span className="font-mono text-xs text-muted-foreground">Trusted picks · Updated 2026</span>
+                  <Meta>Trusted picks · Updated 2026</Meta>
                 </div>
               </div>
             </div>

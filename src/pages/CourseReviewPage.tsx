@@ -1,4 +1,5 @@
 import { useParams, Link } from "react-router-dom";
+import { Eyebrow, H1, H2 } from "@/components/wireframe/Typography";
 import { PlaceholderImage } from "@/components/wireframe/PlaceholderImage";
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
 import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
@@ -110,7 +111,7 @@ const SectionHeader = ({
   source: { type: "auto" | "manual"; label: string };
 }) => (
   <div className="flex items-center justify-between gap-3 flex-wrap mb-4">
-    <h2 className="text-2xl font-bold">{title}</h2>
+    <H2>{title}</H2>
     <SourceBadge type={source.type} label={source.label} />
   </div>
 );
@@ -167,10 +168,10 @@ const CourseReviewPage = () => {
       {/* HERO */}
       <section className="grid md:grid-cols-[1fr_320px] gap-8 items-start">
         <div>
-          <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Buyer's guide</span>
-          <h1 className="text-3xl md:text-5xl font-bold mt-2 leading-tight">
+          <Eyebrow>Buyer's guide</Eyebrow>
+          <H1 className="mt-2">
             {course.title} Review ({new Date().getFullYear()})
-          </h1>
+          </H1>
           <p className="text-lg text-muted-foreground mt-4">{m.intro}</p>
           <div className="mt-3">
             <SourceBadge type="manual" label="your intro" />
@@ -374,7 +375,7 @@ const CourseReviewPage = () => {
       {/* Pricing CTA */}
       <section className="mt-12">
         <WireframeCard className="p-8 text-center">
-          <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Ready to start?</span>
+          <Eyebrow>Ready to start?</Eyebrow>
           <div className="mt-2 text-5xl font-bold">{course.price}</div>
           <p className="text-muted-foreground mt-2">One-time payment · {m.refundDays}-day money-back guarantee</p>
           <div className="mt-6 flex items-center justify-center">
