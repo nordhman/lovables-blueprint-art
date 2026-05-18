@@ -85,11 +85,11 @@ const CoursesListPage = () => {
                   <PlaceholderImage label="Course image" aspectRatio="video" />
                   <div className="mt-3">
                     <div className="flex items-center gap-2">
-                      <span className="font-mono text-xs text-muted-foreground">{course.level}</span>
-                      <span className="font-mono text-xs text-muted-foreground">· {course.modules} modules</span>
+                      <Meta>{course.level}</Meta>
+                      <Meta>· {course.modules} modules</Meta>
                     </div>
-                    <h3 className="font-semibold mt-1">{course.title}</h3>
-                    <p className="text-sm text-muted-foreground mt-1">{course.description}</p>
+                    <H4 className="mt-1">{course.title}</H4>
+                    <BodySmall className="mt-1">{course.description}</BodySmall>
                     <span className="inline-block mt-3 font-mono text-xs border border-dashed border-border rounded px-2 py-1">{course.price}</span>
                   </div>
                 </WireframeCard>
