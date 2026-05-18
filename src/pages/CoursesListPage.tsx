@@ -133,7 +133,7 @@ const CoursesListPage = () => {
 
       {(!typeFilter || isAffiliate) && (
         <section className={!typeFilter ? "mt-16" : ""}>
-          <H2 className="mb-8">Ranked Premium Courses</H2>
+          <H2 className="mb-6">Ranked Premium Courses</H2>
 
           <div className="space-y-6">
             {affiliateCourses.map((course, idx) => {
