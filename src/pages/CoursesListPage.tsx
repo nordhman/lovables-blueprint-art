@@ -155,8 +155,8 @@ const CoursesListPage = () => {
                   )}
                   <div className="grid md:grid-cols-[56px_200px_1fr_180px] gap-6 items-stretch">
                     {/* Rank */}
-                    <div className="flex md:flex-col items-center md:items-start gap-1">
-                      <MetaLabel>Rank</MetaLabel>
+                    <div className="flex md:flex-col items-center md:items-start gap-2">
+                      <MetaLabel className="leading-none">Rank</MetaLabel>
                       <span className="text-4xl font-bold leading-none">#{idx + 1}</span>
                     </div>
 
@@ -175,8 +175,8 @@ const CoursesListPage = () => {
                     </div>
 
                     {/* Content */}
-                    <div className="min-w-0 py-1">
-                      <H3 className="!mb-0">{course.title}</H3>
+                    <div className="min-w-0">
+                      <H3 className="!mb-0 leading-none">{course.title}</H3>
 
                       {course.meta && (
                         <p className="mt-3 text-sm italic text-muted-foreground leading-relaxed">
