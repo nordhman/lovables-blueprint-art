@@ -25,8 +25,8 @@ const ToolsPage = () => {
                       {tool.name.charAt(0)}
                     </div>
                     <div>
-                      <h3 className="font-semibold text-sm">{tool.name}</h3>
-                      <span className="font-mono text-xs text-muted-foreground">{tool.price}</span>
+                      <H5>{tool.name}</H5>
+                      <Meta>{tool.price}</Meta>
                     </div>
                   </div>
                   <div className="flex gap-0.5">
@@ -35,7 +35,7 @@ const ToolsPage = () => {
                     ))}
                   </div>
                 </div>
-                <p className="text-sm text-muted-foreground mt-3">{tool.description}</p>
+                <BodySmall className="mt-3">{tool.description}</BodySmall>
                 <div className="mt-4">
                   <WireframeCTA label="Try Tool →" to="#" variant="secondary" className="text-xs py-2 px-4" />
                 </div>
