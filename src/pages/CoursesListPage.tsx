@@ -216,6 +216,7 @@ const CoursesListPage = () => {
           <WireframeCTA label="See Best Courses 2026 →" to="/best-affiliate-courses" variant="secondary" />
         </div>
       )}
+      </div>
     </div>
   );
 };
