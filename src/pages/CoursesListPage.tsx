@@ -165,13 +165,10 @@ const CoursesListPage = () => {
 
                     {/* Content */}
                     <div className="min-w-0">
-                      <div className="flex items-start justify-between gap-3">
-                        <H3 className="!mb-0">{course.title}</H3>
-                        <span className="text-base font-bold whitespace-nowrap">{course.price}</span>
-                      </div>
+                      <H3 className="!mb-0">{course.title}</H3>
 
                       {course.meta && (
-                        <p className="mt-1 text-sm italic text-muted-foreground">
+                        <p className="mt-1.5 text-sm italic text-muted-foreground">
                           {course.meta.tagline}{" "}
                           <Link
                             to={`/courses/${course.slug}/review`}
@@ -183,23 +180,19 @@ const CoursesListPage = () => {
                       )}
 
                       {course.meta && (
-                        <div className="mt-2 flex items-center gap-2 flex-wrap">
+                        <div className="mt-3 flex items-center gap-2 flex-wrap">
                           <Stars rating={course.meta.trustpilot} />
                           <Meta>{course.meta.reviews.toLocaleString()} Trustpilot reviews</Meta>
                         </div>
                       )}
 
-                      <div className="mt-1">
-                        <Meta>{course.modules} learning modules{course.partner && ` · via ${course.partner}`}</Meta>
+                      <div className="mt-1.5">
+                        <Meta>
+                          {course.modules} learning modules
+                          {course.partner && ` · via ${course.partner}`}
+                          {` · ${course.price}`}
+                        </Meta>
                       </div>
-
-                      {course.meta && (
-                        <p className="mt-2 text-sm">
-                          <MetaLabel>Best for:</MetaLabel>{" "}
-                          <span>{course.meta.bestFor}.</span>{" "}
-                          <span className="italic text-muted-foreground">{course.meta.bottomLine}</span>
-                        </p>
-                      )}
 
                       {allBenefits.length > 0 && (
                         <ul className="mt-3 grid sm:grid-cols-3 gap-x-4 gap-y-1.5">
@@ -210,6 +203,16 @@ const CoursesListPage = () => {
                             </li>
                           ))}
                         </ul>
+                      )}
+
+                      {course.meta && (
+                        <div className="mt-4 border-l-2 border-dashed border-border pl-3 py-1">
+                          <MetaLabel className="block">Best for</MetaLabel>
+                          <p className="mt-0.5 text-sm">
+                            <span>{course.meta.bestFor}.</span>{" "}
+                            <span className="italic text-muted-foreground">{course.meta.bottomLine}</span>
+                          </p>
+                        </div>
                       )}
                     </div>
 
