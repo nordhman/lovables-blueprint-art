@@ -67,9 +67,16 @@ const CoursesListPage = () => {
     : "Curated courses for affiliate marketing – our own and recommended.";
 
   return (
-    <div className="container mx-auto px-4 py-12">
-      <H1>{title}</H1>
-      <Lead className="mt-4 max-w-2xl">{intro}</Lead>
+    <div>
+      {/* Compact hero */}
+      <section className="border-b-2 border-dashed border-border bg-muted/30 py-10">
+        <div className="container mx-auto px-4">
+          <H1>{title}</H1>
+          <Lead className="mt-3 max-w-2xl">{intro}</Lead>
+        </div>
+      </section>
+
+      <div className="container mx-auto px-4 py-12">
 
       {(!typeFilter || isOwn) && (
         <section className="mt-12">
