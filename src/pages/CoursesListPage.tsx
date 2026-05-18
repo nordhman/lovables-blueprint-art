@@ -179,11 +179,12 @@ const CoursesListPage = () => {
                       <H3 className="!mb-0">{course.title}</H3>
 
                       {course.meta && (
-                        <p className="mt-3 text-sm italic text-muted-foreground">
-                          {course.meta.tagline}{" "}
+                        <p className="mt-3 text-sm italic text-muted-foreground leading-relaxed">
+                          {course.meta.tagline}
+                          <br />
                           <Link
                             to={`/courses/${course.slug}/review`}
-                            className="not-italic underline underline-offset-4 hover:no-underline text-foreground whitespace-nowrap"
+                            className="not-italic underline underline-offset-4 hover:no-underline text-foreground"
                           >
                             Read full review →
                           </Link>
@@ -198,20 +199,20 @@ const CoursesListPage = () => {
                       )}
 
                       {allBenefits.length > 0 && (
-                        <ul className="mt-5 grid sm:grid-cols-3 gap-x-4 gap-y-2">
+                        <ul className="mt-5 grid sm:grid-cols-3 gap-x-4 gap-y-2.5">
                           {allBenefits.map((p) => (
-                            <li key={p} className="flex items-start gap-1.5">
+                            <li key={p} className="flex items-start gap-2">
                               <Check className="h-3.5 w-3.5 text-foreground shrink-0 mt-0.5" />
-                              <span className="text-xs">{p}</span>
+                              <span className="text-sm leading-snug">{p}</span>
                             </li>
                           ))}
                         </ul>
                       )}
 
                       {course.meta && (
-                        <div className="mt-6 border-l-2 border-dashed border-border pl-3 py-1">
+                        <div className="mt-6 border-l-2 border-dashed border-border pl-4 py-1">
                           <MetaLabel className="block">Best for</MetaLabel>
-                          <p className="mt-1 text-sm">
+                          <p className="mt-1.5 text-sm leading-relaxed">
                             <span>{course.meta.bestFor}.</span>{" "}
                             <span className="italic text-muted-foreground">{course.meta.bottomLine}</span>
                           </p>
