@@ -137,9 +137,8 @@ const CoursesListPage = () => {
 
           <div className="space-y-6">
             {affiliateCourses.map((course, idx) => {
-              const allBenefits = course.meta
-                ? [`${course.modules} learning modules`, ...course.meta.pros, "30-day money-back", "Lifetime access"]
-                : [];
+              const contentBenefits = course.meta?.pros ?? [];
+              const trustItems = ["30-day money-back", "Lifetime access", `${course.modules} learning modules`];
               return (
                 <WireframeCard
                   key={course.slug}
@@ -196,9 +195,9 @@ const CoursesListPage = () => {
                         </div>
                       )}
 
-                      {allBenefits.length > 0 && (
+                      {contentBenefits.length > 0 && (
                         <ul className="mt-5 grid sm:grid-cols-3 gap-x-4 gap-y-2.5">
-                          {allBenefits.map((p) => (
+                          {contentBenefits.map((p) => (
                             <li key={p} className="flex items-start gap-2">
                               <Check className="h-3.5 w-3.5 text-foreground shrink-0 mt-0.5" />
                               <span className="text-sm leading-snug">{p}</span>
@@ -219,7 +218,11 @@ const CoursesListPage = () => {
                     </div>
 
                     {/* Conversion column */}
-                    <div className="flex flex-col items-center justify-center gap-3 border-l border-dashed border-border pl-5">
+                    <div className="flex flex-col justify-center gap-3 border-l border-dashed border-border pl-5">
+                      <div className="text-center">
+                        <MetaLabel className="block">Price</MetaLabel>
+                        <div className="mt-1 text-xl font-bold leading-none">{course.price}</div>
+                      </div>
 
                       <a
                         href="#"
@@ -229,6 +232,15 @@ const CoursesListPage = () => {
                       >
                         Visit Course <ExternalLink className="h-4 w-4" />
                       </a>
+
+                      <ul className="space-y-1.5">
+                        {trustItems.map((t) => (
+                          <li key={t} className="flex items-start gap-2">
+                            <Check className="h-3.5 w-3.5 text-foreground shrink-0 mt-0.5" />
+                            <span className="text-xs leading-snug">{t}</span>
+                          </li>
+                        ))}
+                      </ul>
 
                       <span className="font-mono text-[10px] text-muted-foreground text-center leading-snug">
                         Affiliate link · We may earn a commission
