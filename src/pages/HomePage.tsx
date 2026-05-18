@@ -40,7 +40,6 @@ const HomePage = () => (
           <p className="text-muted-foreground mt-4 text-lg">Courses, tools, and strategies to build profitable affiliate sites. Whether you're a beginner or experienced.</p>
           <div className="flex flex-wrap gap-4 mt-8">
             <WireframeCTA label="Get Started" to="/courses" />
-            <WireframeCTA label="Browse Courses →" to="/courses" variant="secondary" />
           </div>
         </div>
         <PlaceholderImage label="Hero image" className="w-full" />
