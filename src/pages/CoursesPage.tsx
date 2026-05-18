@@ -45,7 +45,7 @@ const CoursesPage = () => {
                   <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Just exploring? Start here free</span>
                 </div>
 
-                <h3 className="text-xl md:text-2xl font-bold mt-3 leading-tight">
+                <h3 className="text-lg md:text-xl font-bold mt-3 leading-tight">
                   My Free Affiliate Marketing Guide, Step-by-Step
                 </h3>
 
