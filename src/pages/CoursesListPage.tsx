@@ -214,7 +214,7 @@ const CoursesListPage = () => {
                           <MetaLabel className="block">Best for</MetaLabel>
                           <p className="mt-1.5 text-sm leading-relaxed">
                             <span>{course.meta.bestFor}.</span>{" "}
-                            <span className="italic text-muted-foreground">{course.meta.bottomLine}</span>
+                            <span className="text-muted-foreground">{course.meta.bottomLine}</span>
                           </p>
                         </div>
                       )}
