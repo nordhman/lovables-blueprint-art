@@ -184,7 +184,7 @@ const CoursesListPage = () => {
                           <br />
                           <Link
                             to={`/courses/${course.slug}/review`}
-                            className="not-italic underline underline-offset-4 hover:no-underline text-foreground"
+                            className="underline underline-offset-4 hover:no-underline text-foreground"
                           >
                             Read full review →
                           </Link>
