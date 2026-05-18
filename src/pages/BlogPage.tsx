@@ -34,11 +34,11 @@ const BlogPage = () => {
               <PlaceholderImage label="Featured image" aspectRatio="video" />
               <div className="mt-3">
                 <div className="flex items-center gap-2">
-                  <span className="font-mono text-xs text-muted-foreground">{post.category}</span>
-                  <span className="font-mono text-xs text-muted-foreground">· {post.date}</span>
+                  <Meta>{post.category}</Meta>
+                  <Meta>· {post.date}</Meta>
                 </div>
-                <h3 className="font-semibold mt-1">{post.title}</h3>
-                <p className="text-sm text-muted-foreground mt-1 line-clamp-2">{post.excerpt}</p>
+                <H4 className="mt-1">{post.title}</H4>
+                <BodySmall className="mt-1 line-clamp-2">{post.excerpt}</BodySmall>
               </div>
             </WireframeCard>
           </Link>
