@@ -39,7 +39,7 @@ const HomePage = () => (
           <h1 className="text-4xl md:text-5xl font-bold leading-tight">Your Guide to Successful Affiliate Marketing</h1>
           <p className="text-muted-foreground mt-4 text-lg">Courses, tools, and strategies to build profitable affiliate sites. Whether you're a beginner or experienced.</p>
           <div className="flex flex-wrap gap-4 mt-8">
-            <WireframeCTA label="Get Started" to="/courses" />
+            <WireframeCTA label="How to Get Started" to="/courses" />
           </div>
         </div>
         <PlaceholderImage label="Hero image" className="w-full" />
