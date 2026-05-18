@@ -166,25 +166,40 @@ const CoursesListPage = () => {
                     {/* Content */}
                     <div className="min-w-0">
                       <H3>{course.title}</H3>
+
                       {course.meta && (
                         <p className="mt-1 text-sm italic text-muted-foreground">
-                          {course.meta.tagline}{" "}
-                          <Link
-                            to={`/courses/${course.slug}/review`}
-                            className="not-italic underline underline-offset-4 hover:no-underline text-foreground whitespace-nowrap"
-                          >
-                            Read the review →
-                          </Link>
+                          {course.meta.tagline}
                         </p>
                       )}
 
+                      {course.meta && (
+                        <Link
+                          to={`/courses/${course.slug}/review`}
+                          className="mt-1 inline-block text-sm underline underline-offset-4 hover:no-underline text-foreground"
+                        >
+                          Read full review →
+                        </Link>
+                      )}
 
-
-                      <div className="mt-2 flex items-center gap-x-3 gap-y-1 flex-wrap">
-                        <Meta>{course.modules} modules</Meta>
-                        {course.partner && <Meta>· via {course.partner}</Meta>}
-                        {course.meta && <Meta>· Best for: {course.meta.bestFor}</Meta>}
+                      <div className="mt-3">
+                        <Meta>{course.modules} modules{course.partner && ` · via ${course.partner}`}</Meta>
                       </div>
+
+                      {course.meta && (
+                        <div className="mt-2 flex items-center gap-2 flex-wrap">
+                          <Stars rating={course.meta.trustpilot} />
+                          <Meta>{course.meta.trustpilot.toFixed(1)} · {course.meta.reviews.toLocaleString()} Trustpilot reviews</Meta>
+                        </div>
+                      )}
+
+                      {course.meta && (
+                        <p className="mt-3 text-sm">
+                          <MetaLabel>Best for:</MetaLabel>{" "}
+                          <span className="italic text-muted-foreground">{course.meta.bottomLine}</span>{" "}
+                          <span className="not-italic">— {course.meta.bestFor}.</span>
+                        </p>
+                      )}
 
                       {allBenefits.length > 0 && (
                         <ul className="mt-4 grid sm:grid-cols-2 gap-x-6 gap-y-2">
