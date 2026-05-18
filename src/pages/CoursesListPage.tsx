@@ -254,7 +254,8 @@ const CoursesListPage = () => {
                       </span>
                     </div>
                   </div>
-                </WireframeCard>
+                  </WireframeCard>
+                </div>
               );
             })}
           </div>
