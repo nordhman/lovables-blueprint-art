@@ -55,9 +55,9 @@ const BlogPostPage = () => {
 
       {post.relatedLanding && (
         <WireframeCard className="mt-12 text-center py-8 bg-muted">
-          <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Related Resource</span>
-          <h3 className="text-lg font-bold mt-2">Want to learn more?</h3>
-          <p className="text-sm text-muted-foreground mt-1">Check out our dedicated comparison page.</p>
+          <MetaLabel>Related Resource</MetaLabel>
+          <H3 className="mt-2">Want to learn more?</H3>
+          <BodySmall className="mt-1">Check out our dedicated comparison page.</BodySmall>
           <div className="mt-4">
             <WireframeCTA label={landingLabel[post.relatedLanding] || "Read More →"} to={post.relatedLanding} />
           </div>
@@ -65,13 +65,13 @@ const BlogPostPage = () => {
       )}
 
       <section className="mt-12">
-        <h3 className="text-lg font-bold mb-4">Related Posts</h3>
+        <H3 className="mb-4">Related Posts</H3>
         <div className="grid md:grid-cols-2 gap-4">
           {blogPosts.filter((p) => p.slug !== slug).slice(0, 2).map((p) => (
             <Link key={p.slug} to={`/blog/${p.slug}`}>
               <WireframeCard className="hover:border-foreground">
-                <span className="font-mono text-xs text-muted-foreground">{p.category}</span>
-                <h4 className="font-semibold text-sm mt-1">{p.title}</h4>
+                <Meta>{p.category}</Meta>
+                <H5 className="mt-1">{p.title}</H5>
               </WireframeCard>
             </Link>
           ))}
