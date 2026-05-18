@@ -37,12 +37,12 @@ const CoursesPage = () => {
               <div>
                 <div className="flex items-center gap-3 flex-wrap">
                   <Badge variant="outline" className="font-mono text-xs border-dashed">Option 1</Badge>
-                  <span className="font-mono text-xs text-muted-foreground uppercase tracking-wider">Just exploring? Start here free</span>
+                  <MetaLabel>Just exploring? Start here free</MetaLabel>
                 </div>
 
-                <h3 className="text-lg md:text-xl font-bold mt-3 leading-tight">
+                <H3 className="mt-3">
                   My Free Affiliate Marketing Guide, Step-by-Step
-                </h3>
+                </H3>
 
                 <p className="text-muted-foreground mt-3">
                   A beginner-friendly, carefully structured resource at no cost. Build a solid foundation for a successful affiliate business — even if you're starting from scratch.
