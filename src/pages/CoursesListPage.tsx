@@ -239,21 +239,6 @@ const CoursesListPage = () => {
                       </span>
                     </div>
                   </div>
-
-                      <a
-                        href="#"
-                        target="_blank"
-                        rel="noopener sponsored"
-                        className="inline-flex items-center justify-center gap-2 px-4 py-3 bg-foreground text-background hover:opacity-90 transition-opacity rounded font-semibold text-sm"
-                      >
-                        Visit Course <ExternalLink className="h-4 w-4" />
-                      </a>
-
-                      <span className="font-mono text-[10px] text-muted-foreground text-center">
-                        Affiliate link · We may earn a commission
-                      </span>
-                    </div>
-                  </div>
                 </WireframeCard>
               );
             })}
