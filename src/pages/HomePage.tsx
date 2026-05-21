@@ -31,7 +31,7 @@ const SectionDivider = () => (
 const HomePage = () => (
   <div>
     {/* Hero */}
-    <section className="container mx-auto px-4 py-16 md:py-24">
+    <WireframeHero size="xl" bordered={false}>
       <div className="grid md:grid-cols-2 gap-12 items-center">
         <div>
           <H1>Your Guide to Successful Affiliate Marketing</H1>
@@ -42,7 +42,7 @@ const HomePage = () => (
         </div>
         <PlaceholderImage label="Hero image" className="w-full" />
       </div>
-    </section>
+    </WireframeHero>
 
     <SectionDivider />
 
