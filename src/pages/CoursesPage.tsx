@@ -2,7 +2,7 @@ import { PlaceholderImage } from "@/components/wireframe/PlaceholderImage";
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
 import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
 import { WireframeHero } from "@/components/wireframe/WireframeHero";
-import { Eyebrow, H1, H2, H3, Lead, Meta, MetaLabel } from "@/components/wireframe/Typography";
+import { H1, H2, H3, Lead, Meta, MetaLabel } from "@/components/wireframe/Typography";
 import { Check, Star } from "lucide-react";
 
 const CoursesPage = () => {
@@ -21,8 +21,7 @@ const CoursesPage = () => {
 
       {/* How to Get Started */}
       <section className="container mx-auto px-4 py-16">
-        <Eyebrow>Two Proven Paths</Eyebrow>
-        <H2 className="mt-3 mb-2">How to Get Started with Affiliate Marketing</H2>
+        <H2 className="mb-2">Two Proven Paths to Get Started with Affiliate Marketing</H2>
         <p className="text-muted-foreground mb-8">Start free with my own guide, or fast-track your growth with the premium courses I personally recommend.</p>
 
         {/* Option 1 — Free, exploratory */}
