@@ -21,7 +21,7 @@ const CoursesPage = () => {
       </WireframeHero>
 
       {/* Two Paths */}
-      <section className="container mx-auto px-4 py-14 md:py-16 max-w-6xl">
+      <section className="container mx-auto px-4 py-14 md:py-16">
         {/* Section header — left aligned */}
         <div className="mb-10 max-w-3xl">
           <MetaLabel className="inline-block border border-border px-2 py-1 mb-4">
