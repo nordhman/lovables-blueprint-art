@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { PlaceholderImage } from "@/components/wireframe/PlaceholderImage";
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
+import { WireframeHero } from "@/components/wireframe/WireframeHero";
 import { Eyebrow, H1, H4, Lead, BodySmall, Meta } from "@/components/wireframe/Typography";
 import { blogPosts, categories } from "@/data/mockData";
 
@@ -10,10 +11,14 @@ const BlogPage = () => {
   const filtered = activeCategory === "All" ? blogPosts : blogPosts.filter((p) => p.category === activeCategory);
 
   return (
-    <div className="container mx-auto px-4 py-12">
-      <Eyebrow>Insights</Eyebrow>
-      <H1 className="mt-3">Blog</H1>
-      <Lead className="mt-2 max-w-2xl">Tips, strategies, and guides for affiliate marketing.</Lead>
+    <div>
+      <WireframeHero size="lg">
+        <Eyebrow>Insights</Eyebrow>
+        <H1 className="mt-3">Blog</H1>
+        <Lead className="mt-2 max-w-2xl">Tips, strategies, and guides for affiliate marketing.</Lead>
+      </WireframeHero>
+
+      <div className="container mx-auto px-4 py-12">
 
       <div className="flex flex-wrap gap-2 mt-8">
         {categories.map((cat) => (
@@ -49,6 +54,7 @@ const BlogPage = () => {
         <button className="px-6 py-3 border-2 border-dashed border-border rounded font-mono text-sm text-muted-foreground hover:border-foreground hover:text-foreground transition-colors">
           Show More Posts
         </button>
+      </div>
       </div>
     </div>
   );
