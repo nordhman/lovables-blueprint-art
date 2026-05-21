@@ -48,16 +48,16 @@ const CoursesPage = () => {
             <div className="border-2 border-foreground p-8 md:p-10 flex flex-col md:flex-row-reverse gap-10 bg-card">
               <div className="flex-1">
                 <div className="inline-block mb-3 font-mono text-sm uppercase tracking-[0.18em] font-bold text-foreground bg-foreground/10 border border-foreground px-3 py-1.5">Option 01 — Premium Path</div>
-                <H3 className="text-2xl mb-4">Top-Rated: Online &amp; Premium Affiliate Marketing Courses</H3>
+                <H3 className="text-2xl mb-4">Skip the Trial and Error — Learn From Those Who've Already Won</H3>
                 <p className="text-muted-foreground mb-6 leading-relaxed">
-                  Looking for an expert-led approach? Check out my handpicked selection of the three best courses available online — with proven strategies, actionable insights, and dedicated support to help you succeed.
+                  The 3 best affiliate marketing courses online, handpicked and battle-tested. Proven playbooks from creators earning six and seven figures — so you can shortcut years of guesswork.
                 </p>
 
                 <ul className="space-y-3 mb-8">
                   {[
-                    "Expert-led, proven strategies from industry veterans",
-                    "Skip the guesswork — save months of trial and error",
-                    "Built for real income, with dedicated community support",
+                    "Proven systems from creators with real revenue",
+                    "Save months of trial, error, and wasted spend",
+                    "Step-by-step roadmaps with community support",
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-3 text-sm">
                       <span className="text-muted-foreground font-bold">✓</span>
@@ -72,10 +72,11 @@ const CoursesPage = () => {
                   <span className="h-px flex-1 bg-border" />
                 </div>
                 <WireframeCTA
-                  label="See Best Online Courses →"
+                  label="Compare the Top 3 Courses →"
                   to="/courses/list?type=affiliate"
                   className="w-full text-base py-5"
                 />
+
               </div>
 
               <div className="w-full md:w-[420px] shrink-0 flex">
