@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { PlaceholderImage } from "@/components/wireframe/PlaceholderImage";
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
+import { WireframeHero } from "@/components/wireframe/WireframeHero";
 import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
 import { Eyebrow, H1, H2, H3, H4, H5, Lead, BodySmall, Meta, MetaLabel, typo } from "@/components/wireframe/Typography";
 import { blogPosts, courses, tools, networks } from "@/data/mockData";
