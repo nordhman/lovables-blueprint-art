@@ -49,11 +49,11 @@ const CoursesPage = () => {
               <div className="flex-1">
                 <div className="inline-block mb-3 font-mono text-sm uppercase tracking-[0.18em] font-bold text-foreground bg-foreground/10 border border-foreground px-3 py-1.5">Option 01 — Premium Path</div>
                 <H3 className="text-2xl mb-4">Top-Rated: Online &amp; Premium Affiliate Marketing Courses</H3>
-                <p className="text-muted-foreground mb-8 leading-relaxed">
+                <p className="text-muted-foreground mb-6 leading-relaxed">
                   Looking for an expert-led approach? Check out my handpicked selection of the three best courses available online — with proven strategies, actionable insights, and dedicated support to help you succeed.
                 </p>
 
-                <ul className="space-y-3 mb-10">
+                <ul className="space-y-3 mb-8">
                   {[
                     "Expert-led, proven strategies from industry veterans",
                     "Skip the guesswork — save months of trial and error",
@@ -66,38 +66,35 @@ const CoursesPage = () => {
                   ))}
                 </ul>
 
-                <div className="flex flex-col items-start gap-3">
-                  <div className="inline-flex items-center gap-2 border-2 border-dashed border-foreground px-3 py-2 rounded">
-                    <Star className="h-3.5 w-3.5 fill-current" />
-                    <span className="font-mono text-xs uppercase tracking-[0.15em] font-semibold leading-none">
-                      Handpicked Top 3 Courses
-                    </span>
-                  </div>
-                  <WireframeCTA
-                    label="See Best Online Courses →"
-                    to="/courses/list?type=affiliate"
-                    className="text-base px-10 py-5"
-                  />
+                <div className="flex items-center gap-3 mb-3 text-xs font-mono uppercase tracking-[0.15em] text-muted-foreground">
+                  <span className="h-px flex-1 bg-border" />
+                  <span>Handpicked · Top 3 Courses</span>
+                  <span className="h-px flex-1 bg-border" />
                 </div>
+                <WireframeCTA
+                  label="See Best Online Courses →"
+                  to="/courses/list?type=affiliate"
+                  className="w-full text-base py-5"
+                />
               </div>
 
-              <div className="w-full md:w-80 shrink-0 flex">
-                <PlaceholderImage label="Premium courses preview" aspectRatio="square" className="w-full" />
+              <div className="w-full md:w-[420px] shrink-0 flex">
+                <PlaceholderImage label="Premium courses preview" aspectRatio="wide" className="w-full" />
               </div>
             </div>
           </div>
 
           {/* OPTION 02 — Free */}
           <div>
-            <div className="border-2 border-dashed border-muted-foreground/60 p-8 md:p-10 flex flex-col md:flex-row gap-10 bg-muted/40">
+            <div className="border-2 border-dashed border-foreground/50 p-8 md:p-10 flex flex-col md:flex-row gap-10 bg-muted/60">
               <div className="flex-1">
                 <div className="inline-block mb-3 font-mono text-sm uppercase tracking-[0.18em] font-bold text-foreground border border-dashed border-foreground px-3 py-1.5">Option 02 — Free Path</div>
                 <H3 className="text-2xl mb-4">My Free Affiliate Marketing Guide, Step-by-Step</H3>
-                <p className="text-muted-foreground mb-8 leading-relaxed">
+                <p className="text-muted-foreground mb-6 leading-relaxed">
                   Access my carefully structured, beginner-friendly resource at no cost. Learn the fundamentals at your own pace, building a solid foundation before you invest in anything.
                 </p>
 
-                <ul className="space-y-3 mb-10">
+                <ul className="space-y-3 mb-8">
                   {[
                     "100% free — no signup required",
                     "Beginner-friendly roadmap",
@@ -110,19 +107,21 @@ const CoursesPage = () => {
                   ))}
                 </ul>
 
-                <div className="flex flex-wrap items-center gap-6">
-                  <WireframeCTA
-                    label="Access the Free Guide →"
-                    to="/courses/list?type=own"
-                    variant="secondary"
-                    className="text-sm px-8 py-4"
-                  />
-                  <Meta className="uppercase">Cost: $0.00 / No signup</Meta>
+                <div className="flex items-center gap-3 mb-3 text-xs font-mono uppercase tracking-[0.15em] text-muted-foreground">
+                  <span className="h-px flex-1 bg-border" />
+                  <span>Cost: $0.00 · No Signup</span>
+                  <span className="h-px flex-1 bg-border" />
                 </div>
+                <WireframeCTA
+                  label="Access the Free Guide →"
+                  to="/courses/list?type=own"
+                  variant="secondary"
+                  className="w-full text-base py-5"
+                />
               </div>
 
-              <div className="w-full md:w-80 shrink-0 flex">
-                <PlaceholderImage label="Free guide preview" aspectRatio="square" className="w-full" />
+              <div className="w-full md:w-[420px] shrink-0 flex">
+                <PlaceholderImage label="Free guide preview" aspectRatio="wide" className="w-full" />
               </div>
             </div>
           </div>
@@ -133,3 +132,4 @@ const CoursesPage = () => {
 };
 
 export default CoursesPage;
+
