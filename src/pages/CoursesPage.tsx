@@ -24,53 +24,8 @@ const CoursesPage = () => {
         <H2 className="mb-2">Two Proven Paths to Get Started with Affiliate Marketing</H2>
         <p className="text-muted-foreground mb-8">Start free with my own guide, or fast-track your growth with the premium courses I personally recommend.</p>
 
-        {/* Option 1 — Free, exploratory */}
-        <div className="mt-10">
-          <WireframeCard className="p-5 md:p-6">
-            <div className="grid md:grid-cols-[280px_1fr] gap-5 md:gap-6 items-start">
-              <PlaceholderImage label="Free guide image" aspectRatio="square" className="w-full" />
-
-              <div>
-                <div className="inline-flex items-baseline gap-2 border-b-2 border-dashed border-foreground pb-1.5">
-                  <span className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">Option</span>
-                  <span className="text-3xl font-bold leading-none">01</span>
-                </div>
-                <MetaLabel className="block mt-2">Just exploring? Start here free</MetaLabel>
-
-                <H3 className="mt-1">
-                  My Free Affiliate Marketing Guide, Step-by-Step
-                </H3>
-
-                <p className="text-muted-foreground mt-2 text-sm">
-                  A beginner-friendly, carefully structured resource at no cost. Build a solid foundation for a successful affiliate business — even if you're starting from scratch.
-                </p>
-
-                <ul className="mt-4 space-y-1.5">
-                  <li className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-foreground shrink-0 mt-0.5" />
-                    <span className="text-sm"><strong>100% free</strong> — no signup required to read</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-foreground shrink-0 mt-0.5" />
-                    <span className="text-sm"><strong>Beginner-friendly</strong> — clear steps from zero to first commission</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="h-5 w-5 text-foreground shrink-0 mt-0.5" />
-                    <span className="text-sm"><strong>Learn at your own pace</strong> — perfect for testing the waters</span>
-                  </li>
-                </ul>
-
-                <div className="mt-5 flex flex-wrap items-center gap-4">
-                  <WireframeCTA label="Access My Free Guide →" to="/courses/list?type=own" variant="secondary" />
-                  <Meta>Free · No credit card</Meta>
-                </div>
-              </div>
-            </div>
-          </WireframeCard>
-        </div>
-
-        {/* Option 2 — Recommended */}
-        <div className="mt-12 relative">
+        {/* Option 1 — Recommended premium path (high-conversion focus) */}
+        <div className="mt-10 relative">
           <div className="absolute -top-[18px] left-6 z-10 inline-flex items-center gap-2.5 bg-foreground text-background px-5 py-2 rounded border-2 border-dashed border-foreground">
             <Star className="h-4 w-4 fill-current" />
             <span className="font-mono text-sm uppercase tracking-[0.2em] font-semibold leading-none">
@@ -85,7 +40,7 @@ const CoursesPage = () => {
               <div>
                 <div className="inline-flex items-baseline gap-2 border-b-2 border-dashed border-foreground pb-1.5">
                   <span className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">Option</span>
-                  <span className="text-3xl font-bold leading-none">02</span>
+                  <span className="text-3xl font-bold leading-none">01</span>
                 </div>
                 <MetaLabel className="block mt-2">Premium Path</MetaLabel>
 
@@ -122,6 +77,51 @@ const CoursesPage = () => {
                 <div className="mt-5 flex flex-wrap items-center gap-4">
                   <WireframeCTA label="See Recommended Courses →" to="/courses/list?type=affiliate" />
                   <Meta>Trusted picks · Updated 2026</Meta>
+                </div>
+              </div>
+            </div>
+          </WireframeCard>
+        </div>
+
+        {/* Option 2 — Free, exploratory */}
+        <div className="mt-12">
+          <WireframeCard className="p-5 md:p-6">
+            <div className="grid md:grid-cols-[280px_1fr] gap-5 md:gap-6 items-start">
+              <PlaceholderImage label="Free guide image" aspectRatio="square" className="w-full" />
+
+              <div>
+                <div className="inline-flex items-baseline gap-2 border-b-2 border-dashed border-foreground pb-1.5">
+                  <span className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">Option</span>
+                  <span className="text-3xl font-bold leading-none">02</span>
+                </div>
+                <MetaLabel className="block mt-2">Just exploring? Start here free</MetaLabel>
+
+                <H3 className="mt-1">
+                  My Free Affiliate Marketing Guide, Step-by-Step
+                </H3>
+
+                <p className="text-muted-foreground mt-2 text-sm">
+                  A beginner-friendly, carefully structured resource at no cost. Build a solid foundation for a successful affiliate business — even if you're starting from scratch.
+                </p>
+
+                <ul className="mt-4 space-y-1.5">
+                  <li className="flex items-start gap-3">
+                    <Check className="h-5 w-5 text-foreground shrink-0 mt-0.5" />
+                    <span className="text-sm"><strong>100% free</strong> — no signup required to read</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Check className="h-5 w-5 text-foreground shrink-0 mt-0.5" />
+                    <span className="text-sm"><strong>Beginner-friendly</strong> — clear steps from zero to first commission</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Check className="h-5 w-5 text-foreground shrink-0 mt-0.5" />
+                    <span className="text-sm"><strong>Learn at your own pace</strong> — perfect for testing the waters</span>
+                  </li>
+                </ul>
+
+                <div className="mt-5 flex flex-wrap items-center gap-4">
+                  <WireframeCTA label="Access My Free Guide →" to="/courses/list?type=own" variant="secondary" />
+                  <Meta>Free · No credit card</Meta>
                 </div>
               </div>
             </div>
