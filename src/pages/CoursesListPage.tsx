@@ -2,6 +2,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import { PlaceholderImage } from "@/components/wireframe/PlaceholderImage";
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
 import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
+import { WireframeHero } from "@/components/wireframe/WireframeHero";
 import { Eyebrow, H1, H2, H3, H4, Lead, BodySmall, Meta, MetaLabel } from "@/components/wireframe/Typography";
 import { courses } from "@/data/mockData";
 import { Badge } from "@/components/ui/badge";
