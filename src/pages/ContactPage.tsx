@@ -1,12 +1,17 @@
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
 import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
+import { WireframeHero } from "@/components/wireframe/WireframeHero";
 import { Eyebrow, H1, Lead, MetaLabel } from "@/components/wireframe/Typography";
 
 const ContactPage = () => (
-  <div className="container mx-auto px-4 py-12 max-w-2xl">
-    <Eyebrow>Contact</Eyebrow>
-    <H1 className="mt-3">Get in Touch</H1>
-    <Lead className="mt-2">Have questions, suggestions, or want to collaborate? Fill out the form below.</Lead>
+  <div>
+    <WireframeHero size="sm" innerClassName="max-w-2xl">
+      <Eyebrow>Contact</Eyebrow>
+      <H1 className="mt-3">Get in Touch</H1>
+      <Lead className="mt-2">Have questions, suggestions, or want to collaborate? Fill out the form below.</Lead>
+    </WireframeHero>
+
+    <div className="container mx-auto px-4 py-12 max-w-2xl">
 
     <WireframeCard className="mt-8 p-6">
       <div className="space-y-6">
@@ -33,6 +38,7 @@ const ContactPage = () => (
         <WireframeCTA label="Send Message" to="#" />
       </div>
     </WireframeCard>
+    </div>
   </div>
 );
 

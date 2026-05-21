@@ -1,24 +1,29 @@
 import { PlaceholderImage } from "@/components/wireframe/PlaceholderImage";
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
 import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
+import { WireframeHero } from "@/components/wireframe/WireframeHero";
 import { Eyebrow, H1, H2, H4, Lead } from "@/components/wireframe/Typography";
 import { CheckCircle } from "lucide-react";
 
 const AboutPage = () => (
-  <div className="container mx-auto px-4 py-12">
-    <div className="grid md:grid-cols-2 gap-12 items-center">
-      <div>
-        <Eyebrow>About</Eyebrow>
-        <H1 className="mt-3">About Affiliate Tour</H1>
-        <Lead className="mt-4">
-          Affiliate Tour helps you navigate the world of affiliate marketing with honest reviews, education, and proven strategies.
-        </Lead>
-        <div className="mt-6">
-          <WireframeCTA label="Contact Us" to="/contact" />
+  <div>
+    <WireframeHero size="lg">
+      <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <Eyebrow>About</Eyebrow>
+          <H1 className="mt-3">About Affiliate Tour</H1>
+          <Lead className="mt-4">
+            Affiliate Tour helps you navigate the world of affiliate marketing with honest reviews, education, and proven strategies.
+          </Lead>
+          <div className="mt-6">
+            <WireframeCTA label="Contact Us" to="/contact" />
+          </div>
         </div>
+        <PlaceholderImage label="About hero image" className="w-full" />
       </div>
-      <PlaceholderImage label="About hero image" className="w-full" />
-    </div>
+    </WireframeHero>
+
+    <div className="container mx-auto px-4 py-12">
 
     <section className="mt-16">
       <WireframeCard className="p-8">
@@ -70,6 +75,7 @@ const AboutPage = () => (
         </div>
       </div>
     </section>
+    </div>
   </div>
 );
 

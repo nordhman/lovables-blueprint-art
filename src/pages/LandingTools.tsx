@@ -1,16 +1,21 @@
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
+import { WireframeHero } from "@/components/wireframe/WireframeHero";
 import { Eyebrow, H1, H2 } from "@/components/wireframe/Typography";
 import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
 import { tools } from "@/data/mockData";
 import { Star, CheckCircle } from "lucide-react";
 
 const LandingTools = () => (
-  <div className="container mx-auto px-4 py-12">
-    <div className="text-center max-w-2xl mx-auto">
-      <Eyebrow>Comparison 2026</Eyebrow>
-      <H1 className="mt-3">Best Tools for Affiliate Marketing</H1>
-      <p className="text-muted-foreground mt-4">We've tested and compared the most popular tools. Here are our recommendations.</p>
-    </div>
+  <div>
+    <WireframeHero size="lg">
+      <div className="text-center max-w-2xl mx-auto">
+        <Eyebrow>Comparison 2026</Eyebrow>
+        <H1 className="mt-3">Best Tools for Affiliate Marketing</H1>
+        <p className="text-muted-foreground mt-4">We've tested and compared the most popular tools. Here are our recommendations.</p>
+      </div>
+    </WireframeHero>
+
+    <div className="container mx-auto px-4 py-12">
 
     <section className="mt-16">
       <WireframeCard className="p-6">
@@ -78,6 +83,7 @@ const LandingTools = () => (
         </div>
       </WireframeCard>
     </section>
+    </div>
   </div>
 );
 

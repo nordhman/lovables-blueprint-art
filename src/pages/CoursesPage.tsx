@@ -1,6 +1,7 @@
 import { PlaceholderImage } from "@/components/wireframe/PlaceholderImage";
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
 import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
+import { WireframeHero } from "@/components/wireframe/WireframeHero";
 import { Eyebrow, H1, H2, H3, Lead, Meta, MetaLabel } from "@/components/wireframe/Typography";
 import { Badge } from "@/components/ui/badge";
 import { Check, Star } from "lucide-react";
@@ -9,17 +10,15 @@ const CoursesPage = () => {
   return (
     <div>
       {/* Hero */}
-      <section className="border-b-2 border-dashed border-border bg-muted/30 py-16">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div>
-              <H1>Ready to Learn Affiliate Marketing?</H1>
-              <Lead className="mt-4">We'll take you from beginner to pro, covering all the essential tools and strategies you need.</Lead>
-            </div>
-            <PlaceholderImage label="Hero illustration" aspectRatio="video" />
+      <WireframeHero size="lg">
+        <div className="grid md:grid-cols-2 gap-8 items-center">
+          <div>
+            <H1>Ready to Learn Affiliate Marketing?</H1>
+            <Lead className="mt-4">We'll take you from beginner to pro, covering all the essential tools and strategies you need.</Lead>
           </div>
+          <PlaceholderImage label="Hero illustration" aspectRatio="video" />
         </div>
-      </section>
+      </WireframeHero>
 
       {/* How to Get Started */}
       <section className="container mx-auto px-4 py-16">

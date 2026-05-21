@@ -1,5 +1,6 @@
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
 import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
+import { WireframeHero } from "@/components/wireframe/WireframeHero";
 import { Eyebrow, H1, H2, H5, Lead, Meta, BodySmall } from "@/components/wireframe/Typography";
 import { tools } from "@/data/mockData";
 import { Star } from "lucide-react";
@@ -8,10 +9,14 @@ const ToolsPage = () => {
   const categories = [...new Set(tools.map((t) => t.category))];
 
   return (
-    <div className="container mx-auto px-4 py-12">
-      <Eyebrow>Resources</Eyebrow>
-      <H1 className="mt-3">Tools & Resources</H1>
-      <Lead className="mt-2 max-w-2xl">Handpicked tools to help you build and grow your affiliate business.</Lead>
+    <div>
+      <WireframeHero size="lg">
+        <Eyebrow>Resources</Eyebrow>
+        <H1 className="mt-3">Tools & Resources</H1>
+        <Lead className="mt-2 max-w-2xl">Handpicked tools to help you build and grow your affiliate business.</Lead>
+      </WireframeHero>
+
+      <div className="container mx-auto px-4 py-12">
 
       {categories.map((cat) => (
         <section key={cat} className="mt-12">
@@ -47,6 +52,7 @@ const ToolsPage = () => {
 
       <div className="mt-12 text-center">
         <WireframeCTA label="See Best Tools 2026 →" to="/best-affiliate-tools" variant="secondary" />
+      </div>
       </div>
     </div>
   );

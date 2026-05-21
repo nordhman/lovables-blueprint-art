@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Eyebrow, H1, H2 } from "@/components/wireframe/Typography";
+import { WireframeHero } from "@/components/wireframe/WireframeHero";
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
 import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
 import { courses } from "@/data/mockData";
@@ -7,12 +8,16 @@ import { Badge } from "@/components/ui/badge";
 import { CheckCircle } from "lucide-react";
 
 const LandingCourses = () => (
-  <div className="container mx-auto px-4 py-12">
-    <div className="text-center max-w-2xl mx-auto">
-      <Eyebrow>Comparison 2026</Eyebrow>
-      <H1 className="mt-3">Best Courses for Affiliate Marketing</H1>
-      <p className="text-muted-foreground mt-4">We've reviewed the most popular courses and selected the best for every level.</p>
-    </div>
+  <div>
+    <WireframeHero size="lg">
+      <div className="text-center max-w-2xl mx-auto">
+        <Eyebrow>Comparison 2026</Eyebrow>
+        <H1 className="mt-3">Best Courses for Affiliate Marketing</H1>
+        <p className="text-muted-foreground mt-4">We've reviewed the most popular courses and selected the best for every level.</p>
+      </div>
+    </WireframeHero>
+
+    <div className="container mx-auto px-4 py-12">
 
     <section className="mt-16">
       <WireframeCard className="p-6">
@@ -81,6 +86,7 @@ const LandingCourses = () => (
         </div>
       </WireframeCard>
     </section>
+    </div>
   </div>
 );
 

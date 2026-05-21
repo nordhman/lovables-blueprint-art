@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { PlaceholderImage } from "@/components/wireframe/PlaceholderImage";
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
+import { WireframeHero } from "@/components/wireframe/WireframeHero";
 import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
 import { Eyebrow, H1, H2, H3, H4, H5, Lead, BodySmall, Meta, MetaLabel, typo } from "@/components/wireframe/Typography";
 import { blogPosts, courses, tools, networks } from "@/data/mockData";
@@ -31,7 +32,7 @@ const SectionDivider = () => (
 const HomePage = () => (
   <div>
     {/* Hero */}
-    <section className="container mx-auto px-4 py-16 md:py-24">
+    <WireframeHero size="xl" bordered={false}>
       <div className="grid md:grid-cols-2 gap-12 items-center">
         <div>
           <H1>Your Guide to Successful Affiliate Marketing</H1>
@@ -42,7 +43,7 @@ const HomePage = () => (
         </div>
         <PlaceholderImage label="Hero image" className="w-full" />
       </div>
-    </section>
+    </WireframeHero>
 
     <SectionDivider />
 

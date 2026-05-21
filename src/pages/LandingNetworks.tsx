@@ -1,16 +1,21 @@
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
 import { Eyebrow, H1, H2 } from "@/components/wireframe/Typography";
+import { WireframeHero } from "@/components/wireframe/WireframeHero";
 import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
 import { networks } from "@/data/mockData";
 import { Globe, CheckCircle } from "lucide-react";
 
 const LandingNetworks = () => (
-  <div className="container mx-auto px-4 py-12">
-    <div className="text-center max-w-2xl mx-auto">
-      <Eyebrow>Comparison 2026</Eyebrow>
-      <H1 className="mt-3">Best Affiliate Networks</H1>
-      <p className="text-muted-foreground mt-4">Which networks should you use? We compare the top options based on commission, selection, and ease of use.</p>
-    </div>
+  <div>
+    <WireframeHero size="lg">
+      <div className="text-center max-w-2xl mx-auto">
+        <Eyebrow>Comparison 2026</Eyebrow>
+        <H1 className="mt-3">Best Affiliate Networks</H1>
+        <p className="text-muted-foreground mt-4">Which networks should you use? We compare the top options based on commission, selection, and ease of use.</p>
+      </div>
+    </WireframeHero>
+
+    <div className="container mx-auto px-4 py-12">
 
     <section className="mt-16">
       <WireframeCard className="p-6">
@@ -72,6 +77,7 @@ const LandingNetworks = () => (
         </div>
       </WireframeCard>
     </section>
+    </div>
   </div>
 );
 

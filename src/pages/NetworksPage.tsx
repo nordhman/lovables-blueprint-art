@@ -1,14 +1,19 @@
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
 import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
+import { WireframeHero } from "@/components/wireframe/WireframeHero";
 import { Eyebrow, H1, H4, Lead, BodySmall, Meta } from "@/components/wireframe/Typography";
 import { networks } from "@/data/mockData";
 import { Globe } from "lucide-react";
 
 const NetworksPage = () => (
-  <div className="container mx-auto px-4 py-12">
-    <Eyebrow>Platforms</Eyebrow>
-    <H1 className="mt-3">Affiliate Networks</H1>
-    <Lead className="mt-2 max-w-2xl">Overview of the most important affiliate networks. Find the right network for your niche and audience.</Lead>
+  <div>
+    <WireframeHero size="lg">
+      <Eyebrow>Platforms</Eyebrow>
+      <H1 className="mt-3">Affiliate Networks</H1>
+      <Lead className="mt-2 max-w-2xl">Overview of the most important affiliate networks. Find the right network for your niche and audience.</Lead>
+    </WireframeHero>
+
+    <div className="container mx-auto px-4 py-12">
 
     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
       {networks.map((network) => (
@@ -30,6 +35,7 @@ const NetworksPage = () => (
 
     <div className="mt-12 text-center">
       <WireframeCTA label="See Best Networks 2026 →" to="/best-affiliate-networks" variant="secondary" />
+    </div>
     </div>
   </div>
 );
