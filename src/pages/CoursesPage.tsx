@@ -33,24 +33,19 @@ const CoursesPage = () => {
           </Lead>
         </div>
 
-        {/* Transparency Disclosure */}
-        <div className="mb-12 p-5 border border-dashed border-border bg-muted/40 flex gap-4 items-start">
-          <span className="font-mono text-sm font-bold text-muted-foreground shrink-0">!</span>
-          <p className="text-xs text-muted-foreground leading-relaxed">
-            <span className="font-semibold text-foreground">Full Disclosure:</span> Our premium recommendations are external partners. We earn an affiliate commission when you sign up through our links. This allows us to keep the site free and our reviews independent. We only list platforms we trust.
-          </p>
-        </div>
-
         {/* Main Layout: Dominant + Sidekick (8/4) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           {/* OPTION 01 — Premium (Dominant) */}
           <div className="lg:col-span-8 relative">
-            <div className="absolute -top-3 left-6 z-10 bg-foreground text-background px-3 py-1 font-mono text-[10px] uppercase font-bold tracking-tighter border border-foreground flex items-center gap-2">
-              <Star className="h-3 w-3 fill-current" />
-              <span>Recommended · Expert-Led</span>
+            <div className="absolute -top-[18px] left-8 z-10 inline-flex items-center justify-center gap-2.5 bg-foreground text-background px-5 py-2 rounded border-2 border-dashed border-foreground">
+              <Star className="h-4 w-4 fill-current" />
+              <span className="font-mono text-sm uppercase tracking-[0.2em] font-semibold leading-none">
+                Recommended · Expert-Led
+              </span>
+              <Star className="h-4 w-4 fill-current" />
             </div>
 
-            <div className="border-2 border-foreground p-8 md:p-10 flex flex-col md:flex-row gap-10 bg-card h-full">
+            <div className="border-2 border-foreground p-8 md:p-10 flex flex-col md:flex-row-reverse gap-10 bg-card h-full">
               <div className="flex-1">
                 <MetaLabel className="block mb-2">Option 01 — Premium Path</MetaLabel>
                 <H3 className="text-2xl mb-4">Top-Rated: Online &amp; Premium Affiliate Marketing Courses</H3>
@@ -77,19 +72,21 @@ const CoursesPage = () => {
                     to="/courses/list?type=affiliate"
                     className="text-sm px-8 py-4"
                   />
-                  <Meta className="leading-tight uppercase">
-                    Handpicked
-                    <br />
-                    Top 3 Courses
-                  </Meta>
+                  <div className="inline-flex items-center gap-2 border-2 border-dashed border-foreground px-3 py-2 rounded">
+                    <Star className="h-3.5 w-3.5 fill-current" />
+                    <span className="font-mono text-xs uppercase tracking-[0.15em] font-semibold leading-none">
+                      Handpicked Top 3 Courses
+                    </span>
+                  </div>
                 </div>
               </div>
 
-              <div className="w-full md:w-64 shrink-0">
+              <div className="w-full md:w-80 shrink-0 flex">
                 <PlaceholderImage label="Premium courses preview" aspectRatio="square" className="w-full" />
               </div>
             </div>
           </div>
+
 
           {/* OPTION 02 — Free (Sidekick) */}
           <div className="lg:col-span-4">
