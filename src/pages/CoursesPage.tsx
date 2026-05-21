@@ -33,10 +33,10 @@ const CoursesPage = () => {
           </Lead>
         </div>
 
-        {/* Main Layout: Dominant + Sidekick (8/4) */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-          {/* OPTION 01 — Premium (Dominant) */}
-          <div className="lg:col-span-8 relative">
+        {/* Stacked options */}
+        <div className="flex flex-col gap-10">
+          {/* OPTION 01 — Premium */}
+          <div className="relative">
             <div className="absolute -top-[18px] left-8 z-10 inline-flex items-center justify-center gap-2.5 bg-foreground text-background px-5 py-2 rounded border-2 border-dashed border-foreground">
               <Star className="h-4 w-4 fill-current" />
               <span className="font-mono text-sm uppercase tracking-[0.2em] font-semibold leading-none">
@@ -45,7 +45,7 @@ const CoursesPage = () => {
               <Star className="h-4 w-4 fill-current" />
             </div>
 
-            <div className="border-2 border-foreground p-8 md:p-10 flex flex-col md:flex-row-reverse gap-10 bg-card h-full">
+            <div className="border-2 border-foreground p-8 md:p-10 flex flex-col md:flex-row-reverse gap-10 bg-card">
               <div className="flex-1">
                 <MetaLabel className="block mb-2">Option 01 — Premium Path</MetaLabel>
                 <H3 className="text-2xl mb-4">Top-Rated: Online &amp; Premium Affiliate Marketing Courses</H3>
@@ -87,52 +87,45 @@ const CoursesPage = () => {
             </div>
           </div>
 
-
-          {/* OPTION 02 — Free (Sidekick) */}
-          <div className="lg:col-span-4">
-            <div className="border-2 border-dashed border-border p-8 h-full flex flex-col justify-between bg-muted/20">
-              <div>
+          {/* OPTION 02 — Free */}
+          <div>
+            <div className="border-2 border-dashed border-border p-8 md:p-10 flex flex-col md:flex-row gap-10 bg-muted/20">
+              <div className="flex-1">
                 <MetaLabel className="block mb-2">Option 02 — Free Path</MetaLabel>
-                <H3 className="text-xl mb-4">My Free Affiliate Marketing Guide, Step-by-Step</H3>
-                <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
-                  Access my carefully structured, beginner-friendly resource at no cost. Learn the fundamentals at your own pace.
+                <H3 className="text-2xl mb-4">My Free Affiliate Marketing Guide, Step-by-Step</H3>
+                <p className="text-muted-foreground mb-8 leading-relaxed">
+                  Access my carefully structured, beginner-friendly resource at no cost. Learn the fundamentals at your own pace, building a solid foundation before you invest in anything.
                 </p>
 
-                <ul className="space-y-4 mb-8">
+                <ul className="space-y-3 mb-10">
                   {[
                     "100% free — no signup required",
                     "Beginner-friendly roadmap",
                     "Learn at your own pace",
                   ].map((item) => (
-                    <li key={item} className="flex items-start gap-2 text-xs text-muted-foreground">
-                      <span className="font-bold">✓</span>
+                    <li key={item} className="flex items-start gap-3 text-sm">
+                      <span className="text-muted-foreground font-bold">✓</span>
                       <span>{item}</span>
                     </li>
                   ))}
                 </ul>
+
+                <div className="flex flex-wrap items-center gap-6">
+                  <WireframeCTA
+                    label="Access the Free Guide →"
+                    to="/courses/list?type=own"
+                    variant="secondary"
+                    className="text-sm px-8 py-4"
+                  />
+                  <Meta className="uppercase">Cost: $0.00 / No signup</Meta>
+                </div>
               </div>
 
-              <div className="flex flex-col gap-4">
-                <WireframeCTA
-                  label="Access the Free Guide →"
-                  to="/courses/list?type=own"
-                  variant="secondary"
-                  className="w-full"
-                />
-                <Meta className="text-center uppercase">Cost: $0.00 / No signup</Meta>
+              <div className="w-full md:w-80 shrink-0 flex">
+                <PlaceholderImage label="Free guide preview" aspectRatio="square" className="w-full" />
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Full Disclosure */}
-      <section className="container mx-auto px-4 pb-14 md:pb-16">
-        <div className="p-5 border border-dashed border-border bg-muted/40 flex gap-4 items-start max-w-4xl">
-          <span className="font-mono text-sm font-bold text-muted-foreground shrink-0">!</span>
-          <p className="text-xs text-muted-foreground leading-relaxed">
-            <span className="font-semibold text-foreground">Full Disclosure:</span> Our premium recommendations are external partners. We earn an affiliate commission when you sign up through our links. This allows us to keep the site free and our reviews independent. We only list platforms we trust.
-          </p>
         </div>
       </section>
     </div>

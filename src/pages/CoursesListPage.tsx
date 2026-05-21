@@ -268,6 +268,15 @@ const CoursesListPage = () => {
           <WireframeCTA label="See Best Courses 2026 →" to="/best-affiliate-courses" variant="secondary" />
         </div>
       )}
+
+      {isAffiliate && (
+        <div className="mt-16 p-5 border border-dashed border-border bg-muted/40 flex gap-4 items-start max-w-4xl">
+          <span className="font-mono text-sm font-bold text-muted-foreground shrink-0">!</span>
+          <p className="text-xs text-muted-foreground leading-relaxed">
+            <span className="font-semibold text-foreground">Full Disclosure:</span> Our premium recommendations are external partners. We earn an affiliate commission when you sign up through our links. This allows us to keep the site free and our reviews independent. We only list platforms we trust.
+          </p>
+        </div>
+      )}
       </div>
     </div>
   );
