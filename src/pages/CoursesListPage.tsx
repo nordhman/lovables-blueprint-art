@@ -78,29 +78,27 @@ const CoursesListPage = () => {
   return (
     <div>
       {/* Hero */}
-      <section className="border-b-2 border-dashed border-border bg-muted/30 py-10 md:py-12">
-        <div className="container mx-auto px-4">
-          <Eyebrow>Comparison · 2026</Eyebrow>
-          <H1 className="mt-3">{title}</H1>
-          <Lead className="mt-4 max-w-4xl">{intro}</Lead>
-          {isAffiliate && (
-            <div className="mt-8 flex items-center gap-x-8 gap-y-3 flex-wrap">
-              <div className="flex items-center gap-2">
-                <Check className="h-5 w-5" strokeWidth={2.5} />
-                <span className="font-semibold text-sm">{affiliateCourses.length} courses tested</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Check className="h-5 w-5" strokeWidth={2.5} />
-                <span className="font-semibold text-sm">Independent reviews</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Check className="h-5 w-5" strokeWidth={2.5} />
-                <span className="font-semibold text-sm">Updated 2026</span>
-              </div>
+      <WireframeHero size="sm">
+        <Eyebrow>Comparison · 2026</Eyebrow>
+        <H1 className="mt-3">{title}</H1>
+        <Lead className="mt-4 max-w-4xl">{intro}</Lead>
+        {isAffiliate && (
+          <div className="mt-8 flex items-center gap-x-8 gap-y-3 flex-wrap">
+            <div className="flex items-center gap-2">
+              <Check className="h-5 w-5" strokeWidth={2.5} />
+              <span className="font-semibold text-sm">{affiliateCourses.length} courses tested</span>
             </div>
-          )}
-        </div>
-      </section>
+            <div className="flex items-center gap-2">
+              <Check className="h-5 w-5" strokeWidth={2.5} />
+              <span className="font-semibold text-sm">Independent reviews</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Check className="h-5 w-5" strokeWidth={2.5} />
+              <span className="font-semibold text-sm">Updated 2026</span>
+            </div>
+          </div>
+        )}
+      </WireframeHero>
 
       <div className="container mx-auto px-4 py-12">
 
