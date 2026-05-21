@@ -3,7 +3,6 @@ import { WireframeCard } from "@/components/wireframe/WireframeCard";
 import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
 import { WireframeHero } from "@/components/wireframe/WireframeHero";
 import { Eyebrow, H1, H2, H3, Lead, Meta, MetaLabel } from "@/components/wireframe/Typography";
-import { Badge } from "@/components/ui/badge";
 import { Check, Star } from "lucide-react";
 
 const CoursesPage = () => {
@@ -22,23 +21,24 @@ const CoursesPage = () => {
 
       {/* How to Get Started */}
       <section className="container mx-auto px-4 py-16">
-        <Eyebrow>Get Started</Eyebrow>
-        <H2 className="mt-3 mb-2">How to Get Started with Affiliate Marketing — Two Proven Paths</H2>
+        <Eyebrow>Two Proven Paths</Eyebrow>
+        <H2 className="mt-3 mb-2">How to Get Started with Affiliate Marketing</H2>
         <p className="text-muted-foreground mb-8">Start free with my own guide, or fast-track your growth with the premium courses I personally recommend.</p>
 
         {/* Option 1 — Free, exploratory */}
         <div className="mt-10">
           <WireframeCard className="p-6 md:p-8">
             <div className="grid md:grid-cols-[280px_1fr] gap-6 md:gap-8 items-start">
-              <PlaceholderImage label="Free guide image" aspectRatio="video" className="w-full" />
+              <PlaceholderImage label="Free guide image" aspectRatio="square" className="w-full" />
 
               <div>
-                <div className="flex items-center gap-3 flex-wrap">
-                  <Badge variant="outline" className="font-mono text-xs border-dashed">Option 1</Badge>
-                  <MetaLabel>Just exploring? Start here free</MetaLabel>
+                <div className="inline-flex items-baseline gap-2 border-b-2 border-dashed border-foreground pb-1.5">
+                  <span className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">Option</span>
+                  <span className="text-3xl font-bold leading-none">01</span>
                 </div>
+                <MetaLabel className="block mt-3">Just exploring? Start here free</MetaLabel>
 
-                <H3 className="mt-3">
+                <H3 className="mt-2">
                   My Free Affiliate Marketing Guide, Step-by-Step
                 </H3>
 
@@ -72,24 +72,25 @@ const CoursesPage = () => {
 
         {/* Option 2 — Recommended */}
         <div className="mt-12 relative">
-          <div className="absolute -top-3 left-6 z-10">
-            <div className="inline-flex items-center gap-1.5 bg-foreground text-background font-mono text-xs uppercase tracking-wider px-3 py-1.5 rounded">
-              <Star className="h-3 w-3 fill-current" />
+          <div className="absolute -top-[18px] left-6 z-10 inline-flex items-center gap-2.5 bg-foreground text-background px-5 py-2 rounded border-2 border-dashed border-foreground">
+            <Star className="h-4 w-4 fill-current" />
+            <span className="font-mono text-sm uppercase tracking-[0.2em] font-semibold leading-none">
               Recommended
-            </div>
+            </span>
           </div>
 
-          <WireframeCard className="p-6 md:p-8">
+          <WireframeCard className="p-6 md:p-8 border-foreground">
             <div className="grid md:grid-cols-[280px_1fr] gap-6 md:gap-8 items-start">
-              <PlaceholderImage label="Premium courses image" aspectRatio="video" className="w-full" />
+              <PlaceholderImage label="Premium courses image" aspectRatio="square" className="w-full" />
 
               <div>
-                <div className="flex items-center gap-3 flex-wrap">
-                  <Badge variant="outline" className="font-mono text-xs border-dashed">Option 2</Badge>
-                  <MetaLabel>Premium Path</MetaLabel>
+                <div className="inline-flex items-baseline gap-2 border-b-2 border-dashed border-foreground pb-1.5">
+                  <span className="font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground">Option</span>
+                  <span className="text-3xl font-bold leading-none">02</span>
                 </div>
+                <MetaLabel className="block mt-3">Premium Path</MetaLabel>
 
-                <H3 className="mt-3">
+                <H3 className="mt-2">
                   Top-Rated Premium Courses for Serious Beginners
                 </H3>
 
