@@ -249,7 +249,7 @@ const CourseReviewPage = () => {
       </section>
 
       {/* Verdict */}
-      <section className="mt-12 max-w-4xl">
+      <section className="mt-12 max-w-4xl mx-auto">
         <SectionHeader title="Our verdict" source={{ type: "manual", label: "you write this" }} />
         <WireframeCard className="p-6">
           <p className="text-lg">{m.verdict}</p>
@@ -261,7 +261,7 @@ const CourseReviewPage = () => {
       </section>
 
       {/* Pros & cons */}
-      <section className="mt-12 max-w-4xl">
+      <section className="mt-12 max-w-4xl mx-auto">
         <SectionHeader title="Pros & Cons" source={{ type: "manual", label: "your take" }} />
         <div className="grid md:grid-cols-2 gap-6">
           <WireframeCard className="p-6">
@@ -313,7 +313,7 @@ const CourseReviewPage = () => {
       </section>
 
       {/* Instructor */}
-      <section className="mt-12 max-w-4xl">
+      <section className="mt-12 max-w-4xl mx-auto">
         <SectionHeader
           title="Who teaches it"
           source={{ type: "auto", label: "official site + LinkedIn" }}
@@ -412,7 +412,7 @@ const CourseReviewPage = () => {
       </section>
 
       {/* FAQ */}
-      <section className="mt-12 max-w-4xl">
+      <section className="mt-12 max-w-4xl mx-auto">
         <SectionHeader title="Frequently asked questions" source={{ type: "auto", label: "official FAQ + Reddit" }} />
         <div className="space-y-3">
           {m.faqs.map((f) => (
