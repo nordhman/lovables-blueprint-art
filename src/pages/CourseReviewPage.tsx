@@ -5,7 +5,6 @@ import { WireframeCard } from "@/components/wireframe/WireframeCard";
 import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
 import { SourceBadge } from "@/components/wireframe/SourceBadge";
 import { courses } from "@/data/mockData";
-import { Badge } from "@/components/ui/badge";
 import {
   ArrowLeft,
   Star,
@@ -17,9 +16,7 @@ import {
   Quote,
   Pencil,
   BookOpen,
-  Users,
   Clock,
-  Award,
 } from "lucide-react";
 
 const reviewMeta: Record<
