@@ -136,7 +136,7 @@ const CourseReviewPage = () => {
   const affiliateHref = "#";
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-5xl">
+    <div className="container mx-auto px-4 py-8">
       {/* Breadcrumbs */}
       <nav className="flex items-center gap-2 font-mono text-xs text-muted-foreground mb-6" aria-label="Breadcrumb">
         <Link to="/" className="hover:text-foreground">Home</Link>
