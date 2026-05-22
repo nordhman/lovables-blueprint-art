@@ -249,7 +249,7 @@ const CourseReviewPage = () => {
       </section>
 
       {/* Verdict */}
-      <section className="mt-12">
+      <section className="mt-12 max-w-4xl">
         <SectionHeader title="Our verdict" source={{ type: "manual", label: "you write this" }} />
         <WireframeCard className="p-6">
           <p className="text-lg">{m.verdict}</p>
