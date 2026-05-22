@@ -412,7 +412,7 @@ const CourseReviewPage = () => {
       </section>
 
       {/* FAQ */}
-      <section className="mt-12">
+      <section className="mt-12 max-w-4xl">
         <SectionHeader title="Frequently asked questions" source={{ type: "auto", label: "official FAQ + Reddit" }} />
         <div className="space-y-3">
           {m.faqs.map((f) => (
