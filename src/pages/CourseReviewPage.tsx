@@ -5,7 +5,6 @@ import { WireframeCard } from "@/components/wireframe/WireframeCard";
 import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
 import { SourceBadge } from "@/components/wireframe/SourceBadge";
 import { courses } from "@/data/mockData";
-import { Badge } from "@/components/ui/badge";
 import {
   ArrowLeft,
   Star,
@@ -17,9 +16,7 @@ import {
   Quote,
   Pencil,
   BookOpen,
-  Users,
   Clock,
-  Award,
 } from "lucide-react";
 
 const reviewMeta: Record<
@@ -412,15 +409,7 @@ const CourseReviewPage = () => {
               </div>
               <div>
                 <H3>{m.instructor.name}</H3>
-                <div className="mt-2 flex items-center gap-3 flex-wrap">
-                  <Badge variant="outline" className="font-mono text-xs border-dashed">
-                    <Award className="h-3 w-3 mr-1" /> Industry veteran
-                  </Badge>
-                  <Badge variant="outline" className="font-mono text-xs border-dashed">
-                    <Users className="h-3 w-3 mr-1" /> 10,000+ students
-                  </Badge>
-                </div>
-                <p className="text-base text-muted-foreground mt-4 leading-relaxed">{m.instructor.bio}</p>
+                <p className="text-base text-muted-foreground mt-2 leading-relaxed">{m.instructor.bio}</p>
               </div>
             </div>
           </WireframeCard>
