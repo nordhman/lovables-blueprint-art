@@ -180,7 +180,23 @@ const CourseReviewPage = () => {
             <SourceBadge type="manual" label="your intro" />
           </div>
 
-          <div className="mt-6">
+          <div className="mt-6 flex flex-wrap gap-4">
+            {/* Our score */}
+            <div className="border-2 border-dashed border-foreground rounded p-4 max-w-sm">
+              <div className="flex items-center justify-between gap-2 mb-2">
+                <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">Our score</span>
+                <SourceBadge type="manual" label="editorial" />
+              </div>
+              <div className="flex items-baseline gap-1">
+                <span className="text-3xl font-bold">{(m.ourScore / 2).toFixed(1)}</span>
+                <span className="font-mono text-xs text-muted-foreground">/5</span>
+                <span className="font-mono text-xs text-muted-foreground ml-2">({m.ourScore.toFixed(1)}/10)</span>
+              </div>
+              <p className="font-mono text-[11px] text-muted-foreground mt-2">
+                Based on our independent review
+              </p>
+            </div>
+
             {/* Trustpilot */}
             <div className="border-2 border-dashed border-border rounded p-4 max-w-sm">
               <div className="flex items-center justify-between gap-2 mb-2">
@@ -204,6 +220,7 @@ const CourseReviewPage = () => {
               )}
             </div>
           </div>
+
         </div>
 
         {/* Sticky conversion card */}
