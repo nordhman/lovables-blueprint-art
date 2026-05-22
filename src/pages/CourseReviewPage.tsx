@@ -261,7 +261,7 @@ const CourseReviewPage = () => {
       </section>
 
       {/* Pros & cons */}
-      <section className="mt-12">
+      <section className="mt-12 max-w-4xl">
         <SectionHeader title="Pros & Cons" source={{ type: "manual", label: "your take" }} />
         <div className="grid md:grid-cols-2 gap-6">
           <WireframeCard className="p-6">
