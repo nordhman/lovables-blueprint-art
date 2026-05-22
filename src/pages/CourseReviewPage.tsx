@@ -313,7 +313,7 @@ const CourseReviewPage = () => {
       </section>
 
       {/* Instructor */}
-      <section className="mt-12">
+      <section className="mt-12 max-w-4xl">
         <SectionHeader
           title="Who teaches it"
           source={{ type: "auto", label: "official site + LinkedIn" }}
