@@ -404,7 +404,6 @@ const CourseReviewPage = () => {
           <SectionHeader
             id="instructor"
             title="Who teaches it"
-            source={{ type: "auto", label: "official site + LinkedIn" }}
           />
           <WireframeCard className="p-8">
             <div className="grid md:grid-cols-[160px_1fr] gap-6 items-start">
