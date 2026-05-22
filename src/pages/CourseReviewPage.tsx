@@ -21,6 +21,7 @@ import {
 const reviewMeta: Record<
   string,
   {
+    ourScore: number;
     rating: number | null;
     reviews: number | null;
     verdict: string;
@@ -40,6 +41,8 @@ const reviewMeta: Record<
   }
 > = {
   "authority-hacker-pro": {
+    ourScore: 9.8,
+
     rating: 4.9,
     reviews: 1280,
     verdict:
