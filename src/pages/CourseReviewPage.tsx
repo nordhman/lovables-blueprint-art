@@ -136,7 +136,7 @@ const CourseReviewPage = () => {
   const affiliateHref = "#";
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-5xl">
+    <div className="container mx-auto px-4 py-8">
       {/* Breadcrumbs */}
       <nav className="flex items-center gap-2 font-mono text-xs text-muted-foreground mb-6" aria-label="Breadcrumb">
         <Link to="/" className="hover:text-foreground">Home</Link>
@@ -249,7 +249,7 @@ const CourseReviewPage = () => {
       </section>
 
       {/* Verdict */}
-      <section className="mt-12">
+      <section className="mt-12 max-w-4xl">
         <SectionHeader title="Our verdict" source={{ type: "manual", label: "you write this" }} />
         <WireframeCard className="p-6">
           <p className="text-lg">{m.verdict}</p>
@@ -261,7 +261,7 @@ const CourseReviewPage = () => {
       </section>
 
       {/* Pros & cons */}
-      <section className="mt-12">
+      <section className="mt-12 max-w-4xl">
         <SectionHeader title="Pros & Cons" source={{ type: "manual", label: "your take" }} />
         <div className="grid md:grid-cols-2 gap-6">
           <WireframeCard className="p-6">
@@ -313,7 +313,7 @@ const CourseReviewPage = () => {
       </section>
 
       {/* Instructor */}
-      <section className="mt-12">
+      <section className="mt-12 max-w-4xl">
         <SectionHeader
           title="Who teaches it"
           source={{ type: "auto", label: "official site + LinkedIn" }}
@@ -412,7 +412,7 @@ const CourseReviewPage = () => {
       </section>
 
       {/* FAQ */}
-      <section className="mt-12">
+      <section className="mt-12 max-w-4xl">
         <SectionHeader title="Frequently asked questions" source={{ type: "auto", label: "official FAQ + Reddit" }} />
         <div className="space-y-3">
           {m.faqs.map((f) => (
