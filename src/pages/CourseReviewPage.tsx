@@ -302,10 +302,10 @@ const CourseReviewPage = () => {
           <SectionHeader id="verdict" eyebrow="TL;DR" title="Our verdict" source={{ type: "manual", label: "you write this" }} />
           <WireframeCard className="p-8">
             <div className="grid md:grid-cols-[1fr_auto] gap-6 items-start">
-              <p className="text-xl leading-relaxed">{m.verdict}</p>
+              <p className="text-base leading-relaxed">{m.verdict}</p>
               <div className="border-2 border-dashed border-foreground rounded p-4 text-center min-w-[140px]">
                 <MetaLabel>Our score</MetaLabel>
-                <div className="text-4xl font-bold mt-1">{ourScoreOf5.toFixed(1)}</div>
+                <div className="text-2xl font-bold mt-1.5">{ourScoreOf5.toFixed(1)}</div>
                 <Meta>out of 5</Meta>
                 <div className="mt-2 flex justify-center">
                   <Stars rating={ourScoreOf5} size="sm" />
@@ -314,18 +314,18 @@ const CourseReviewPage = () => {
             </div>
             <div className="mt-6 grid sm:grid-cols-2 gap-3">
               <div className="border-2 border-dashed border-border rounded p-4">
-                <div className="flex items-center gap-2 mb-1">
+                <div className="flex items-center gap-2 mb-1.5">
                   <Check className="h-4 w-4" />
                   <MetaLabel>Best for</MetaLabel>
                 </div>
-                <p className="text-sm font-medium">{m.bestFor}</p>
+                <p className="text-base font-medium">{m.bestFor}</p>
               </div>
               <div className="border-2 border-dashed border-border rounded p-4">
-                <div className="flex items-center gap-2 mb-1">
+                <div className="flex items-center gap-2 mb-1.5">
                   <X className="h-4 w-4" />
                   <MetaLabel>Skip if</MetaLabel>
                 </div>
-                <p className="text-sm font-medium">{m.notFor}</p>
+                <p className="text-base font-medium">{m.notFor}</p>
               </div>
             </div>
           </WireframeCard>
