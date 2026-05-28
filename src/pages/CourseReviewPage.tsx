@@ -237,11 +237,11 @@ const CourseReviewPage = () => {
             </div>
 
             <div className="lg:col-span-4">
-            <WireframeCard className="lg:sticky lg:top-6 p-5">
+            <WireframeCard className="lg:sticky lg:top-6 p-4">
               <PlaceholderImage label="Course image (auto)" aspectRatio="video" />
-              <div className="mt-5 text-center">
+              <div className="mt-4 text-center">
                 <MetaLabel>Price</MetaLabel>
-                <div className="text-4xl font-bold mt-1">{course.price}</div>
+                <div className="text-3xl font-bold mt-0.5">{course.price}</div>
                 <Meta className="block mt-1">{m.refundDays}-day money-back guarantee</Meta>
               </div>
               <a
