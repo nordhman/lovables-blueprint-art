@@ -213,26 +213,26 @@ const CourseReviewPage = () => {
                 {/* Snabbfakta-strip */}
                 <dl className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-border border-2 border-dashed border-border rounded overflow-hidden">
                 <div className="bg-background p-5">
-                  <dt className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">Our score</dt>
-                  <dd className="mt-1 flex items-baseline gap-1">
+                  <dt><MetaLabel>Our score</MetaLabel></dt>
+                  <dd className="mt-1.5 flex items-baseline gap-1">
                     <span className="text-2xl font-bold">{ourScoreOf5.toFixed(1)}</span>
                     <Meta>/5</Meta>
                   </dd>
                 </div>
                 <div className="bg-background p-5">
-                  <dt className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">Trustpilot</dt>
-                  <dd className="mt-1 flex items-baseline gap-1">
+                  <dt><MetaLabel>Trustpilot</MetaLabel></dt>
+                  <dd className="mt-1.5 flex items-baseline gap-1">
                     <span className="text-2xl font-bold">{m.rating?.toFixed(1) ?? "—"}</span>
                     {m.reviews && <Meta>({m.reviews.toLocaleString()})</Meta>}
                   </dd>
                 </div>
                 <div className="bg-background p-5">
-                  <dt className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">Price</dt>
-                  <dd className="mt-1 text-2xl font-bold">{course.price}</dd>
+                  <dt><MetaLabel>Price</MetaLabel></dt>
+                  <dd className="mt-1.5 text-2xl font-bold">{course.price}</dd>
                 </div>
                 <div className="bg-background p-5">
-                  <dt className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">Refund</dt>
-                  <dd className="mt-1 text-2xl font-bold">{m.refundDays} days</dd>
+                  <dt><MetaLabel>Refund</MetaLabel></dt>
+                  <dd className="mt-1.5 text-2xl font-bold">{m.refundDays} days</dd>
                 </div>
               </dl>
               </div>
@@ -243,30 +243,30 @@ const CourseReviewPage = () => {
               <PlaceholderImage label="Course image (auto)" aspectRatio="video" />
               <div className="mt-5 text-center">
                 <MetaLabel>Price</MetaLabel>
-                <div className="text-4xl font-bold mt-1">{course.price}</div>
-                <Meta className="block mt-1.5 text-sm">{m.refundDays}-day money-back guarantee</Meta>
+                <div className="text-2xl font-bold mt-1.5">{course.price}</div>
+                <Meta className="block mt-1.5">{m.refundDays}-day money-back guarantee</Meta>
               </div>
               <a
                 href={affiliateHref}
                 target="_blank"
                 rel="noopener sponsored"
-                className="mt-5 inline-flex w-full items-center justify-center gap-2 px-5 py-4 border-2 border-dashed border-foreground text-foreground hover:bg-foreground hover:text-background transition-colors rounded font-semibold text-base"
+                className="mt-5 inline-flex w-full items-center justify-center gap-2 px-5 py-3.5 border-2 border-dashed border-foreground text-foreground hover:bg-foreground hover:text-background transition-colors rounded font-semibold text-base"
               >
-                Visit {course.title} <ExternalLink className="h-5 w-5" />
+                Visit {course.title} <ExternalLink className="h-4 w-4" />
               </a>
               <div className="mt-5 pt-5 border-t border-dashed border-border space-y-3">
-                <div className="flex items-center justify-between font-mono text-sm">
-                  <span className="text-muted-foreground">Our score</span>
+                <div className="flex items-center justify-between">
+                  <MetaLabel>Our score</MetaLabel>
                   <span className="flex items-center gap-2">
                     <span className="font-bold text-foreground text-base">{ourScoreOf5.toFixed(1)}/5</span>
-                    <Stars rating={ourScoreOf5} size="md" />
+                    <Stars rating={ourScoreOf5} size="sm" />
                   </span>
                 </div>
-                <div className="flex items-center justify-between font-mono text-sm">
-                  <span className="text-muted-foreground">Trustpilot</span>
+                <div className="flex items-center justify-between">
+                  <MetaLabel>Trustpilot</MetaLabel>
                   <span className="flex items-center gap-2">
                     <span className="font-bold text-foreground text-base">{m.rating?.toFixed(1)}/5</span>
-                    <Stars rating={m.rating ?? 0} size="md" />
+                    <Stars rating={m.rating ?? 0} size="sm" />
                   </span>
                 </div>
               </div>
@@ -302,10 +302,10 @@ const CourseReviewPage = () => {
           <SectionHeader id="verdict" eyebrow="TL;DR" title="Our verdict" source={{ type: "manual", label: "you write this" }} />
           <WireframeCard className="p-8">
             <div className="grid md:grid-cols-[1fr_auto] gap-6 items-start">
-              <p className="text-xl leading-relaxed">{m.verdict}</p>
+              <p className="text-base leading-relaxed">{m.verdict}</p>
               <div className="border-2 border-dashed border-foreground rounded p-4 text-center min-w-[140px]">
                 <MetaLabel>Our score</MetaLabel>
-                <div className="text-4xl font-bold mt-1">{ourScoreOf5.toFixed(1)}</div>
+                <div className="text-2xl font-bold mt-1.5">{ourScoreOf5.toFixed(1)}</div>
                 <Meta>out of 5</Meta>
                 <div className="mt-2 flex justify-center">
                   <Stars rating={ourScoreOf5} size="sm" />
@@ -314,18 +314,18 @@ const CourseReviewPage = () => {
             </div>
             <div className="mt-6 grid sm:grid-cols-2 gap-3">
               <div className="border-2 border-dashed border-border rounded p-4">
-                <div className="flex items-center gap-2 mb-1">
+                <div className="flex items-center gap-2 mb-1.5">
                   <Check className="h-4 w-4" />
                   <MetaLabel>Best for</MetaLabel>
                 </div>
-                <p className="text-sm font-medium">{m.bestFor}</p>
+                <p className="text-base font-medium">{m.bestFor}</p>
               </div>
               <div className="border-2 border-dashed border-border rounded p-4">
-                <div className="flex items-center gap-2 mb-1">
+                <div className="flex items-center gap-2 mb-1.5">
                   <X className="h-4 w-4" />
                   <MetaLabel>Skip if</MetaLabel>
                 </div>
-                <p className="text-sm font-medium">{m.notFor}</p>
+                <p className="text-base font-medium">{m.notFor}</p>
               </div>
             </div>
           </WireframeCard>
@@ -342,7 +342,7 @@ const CourseReviewPage = () => {
               </div>
               <ul className="space-y-4">
                 {m.pros.map((p) => (
-                  <li key={p} className="flex items-start gap-3 text-sm">
+                  <li key={p} className="flex items-start gap-3 text-base">
                     <Check className="h-4 w-4 mt-0.5 shrink-0" />
                     <span>{p}</span>
                   </li>
@@ -356,7 +356,7 @@ const CourseReviewPage = () => {
               </div>
               <ul className="space-y-4">
                 {m.cons.map((c) => (
-                  <li key={c} className="flex items-start gap-3 text-sm">
+                  <li key={c} className="flex items-start gap-3 text-base">
                     <X className="h-4 w-4 mt-0.5 shrink-0" />
                     <span>{c}</span>
                   </li>
@@ -381,10 +381,10 @@ const CourseReviewPage = () => {
             <ol className="space-y-3">
               {m.curriculum.map((mod, i) => (
                 <li key={mod} className="flex items-start gap-4 p-3 border-2 border-dashed border-border rounded">
-                  <span className="font-mono text-xs text-muted-foreground shrink-0 w-6">
+                  <span className="font-mono text-[13px] text-muted-foreground shrink-0 w-6">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <span className="text-sm">{mod}</span>
+                  <span className="text-base">{mod}</span>
                 </li>
               ))}
             </ol>
@@ -402,7 +402,7 @@ const CourseReviewPage = () => {
             {m.studentQuotes.map((q) => (
               <WireframeCard key={q.text} className="p-6">
                 <Quote className="h-5 w-5 text-muted-foreground mb-3" />
-                <p className="text-sm leading-relaxed">"{q.text}"</p>
+                <p className="text-base leading-relaxed">"{q.text}"</p>
                 <Meta className="block mt-4 pt-4 border-t border-dashed border-border">— {q.source}</Meta>
               </WireframeCard>
             ))}
@@ -512,14 +512,14 @@ const CourseReviewPage = () => {
           <WireframeCard className="p-10 text-center bg-muted/30">
             <Eyebrow>Ready to start?</Eyebrow>
             <H2 className="mt-4">Get {course.title}</H2>
-            <div className="mt-4 text-5xl font-bold">{course.price}</div>
+            <div className="mt-4 text-3xl font-bold">{course.price}</div>
             <BodySmall className="mt-2">One-time payment · {m.refundDays}-day money-back guarantee</BodySmall>
             <div className="mt-6 flex items-center justify-center">
               <a
                 href={affiliateHref}
                 target="_blank"
                 rel="noopener sponsored"
-                className="inline-flex items-center justify-center gap-2 px-10 py-4 border-2 border-dashed border-foreground text-foreground hover:bg-foreground hover:text-background transition-colors rounded font-medium text-sm"
+                className="inline-flex items-center justify-center gap-2 px-10 py-3.5 border-2 border-dashed border-foreground text-foreground hover:bg-foreground hover:text-background transition-colors rounded font-semibold text-base"
               >
                 Visit {course.title} <ExternalLink className="h-4 w-4" />
               </a>
