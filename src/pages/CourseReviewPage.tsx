@@ -5,6 +5,7 @@ import { WireframeCard } from "@/components/wireframe/WireframeCard";
 import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
 import { SourceBadge } from "@/components/wireframe/SourceBadge";
 import { WireframeBreadcrumbs } from "@/components/wireframe/WireframeBreadcrumbs";
+import { WireframeHero } from "@/components/wireframe/WireframeHero";
 import { courses } from "@/data/mockData";
 import {
   ArrowLeft,
@@ -174,12 +175,12 @@ const CourseReviewPage = () => {
             <Pencil className="h-3 w-3" /> Edit review (admin)
           </Link>
         }
-        innerClassName="max-w-6xl"
+        innerClassName=""
       />
 
       {/* HERO */}
-      <section className="border-b-2 border-dashed border-border bg-muted/30">
-        <div className="container mx-auto px-4 py-12 md:py-16 max-w-6xl">
+      <WireframeHero size="lg">
+        <>
           {/* Trust strip */}
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-xs text-muted-foreground mb-8">
             <span className="inline-flex items-center gap-1.5">
@@ -264,12 +265,12 @@ const CourseReviewPage = () => {
               </div>
             </WireframeCard>
           </div>
-        </div>
-      </section>
+        </>
+      </WireframeHero>
 
       {/* TOC sub-nav */}
       <div className="sticky top-0 z-30 bg-background/95 backdrop-blur border-b-2 border-dashed border-border">
-        <div className="container mx-auto px-4 max-w-6xl">
+        <div className="container mx-auto px-4">
           <nav className="flex items-center gap-1 overflow-x-auto py-2" aria-label="Section navigation">
             {TOC_SECTIONS.map((s) => (
               <a
@@ -284,7 +285,7 @@ const CourseReviewPage = () => {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 max-w-6xl py-14 md:py-16 space-y-16">
+      <div className="container mx-auto px-4 py-14 md:py-16 space-y-16">
         {/* VERDICT — TL;DR */}
         <section>
           <SectionHeader id="verdict" eyebrow="TL;DR" title="Our verdict" source={{ type: "manual", label: "you write this" }} />
