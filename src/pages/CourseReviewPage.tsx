@@ -265,8 +265,8 @@ const CourseReviewPage = () => {
               </div>
             </WireframeCard>
           </div>
-        </div>
-      </section>
+        </>
+      </WireframeHero>
 
       {/* TOC sub-nav */}
       <div className="sticky top-0 z-30 bg-background/95 backdrop-blur border-b-2 border-dashed border-border">
