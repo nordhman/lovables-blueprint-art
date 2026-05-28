@@ -243,30 +243,30 @@ const CourseReviewPage = () => {
               <PlaceholderImage label="Course image (auto)" aspectRatio="video" />
               <div className="mt-5 text-center">
                 <MetaLabel>Price</MetaLabel>
-                <div className="text-4xl font-bold mt-1">{course.price}</div>
-                <Meta className="block mt-1.5 text-sm">{m.refundDays}-day money-back guarantee</Meta>
+                <div className="text-2xl font-bold mt-1.5">{course.price}</div>
+                <Meta className="block mt-1.5">{m.refundDays}-day money-back guarantee</Meta>
               </div>
               <a
                 href={affiliateHref}
                 target="_blank"
                 rel="noopener sponsored"
-                className="mt-5 inline-flex w-full items-center justify-center gap-2 px-5 py-4 border-2 border-dashed border-foreground text-foreground hover:bg-foreground hover:text-background transition-colors rounded font-semibold text-base"
+                className="mt-5 inline-flex w-full items-center justify-center gap-2 px-5 py-3.5 border-2 border-dashed border-foreground text-foreground hover:bg-foreground hover:text-background transition-colors rounded font-semibold text-base"
               >
-                Visit {course.title} <ExternalLink className="h-5 w-5" />
+                Visit {course.title} <ExternalLink className="h-4 w-4" />
               </a>
               <div className="mt-5 pt-5 border-t border-dashed border-border space-y-3">
-                <div className="flex items-center justify-between font-mono text-sm">
-                  <span className="text-muted-foreground">Our score</span>
+                <div className="flex items-center justify-between">
+                  <MetaLabel>Our score</MetaLabel>
                   <span className="flex items-center gap-2">
                     <span className="font-bold text-foreground text-base">{ourScoreOf5.toFixed(1)}/5</span>
-                    <Stars rating={ourScoreOf5} size="md" />
+                    <Stars rating={ourScoreOf5} size="sm" />
                   </span>
                 </div>
-                <div className="flex items-center justify-between font-mono text-sm">
-                  <span className="text-muted-foreground">Trustpilot</span>
+                <div className="flex items-center justify-between">
+                  <MetaLabel>Trustpilot</MetaLabel>
                   <span className="flex items-center gap-2">
                     <span className="font-bold text-foreground text-base">{m.rating?.toFixed(1)}/5</span>
-                    <Stars rating={m.rating ?? 0} size="md" />
+                    <Stars rating={m.rating ?? 0} size="sm" />
                   </span>
                 </div>
               </div>
