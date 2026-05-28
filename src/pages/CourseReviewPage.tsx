@@ -381,10 +381,10 @@ const CourseReviewPage = () => {
             <ol className="space-y-3">
               {m.curriculum.map((mod, i) => (
                 <li key={mod} className="flex items-start gap-4 p-3 border-2 border-dashed border-border rounded">
-                  <span className="font-mono text-xs text-muted-foreground shrink-0 w-6">
+                  <span className="font-mono text-[13px] text-muted-foreground shrink-0 w-6">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <span className="text-sm">{mod}</span>
+                  <span className="text-base">{mod}</span>
                 </li>
               ))}
             </ol>
