@@ -342,7 +342,7 @@ const CourseReviewPage = () => {
               </div>
               <ul className="space-y-4">
                 {m.pros.map((p) => (
-                  <li key={p} className="flex items-start gap-3 text-sm">
+                  <li key={p} className="flex items-start gap-3 text-base">
                     <Check className="h-4 w-4 mt-0.5 shrink-0" />
                     <span>{p}</span>
                   </li>
