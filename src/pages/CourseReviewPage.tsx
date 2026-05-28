@@ -356,7 +356,7 @@ const CourseReviewPage = () => {
               </div>
               <ul className="space-y-4">
                 {m.cons.map((c) => (
-                  <li key={c} className="flex items-start gap-3 text-sm">
+                  <li key={c} className="flex items-start gap-3 text-base">
                     <X className="h-4 w-4 mt-0.5 shrink-0" />
                     <span>{c}</span>
                   </li>
