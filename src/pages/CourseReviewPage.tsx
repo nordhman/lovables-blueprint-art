@@ -512,7 +512,7 @@ const CourseReviewPage = () => {
           <WireframeCard className="p-10 text-center bg-muted/30">
             <Eyebrow>Ready to start?</Eyebrow>
             <H2 className="mt-4">Get {course.title}</H2>
-            <div className="mt-4 text-5xl font-bold">{course.price}</div>
+            <div className="mt-4 text-3xl font-bold">{course.price}</div>
             <BodySmall className="mt-2">One-time payment · {m.refundDays}-day money-back guarantee</BodySmall>
             <div className="mt-6 flex items-center justify-center">
               <a
