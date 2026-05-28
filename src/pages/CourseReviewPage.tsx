@@ -519,7 +519,7 @@ const CourseReviewPage = () => {
                 href={affiliateHref}
                 target="_blank"
                 rel="noopener sponsored"
-                className="inline-flex items-center justify-center gap-2 px-10 py-4 border-2 border-dashed border-foreground text-foreground hover:bg-foreground hover:text-background transition-colors rounded font-medium text-sm"
+                className="inline-flex items-center justify-center gap-2 px-10 py-3.5 border-2 border-dashed border-foreground text-foreground hover:bg-foreground hover:text-background transition-colors rounded font-semibold text-base"
               >
                 Visit {course.title} <ExternalLink className="h-4 w-4" />
               </a>
