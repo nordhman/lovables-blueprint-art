@@ -182,24 +182,6 @@ const CourseReviewPage = () => {
         <>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
             <div className="lg:col-span-8 flex flex-col">
-              {/* Elevated trust meta strip */}
-              <div className="flex flex-wrap items-center gap-x-8 gap-y-2 font-mono text-[11px] uppercase tracking-widest text-muted-foreground mb-6">
-                <span className="inline-flex items-center gap-2">
-                  <ShieldCheck className="h-3.5 w-3.5" /> Independently reviewed
-                </span>
-                <Link to="/about" className="underline underline-offset-4 decoration-border hover:text-foreground">
-                  How we evaluate
-                </Link>
-                <span className="inline-flex items-center gap-2">
-                  <span className="text-border">/</span>
-                  <Clock className="h-3.5 w-3.5" /> Updated {m.lastUpdated}
-                </span>
-                <span className="inline-flex items-center gap-2">
-                  <span className="text-border">/</span>
-                  <span className="bg-muted px-1.5 py-0.5 text-foreground">Auto-data refreshed {m.lastScraped}</span>
-                </span>
-              </div>
-
               <Eyebrow>Buyer's guide</Eyebrow>
               <H1 className="mt-3">
                 {course.title} Review ({new Date().getFullYear()})
@@ -209,8 +191,27 @@ const CourseReviewPage = () => {
                 <SourceBadge type="manual" label="your intro" />
               </div>
 
-              {/* Snabbfakta-strip — pushed to bottom to align with card bottom */}
-              <dl className="mt-auto pt-6 grid grid-cols-2 sm:grid-cols-4 gap-px bg-border border-2 border-dashed border-border rounded overflow-hidden">
+              {/* Trust meta box — sits just above stat strip */}
+              <div className="mt-auto pt-6">
+                <div className="flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-[11px] uppercase tracking-widest text-muted-foreground border-2 border-dashed border-border rounded px-4 py-3 mb-3">
+                  <span className="inline-flex items-center gap-2">
+                    <ShieldCheck className="h-3.5 w-3.5" /> Independently reviewed
+                  </span>
+                  <Link to="/about" className="underline underline-offset-4 decoration-border hover:text-foreground">
+                    How we evaluate
+                  </Link>
+                  <span className="inline-flex items-center gap-2">
+                    <span className="text-border">/</span>
+                    <Clock className="h-3.5 w-3.5" /> Updated {m.lastUpdated}
+                  </span>
+                  <span className="inline-flex items-center gap-2">
+                    <span className="text-border">/</span>
+                    <span className="bg-muted px-1.5 py-0.5 text-foreground">Auto-data refreshed {m.lastScraped}</span>
+                  </span>
+                </div>
+
+                {/* Snabbfakta-strip */}
+                <dl className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-border border-2 border-dashed border-border rounded overflow-hidden">
                 <div className="bg-background p-4">
                   <dt className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">Our score</dt>
                   <dd className="mt-1 flex items-baseline gap-1">
@@ -234,6 +235,7 @@ const CourseReviewPage = () => {
                   <dd className="mt-1 text-2xl font-bold">{m.refundDays} days</dd>
                 </div>
               </dl>
+              </div>
             </div>
 
             <div className="lg:col-span-4">
