@@ -182,11 +182,11 @@ const CourseReviewPage = () => {
         <>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
             <div className="lg:col-span-8 flex flex-col">
-              <Eyebrow>Buyer's guide</Eyebrow>
+              <Eyebrow className="self-start">Buyer's guide</Eyebrow>
               <H1 className="mt-3">
                 {course.title} Review ({new Date().getFullYear()})
               </H1>
-              <Lead className="mt-4 max-w-2xl">{m.intro}</Lead>
+              <Lead className="mt-4 max-w-4xl">{m.intro}</Lead>
               <div className="mt-3">
                 <SourceBadge type="manual" label="your intro" />
               </div>
