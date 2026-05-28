@@ -48,7 +48,7 @@ export const WireframeBreadcrumbs = ({ items, right, innerClassName }: Wireframe
 
         {/* Desktop: full trail */}
         <nav
-          className="hidden sm:flex items-center gap-2 font-mono text-xs text-muted-foreground min-w-0"
+          className="hidden sm:flex items-center gap-2 font-mono text-[13px] text-muted-foreground min-w-0"
           aria-label="Breadcrumb"
         >
           {items.map((item, i) => {
