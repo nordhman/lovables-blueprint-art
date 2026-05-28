@@ -175,12 +175,12 @@ const CourseReviewPage = () => {
             <Pencil className="h-3 w-3" /> Edit review (admin)
           </Link>
         }
-        innerClassName="max-w-6xl"
+        innerClassName=""
       />
 
       {/* HERO */}
-      <section className="border-b-2 border-dashed border-border bg-muted/30">
-        <div className="container mx-auto px-4 py-12 md:py-16 max-w-6xl">
+      <WireframeHero size="lg">
+        <>
           {/* Trust strip */}
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-xs text-muted-foreground mb-8">
             <span className="inline-flex items-center gap-1.5">
