@@ -235,6 +235,7 @@ const CourseReviewPage = () => {
                   <dd className="mt-1 text-2xl font-bold">{m.refundDays} days</dd>
                 </div>
               </dl>
+              </div>
             </div>
 
             <div className="lg:col-span-4">
