@@ -254,19 +254,19 @@ const CourseReviewPage = () => {
               >
                 Visit {course.title} <ExternalLink className="h-5 w-5" />
               </a>
-              <div className="mt-4 pt-4 border-t border-dashed border-border space-y-2">
-                <div className="flex items-center justify-between font-mono text-xs">
+              <div className="mt-5 pt-5 border-t border-dashed border-border space-y-3">
+                <div className="flex items-center justify-between font-mono text-sm">
                   <span className="text-muted-foreground">Our score</span>
-                  <span className="flex items-center gap-1.5">
-                    <span className="font-bold text-foreground text-sm">{ourScoreOf5.toFixed(1)}/5</span>
-                    <Stars rating={ourScoreOf5} size="sm" />
+                  <span className="flex items-center gap-2">
+                    <span className="font-bold text-foreground text-base">{ourScoreOf5.toFixed(1)}/5</span>
+                    <Stars rating={ourScoreOf5} size="md" />
                   </span>
                 </div>
-                <div className="flex items-center justify-between font-mono text-xs">
+                <div className="flex items-center justify-between font-mono text-sm">
                   <span className="text-muted-foreground">Trustpilot</span>
-                  <span className="flex items-center gap-1.5">
-                    <span className="font-bold text-foreground text-sm">{m.rating?.toFixed(1)}/5</span>
-                    <Stars rating={m.rating ?? 0} size="sm" />
+                  <span className="flex items-center gap-2">
+                    <span className="font-bold text-foreground text-base">{m.rating?.toFixed(1)}/5</span>
+                    <Stars rating={m.rating ?? 0} size="md" />
                   </span>
                 </div>
               </div>
