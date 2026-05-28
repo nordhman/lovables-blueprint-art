@@ -170,7 +170,7 @@ const CourseReviewPage = () => {
         right={
           <Link
             to={`/courses/${course.slug}/review/edit`}
-            className="inline-flex items-center gap-1 font-mono text-xs border-2 border-dashed border-border rounded px-2 py-1 hover:border-foreground"
+            className="inline-flex items-center gap-1 font-mono text-xs text-muted-foreground hover:text-foreground"
           >
             <Pencil className="h-3 w-3" /> Edit review (admin)
           </Link>
