@@ -182,18 +182,18 @@ const CourseReviewPage = () => {
         <>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
             <div className="lg:col-span-8 flex flex-col">
-              <Eyebrow>Buyer's guide</Eyebrow>
+              <Eyebrow className="self-start">Buyer's guide</Eyebrow>
               <H1 className="mt-3">
                 {course.title} Review ({new Date().getFullYear()})
               </H1>
-              <Lead className="mt-4 max-w-2xl">{m.intro}</Lead>
+              <Lead className="mt-4 max-w-4xl">{m.intro}</Lead>
               <div className="mt-3">
                 <SourceBadge type="manual" label="your intro" />
               </div>
 
               {/* Trust meta box — sits just above stat strip */}
               <div className="mt-auto pt-6">
-                <div className="flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-[11px] uppercase tracking-widest text-muted-foreground border-2 border-dashed border-border rounded px-4 py-3 mb-3">
+                <div className="flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-xs uppercase tracking-widest text-muted-foreground border-2 border-dashed border-border rounded px-5 py-4 mb-3">
                   <span className="inline-flex items-center gap-2">
                     <ShieldCheck className="h-3.5 w-3.5" /> Independently reviewed
                   </span>
@@ -212,25 +212,25 @@ const CourseReviewPage = () => {
 
                 {/* Snabbfakta-strip */}
                 <dl className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-border border-2 border-dashed border-border rounded overflow-hidden">
-                <div className="bg-background p-4">
+                <div className="bg-background p-5">
                   <dt className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">Our score</dt>
                   <dd className="mt-1 flex items-baseline gap-1">
                     <span className="text-2xl font-bold">{ourScoreOf5.toFixed(1)}</span>
                     <Meta>/5</Meta>
                   </dd>
                 </div>
-                <div className="bg-background p-4">
+                <div className="bg-background p-5">
                   <dt className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">Trustpilot</dt>
                   <dd className="mt-1 flex items-baseline gap-1">
                     <span className="text-2xl font-bold">{m.rating?.toFixed(1) ?? "—"}</span>
                     {m.reviews && <Meta>({m.reviews.toLocaleString()})</Meta>}
                   </dd>
                 </div>
-                <div className="bg-background p-4">
+                <div className="bg-background p-5">
                   <dt className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">Price</dt>
                   <dd className="mt-1 text-2xl font-bold">{course.price}</dd>
                 </div>
-                <div className="bg-background p-4">
+                <div className="bg-background p-5">
                   <dt className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">Refund</dt>
                   <dd className="mt-1 text-2xl font-bold">{m.refundDays} days</dd>
                 </div>
@@ -239,34 +239,34 @@ const CourseReviewPage = () => {
             </div>
 
             <div className="lg:col-span-4">
-            <WireframeCard className="lg:sticky lg:top-6 p-4">
+            <WireframeCard className="lg:sticky lg:top-6 p-6">
               <PlaceholderImage label="Course image (auto)" aspectRatio="video" />
-              <div className="mt-4 text-center">
+              <div className="mt-5 text-center">
                 <MetaLabel>Price</MetaLabel>
-                <div className="text-3xl font-bold mt-0.5">{course.price}</div>
-                <Meta className="block mt-1">{m.refundDays}-day money-back guarantee</Meta>
+                <div className="text-4xl font-bold mt-1">{course.price}</div>
+                <Meta className="block mt-1.5 text-sm">{m.refundDays}-day money-back guarantee</Meta>
               </div>
               <a
                 href={affiliateHref}
                 target="_blank"
                 rel="noopener sponsored"
-                className="mt-4 inline-flex w-full items-center justify-center gap-2 px-4 py-2.5 border-2 border-dashed border-foreground text-foreground hover:bg-foreground hover:text-background transition-colors rounded font-medium text-sm"
+                className="mt-5 inline-flex w-full items-center justify-center gap-2 px-5 py-4 border-2 border-dashed border-foreground text-foreground hover:bg-foreground hover:text-background transition-colors rounded font-semibold text-base"
               >
-                Visit {course.title} <ExternalLink className="h-4 w-4" />
+                Visit {course.title} <ExternalLink className="h-5 w-5" />
               </a>
-              <div className="mt-4 pt-4 border-t border-dashed border-border space-y-2">
-                <div className="flex items-center justify-between font-mono text-xs">
+              <div className="mt-5 pt-5 border-t border-dashed border-border space-y-3">
+                <div className="flex items-center justify-between font-mono text-sm">
                   <span className="text-muted-foreground">Our score</span>
-                  <span className="flex items-center gap-1.5">
-                    <span className="font-bold text-foreground text-sm">{ourScoreOf5.toFixed(1)}/5</span>
-                    <Stars rating={ourScoreOf5} size="sm" />
+                  <span className="flex items-center gap-2">
+                    <span className="font-bold text-foreground text-base">{ourScoreOf5.toFixed(1)}/5</span>
+                    <Stars rating={ourScoreOf5} size="md" />
                   </span>
                 </div>
-                <div className="flex items-center justify-between font-mono text-xs">
+                <div className="flex items-center justify-between font-mono text-sm">
                   <span className="text-muted-foreground">Trustpilot</span>
-                  <span className="flex items-center gap-1.5">
-                    <span className="font-bold text-foreground text-sm">{m.rating?.toFixed(1)}/5</span>
-                    <Stars rating={m.rating ?? 0} size="sm" />
+                  <span className="flex items-center gap-2">
+                    <span className="font-bold text-foreground text-base">{m.rating?.toFixed(1)}/5</span>
+                    <Stars rating={m.rating ?? 0} size="md" />
                   </span>
                 </div>
               </div>
