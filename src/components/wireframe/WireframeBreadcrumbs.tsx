@@ -26,7 +26,7 @@ export const WireframeBreadcrumbs = ({ items, right }: WireframeBreadcrumbsProps
 
   return (
     <div className="border-b-2 border-dashed border-border bg-muted/20">
-      <div className="container mx-auto px-4 py-3 max-w-6xl flex items-center justify-between gap-3">
+      <div className="container mx-auto px-4 py-3 flex items-center justify-between gap-3">
         {/* Mobile: single back link */}
         <nav className="flex sm:hidden items-center font-mono text-xs text-muted-foreground" aria-label="Breadcrumb">
           {previous?.to ? (
