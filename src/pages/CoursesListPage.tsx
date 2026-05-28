@@ -79,6 +79,13 @@ const CoursesListPage = () => {
 
   return (
     <div>
+      <WireframeBreadcrumbs
+        items={[
+          { label: "Home", to: "/" },
+          { label: "Courses", to: "/courses" },
+          { label: isAffiliate ? "Premium Courses" : isOwn ? "My Courses" : "All courses" },
+        ]}
+      />
       {/* Hero */}
       <WireframeHero size="sm">
         <Eyebrow>Comparison · 2026</Eyebrow>
