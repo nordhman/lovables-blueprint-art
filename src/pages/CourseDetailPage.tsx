@@ -3,6 +3,7 @@ import { Eyebrow, H1, H2 } from "@/components/wireframe/Typography";
 import { PlaceholderImage } from "@/components/wireframe/PlaceholderImage";
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
 import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
+import { WireframeBreadcrumbs } from "@/components/wireframe/WireframeBreadcrumbs";
 import { courses } from "@/data/mockData";
 import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, CheckCircle } from "lucide-react";
