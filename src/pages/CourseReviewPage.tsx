@@ -283,6 +283,7 @@ const CourseReviewPage = () => {
               </a>
             ))}
           </nav>
+          </div>
         </div>
       </div>
 
