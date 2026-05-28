@@ -285,7 +285,7 @@ const CourseReviewPage = () => {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 max-w-6xl py-14 md:py-16 space-y-16">
+      <div className="container mx-auto px-4 py-14 md:py-16 space-y-16">
         {/* VERDICT — TL;DR */}
         <section>
           <SectionHeader id="verdict" eyebrow="TL;DR" title="Our verdict" source={{ type: "manual", label: "you write this" }} />
