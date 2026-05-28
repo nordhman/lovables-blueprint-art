@@ -285,7 +285,7 @@ const CourseReviewPage = () => {
               <a
                 key={s.id}
                 href={`#${s.id}`}
-                className="font-mono text-xs text-muted-foreground hover:text-foreground px-3 py-1.5 rounded whitespace-nowrap border-2 border-dashed border-transparent hover:border-border"
+                className="font-mono text-[13px] text-muted-foreground hover:text-foreground px-3 py-1.5 rounded whitespace-nowrap border-2 border-dashed border-transparent hover:border-border"
               >
                 {s.label}
               </a>
