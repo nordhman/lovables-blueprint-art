@@ -3,6 +3,7 @@ import { H1 } from "@/components/wireframe/Typography";
 import { useState } from "react";
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
 import { SourceBadge } from "@/components/wireframe/SourceBadge";
+import { WireframeBreadcrumbs } from "@/components/wireframe/WireframeBreadcrumbs";
 import { courses } from "@/data/mockData";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
