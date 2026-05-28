@@ -239,20 +239,20 @@ const CourseReviewPage = () => {
             </div>
 
             <div className="lg:col-span-4">
-            <WireframeCard className="lg:sticky lg:top-6 p-4">
+            <WireframeCard className="lg:sticky lg:top-6 p-6">
               <PlaceholderImage label="Course image (auto)" aspectRatio="video" />
-              <div className="mt-4 text-center">
+              <div className="mt-5 text-center">
                 <MetaLabel>Price</MetaLabel>
-                <div className="text-3xl font-bold mt-0.5">{course.price}</div>
-                <Meta className="block mt-1">{m.refundDays}-day money-back guarantee</Meta>
+                <div className="text-4xl font-bold mt-1">{course.price}</div>
+                <Meta className="block mt-1.5 text-sm">{m.refundDays}-day money-back guarantee</Meta>
               </div>
               <a
                 href={affiliateHref}
                 target="_blank"
                 rel="noopener sponsored"
-                className="mt-4 inline-flex w-full items-center justify-center gap-2 px-4 py-2.5 border-2 border-dashed border-foreground text-foreground hover:bg-foreground hover:text-background transition-colors rounded font-medium text-sm"
+                className="mt-5 inline-flex w-full items-center justify-center gap-2 px-5 py-4 border-2 border-dashed border-foreground text-foreground hover:bg-foreground hover:text-background transition-colors rounded font-semibold text-base"
               >
-                Visit {course.title} <ExternalLink className="h-4 w-4" />
+                Visit {course.title} <ExternalLink className="h-5 w-5" />
               </a>
               <div className="mt-4 pt-4 border-t border-dashed border-border space-y-2">
                 <div className="flex items-center justify-between font-mono text-xs">
