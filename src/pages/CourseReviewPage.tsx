@@ -193,7 +193,7 @@ const CourseReviewPage = () => {
 
               {/* Trust meta box — sits just above stat strip */}
               <div className="mt-auto pt-6">
-                <div className="flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-[11px] uppercase tracking-widest text-muted-foreground border-2 border-dashed border-border rounded px-4 py-3 mb-3">
+                <div className="flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-xs uppercase tracking-widest text-muted-foreground border-2 border-dashed border-border rounded px-5 py-4 mb-3">
                   <span className="inline-flex items-center gap-2">
                     <ShieldCheck className="h-3.5 w-3.5" /> Independently reviewed
                   </span>
