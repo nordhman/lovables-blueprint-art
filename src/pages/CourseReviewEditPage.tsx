@@ -3,6 +3,7 @@ import { H1 } from "@/components/wireframe/Typography";
 import { useState } from "react";
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
 import { SourceBadge } from "@/components/wireframe/SourceBadge";
+import { WireframeBreadcrumbs } from "@/components/wireframe/WireframeBreadcrumbs";
 import { courses } from "@/data/mockData";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -61,15 +62,18 @@ const CourseReviewEditPage = () => {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-4xl">
-      {/* Breadcrumbs */}
-      <nav className="flex items-center gap-2 font-mono text-xs text-muted-foreground mb-6">
-        <Link to="/" className="hover:text-foreground">Home</Link>
-        <ChevronRight className="h-3 w-3" />
-        <span>Admin</span>
-        <ChevronRight className="h-3 w-3" />
-        <span className="text-foreground">Edit review</span>
-      </nav>
+    <div>
+      <WireframeBreadcrumbs
+        items={[
+          { label: "Home", to: "/" },
+          { label: "Courses", to: "/courses" },
+          { label: course.title, to: `/courses/${course.slug}/review` },
+          { label: "Edit review (admin)" },
+        ]}
+      />
+
+      <div className="container mx-auto px-4 py-8 max-w-4xl">
+
 
       <div className="flex items-center justify-between mb-6 gap-3 flex-wrap">
         <Link
@@ -277,6 +281,7 @@ const CourseReviewEditPage = () => {
           </WireframeCard>
         </div>
       )}
+      </div>
     </div>
   );
 };

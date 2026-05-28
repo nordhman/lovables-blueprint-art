@@ -3,6 +3,7 @@ import { PlaceholderImage } from "@/components/wireframe/PlaceholderImage";
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
 import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
 import { WireframeHero } from "@/components/wireframe/WireframeHero";
+import { WireframeBreadcrumbs } from "@/components/wireframe/WireframeBreadcrumbs";
 import { Eyebrow, H1, H2, H3, H4, Lead, BodySmall, Meta, MetaLabel } from "@/components/wireframe/Typography";
 import { courses } from "@/data/mockData";
 import { Badge } from "@/components/ui/badge";
@@ -78,6 +79,13 @@ const CoursesListPage = () => {
 
   return (
     <div>
+      <WireframeBreadcrumbs
+        items={[
+          { label: "Home", to: "/" },
+          { label: "Courses", to: "/courses" },
+          { label: isAffiliate ? "Premium Courses" : isOwn ? "My Courses" : "All courses" },
+        ]}
+      />
       {/* Hero */}
       <WireframeHero size="sm">
         <Eyebrow>Comparison · 2026</Eyebrow>

@@ -4,6 +4,7 @@ import { PlaceholderImage } from "@/components/wireframe/PlaceholderImage";
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
 import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
 import { SourceBadge } from "@/components/wireframe/SourceBadge";
+import { WireframeBreadcrumbs } from "@/components/wireframe/WireframeBreadcrumbs";
 import { courses } from "@/data/mockData";
 import {
   ArrowLeft,
@@ -158,23 +159,22 @@ const CourseReviewPage = () => {
   return (
     <div>
       {/* Utility row — breadcrumbs + admin */}
-      <div className="border-b-2 border-dashed border-border bg-muted/20">
-        <div className="container mx-auto px-4 py-3 max-w-6xl flex items-center justify-between gap-3 flex-wrap">
-          <nav className="flex items-center gap-2 font-mono text-xs text-muted-foreground" aria-label="Breadcrumb">
-            <Link to="/" className="hover:text-foreground">Home</Link>
-            <ChevronRight className="h-3 w-3" />
-            <Link to="/courses/list?type=affiliate" className="hover:text-foreground">Reviews</Link>
-            <ChevronRight className="h-3 w-3" />
-            <span className="text-foreground">{course.title}</span>
-          </nav>
+      <WireframeBreadcrumbs
+        items={[
+          { label: "Home", to: "/" },
+          { label: "Courses", to: "/courses" },
+          { label: "Reviews", to: "/courses/list?type=affiliate" },
+          { label: course.title },
+        ]}
+        right={
           <Link
             to={`/courses/${course.slug}/review/edit`}
             className="inline-flex items-center gap-1 font-mono text-xs border-2 border-dashed border-border rounded px-2 py-1 hover:border-foreground"
           >
             <Pencil className="h-3 w-3" /> Edit review (admin)
           </Link>
-        </div>
-      </div>
+        }
+      />
 
       {/* HERO */}
       <section className="border-b-2 border-dashed border-border bg-muted/30">

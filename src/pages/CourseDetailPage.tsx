@@ -3,6 +3,7 @@ import { Eyebrow, H1, H2 } from "@/components/wireframe/Typography";
 import { PlaceholderImage } from "@/components/wireframe/PlaceholderImage";
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
 import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
+import { WireframeBreadcrumbs } from "@/components/wireframe/WireframeBreadcrumbs";
 import { courses } from "@/data/mockData";
 import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, CheckCircle } from "lucide-react";
@@ -23,10 +24,17 @@ const CourseDetailPage = () => {
   const outlineItems = Array.from({ length: course.modules }, (_, i) => `Module ${i + 1}: [Module name placeholder]`);
 
   return (
-    <div className="container mx-auto px-4 py-12">
-      <Link to="/courses" className="inline-flex items-center gap-1 font-mono text-xs text-muted-foreground hover:text-foreground mb-8">
-        <ArrowLeft className="h-3 w-3" /> Back to courses
-      </Link>
+    <div>
+      <WireframeBreadcrumbs
+        items={[
+          { label: "Home", to: "/" },
+          { label: "Courses", to: "/courses" },
+          { label: course.type === "own" ? "My Courses" : "Premium Courses", to: `/courses/list?type=${course.type === "own" ? "own" : "affiliate"}` },
+          { label: course.title },
+        ]}
+      />
+      <div className="container mx-auto px-4 py-12">
+
 
       <div className="grid md:grid-cols-2 gap-12 items-start">
         <div>
@@ -69,6 +77,7 @@ const CourseDetailPage = () => {
           </div>
         </WireframeCard>
       </section>
+      </div>
     </div>
   );
 };

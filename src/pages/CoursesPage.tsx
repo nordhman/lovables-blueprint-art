@@ -1,12 +1,19 @@
 import { PlaceholderImage } from "@/components/wireframe/PlaceholderImage";
 import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
 import { WireframeHero } from "@/components/wireframe/WireframeHero";
+import { WireframeBreadcrumbs } from "@/components/wireframe/WireframeBreadcrumbs";
 import { H1, H2, H3, Lead, Meta, MetaLabel } from "@/components/wireframe/Typography";
 import { Star } from "lucide-react";
 
 const CoursesPage = () => {
   return (
     <div>
+      <WireframeBreadcrumbs
+        items={[
+          { label: "Home", to: "/" },
+          { label: "Courses" },
+        ]}
+      />
       {/* Hero */}
       <WireframeHero size="lg">
         <div className="grid md:grid-cols-2 gap-8 items-center">
