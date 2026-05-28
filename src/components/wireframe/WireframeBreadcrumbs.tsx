@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ChevronRight, ChevronLeft } from "lucide-react";
 import { ReactNode } from "react";
+import { cn } from "@/lib/utils";
 
 export type BreadcrumbItem = {
   label: string;
@@ -11,6 +12,8 @@ interface WireframeBreadcrumbsProps {
   items: BreadcrumbItem[];
   /** Optional right-aligned slot (e.g. admin action) */
   right?: ReactNode;
+  /** Extra classes on inner container, e.g. "max-w-6xl" to match a page's content width. */
+  innerClassName?: string;
 }
 
 /**
@@ -18,7 +21,7 @@ interface WireframeBreadcrumbsProps {
  * Always placed directly under the header, above the hero.
  * Wireframe style: dashed bottom border, mono uppercase tone.
  */
-export const WireframeBreadcrumbs = ({ items, right }: WireframeBreadcrumbsProps) => {
+export const WireframeBreadcrumbs = ({ items, right, innerClassName }: WireframeBreadcrumbsProps) => {
   if (!items?.length) return null;
 
   // Mobile: just show "‹ {previous}"
@@ -26,7 +29,8 @@ export const WireframeBreadcrumbs = ({ items, right }: WireframeBreadcrumbsProps
 
   return (
     <div className="border-b-2 border-dashed border-border bg-muted/20">
-      <div className="container mx-auto px-4 py-3 flex items-center justify-between gap-3">
+      <div className={cn("container mx-auto px-4 py-3 flex items-center justify-between gap-3", innerClassName)}>
+
         {/* Mobile: single back link */}
         <nav className="flex sm:hidden items-center font-mono text-xs text-muted-foreground" aria-label="Breadcrumb">
           {previous?.to ? (
