@@ -175,7 +175,6 @@ const CourseReviewPage = () => {
             <Pencil className="h-3 w-3" /> Edit review (admin)
           </Link>
         }
-        innerClassName="max-w-6xl"
       />
 
       {/* HERO */}
