@@ -66,7 +66,7 @@ export const MetaLabel = ({ className, ...p }: SpanProps) => (
 export const Eyebrow = ({ className, ...p }: DivProps) => (
   <span
     className={cn(
-      "inline-block font-mono text-xs text-muted-foreground uppercase tracking-wider border-2 border-dashed border-border rounded px-2 py-1",
+      "inline-block font-mono text-[13px] text-muted-foreground uppercase tracking-wider border-2 border-dashed border-border rounded px-2.5 py-1",
       className,
     )}
     {...p}
