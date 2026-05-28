@@ -270,6 +270,7 @@ const CourseReviewPage = () => {
               </div>
             </WireframeCard>
           </div>
+          </div>
         </>
       </WireframeHero>
 
