@@ -180,20 +180,26 @@ const CourseReviewPage = () => {
       {/* HERO */}
       <WireframeHero size="lg">
         <>
-          {/* Trust strip */}
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-xs text-muted-foreground mb-8">
-            <span className="inline-flex items-center gap-1.5">
-              <ShieldCheck className="h-4 w-4" /> Independently reviewed ·{" "}
-              <Link to="/about" className="underline hover:text-foreground">How we evaluate</Link>
+          {/* Elevated trust meta strip */}
+          <div className="flex flex-wrap items-center gap-x-8 gap-y-2 font-mono text-[11px] uppercase tracking-widest text-muted-foreground mb-10">
+            <span className="inline-flex items-center gap-2">
+              <ShieldCheck className="h-3.5 w-3.5" /> Independently reviewed
             </span>
-            <span className="inline-flex items-center gap-1.5">
+            <Link to="/about" className="underline underline-offset-4 decoration-border hover:text-foreground">
+              How we evaluate
+            </Link>
+            <span className="inline-flex items-center gap-2">
+              <span className="text-border">/</span>
               <Clock className="h-3.5 w-3.5" /> Updated {m.lastUpdated}
             </span>
-            <span>Auto-data refreshed {m.lastScraped}</span>
+            <span className="inline-flex items-center gap-2">
+              <span className="text-border">/</span>
+              <span className="bg-muted px-1.5 py-0.5 text-foreground">Auto-data refreshed {m.lastScraped}</span>
+            </span>
           </div>
 
-          <div className="grid lg:grid-cols-[1fr_360px] gap-10 items-start">
-            <div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            <div className="lg:col-span-8">
               <Eyebrow>Buyer's guide</Eyebrow>
               <H1 className="mt-4">
                 {course.title} Review ({new Date().getFullYear()})
@@ -204,7 +210,7 @@ const CourseReviewPage = () => {
               </div>
 
               {/* Snabbfakta-strip */}
-              <dl className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-px bg-border border-2 border-dashed border-border rounded overflow-hidden">
+              <dl className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-px bg-border border-2 border-dashed border-border rounded overflow-hidden">
                 <div className="bg-background p-4">
                   <dt className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">Our score</dt>
                   <dd className="mt-1 flex items-baseline gap-1">
@@ -230,7 +236,7 @@ const CourseReviewPage = () => {
               </dl>
             </div>
 
-            {/* Sticky conversion card */}
+            <div className="lg:col-span-4">
             <WireframeCard className="lg:sticky lg:top-6 p-5">
               <PlaceholderImage label="Course image (auto)" aspectRatio="video" />
               <div className="mt-5 text-center">
@@ -263,6 +269,7 @@ const CourseReviewPage = () => {
                 </div>
               </div>
             </WireframeCard>
+          </div>
           </div>
         </>
       </WireframeHero>
