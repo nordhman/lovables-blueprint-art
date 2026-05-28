@@ -77,6 +77,7 @@ const CourseDetailPage = () => {
           </div>
         </WireframeCard>
       </section>
+      </div>
     </div>
   );
 };
