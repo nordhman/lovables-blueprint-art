@@ -8,6 +8,12 @@ import { Star } from "lucide-react";
 const CoursesPage = () => {
   return (
     <div>
+      <WireframeBreadcrumbs
+        items={[
+          { label: "Home", to: "/" },
+          { label: "Courses" },
+        ]}
+      />
       {/* Hero */}
       <WireframeHero size="lg">
         <div className="grid md:grid-cols-2 gap-8 items-center">
