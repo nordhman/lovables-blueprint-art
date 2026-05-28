@@ -175,7 +175,7 @@ const CourseReviewPage = () => {
             <Pencil className="h-3 w-3" /> Edit review (admin)
           </Link>
         }
-        innerClassName=""
+        innerClassName="max-w-6xl"
       />
 
       {/* HERO */}
@@ -270,7 +270,7 @@ const CourseReviewPage = () => {
 
       {/* TOC sub-nav */}
       <div className="sticky top-0 z-30 bg-background/95 backdrop-blur border-b-2 border-dashed border-border">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 max-w-6xl">
           <nav className="flex items-center gap-1 overflow-x-auto py-2" aria-label="Section navigation">
             {TOC_SECTIONS.map((s) => (
               <a
@@ -285,7 +285,7 @@ const CourseReviewPage = () => {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 py-14 md:py-16 space-y-16">
+      <div className="container mx-auto px-4 max-w-6xl py-14 md:py-16 space-y-16">
         {/* VERDICT — TL;DR */}
         <section>
           <SectionHeader id="verdict" eyebrow="TL;DR" title="Our verdict" source={{ type: "manual", label: "you write this" }} />
