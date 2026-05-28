@@ -402,7 +402,7 @@ const CourseReviewPage = () => {
             {m.studentQuotes.map((q) => (
               <WireframeCard key={q.text} className="p-6">
                 <Quote className="h-5 w-5 text-muted-foreground mb-3" />
-                <p className="text-sm leading-relaxed">"{q.text}"</p>
+                <p className="text-base leading-relaxed">"{q.text}"</p>
                 <Meta className="block mt-4 pt-4 border-t border-dashed border-border">— {q.source}</Meta>
               </WireframeCard>
             ))}
