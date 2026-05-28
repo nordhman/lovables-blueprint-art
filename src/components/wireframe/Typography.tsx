@@ -10,19 +10,19 @@ export const typo = {
   // Headings
   h1: "text-4xl md:text-5xl font-bold leading-tight tracking-tight",
   h2: "text-2xl md:text-3xl font-bold leading-tight",
-  h3: "text-lg md:text-xl font-bold leading-snug",
-  h4: "text-base font-semibold",
-  h5: "text-sm font-semibold",
+  h3: "text-xl md:text-2xl font-bold leading-snug",
+  h4: "text-lg font-semibold",
+  h5: "text-base font-semibold",
 
   // Body
-  lead: "text-lg text-muted-foreground",
-  body: "text-base",
-  bodySmall: "text-sm text-muted-foreground",
+  lead: "text-xl text-muted-foreground leading-relaxed",
+  body: "text-base leading-relaxed",
+  bodySmall: "text-[15px] text-muted-foreground leading-relaxed",
 
   // Meta / wireframe annotations (always mono)
-  meta: "font-mono text-xs text-muted-foreground",
-  metaLabel: "font-mono text-xs text-muted-foreground uppercase tracking-wider",
-  link: "font-mono text-xs text-muted-foreground hover:text-foreground transition-colors",
+  meta: "font-mono text-[13px] text-muted-foreground",
+  metaLabel: "font-mono text-[13px] text-muted-foreground uppercase tracking-wider",
+  link: "font-mono text-[13px] text-muted-foreground hover:text-foreground transition-colors",
 } as const;
 
 type DivProps = React.HTMLAttributes<HTMLDivElement>;
