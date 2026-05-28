@@ -281,6 +281,7 @@ const CourseReviewEditPage = () => {
           </WireframeCard>
         </div>
       )}
+      </div>
     </div>
   );
 };
