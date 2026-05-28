@@ -5,6 +5,7 @@ import { WireframeCard } from "@/components/wireframe/WireframeCard";
 import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
 import { SourceBadge } from "@/components/wireframe/SourceBadge";
 import { WireframeBreadcrumbs } from "@/components/wireframe/WireframeBreadcrumbs";
+import { WireframeHero } from "@/components/wireframe/WireframeHero";
 import { courses } from "@/data/mockData";
 import {
   ArrowLeft,
