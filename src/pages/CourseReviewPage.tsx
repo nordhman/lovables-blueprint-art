@@ -4,6 +4,7 @@ import { PlaceholderImage } from "@/components/wireframe/PlaceholderImage";
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
 import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
 import { SourceBadge } from "@/components/wireframe/SourceBadge";
+import { WireframeBreadcrumbs } from "@/components/wireframe/WireframeBreadcrumbs";
 import { courses } from "@/data/mockData";
 import {
   ArrowLeft,
