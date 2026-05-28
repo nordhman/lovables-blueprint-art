@@ -213,26 +213,26 @@ const CourseReviewPage = () => {
                 {/* Snabbfakta-strip */}
                 <dl className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-border border-2 border-dashed border-border rounded overflow-hidden">
                 <div className="bg-background p-5">
-                  <dt className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">Our score</dt>
-                  <dd className="mt-1 flex items-baseline gap-1">
+                  <dt><MetaLabel>Our score</MetaLabel></dt>
+                  <dd className="mt-1.5 flex items-baseline gap-1">
                     <span className="text-2xl font-bold">{ourScoreOf5.toFixed(1)}</span>
                     <Meta>/5</Meta>
                   </dd>
                 </div>
                 <div className="bg-background p-5">
-                  <dt className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">Trustpilot</dt>
-                  <dd className="mt-1 flex items-baseline gap-1">
+                  <dt><MetaLabel>Trustpilot</MetaLabel></dt>
+                  <dd className="mt-1.5 flex items-baseline gap-1">
                     <span className="text-2xl font-bold">{m.rating?.toFixed(1) ?? "—"}</span>
                     {m.reviews && <Meta>({m.reviews.toLocaleString()})</Meta>}
                   </dd>
                 </div>
                 <div className="bg-background p-5">
-                  <dt className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">Price</dt>
-                  <dd className="mt-1 text-2xl font-bold">{course.price}</dd>
+                  <dt><MetaLabel>Price</MetaLabel></dt>
+                  <dd className="mt-1.5 text-2xl font-bold">{course.price}</dd>
                 </div>
                 <div className="bg-background p-5">
-                  <dt className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">Refund</dt>
-                  <dd className="mt-1 text-2xl font-bold">{m.refundDays} days</dd>
+                  <dt><MetaLabel>Refund</MetaLabel></dt>
+                  <dd className="mt-1.5 text-2xl font-bold">{m.refundDays} days</dd>
                 </div>
               </dl>
               </div>
