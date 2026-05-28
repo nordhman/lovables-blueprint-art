@@ -32,7 +32,7 @@ export const WireframeBreadcrumbs = ({ items, right, innerClassName }: Wireframe
       <div className={cn("container mx-auto px-4 py-3 flex items-center justify-between gap-3", innerClassName)}>
 
         {/* Mobile: single back link */}
-        <nav className="flex sm:hidden items-center font-mono text-xs text-muted-foreground" aria-label="Breadcrumb">
+        <nav className="flex sm:hidden items-center font-mono text-[13px] text-muted-foreground" aria-label="Breadcrumb">
           {previous?.to ? (
             <Link to={previous.to} className="inline-flex items-center gap-1 hover:text-foreground">
               <ChevronLeft className="h-3 w-3" />
