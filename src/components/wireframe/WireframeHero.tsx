@@ -4,9 +4,9 @@ import { cn } from "@/lib/utils";
 type HeroSize = "xl" | "lg" | "sm";
 
 const SIZE_CLASSES: Record<HeroSize, string> = {
-  xl: "py-16 md:py-24",
-  lg: "py-14 md:py-16",
-  sm: "py-10 md:py-12",
+  xl: "py-14 md:py-20",
+  lg: "py-12 md:py-14",
+  sm: "py-8 md:py-10",
 };
 
 interface WireframeHeroProps {
