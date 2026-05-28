@@ -533,6 +533,7 @@ const CourseReviewPage = () => {
         </div>
       </div>
     </div>
+  </div>
   );
 };
 
