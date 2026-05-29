@@ -21,7 +21,7 @@ export const Footer = () => (
           <h4 className="font-mono text-xs font-medium text-muted-foreground uppercase tracking-wider mb-3">Resources</h4>
           <div className="space-y-2">
             <Link to="/best-affiliate-tools" className="block text-sm hover:text-foreground text-muted-foreground">Best Tools</Link>
-            <Link to="/best-affiliate-courses" className="block text-sm hover:text-foreground text-muted-foreground">Best Courses</Link>
+            <Link to="/courses/list?type=affiliate" className="block text-sm hover:text-foreground text-muted-foreground">Best Courses</Link>
             <Link to="/best-affiliate-networks" className="block text-sm hover:text-foreground text-muted-foreground">Best Networks</Link>
           </div>
         </div>

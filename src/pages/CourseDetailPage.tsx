@@ -73,7 +73,7 @@ const CourseDetailPage = () => {
           <h3 className="text-lg font-bold mt-2">Want to compare courses?</h3>
           <p className="text-sm text-muted-foreground mt-1">Check out our comparison of the best affiliate marketing courses.</p>
           <div className="mt-4">
-            <WireframeCTA label="Best Courses 2026 →" to="/best-affiliate-courses" variant="secondary" />
+            <WireframeCTA label="Compare All Premium Courses →" to="/courses/list?type=affiliate" variant="secondary" />
           </div>
         </WireframeCard>
       </section>

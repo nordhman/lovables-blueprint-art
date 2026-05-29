@@ -13,7 +13,7 @@ import NetworksPage from "./pages/NetworksPage";
 import BlogPage from "./pages/BlogPage";
 import BlogPostPage from "./pages/BlogPostPage";
 import LandingTools from "./pages/LandingTools";
-import LandingCourses from "./pages/LandingCourses";
+
 import LandingNetworks from "./pages/LandingNetworks";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
@@ -38,7 +38,7 @@ const App = () => (
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/blog/:slug" element={<BlogPostPage />} />
             <Route path="/best-affiliate-tools" element={<LandingTools />} />
-            <Route path="/best-affiliate-courses" element={<LandingCourses />} />
+            
             <Route path="/best-affiliate-networks" element={<LandingNetworks />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />

@@ -61,10 +61,10 @@ export const networks: Network[] = [
 ];
 
 export const blogPosts: BlogPost[] = [
-  { slug: "how-to-start-affiliate-marketing", title: "How to Start Affiliate Marketing in 2026", excerpt: "A complete guide for getting started with affiliate marketing. We cover everything from choosing a niche to earning your first commission.", category: "Guides", date: "2026-03-15", relatedLanding: "/best-affiliate-courses" },
+  { slug: "how-to-start-affiliate-marketing", title: "How to Start Affiliate Marketing in 2026", excerpt: "A complete guide for getting started with affiliate marketing. We cover everything from choosing a niche to earning your first commission.", category: "Guides", date: "2026-03-15", relatedLanding: "/courses/list?type=affiliate" },
   { slug: "best-seo-tools", title: "The 7 Best SEO Tools for Affiliate Sites", excerpt: "We compare the most popular SEO tools and help you choose the right one for your affiliate business.", category: "Tools", date: "2026-03-10", relatedLanding: "/best-affiliate-tools" },
   { slug: "choosing-affiliate-network", title: "How to Choose the Right Affiliate Network", excerpt: "A guide to the biggest affiliate networks and which ones are best for different types of sites.", category: "Networks", date: "2026-03-05", relatedLanding: "/best-affiliate-networks" },
-  { slug: "content-strategy-affiliates", title: "Content Strategy for Affiliate Sites", excerpt: "Learn how to create content that ranks on Google and converts visitors into buyers.", category: "Strategy", date: "2026-02-28", relatedLanding: "/best-affiliate-courses" },
+  { slug: "content-strategy-affiliates", title: "Content Strategy for Affiliate Sites", excerpt: "Learn how to create content that ranks on Google and converts visitors into buyers.", category: "Strategy", date: "2026-02-28", relatedLanding: "/courses/list?type=affiliate" },
   { slug: "passive-income-affiliate", title: "Passive Income Through Affiliate Marketing", excerpt: "Is affiliate marketing really passive income? We bust the myths and show how to build sustainable revenue streams.", category: "Guides", date: "2026-02-20", relatedLanding: "/courses" },
   { slug: "tracking-and-optimization", title: "Tracking and Optimizing Affiliate Links", excerpt: "Learn how to track and optimize your affiliate links for maximum conversion.", category: "Tools", date: "2026-02-15", relatedLanding: "/best-affiliate-tools" },
 ];

@@ -273,7 +273,7 @@ const CoursesListPage = () => {
 
       {!isAffiliate && (
         <div className="mt-12 text-center">
-          <WireframeCTA label="See Best Courses 2026 →" to="/best-affiliate-courses" variant="secondary" />
+          <WireframeCTA label="Browse All Courses →" to="/courses" variant="secondary" />
         </div>
       )}
 
