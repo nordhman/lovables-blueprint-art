@@ -5,7 +5,7 @@ import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
 import { WireframeHero } from "@/components/wireframe/WireframeHero";
 import { WireframeBreadcrumbs } from "@/components/wireframe/WireframeBreadcrumbs";
 import { Eyebrow, H1, H2, H3, H4, Lead, BodySmall, Meta, MetaLabel } from "@/components/wireframe/Typography";
-import { courses } from "@/data/mockData";
+import { courses, type Course } from "@/data/mockData";
 import { Badge } from "@/components/ui/badge";
 import { Star, Check, ExternalLink } from "lucide-react";
 
@@ -66,16 +66,27 @@ const CoursesListPage = () => {
   const isOwn = typeFilter === "own";
 
   const title = isOwn
-    ? "My Courses"
+    ? "Free Affiliate Marketing Courses"
     : isAffiliate
     ? "Top-Rated Online Affiliate Marketing Courses"
     : "All Courses";
 
   const intro = isOwn
-    ? "Our own courses – from fundamentals to advanced strategies."
+    ? "A complete, beginner-friendly learning path — from your first niche pick to scaling a real affiliate business. 100% free, no signup required."
     : isAffiliate
     ? "Hand-picked premium affiliate marketing courses, ranked by rating. Each one is a paid course from an external provider — read my full review or go straight to the course."
     : "Curated courses for affiliate marketing – our own and recommended.";
+
+  const totalModules = ownCourses.reduce((sum, c) => sum + c.modules, 0);
+  const levelOrder: Course["level"][] = ["beginner", "intermediate", "advanced"];
+  const levelLabel: Record<Course["level"], string> = {
+    beginner: "Start here · Foundations",
+    intermediate: "Level up · Growth",
+    advanced: "Go pro · Scale",
+  };
+  const orderedOwnCourses = [...ownCourses].sort(
+    (a, b) => levelOrder.indexOf(a.level) - levelOrder.indexOf(b.level),
+  );
 
   return (
     <div>
@@ -83,12 +94,12 @@ const CoursesListPage = () => {
         items={[
           { label: "Home", to: "/" },
           { label: "Courses", to: "/courses" },
-          { label: isAffiliate ? "Premium Courses" : isOwn ? "My Courses" : "All courses" },
+          { label: isAffiliate ? "Premium Courses" : isOwn ? "Free Courses" : "All courses" },
         ]}
       />
       {/* Hero */}
       <WireframeHero size="sm">
-        <Eyebrow>Comparison · 2026</Eyebrow>
+        <Eyebrow>{isOwn ? "Free learning path" : "Comparison · 2026"}</Eyebrow>
         <H1 className="mt-3">{title}</H1>
         <Lead className="mt-4 max-w-4xl">{intro}</Lead>
         {isAffiliate && (
@@ -107,34 +118,101 @@ const CoursesListPage = () => {
             </div>
           </div>
         )}
+        {isOwn && (
+          <div className="mt-8 flex items-center gap-x-8 gap-y-3 flex-wrap">
+            <div className="flex items-center gap-2">
+              <Check className="h-5 w-5" strokeWidth={2.5} />
+              <span className="font-semibold text-sm">{ownCourses.length} structured courses</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Check className="h-5 w-5" strokeWidth={2.5} />
+              <span className="font-semibold text-sm">{totalModules} modules total</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Check className="h-5 w-5" strokeWidth={2.5} />
+              <span className="font-semibold text-sm">100% free · No signup</span>
+            </div>
+          </div>
+        )}
       </WireframeHero>
 
       <div className="container mx-auto px-4 py-12">
 
       {(!typeFilter || isOwn) && (
         <section>
-          <div className="flex items-center gap-3 mb-8">
-            <H2>My Courses</H2>
-            <Badge variant="outline" className="font-mono text-xs border-dashed">Own</Badge>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {ownCourses.map((course) => (
-              <Link key={course.slug} to={`/courses/${course.slug}`}>
-                <WireframeCard className="hover:border-foreground h-full">
-                  <PlaceholderImage label="Course image" aspectRatio="video" />
-                  <div className="mt-3">
-                    <div className="flex items-center gap-2">
-                      <Meta>{course.level}</Meta>
-                      <Meta>· {course.modules} modules</Meta>
+          {!typeFilter && (
+            <div className="flex items-center gap-3 mb-8">
+              <H2>My Free Courses</H2>
+              <Badge variant="outline" className="font-mono text-xs border-dashed">Free</Badge>
+            </div>
+          )}
+
+          <ol className="space-y-4">
+            {orderedOwnCourses.map((course, idx) => {
+              const showLevelHeader =
+                idx === 0 || orderedOwnCourses[idx - 1].level !== course.level;
+              return (
+                <li key={course.slug}>
+                  {showLevelHeader && (
+                    <div className="flex items-center gap-3 mt-10 first:mt-0 mb-4">
+                      <MetaLabel>{levelLabel[course.level]}</MetaLabel>
+                      <span className="h-px flex-1 bg-border" />
                     </div>
-                    <H4 className="mt-1">{course.title}</H4>
-                    <BodySmall className="mt-1">{course.description}</BodySmall>
-                    <span className="inline-block mt-3 font-mono text-xs border border-dashed border-border rounded px-2 py-1">{course.price}</span>
-                  </div>
-                </WireframeCard>
-              </Link>
-            ))}
-          </div>
+                  )}
+                  <Link to={`/courses/${course.slug}`} className="block group">
+                    <WireframeCard className="group-hover:border-foreground p-0">
+                      <div className="grid md:grid-cols-[64px_220px_1fr_auto] gap-6 items-center px-6 py-5">
+                        {/* Step number */}
+                        <div className="flex md:flex-col items-center md:items-start gap-2">
+                          <MetaLabel className="leading-none">Step</MetaLabel>
+                          <span className="text-4xl font-bold leading-none">
+                            {String(idx + 1).padStart(2, "0")}
+                          </span>
+                        </div>
+
+                        {/* Image */}
+                        <PlaceholderImage label="Course image" aspectRatio="video" className="w-full" />
+
+                        {/* Content */}
+                        <div className="min-w-0">
+                          <div className="flex items-center gap-3 flex-wrap mb-1.5">
+                            <MetaLabel>{course.level}</MetaLabel>
+                            <Meta>· {course.modules} modules</Meta>
+                            <Meta>· ~{course.modules * 15} min read</Meta>
+                          </div>
+                          <H4 className="mt-1">{course.title}</H4>
+                          <BodySmall className="mt-1.5">{course.description}</BodySmall>
+                        </div>
+
+                        {/* CTA */}
+                        <div className="md:pl-4">
+                          <span className="inline-flex items-center gap-2 font-mono text-sm font-semibold border-b-2 border-dashed border-foreground pb-1 group-hover:border-solid">
+                            Start course →
+                          </span>
+                        </div>
+                      </div>
+                    </WireframeCard>
+                  </Link>
+                </li>
+              );
+            })}
+          </ol>
+
+          {isOwn && (
+            <div className="mt-16 p-6 border border-dashed border-border bg-muted/40 flex flex-col md:flex-row gap-4 md:items-center md:justify-between max-w-4xl">
+              <div>
+                <MetaLabel>Want a faster path?</MetaLabel>
+                <p className="text-sm mt-1.5 text-muted-foreground leading-relaxed max-w-xl">
+                  My free courses cover the fundamentals. If you want a proven, expert-led system, compare the top premium courses I recommend.
+                </p>
+              </div>
+              <WireframeCTA
+                label="Compare Premium Courses →"
+                to="/courses/list?type=affiliate"
+                variant="secondary"
+              />
+            </div>
+          )}
         </section>
       )}
 
