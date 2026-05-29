@@ -125,7 +125,8 @@ const CourseDetailPage = () => {
 
           <div className="space-y-6">
             {modules.map((m) => (
-              <WireframeCard key={m.number} id={`module-${m.number}`} className="scroll-mt-6">
+              <div key={m.number} id={`module-${m.number}`} className="scroll-mt-6">
+                <WireframeCard>
                 <div className="flex items-start gap-4">
                   <div className="shrink-0 w-14 text-center">
                     <MetaLabel className="block leading-none">Module</MetaLabel>
