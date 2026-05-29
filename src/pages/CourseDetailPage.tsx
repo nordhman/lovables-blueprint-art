@@ -155,6 +155,7 @@ const CourseDetailPage = () => {
                   </div>
                 </div>
               </WireframeCard>
+              </div>
             ))}
           </div>
 
