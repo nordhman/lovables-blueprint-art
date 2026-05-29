@@ -21,8 +21,8 @@ const BlogPostPage = () => {
 
   const landingLabel: Record<string, string> = {
     "/best-affiliate-tools": "See Best Tools 2026 →",
-    "/best-affiliate-courses": "See Best Courses 2026 →",
     "/best-affiliate-networks": "See Best Networks 2026 →",
+    "/courses/list?type=affiliate": "Compare Premium Courses →",
     "/courses": "Explore Courses →",
   };
 
