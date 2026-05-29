@@ -5,7 +5,7 @@ import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
 import { WireframeHero } from "@/components/wireframe/WireframeHero";
 import { WireframeBreadcrumbs } from "@/components/wireframe/WireframeBreadcrumbs";
 import { Eyebrow, H1, H2, H3, H4, Lead, BodySmall, Meta, MetaLabel } from "@/components/wireframe/Typography";
-import { courses } from "@/data/mockData";
+import { courses, type Course } from "@/data/mockData";
 import { Badge } from "@/components/ui/badge";
 import { Star, Check, ExternalLink } from "lucide-react";
 
