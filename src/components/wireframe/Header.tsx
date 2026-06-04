@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { Menu, X, Search, ChevronDown } from "lucide-react";
 import { useLocation } from "react-router-dom";
+import { toolCategories } from "@/data/toolCategories";
 
 const navItems = [
   {
@@ -13,7 +14,17 @@ const navItems = [
       { label: "Top-Rated Online Affiliate Marketing Courses", to: "/courses/list?type=affiliate" },
     ],
   },
-  { label: "Tools", to: "/tools" },
+  {
+    label: "Tools",
+    to: "/tools",
+    children: [
+      { label: "All Tools", to: "/tools" },
+      ...toolCategories.map((c) => ({
+        label: c.title,
+        to: `/best-affiliate-tools?category=${c.slug}`,
+      })),
+    ],
+  },
   { label: "Networks", to: "/networks" },
   { label: "Blog", to: "/blog" },
   { label: "About", to: "/about" },
@@ -22,7 +33,7 @@ const navItems = [
 
 export const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const location = useLocation();
 
   return (
