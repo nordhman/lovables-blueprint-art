@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { Menu, X, Search, ChevronDown } from "lucide-react";
 import { useLocation } from "react-router-dom";
+import { toolCategories } from "@/data/toolCategories";
 
 const navItems = [
   {
@@ -13,7 +14,17 @@ const navItems = [
       { label: "Top-Rated Online Affiliate Marketing Courses", to: "/courses/list?type=affiliate" },
     ],
   },
-  { label: "Tools", to: "/tools" },
+  {
+    label: "Tools",
+    to: "/tools",
+    children: [
+      { label: "All Tools", to: "/tools" },
+      ...toolCategories.map((c) => ({
+        label: c.title,
+        to: `/best-affiliate-tools?category=${c.slug}`,
+      })),
+    ],
+  },
   { label: "Networks", to: "/networks" },
   { label: "Blog", to: "/blog" },
   { label: "About", to: "/about" },
@@ -22,7 +33,7 @@ const navItems = [
 
 export const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const location = useLocation();
 
   return (
@@ -37,19 +48,19 @@ export const Header = () => {
             item.children ? (
               <div key={item.label} className="relative">
                 <button
-                  onClick={() => setDropdownOpen(!dropdownOpen)}
-                  className={`flex items-center gap-1 px-3 py-2 text-sm font-medium rounded hover:bg-white/10 transition-colors ${location.pathname.startsWith("/courses") ? "bg-white/10" : ""}`}
+                  onClick={() => setOpenDropdown(openDropdown === item.label ? null : item.label)}
+                  className={`flex items-center gap-1 px-3 py-2 text-sm font-medium rounded hover:bg-white/10 transition-colors ${location.pathname.startsWith(item.to) ? "bg-white/10" : ""}`}
                 >
                   {item.label}
                   <ChevronDown className="h-3 w-3" />
                 </button>
-                {dropdownOpen && (
+                {openDropdown === item.label && (
                   <div className="absolute top-full left-0 mt-1 border-2 border-dashed border-border bg-card text-foreground rounded p-1 min-w-[280px] shadow-sm">
                     {item.children.map((child) => (
                       <Link
                         key={child.label}
                         to={child.to}
-                        onClick={() => setDropdownOpen(false)}
+                        onClick={() => setOpenDropdown(null)}
                         className="block px-3 py-2 text-sm hover:bg-accent rounded transition-colors"
                       >
                         {child.label}

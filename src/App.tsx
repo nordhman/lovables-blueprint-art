@@ -12,7 +12,8 @@ import ToolsPage from "./pages/ToolsPage";
 import NetworksPage from "./pages/NetworksPage";
 import BlogPage from "./pages/BlogPage";
 import BlogPostPage from "./pages/BlogPostPage";
-import LandingTools from "./pages/LandingTools";
+import TopToolsPage from "./pages/TopToolsPage";
+import ToolReviewPage from "./pages/ToolReviewPage";
 
 import LandingNetworks from "./pages/LandingNetworks";
 import AboutPage from "./pages/AboutPage";
@@ -37,7 +38,9 @@ const App = () => (
             <Route path="/networks" element={<NetworksPage />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/blog/:slug" element={<BlogPostPage />} />
-            <Route path="/best-affiliate-tools" element={<LandingTools />} />
+            <Route path="/best-affiliate-tools" element={<TopToolsPage />} />
+            <Route path="/best-affiliate-tools/:category/:slug/review" element={<ToolReviewPage />} />
+            
             
             <Route path="/best-affiliate-networks" element={<LandingNetworks />} />
             <Route path="/about" element={<AboutPage />} />
