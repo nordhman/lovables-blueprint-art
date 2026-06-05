@@ -10,6 +10,8 @@ import CourseReviewPage from "./pages/CourseReviewPage";
 import CourseReviewEditPage from "./pages/CourseReviewEditPage";
 import ToolsPage from "./pages/ToolsPage";
 import NetworksPage from "./pages/NetworksPage";
+import VerticalNetworksPage from "./pages/VerticalNetworksPage";
+import NetworkReviewPage from "./pages/NetworkReviewPage";
 import BlogPage from "./pages/BlogPage";
 import BlogPostPage from "./pages/BlogPostPage";
 import TopToolsPage from "./pages/TopToolsPage";
@@ -36,6 +38,8 @@ const App = () => (
             <Route path="/courses/:slug/review/edit" element={<CourseReviewEditPage />} />
             <Route path="/tools" element={<ToolsPage />} />
             <Route path="/networks" element={<NetworksPage />} />
+            <Route path="/networks/:vertical" element={<VerticalNetworksPage />} />
+            <Route path="/networks/:vertical/:slug" element={<NetworkReviewPage />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/blog/:slug" element={<BlogPostPage />} />
             <Route path="/best-affiliate-tools" element={<TopToolsPage />} />
