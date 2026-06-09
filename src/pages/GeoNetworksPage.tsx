@@ -1,0 +1,64 @@
+import { useParams } from "react-router-dom";
+import { WireframeHero } from "@/components/wireframe/WireframeHero";
+import { WireframeBreadcrumbs } from "@/components/wireframe/WireframeBreadcrumbs";
+import { Eyebrow, H1, H2, Lead, Meta, MetaLabel } from "@/components/wireframe/Typography";
+import { NetworkCard } from "@/components/wireframe/NetworkCard";
+import { ComparisonTable } from "@/components/wireframe/ComparisonTable";
+import { FilterBar } from "@/components/wireframe/FilterBar";
+import { getRegion, getNetworksByRegion } from "@/data/networkGeo";
+import NotFound from "./NotFound";
+
+const GeoNetworksPage = () => {
+  const { region: slug } = useParams<{ region: string }>();
+  const region = slug ? getRegion(slug) : undefined;
+  if (!region) return <NotFound />;
+
+  const networks = getNetworksByRegion(region.slug);
+
+  return (
+    <div>
+      <WireframeBreadcrumbs
+        items={[
+          { label: "Home", to: "/" },
+          { label: "Networks", to: "/networks" },
+          { label: "Geographic", to: "/networks/geographic" },
+          { label: region.title },
+        ]}
+      />
+
+      <WireframeHero size="sm">
+        <Eyebrow>{region.title}</Eyebrow>
+        <H1 className="mt-3">Best Affiliate Networks in {region.title}</H1>
+        <Lead className="mt-2 max-w-3xl">{region.shortDescription}</Lead>
+      </WireframeHero>
+
+      <div className="container mx-auto px-4 py-12 space-y-14">
+        <section className="grid lg:grid-cols-[280px_1fr] gap-6">
+          <aside className="lg:sticky lg:top-20 lg:self-start space-y-3">
+            <MetaLabel>Filter</MetaLabel>
+            <FilterBar />
+            <Meta className="block">Prototype — filters are visual only.</Meta>
+          </aside>
+          <div className="space-y-4 min-w-0">
+            <div className="flex items-end justify-between">
+              <H2>Compare networks in {region.title}</H2>
+              <Meta>{networks.length} networks</Meta>
+            </div>
+            <ComparisonTable networks={networks} />
+          </div>
+        </section>
+
+        <section>
+          <H2 className="mb-6">All {region.title} Networks</H2>
+          <div className="grid md:grid-cols-2 gap-4">
+            {networks.map((n) => (
+              <NetworkCard key={`${n.vertical}-${n.slug}`} network={n} />
+            ))}
+          </div>
+        </section>
+      </div>
+    </div>
+  );
+};
+
+export default GeoNetworksPage;
