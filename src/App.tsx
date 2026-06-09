@@ -42,6 +42,10 @@ const App = () => (
             <Route path="/courses/:slug/review/edit" element={<CourseReviewEditPage />} />
             <Route path="/tools" element={<ToolsPage />} />
             <Route path="/networks" element={<NetworksPage />} />
+            <Route path="/networks/verticals" element={<VerticalsDirectoryPage />} />
+            <Route path="/networks/geographic" element={<GeoDirectoryPage />} />
+            <Route path="/networks/geographic/:region" element={<GeoNetworksPage />} />
+            <Route path="/networks/broad" element={<BroadNetworksPage />} />
             <Route path="/networks/:vertical" element={<VerticalNetworksPage />} />
             <Route path="/networks/:vertical/:slug" element={<NetworkReviewPage />} />
             <Route path="/blog" element={<BlogPage />} />
