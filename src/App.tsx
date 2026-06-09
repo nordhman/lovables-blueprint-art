@@ -10,6 +10,10 @@ import CourseReviewPage from "./pages/CourseReviewPage";
 import CourseReviewEditPage from "./pages/CourseReviewEditPage";
 import ToolsPage from "./pages/ToolsPage";
 import NetworksPage from "./pages/NetworksPage";
+import VerticalsDirectoryPage from "./pages/VerticalsDirectoryPage";
+import GeoDirectoryPage from "./pages/GeoDirectoryPage";
+import GeoNetworksPage from "./pages/GeoNetworksPage";
+import BroadNetworksPage from "./pages/BroadNetworksPage";
 import VerticalNetworksPage from "./pages/VerticalNetworksPage";
 import NetworkReviewPage from "./pages/NetworkReviewPage";
 import BlogPage from "./pages/BlogPage";
@@ -38,6 +42,10 @@ const App = () => (
             <Route path="/courses/:slug/review/edit" element={<CourseReviewEditPage />} />
             <Route path="/tools" element={<ToolsPage />} />
             <Route path="/networks" element={<NetworksPage />} />
+            <Route path="/networks/verticals" element={<VerticalsDirectoryPage />} />
+            <Route path="/networks/geographic" element={<GeoDirectoryPage />} />
+            <Route path="/networks/geographic/:region" element={<GeoNetworksPage />} />
+            <Route path="/networks/broad" element={<BroadNetworksPage />} />
             <Route path="/networks/:vertical" element={<VerticalNetworksPage />} />
             <Route path="/networks/:vertical/:slug" element={<NetworkReviewPage />} />
             <Route path="/blog" element={<BlogPage />} />
