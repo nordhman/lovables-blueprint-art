@@ -6,7 +6,6 @@ import { VerticalCard } from "@/components/wireframe/VerticalCard";
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
 import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
 import { verticals } from "@/data/networkVerticals";
-import { Search } from "lucide-react";
 
 const NetworksPage = () => {
   const [selected, setSelected] = useState<string[]>([]);
@@ -31,16 +30,6 @@ const NetworksPage = () => {
             Browse niche affiliate networks for nutra, pharmacy, dating, iGaming, crypto, sweepstakes, digital products,
             SaaS — plus large general networks like TradeDoubler, Awin and MaxBounty.
           </Lead>
-
-          <div className="mt-6 flex items-center gap-2 border-2 border-dashed border-border rounded bg-card px-3 py-2 max-w-xl">
-            <Search className="h-4 w-4 text-muted-foreground" />
-            <input
-              type="search"
-              placeholder="Search networks or verticals…"
-              className="flex-1 bg-transparent outline-none font-mono text-sm placeholder:text-muted-foreground"
-            />
-            <span className="font-mono text-[11px] text-muted-foreground uppercase tracking-wider">Prototype</span>
-          </div>
         </div>
       </WireframeHero>
 
