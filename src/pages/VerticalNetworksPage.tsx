@@ -75,11 +75,9 @@ const VerticalNetworksPage = () => {
                   className="flex flex-col border-2 border-dashed border-border bg-card rounded hover:border-foreground transition-colors overflow-hidden"
                 >
                   <div className="flex items-center gap-4 border-b border-dashed border-border p-4">
-                    <PlaceholderImage
-                      label={tp.network!.name}
-                      aspectRatio="square"
-                      className="w-20 shrink-0"
-                    />
+                    <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded border-2 border-dashed border-border bg-muted px-2 text-center font-mono text-[11px] leading-tight text-muted-foreground">
+                      {tp.network!.name}
+                    </div>
                     <div className="min-w-0 flex-1">
                       <Meta className="uppercase tracking-wider">#{i + 1} · {tp.label}</Meta>
                       <H4 className="mt-1 truncate">{tp.network!.name}</H4>
@@ -101,7 +99,7 @@ const VerticalNetworksPage = () => {
                       </div>
                     </div>
 
-                    <div className="mt-3 grid grid-cols-[1fr_auto] items-center gap-4">
+                    <div className="mt-3 grid grid-cols-[1fr_auto] items-center gap-5">
                       <a
                         href={tp.network!.externalUrl}
                         target="_blank"
