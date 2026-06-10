@@ -69,8 +69,8 @@ export const NetworkComparisonTable = ({ networks }: { networks: Network[] }) =>
               key={`${n.vertical}-${n.slug}`}
               className="border-b border-dashed border-border last:border-0 align-middle"
             >
-              <td className="px-4 py-5 font-semibold">{n.name}</td>
-              <td className="px-4 py-5">
+              <td className="px-4 py-3.5 font-semibold">{n.name}</td>
+              <td className="px-4 py-3.5">
                 <p className="text-[13px] text-muted-foreground leading-snug line-clamp-2">
                   {n.shortDescription}
                 </p>
@@ -81,19 +81,19 @@ export const NetworkComparisonTable = ({ networks }: { networks: Network[] }) =>
                   Read review →
                 </Link>
               </td>
-              <td className="px-4 py-5">
+              <td className="px-4 py-3.5">
                 <RatingBadge score={n.score} size="sm" />
               </td>
-              <td className="px-4 py-5">
+              <td className="px-4 py-3.5">
                 <TrustpilotBadge score={n.trustpilotScore} />
               </td>
-              <td className="px-4 py-5 font-mono text-xs text-muted-foreground whitespace-nowrap">
+              <td className="px-4 py-3.5 font-mono text-xs text-muted-foreground whitespace-nowrap">
                 {n.offerCount}
               </td>
-              <td className="px-4 py-5 font-mono text-xs text-muted-foreground whitespace-nowrap">
+              <td className="px-4 py-3.5 font-mono text-xs text-muted-foreground whitespace-nowrap">
                 {n.minPayout}
               </td>
-              <td className="px-4 py-5 whitespace-nowrap text-right">
+              <td className="px-4 py-3.5 whitespace-nowrap text-right">
                 <VisitButton href={n.externalUrl} />
               </td>
             </tr>
@@ -121,7 +121,7 @@ export const NetworkComparisonTable = ({ networks }: { networks: Network[] }) =>
               key={`${n.vertical}-${n.slug}`}
               className="border-b border-dashed border-border last:border-0 align-middle"
             >
-              <td className="px-4 py-5">
+              <td className="px-4 py-3.5">
                 <div className="font-semibold">{n.name}</div>
                 <p className="mt-1 text-[12.5px] text-muted-foreground leading-snug line-clamp-2">
                   {n.shortDescription}
@@ -133,19 +133,19 @@ export const NetworkComparisonTable = ({ networks }: { networks: Network[] }) =>
                   Read review →
                 </Link>
               </td>
-              <td className="px-4 py-5">
+              <td className="px-4 py-3.5">
                 <RatingBadge score={n.score} size="sm" />
               </td>
-              <td className="px-4 py-5">
+              <td className="px-4 py-3.5">
                 <TrustpilotBadge score={n.trustpilotScore} />
               </td>
-              <td className="px-4 py-5 font-mono text-xs text-muted-foreground whitespace-nowrap">
+              <td className="px-4 py-3.5 font-mono text-xs text-muted-foreground whitespace-nowrap">
                 {n.offerCount}
               </td>
-              <td className="px-4 py-5 font-mono text-xs text-muted-foreground whitespace-nowrap">
+              <td className="px-4 py-3.5 font-mono text-xs text-muted-foreground whitespace-nowrap">
                 {n.minPayout}
               </td>
-              <td className="px-4 py-5 whitespace-nowrap text-right">
+              <td className="px-4 py-3.5 whitespace-nowrap text-right">
                 <VisitButton href={n.externalUrl} />
               </td>
             </tr>
