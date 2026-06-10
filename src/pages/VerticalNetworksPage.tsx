@@ -69,61 +69,57 @@ const VerticalNetworksPage = () => {
             <H2 className="mb-5">Editor's 3 Picks</H2>
             <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
               {topPicks.map((tp, i) => (
-                  <article
-                    key={tp.key}
-                    className="flex flex-col border-2 border-dashed border-border bg-card overflow-hidden"
-                  >
-                    {/* Image — 3:1 (shorter) */}
-                    <PlaceholderImage
-                      label={`${tp.network!.name} image`}
-                      aspectRatio="wide"
-                      className="rounded-none border-0 border-b-2 border-dashed border-border aspect-[3/1]"
-                    />
-
-                    {/* Pick badge row */}
-                    <div className="flex items-center gap-3 border-b-2 border-dashed border-border px-5 py-3">
-                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 border-dashed border-foreground font-mono text-sm font-bold text-foreground">
+                  <div key={tp.key} className="flex flex-col">
+                    {/* Tag line above card */}
+                    <div className="flex items-center gap-2 pb-2 pl-1">
+                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2 border-dashed border-foreground font-mono text-[11px] font-bold text-foreground">
                         #{i + 1}
                       </span>
-                      <span className="font-mono text-[13px] font-bold uppercase tracking-wider text-foreground">
+                      <span className="font-mono text-[12px] font-bold uppercase tracking-wider text-foreground">
                         {tp.label}
                       </span>
                     </div>
 
-                    {/* Body */}
-                    <div className="flex flex-1 flex-col p-5">
-                      <H4 className="mb-2 text-foreground">{tp.network!.name}</H4>
-                      <p className="mb-4 flex-1 text-[15px] leading-relaxed text-foreground">
-                        {tp.network!.shortDescription}{" "}
-                        <Link
-                          to={`/networks/${vertical.slug}/${tp.network!.slug}`}
-                          className="font-mono text-[13px] text-foreground border-b-2 border-dashed border-foreground hover:opacity-70 whitespace-nowrap"
+                    <article className="flex flex-1 flex-col border-2 border-dashed border-border bg-card overflow-hidden">
+                      {/* Image — 3:1 (shorter) */}
+                      <PlaceholderImage
+                        label={`${tp.network!.name} image`}
+                        aspectRatio="wide"
+                        className="rounded-none border-0 border-b-2 border-dashed border-border aspect-[3/1]"
+                      />
+
+                      {/* Body */}
+                      <div className="flex flex-1 flex-col p-5">
+                        {/* Title + Score row */}
+                        <div className="mb-3 flex items-center justify-between gap-3">
+                          <H4 className="text-foreground">{tp.network!.name}</H4>
+                          <span className="inline-flex items-baseline gap-1 border-2 border-dashed border-border rounded px-2.5 py-1 font-mono bg-card shrink-0">
+                            <span className="font-bold text-foreground text-lg">{tp.network!.score.toFixed(1)}</span>
+                            <span className="text-muted-foreground text-[0.85em]">/ 10</span>
+                          </span>
+                        </div>
+
+                        <p className="mb-4 flex-1 text-[15px] leading-relaxed text-foreground">
+                          {tp.network!.shortDescription}{" "}
+                          <Link
+                            to={`/networks/${vertical.slug}/${tp.network!.slug}`}
+                            className="font-mono text-[13px] text-foreground border-b-2 border-dashed border-foreground hover:opacity-70 whitespace-nowrap"
+                          >
+                            Read review →
+                          </Link>
+                        </p>
+
+                        <a
+                          href={tp.network!.externalUrl}
+                          target="_blank"
+                          rel="noopener noreferrer nofollow sponsored"
+                          className="w-full inline-flex items-center justify-center gap-2 border-2 border-dashed border-foreground bg-foreground text-background px-5 py-3.5 font-mono text-[13px] font-bold uppercase tracking-wider hover:opacity-80 transition-opacity"
                         >
-                          Read review →
-                        </Link>
-                      </p>
-
-                      {/* Score + CTA */}
-                      <div className="mb-4 flex items-center gap-3">
-                        <span className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
-                          Our score
-                        </span>
-                        <span className="inline-flex items-baseline gap-1 border-2 border-dashed border-border rounded px-2.5 py-1 font-mono bg-card">
-                          <span className="font-bold text-foreground text-lg">{tp.network!.score.toFixed(1)}</span>
-                          <span className="text-muted-foreground text-[0.85em]">/ 10</span>
-                        </span>
+                          Visit site <ArrowUpRight className="h-4 w-4" />
+                        </a>
                       </div>
-
-                      <a
-                        href={tp.network!.externalUrl}
-                        target="_blank"
-                        rel="noopener noreferrer nofollow sponsored"
-                        className="w-full inline-flex items-center justify-center gap-2 border-2 border-dashed border-foreground bg-foreground text-background px-5 py-3.5 font-mono text-[13px] font-bold uppercase tracking-wider hover:opacity-80 transition-opacity"
-                      >
-                        Visit site <ArrowUpRight className="h-4 w-4" />
-                      </a>
-                    </div>
-                  </article>
+                    </article>
+                  </div>
                 ))}
             </div>
           </section>
