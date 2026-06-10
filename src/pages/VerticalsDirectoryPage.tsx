@@ -60,7 +60,7 @@ const VerticalsDirectoryPage = () => {
               )}
             </div>
           </div>
-          <div className="flex flex-nowrap md:flex-wrap gap-1.5 overflow-x-auto md:overflow-visible -mx-1 px-1 pb-1 md:pb-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <div className="flex flex-wrap gap-1.5">
             {items.map((v) => {
               const active = selected.includes(v.slug);
               return (
