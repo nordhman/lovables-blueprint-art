@@ -88,31 +88,15 @@ const VerticalNetworksPage = () => {
           </div>
         </section>
 
-        {/* Filters + table */}
-        <section className="grid lg:grid-cols-[280px_1fr] gap-6">
-          <aside className="lg:sticky lg:top-20 lg:self-start space-y-3">
-            <MetaLabel>Filter</MetaLabel>
-            <FilterBar />
-            <Meta className="block">Prototype — filters are visual only.</Meta>
-          </aside>
-          <div className="space-y-4 min-w-0">
-            <div className="flex items-end justify-between">
-              <H2>Compare {vertical.title} Networks</H2>
-              <Meta>{networks.length} networks</Meta>
-            </div>
-            <ComparisonTable networks={networks} />
+        {/* Comparison table */}
+        <section className="space-y-4">
+          <div className="flex items-end justify-between">
+            <H2>Compare {vertical.title} Networks</H2>
+            <Meta>{networks.length} networks</Meta>
           </div>
+          <NetworkComparisonTable networks={networks} />
         </section>
 
-        {/* Network cards */}
-        <section>
-          <H2 className="mb-6">All {vertical.title} Networks</H2>
-          <div className="grid md:grid-cols-2 gap-4">
-            {networks.map((n) => (
-              <NetworkCard key={n.slug} network={n} />
-            ))}
-          </div>
-        </section>
 
         {/* FAQ */}
         <section>
