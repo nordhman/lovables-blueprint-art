@@ -31,7 +31,7 @@ export const NetworkComparisonTable = ({ networks }: { networks: Network[] }) =>
       <table className="w-full text-sm">
         <thead>
           <tr className="border-b-2 border-dashed border-border bg-muted/30">
-            <th className="text-left p-3 font-mono text-[11px] text-muted-foreground uppercase tracking-wider">Network</th>
+            <th className="text-left p-3 font-mono text-[11px] text-muted-foreground uppercase tracking-wider w-[44%]">Network</th>
             <th className="text-left p-3 font-mono text-[11px] text-muted-foreground uppercase tracking-wider">Score</th>
             <th className="text-left p-3 font-mono text-[11px] text-muted-foreground uppercase tracking-wider">Offers</th>
             <th className="text-left p-3 font-mono text-[11px] text-muted-foreground uppercase tracking-wider">Min payout</th>
@@ -42,7 +42,12 @@ export const NetworkComparisonTable = ({ networks }: { networks: Network[] }) =>
         <tbody>
           {networks.map((n) => (
             <tr key={`${n.vertical}-${n.slug}`} className="border-b border-dashed border-border last:border-0 align-middle">
-              <td className="p-3 font-semibold whitespace-nowrap">{n.name}</td>
+              <td className="p-3">
+                <div className="font-semibold">{n.name}</div>
+                <p className="mt-0.5 text-[12.5px] text-muted-foreground leading-snug line-clamp-2 max-w-prose">
+                  {n.shortDescription}
+                </p>
+              </td>
               <td className="p-3"><RatingBadge score={n.score} size="sm" /></td>
               <td className="p-3 font-mono text-xs text-muted-foreground whitespace-nowrap">{n.offerCount}</td>
               <td className="p-3 font-mono text-xs text-muted-foreground whitespace-nowrap">{n.minPayout}</td>
@@ -64,6 +69,9 @@ export const NetworkComparisonTable = ({ networks }: { networks: Network[] }) =>
             <span className="font-semibold text-[15px]">{n.name}</span>
             <RatingBadge score={n.score} size="sm" />
           </div>
+          <p className="text-[13px] text-muted-foreground leading-snug">
+            {n.shortDescription}
+          </p>
           <div className="grid grid-cols-2 gap-2">
             <div>
               <MetaLabel className="block">Offers</MetaLabel>
