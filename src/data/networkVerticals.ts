@@ -27,6 +27,7 @@ export interface Network {
   score: number;
   offerCount: number;
   minPayout: string;
+  trustpilotScore: number;
   pros: string[];
   cons: string[];
   whoShouldJoin: string;
