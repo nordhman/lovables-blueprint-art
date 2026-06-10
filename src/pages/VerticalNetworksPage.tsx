@@ -3,6 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import { WireframeHero } from "@/components/wireframe/WireframeHero";
 import { WireframeBreadcrumbs } from "@/components/wireframe/WireframeBreadcrumbs";
 import { Eyebrow, H1, H2, H4, Lead, BodySmall, Meta, MetaLabel } from "@/components/wireframe/Typography";
+import { PlaceholderImage } from "@/components/wireframe/PlaceholderImage";
 import { NetworkComparisonTable } from "@/components/wireframe/NetworkComparisonTable";
 import { FAQSection } from "@/components/wireframe/FAQSection";
 import { getVertical, getNetworksByVertical } from "@/data/networkVerticals";
