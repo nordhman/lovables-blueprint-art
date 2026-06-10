@@ -1,8 +1,8 @@
 import { useParams, Link } from "react-router-dom";
-import { ArrowUpRight, Award, TrendingUp } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { WireframeHero } from "@/components/wireframe/WireframeHero";
 import { WireframeBreadcrumbs } from "@/components/wireframe/WireframeBreadcrumbs";
-import { Eyebrow, H1, H2, H4, Lead, BodySmall, Meta, MetaLabel } from "@/components/wireframe/Typography";
+import { Eyebrow, H1, H2, H4, Lead, Meta } from "@/components/wireframe/Typography";
 import { PlaceholderImage } from "@/components/wireframe/PlaceholderImage";
 import { NetworkComparisonTable } from "@/components/wireframe/NetworkComparisonTable";
 import { FAQSection } from "@/components/wireframe/FAQSection";
@@ -68,10 +68,7 @@ const VerticalNetworksPage = () => {
           <section>
             <H2 className="mb-5">Editor's 3 Picks</H2>
             <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
-              {topPicks.map((tp, i) => {
-                const rankLabel = i === 0 ? "Our #1 pick" : i === 1 ? "Our #2 option" : "Our #3 option";
-                
-                return (
+              {topPicks.map((tp, i) => (
                   <article
                     key={tp.key}
                     className="flex flex-col border-2 border-dashed border-border bg-card overflow-hidden"
