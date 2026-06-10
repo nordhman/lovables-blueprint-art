@@ -73,44 +73,44 @@ const VerticalNetworksPage = () => {
                 return (
                   <article
                     key={tp.key}
-                    className="flex flex-col overflow-hidden border-2 border-dashed border-border bg-card"
+                    className="flex flex-col border-2 border-dashed border-border bg-card"
                   >
-                    {/* Dark header */}
-                    <div className="flex items-center justify-between gap-3 bg-foreground px-5 py-4 text-background">
+                    {/* Header strip — wireframe style */}
+                    <div className="flex items-center justify-between gap-3 border-b-2 border-dashed border-border px-5 py-3">
                       <div className="flex items-center gap-3">
-                        <div className="flex h-10 w-10 items-center justify-center border-2 border-dashed border-background/60 font-mono text-base font-bold">
+                        <div className="flex h-9 w-9 items-center justify-center border-2 border-dashed border-border font-mono text-sm font-bold text-foreground">
                           {i + 1}
                         </div>
-                        <span className="font-mono text-[11px] uppercase tracking-wider opacity-80">{rankLabel}</span>
+                        <MetaLabel>{rankLabel}</MetaLabel>
                       </div>
                       <div className="text-right leading-tight">
-                        <div className="font-mono text-[9px] uppercase tracking-wider opacity-70">Our score</div>
-                        <div className="font-mono text-lg font-bold">
+                        <MetaLabel className="block text-[10px]">Our score</MetaLabel>
+                        <div className="font-mono text-base font-bold text-foreground">
                           {tp.network!.score.toFixed(1)}
-                          <span className="text-xs font-normal opacity-70">/10</span>
+                          <span className="text-xs font-normal text-muted-foreground">/10</span>
                         </div>
                       </div>
                     </div>
 
                     {/* Body */}
                     <div className="flex flex-1 flex-col p-5">
-                      <H4 className="mb-1">{tp.network!.name}</H4>
-                      <MetaLabel className="mb-3 normal-case tracking-normal">{tp.label}</MetaLabel>
-                      <BodySmall className="mb-5 flex-1">
+                      <H4 className="mb-1 text-foreground">{tp.network!.name}</H4>
+                      <Meta className="mb-4 block">{tp.label}</Meta>
+                      <p className="mb-5 flex-1 text-[15px] leading-relaxed text-foreground">
                         {tp.network!.shortDescription}{" "}
                         <Link
                           to={`/networks/${vertical.slug}/${tp.network!.slug}`}
-                          className="font-mono text-[13px] text-foreground underline decoration-dashed underline-offset-4 hover:opacity-70"
+                          className="font-mono text-[13px] text-foreground border-b-2 border-dashed border-foreground hover:opacity-70 whitespace-nowrap"
                         >
                           Read review →
                         </Link>
-                      </BodySmall>
+                      </p>
 
                       <a
                         href={tp.network!.externalUrl}
                         target="_blank"
                         rel="noopener noreferrer nofollow sponsored"
-                        className="self-start inline-flex items-center justify-center gap-1.5 rounded-full border-2 border-dashed border-foreground bg-foreground px-5 py-2.5 font-mono text-[11px] font-bold uppercase tracking-wider text-background hover:opacity-80"
+                        className="self-start inline-flex items-center justify-center gap-1.5 border-2 border-dashed border-foreground px-5 py-2.5 font-mono text-[12px] uppercase tracking-wider text-foreground hover:bg-foreground hover:text-background transition-colors"
                       >
                         Visit site <ArrowUpRight className="h-3.5 w-3.5" />
                       </a>
