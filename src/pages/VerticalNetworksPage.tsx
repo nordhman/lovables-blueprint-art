@@ -5,7 +5,6 @@ import { WireframeBreadcrumbs } from "@/components/wireframe/WireframeBreadcrumb
 import { Eyebrow, H1, H2, H4, Lead, BodySmall, Meta, MetaLabel } from "@/components/wireframe/Typography";
 import { NetworkComparisonTable } from "@/components/wireframe/NetworkComparisonTable";
 import { FAQSection } from "@/components/wireframe/FAQSection";
-import { RatingBadge } from "@/components/wireframe/RatingBadge";
 import { getVertical, getNetworksByVertical } from "@/data/networkVerticals";
 import type { BestFor } from "@/data/networkVerticals";
 import NotFound from "./NotFound";
@@ -67,45 +66,29 @@ const VerticalNetworksPage = () => {
           {/* Top picks — conversion-optimized */}
           <section>
             <H2 className="mb-5">Editor's 3 Picks</H2>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+            <div className="border-2 border-dashed border-border divide-y-2 divide-dashed divide-border bg-card">
               {topPicks.map((tp, i) => {
-                const rankLabel = i === 0 ? "Editor's choice" : i === 1 ? "Runner up" : "Also great";
+                const rankLabel = i === 0 ? "Our #1 pick" : i === 1 ? "Our #2 option" : "Our #3 option";
+                const choiceLabel = i === 0 ? "first choice" : i === 1 ? "second choice" : "third choice";
                 const isFirst = i === 0;
                 return (
-                  <div
+                  <article
                     key={tp.key}
-                    className="flex flex-col border-2 border-dashed border-border bg-card hover:border-foreground transition-colors overflow-hidden"
+                    className="grid gap-4 p-4 transition-colors hover:bg-muted/30 md:grid-cols-[4rem_1fr_auto] md:items-center md:gap-5 md:p-5"
                   >
-                    {/* Header strip: rank box + label + score */}
-                    <div className="flex border-b-2 border-dashed border-border">
-                      <div className="w-14 shrink-0 border-r-2 border-dashed border-border bg-muted/40 flex items-center justify-center py-3">
-                        <span className="font-mono text-xl font-bold text-foreground leading-none">
-                          {String(i + 1).padStart(2, "0")}
-                        </span>
+                    <div className="flex items-center gap-3 md:block">
+                      <div className={`flex h-14 w-14 shrink-0 items-center justify-center border-2 border-dashed font-mono text-2xl font-bold leading-none ${isFirst ? "border-foreground bg-foreground text-background" : "border-border bg-background text-foreground"}`}>
+                        {i + 1}
                       </div>
-                      <div className="flex-1 px-4 py-3 bg-muted/40 flex items-center justify-between gap-3">
-                        <span className={`font-mono text-[10px] uppercase tracking-widest font-bold ${isFirst ? "text-foreground" : "text-muted-foreground"}`}>
-                          {rankLabel}
-                        </span>
-                        <div className="text-right leading-none">
-                          <div className="font-mono text-[9px] uppercase font-bold text-muted-foreground mb-1 tracking-wider">Our score</div>
-                          <div className="font-mono text-lg font-bold text-foreground leading-none">
-                            {tp.network!.score.toFixed(1)}
-                            <span className="text-xs font-normal text-muted-foreground">/10</span>
-                          </div>
-                        </div>
-                      </div>
+                      <MetaLabel className="text-foreground md:mt-2 md:block">{choiceLabel}</MetaLabel>
                     </div>
 
-
-                    {/* Body */}
-                    <div className="flex flex-1 flex-col p-4">
-                      <div className="w-full aspect-video border border-dashed border-border bg-muted/40 mb-4 flex items-center justify-center">
-                        <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
-                          {tp.network!.name} logo
-                        </span>
+                    <div className="min-w-0">
+                      <div className="mb-2 flex flex-wrap items-center gap-2">
+                        <MetaLabel className={isFirst ? "text-foreground" : undefined}>{rankLabel}</MetaLabel>
+                        <Meta>· {tp.label}</Meta>
                       </div>
-                      <H4 className="mb-1.5">{tp.network!.name}</H4>
+                      <H4 className="mb-1">{tp.network!.name}</H4>
                       <BodySmall>
                         {tp.network!.shortDescription}{" "}
                         <Link
@@ -117,13 +100,19 @@ const VerticalNetworksPage = () => {
                       </BodySmall>
                     </div>
 
-                    {/* CTA */}
-                    <div className="p-3 border-t-2 border-dashed border-border">
+                    <div className="grid grid-cols-[1fr_auto] items-center gap-3 md:min-w-44 md:grid-cols-1 md:justify-items-end md:text-right">
+                      <div>
+                        <MetaLabel className="block">Our score</MetaLabel>
+                        <div className="font-mono text-2xl font-bold leading-none text-foreground">
+                          {tp.network!.score.toFixed(1)}
+                          <span className="text-sm font-normal text-muted-foreground">/10</span>
+                        </div>
+                      </div>
                       <a
                         href={tp.network!.externalUrl}
                         target="_blank"
                         rel="noopener noreferrer nofollow sponsored"
-                        className={`w-full inline-flex items-center justify-center gap-1.5 px-4 py-2.5 font-mono text-[11px] uppercase tracking-widest font-bold transition-opacity hover:opacity-80 ${
+                        className={`inline-flex items-center justify-center gap-1.5 whitespace-nowrap border-2 px-4 py-2 font-mono text-[12px] font-bold uppercase tracking-wider transition-opacity hover:opacity-80 ${
                           isFirst
                             ? "bg-foreground text-background border-2 border-foreground"
                             : "bg-background text-foreground border-2 border-foreground"
@@ -132,7 +121,7 @@ const VerticalNetworksPage = () => {
                         Visit site <ArrowUpRight className="h-3.5 w-3.5" />
                       </a>
                     </div>
-                  </div>
+                  </article>
                 );
               })}
 
