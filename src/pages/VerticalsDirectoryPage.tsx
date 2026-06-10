@@ -44,7 +44,7 @@ const VerticalsDirectoryPage = () => {
       </WireframeHero>
 
       <section className="container mx-auto px-4 py-12">
-        <div className="mb-8 border-2 border-dashed border-border rounded p-4 bg-card">
+        <div className="hidden md:block mb-8 border-2 border-dashed border-border rounded p-4 bg-card">
           <div className="flex items-center justify-between gap-2 flex-wrap">
             <div className="flex items-center gap-3">
               <MetaLabel>Filter by vertical</MetaLabel>
