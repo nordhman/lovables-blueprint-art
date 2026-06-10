@@ -71,7 +71,7 @@ const VerticalNetworksPage = () => {
               {topPicks.map((tp, i) => (
                   <div key={tp.key} className="flex flex-col">
                     {/* Tag line above card */}
-                    <div className="flex items-center gap-2 pb-2 pl-1">
+                    <div className="flex items-center gap-2 pb-2">
                       <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2 border-dashed border-foreground font-mono text-[11px] font-bold text-foreground">
                         #{i + 1}
                       </span>
