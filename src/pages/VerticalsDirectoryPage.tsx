@@ -4,6 +4,7 @@ import { WireframeBreadcrumbs } from "@/components/wireframe/WireframeBreadcrumb
 import { Eyebrow, H1, H2, Lead, BodySmall, MetaLabel, Meta } from "@/components/wireframe/Typography";
 import { VerticalCard } from "@/components/wireframe/VerticalCard";
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
+import { DirectoryListRow } from "@/components/wireframe/DirectoryListRow";
 import { verticals } from "@/data/networkVerticals";
 
 const VerticalsDirectoryPage = () => {
