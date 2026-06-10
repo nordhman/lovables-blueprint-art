@@ -73,51 +73,52 @@ const VerticalNetworksPage = () => {
                   key={tp.key}
                   className="flex flex-col border-2 border-dashed border-border bg-card rounded hover:border-foreground transition-colors overflow-hidden"
                 >
-                  <div className="flex items-center gap-4 border-b border-dashed border-border p-4">
-                    <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded border-2 border-dashed border-border bg-muted px-2 text-center font-mono text-[11px] leading-tight text-muted-foreground">
-                      {tp.network!.name}
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <Meta className="uppercase tracking-wider">#{i + 1} · {tp.label}</Meta>
-                      <H4 className="mt-1 truncate">{tp.network!.name}</H4>
-                      <RatingBadge score={tp.network!.score} size="md" className="mt-2" />
+                  {/* Wide image with big rank number */}
+                  <div className="relative h-28 border-b-2 border-dashed border-border bg-muted flex items-center justify-center">
+                    <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+                      Image · {tp.network!.name}
+                    </span>
+                    <div className="absolute top-2 left-3 flex h-12 w-12 items-center justify-center rounded-full border-2 border-dashed border-foreground bg-background font-mono text-[28px] font-bold leading-none text-foreground">
+                      {i + 1}
                     </div>
                   </div>
 
-                  <div className="flex flex-1 flex-col p-4 pt-3">
-                    <BodySmall className="line-clamp-2">{tp.network!.shortDescription}</BodySmall>
-
-                    <div className="mt-3 grid grid-cols-2 gap-3 border-y border-dashed border-border py-2.5">
-                      <div>
-                        <MetaLabel className="block text-[10px]">Offers</MetaLabel>
-                        <Meta>{tp.network!.offerCount}</Meta>
-                      </div>
-                      <div>
-                        <MetaLabel className="block text-[10px]">Min payout</MetaLabel>
-                        <Meta>{tp.network!.minPayout}</Meta>
-                      </div>
+                  {/* Header row */}
+                  <div className="flex items-start justify-between gap-3 p-4 pb-2">
+                    <div className="min-w-0 flex-1">
+                      <Meta className="uppercase tracking-wider">{tp.label}</Meta>
+                      <H4 className="mt-1 truncate">{tp.network!.name}</H4>
                     </div>
+                    <RatingBadge score={tp.network!.score} size="md" />
+                  </div>
 
-                    <div className="mt-3 grid grid-cols-[1fr_auto] items-center gap-5">
-                      <a
-                        href={tp.network!.externalUrl}
-                        target="_blank"
-                        rel="noopener noreferrer nofollow sponsored"
-                        className="inline-flex items-center justify-center gap-1.5 border-2 border-dashed border-foreground bg-foreground text-background rounded px-4 py-2.5 font-mono text-[12px] uppercase tracking-wider hover:opacity-80 transition-opacity"
-                      >
-                        Visit site <ArrowUpRight className="h-3.5 w-3.5" />
-                      </a>
+                  {/* Description with inline Read review */}
+                  <div className="flex flex-1 flex-col px-4 pb-4">
+                    <BodySmall className="line-clamp-3">
+                      {tp.network!.shortDescription}{" "}
                       <Link
                         to={`/networks/${vertical.slug}/${tp.network!.slug}`}
-                        className="font-mono text-[12px] text-foreground border-b-2 border-dashed border-foreground hover:opacity-70 whitespace-nowrap"
+                        className="font-mono text-foreground border-b border-dashed border-foreground hover:opacity-70 whitespace-nowrap"
                       >
-                        Review →
+                        Read review →
                       </Link>
-                    </div>
+                    </BodySmall>
+
+                    <a
+                      href={tp.network!.externalUrl}
+                      target="_blank"
+                      rel="noopener noreferrer nofollow sponsored"
+                      className="mt-auto pt-4 inline-flex items-center justify-center gap-1.5"
+                    >
+                      <span className="w-full inline-flex items-center justify-center gap-1.5 border-2 border-dashed border-foreground bg-foreground text-background rounded px-4 py-2.5 font-mono text-[12px] uppercase tracking-wider hover:opacity-80 transition-opacity">
+                        Visit site <ArrowUpRight className="h-3.5 w-3.5" />
+                      </span>
+                    </a>
                   </div>
                 </div>
               ))}
             </div>
+
           </section>
 
           {/* Comparison table */}
