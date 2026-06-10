@@ -15,7 +15,7 @@ export const RatingBadge = ({ score, size = "md", className = "" }: RatingBadgeP
       className={`inline-flex items-baseline gap-1 border-2 border-dashed border-border rounded font-mono bg-card ${sizes[size]} ${className}`}
     >
       <span className="font-semibold text-foreground">{score.toFixed(1)}</span>
-      <span className="text-muted-foreground text-[0.7em]">/ 10</span>
+      <span className="text-muted-foreground text-[0.85em]">/ 10</span>
     </span>
   );
 };

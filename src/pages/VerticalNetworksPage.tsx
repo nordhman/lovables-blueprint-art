@@ -6,7 +6,6 @@ import { Eyebrow, H1, H2, H4, Lead, BodySmall, Meta, MetaLabel } from "@/compone
 import { NetworkComparisonTable } from "@/components/wireframe/NetworkComparisonTable";
 import { FAQSection } from "@/components/wireframe/FAQSection";
 import { RatingBadge } from "@/components/wireframe/RatingBadge";
-import { PlaceholderImage } from "@/components/wireframe/PlaceholderImage";
 import { getVertical, getNetworksByVertical } from "@/data/networkVerticals";
 import type { BestFor } from "@/data/networkVerticals";
 import NotFound from "./NotFound";
@@ -67,57 +66,54 @@ const VerticalNetworksPage = () => {
         <div className="space-y-12">
           {/* Top picks — conversion-optimized */}
           <section>
-            <MetaLabel>Editor's 3 picks</MetaLabel>
-            <H2 className="mt-1 mb-6">Editor's 3 Picks</H2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <H2 className="mb-5">Editor's 3 Picks</H2>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
               {topPicks.map((tp, i) => (
                 <div
                   key={tp.key}
-                  className="flex flex-col border-2 border-dashed border-border bg-card rounded p-5 hover:border-foreground transition-colors"
+                  className="flex flex-col border-2 border-dashed border-border bg-card rounded hover:border-foreground transition-colors overflow-hidden"
                 >
-                  <div className="flex items-start gap-4">
-                    <PlaceholderImage
-                      label="Logo"
-                      aspectRatio="square"
-                      className="w-16 shrink-0"
-                    />
+                  <div className="flex items-center gap-4 border-b border-dashed border-border p-4">
+                    <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded border-2 border-dashed border-border bg-muted px-2 text-center font-mono text-[11px] leading-tight text-muted-foreground">
+                      {tp.network!.name}
+                    </div>
                     <div className="min-w-0 flex-1">
                       <Meta className="uppercase tracking-wider">#{i + 1} · {tp.label}</Meta>
                       <H4 className="mt-1 truncate">{tp.network!.name}</H4>
-                      <div className="mt-1.5">
-                        <RatingBadge score={tp.network!.score} size="sm" />
+                      <RatingBadge score={tp.network!.score} size="md" className="mt-2" />
+                    </div>
+                  </div>
+
+                  <div className="flex flex-1 flex-col p-4 pt-3">
+                    <BodySmall className="line-clamp-2">{tp.network!.shortDescription}</BodySmall>
+
+                    <div className="mt-3 grid grid-cols-2 gap-3 border-y border-dashed border-border py-2.5">
+                      <div>
+                        <MetaLabel className="block text-[10px]">Offers</MetaLabel>
+                        <Meta>{tp.network!.offerCount}</Meta>
+                      </div>
+                      <div>
+                        <MetaLabel className="block text-[10px]">Min payout</MetaLabel>
+                        <Meta>{tp.network!.minPayout}</Meta>
                       </div>
                     </div>
-                  </div>
 
-                  <BodySmall className="mt-4 flex-1 line-clamp-2">{tp.network!.shortDescription}</BodySmall>
-
-                  <div className="mt-4 flex items-center gap-5 border-t border-dashed border-border pt-3">
-                    <div>
-                      <MetaLabel className="block text-[10px]">Offers</MetaLabel>
-                      <Meta>{tp.network!.offerCount}</Meta>
+                    <div className="mt-3 grid grid-cols-[1fr_auto] items-center gap-5">
+                      <a
+                        href={tp.network!.externalUrl}
+                        target="_blank"
+                        rel="noopener noreferrer nofollow sponsored"
+                        className="inline-flex items-center justify-center gap-1.5 border-2 border-dashed border-foreground bg-foreground text-background rounded px-4 py-2.5 font-mono text-[12px] uppercase tracking-wider hover:opacity-80 transition-opacity"
+                      >
+                        Visit site <ArrowUpRight className="h-3.5 w-3.5" />
+                      </a>
+                      <Link
+                        to={`/networks/${vertical.slug}/${tp.network!.slug}`}
+                        className="font-mono text-[12px] text-foreground border-b-2 border-dashed border-foreground hover:opacity-70 whitespace-nowrap"
+                      >
+                        Review →
+                      </Link>
                     </div>
-                    <div>
-                      <MetaLabel className="block text-[10px]">Min payout</MetaLabel>
-                      <Meta>{tp.network!.minPayout}</Meta>
-                    </div>
-                  </div>
-
-                  <div className="mt-4 flex items-center justify-between gap-3">
-                    <a
-                      href={tp.network!.externalUrl}
-                      target="_blank"
-                      rel="noopener noreferrer nofollow sponsored"
-                      className="inline-flex items-center justify-center gap-1.5 border-2 border-dashed border-foreground bg-foreground text-background rounded px-4 py-2 font-mono text-[12px] uppercase tracking-wider hover:opacity-80 transition-opacity"
-                    >
-                      Visit site <ArrowUpRight className="h-3.5 w-3.5" />
-                    </a>
-                    <Link
-                      to={`/networks/${vertical.slug}/${tp.network!.slug}`}
-                      className="font-mono text-[12px] text-foreground border-b-2 border-dashed border-foreground hover:opacity-70"
-                    >
-                      Read review →
-                    </Link>
                   </div>
                 </div>
               ))}
