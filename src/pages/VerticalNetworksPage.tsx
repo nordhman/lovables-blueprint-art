@@ -72,7 +72,7 @@ const VerticalNetworksPage = () => {
                   <div key={tp.key} className="flex flex-col">
                     <article className="relative flex flex-1 flex-col border-2 border-dashed border-border bg-card overflow-visible mt-4">
                       {/* Tag sitting on top border */}
-                      <div className="absolute -top-[18px] left-6 z-10 inline-flex items-center gap-2.5 bg-foreground text-background px-4 py-2 rounded border-2 border-dashed border-foreground">
+                      <div className="absolute -top-[18px] left-5 z-10 inline-flex items-center gap-2.5 bg-foreground text-background px-4 py-2 rounded border-2 border-dashed border-foreground">
                         <span className="font-mono text-[12px] font-bold leading-none">
                           #{i + 1}
                         </span>
@@ -94,11 +94,13 @@ const VerticalNetworksPage = () => {
                         {/* Title + Score row */}
                         <div className="mb-3 flex items-center justify-between gap-3">
                           <H4 className="text-foreground">{tp.network!.name}</H4>
-                          <span className="inline-flex items-baseline gap-1 border-2 border-dashed border-border rounded px-2.5 py-1 font-mono bg-card shrink-0">
-                            <span className="font-bold text-foreground text-lg">{tp.network!.score.toFixed(1)}</span>
-                            <span className="text-muted-foreground text-[0.85em]">/ 10</span>
+                          <span className="inline-flex items-baseline gap-1 font-mono shrink-0">
+                            <MetaLabel className="text-muted-foreground">Score</MetaLabel>
+                            <span className="font-bold text-foreground text-[15px]">{tp.network!.score.toFixed(1)}</span>
+                            <span className="text-muted-foreground text-[12px]">/10</span>
                           </span>
                         </div>
+
 
                         <p className="mb-4 flex-1 text-[15px] leading-relaxed text-foreground">
                           {tp.network!.shortDescription}{" "}
