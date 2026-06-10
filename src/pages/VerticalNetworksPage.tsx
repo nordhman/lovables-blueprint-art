@@ -74,12 +74,15 @@ const VerticalNetworksPage = () => {
                   className="flex flex-col border-2 border-dashed border-border bg-card rounded hover:border-foreground transition-colors overflow-hidden"
                 >
                   {/* Wide image with big rank number */}
-                  <div className="relative h-28 border-b-2 border-dashed border-border bg-muted flex items-center justify-center">
+                  <div className="relative h-36 border-b-2 border-dashed border-border bg-muted flex items-center justify-center">
                     <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
                       Image · {tp.network!.name}
                     </span>
-                    <div className="absolute top-2 left-3 flex h-14 w-14 items-center justify-center rounded-full border-2 border-dashed border-foreground bg-background font-mono text-[32px] font-bold leading-none text-foreground">
-                      {i + 1}
+                    <div className="absolute top-3 left-3 flex flex-col items-center justify-center rounded border-2 border-dashed border-foreground bg-background px-3 py-1.5 leading-none text-foreground">
+                      <span className="font-mono text-[9px] uppercase tracking-wider text-muted-foreground">
+                        {i === 0 ? "Our #1" : i === 1 ? "Our #2" : "Our #3"} pick
+                      </span>
+                      <span className="mt-1 font-mono text-[28px] font-bold">{i + 1}</span>
                     </div>
                   </div>
 
@@ -88,12 +91,15 @@ const VerticalNetworksPage = () => {
                     <div className="min-w-0 flex-1">
                       <H4 className="truncate">{tp.network!.name}</H4>
                     </div>
-                    <RatingBadge score={tp.network!.score} size="md" />
+                    <div className="flex flex-col items-end gap-1">
+                      <span className="font-mono text-[9px] uppercase tracking-wider text-muted-foreground">Our score</span>
+                      <RatingBadge score={tp.network!.score} size="md" />
+                    </div>
                   </div>
 
                   {/* Description with inline Read review */}
-                  <div className="flex flex-1 flex-col px-4 pb-4">
-                    <BodySmall className="line-clamp-3">
+                  <div className="flex flex-1 flex-col px-4 pb-5">
+                    <BodySmall className="line-clamp-4">
                       {tp.network!.shortDescription}{" "}
                       <Link
                         to={`/networks/${vertical.slug}/${tp.network!.slug}`}
@@ -107,7 +113,7 @@ const VerticalNetworksPage = () => {
                       href={tp.network!.externalUrl}
                       target="_blank"
                       rel="noopener noreferrer nofollow sponsored"
-                      className="mt-auto pt-4 inline-flex items-center justify-center gap-1.5"
+                      className="mt-auto pt-5 inline-flex items-center justify-center gap-1.5"
                     >
                       <span className="w-full inline-flex items-center justify-center gap-1.5 border-2 border-dashed border-foreground bg-foreground text-background rounded px-4 py-2.5 font-mono text-[12px] uppercase tracking-wider hover:opacity-80 transition-opacity">
                         Visit site <ArrowUpRight className="h-3.5 w-3.5" />
@@ -116,6 +122,7 @@ const VerticalNetworksPage = () => {
                   </div>
                 </div>
               ))}
+
             </div>
 
           </section>
