@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
 import { WireframeCard } from "./WireframeCard";
 import { H4, BodySmall, Meta } from "./Typography";
-import { CommissionModelList } from "./CommissionModelBadge";
-import { WireframeCTA } from "./WireframeCTA";
 import type { Vertical } from "@/data/networkVerticals";
 import { ArrowRight } from "lucide-react";
 
@@ -13,9 +11,6 @@ export const VerticalCard = ({ vertical }: { vertical: Vertical }) => (
       <Meta>{vertical.networkCount} networks</Meta>
     </div>
     <BodySmall className="flex-1">{vertical.shortDescription}</BodySmall>
-    <div className="mt-3">
-      <CommissionModelList models={vertical.commissionModels} />
-    </div>
     <div className="mt-4">
       <Link
         to={`/networks/${vertical.slug}`}
