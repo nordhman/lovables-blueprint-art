@@ -76,27 +76,27 @@ const VerticalNetworksPage = () => {
                     key={tp.key}
                     className="flex flex-col border-2 border-dashed border-border bg-card overflow-hidden"
                   >
-                    {/* Image — 2:1 */}
+                    {/* Image — 3:1 (shorter) */}
                     <PlaceholderImage
                       label={`${tp.network!.name} image`}
                       aspectRatio="wide"
-                      className="rounded-none border-0 border-b-2 border-dashed border-border"
+                      className="rounded-none border-0 border-b-2 border-dashed border-border aspect-[3/1]"
                     />
 
-                    {/* Meta row: rank · pick · score */}
-                    <div className="flex items-center justify-between gap-3 border-b-2 border-dashed border-border px-5 py-2.5">
-                      <MetaLabel>{rankLabel} · {tp.label}</MetaLabel>
-                      <Meta className="whitespace-nowrap">
-                        <span className="text-muted-foreground">Score </span>
-                        <span className="font-bold text-foreground">{tp.network!.score.toFixed(1)}</span>
-                        <span className="text-muted-foreground">/10</span>
-                      </Meta>
+                    {/* Pick badge row */}
+                    <div className="flex items-center gap-3 border-b-2 border-dashed border-border px-5 py-3">
+                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 border-dashed border-foreground font-mono text-sm font-bold text-foreground">
+                        #{i + 1}
+                      </span>
+                      <span className="font-mono text-[13px] font-bold uppercase tracking-wider text-foreground">
+                        {tp.label}
+                      </span>
                     </div>
 
                     {/* Body */}
                     <div className="flex flex-1 flex-col p-5">
                       <H4 className="mb-2 text-foreground">{tp.network!.name}</H4>
-                      <p className="mb-5 flex-1 text-[15px] leading-relaxed text-foreground">
+                      <p className="mb-4 flex-1 text-[15px] leading-relaxed text-foreground">
                         {tp.network!.shortDescription}{" "}
                         <Link
                           to={`/networks/${vertical.slug}/${tp.network!.slug}`}
@@ -105,6 +105,17 @@ const VerticalNetworksPage = () => {
                           Read review →
                         </Link>
                       </p>
+
+                      {/* Score + CTA */}
+                      <div className="mb-4 flex items-center gap-3">
+                        <span className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground">
+                          Our score
+                        </span>
+                        <span className="inline-flex items-baseline gap-1 border-2 border-dashed border-border rounded px-2.5 py-1 font-mono bg-card">
+                          <span className="font-bold text-foreground text-lg">{tp.network!.score.toFixed(1)}</span>
+                          <span className="text-muted-foreground text-[0.85em]">/ 10</span>
+                        </span>
+                      </div>
 
                       <a
                         href={tp.network!.externalUrl}
