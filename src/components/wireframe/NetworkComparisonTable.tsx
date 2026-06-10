@@ -26,12 +26,57 @@ const ReviewLink = ({ to }: { to: string }) => (
 
 export const NetworkComparisonTable = ({ networks }: { networks: Network[] }) => (
   <div className="border-2 border-dashed border-border rounded bg-card">
-    {/* Desktop / tablet: table */}
-    <div className="hidden sm:block overflow-x-auto">
+    {/* Desktop: full table */}
+    <div className="hidden lg:block overflow-x-auto">
+      <table className="w-full text-sm table-fixed">
+        <colgroup>
+          <col className="w-[18%]" />
+          <col className="w-[34%]" />
+          <col className="w-[8%]" />
+          <col className="w-[9%]" />
+          <col className="w-[11%]" />
+          <col className="w-[10%]" />
+          <col className="w-[10%]" />
+        </colgroup>
+        <thead>
+          <tr className="border-b-2 border-dashed border-border bg-muted/30">
+            <th className="text-left p-3 font-mono text-[11px] text-muted-foreground uppercase tracking-wider">Network</th>
+            <th className="text-left p-3 font-mono text-[11px] text-muted-foreground uppercase tracking-wider">Description</th>
+            <th className="text-left p-3 font-mono text-[11px] text-muted-foreground uppercase tracking-wider">Score</th>
+            <th className="text-left p-3 font-mono text-[11px] text-muted-foreground uppercase tracking-wider">Offers</th>
+            <th className="text-left p-3 font-mono text-[11px] text-muted-foreground uppercase tracking-wider">Min&nbsp;payout</th>
+            <th className="p-3"></th>
+            <th className="p-3"></th>
+          </tr>
+        </thead>
+        <tbody>
+          {networks.map((n) => (
+            <tr key={`${n.vertical}-${n.slug}`} className="border-b border-dashed border-border last:border-0 align-middle">
+              <td className="p-3 font-semibold">{n.name}</td>
+              <td className="p-3">
+                <p className="text-[12.5px] text-muted-foreground leading-snug line-clamp-2">
+                  {n.shortDescription}
+                </p>
+              </td>
+              <td className="p-3"><RatingBadge score={n.score} size="sm" /></td>
+              <td className="p-3 font-mono text-xs text-muted-foreground whitespace-nowrap">{n.offerCount}</td>
+              <td className="p-3 font-mono text-xs text-muted-foreground whitespace-nowrap">{n.minPayout}</td>
+              <td className="p-3 whitespace-nowrap"><VisitButton href={n.externalUrl} /></td>
+              <td className="p-3 whitespace-nowrap text-right">
+                <ReviewLink to={`/networks/${n.vertical}/${n.slug}`} />
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    {/* Tablet: compact table without description column */}
+    <div className="hidden sm:block lg:hidden overflow-x-auto">
       <table className="w-full text-sm">
         <thead>
           <tr className="border-b-2 border-dashed border-border bg-muted/30">
-            <th className="text-left p-3 font-mono text-[11px] text-muted-foreground uppercase tracking-wider w-[44%]">Network</th>
+            <th className="text-left p-3 font-mono text-[11px] text-muted-foreground uppercase tracking-wider">Network</th>
             <th className="text-left p-3 font-mono text-[11px] text-muted-foreground uppercase tracking-wider">Score</th>
             <th className="text-left p-3 font-mono text-[11px] text-muted-foreground uppercase tracking-wider">Offers</th>
             <th className="text-left p-3 font-mono text-[11px] text-muted-foreground uppercase tracking-wider">Min payout</th>
@@ -44,7 +89,7 @@ export const NetworkComparisonTable = ({ networks }: { networks: Network[] }) =>
             <tr key={`${n.vertical}-${n.slug}`} className="border-b border-dashed border-border last:border-0 align-middle">
               <td className="p-3">
                 <div className="font-semibold">{n.name}</div>
-                <p className="mt-0.5 text-[12.5px] text-muted-foreground leading-snug line-clamp-2 max-w-prose">
+                <p className="mt-0.5 text-[12.5px] text-muted-foreground leading-snug line-clamp-2">
                   {n.shortDescription}
                 </p>
               </td>
