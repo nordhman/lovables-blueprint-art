@@ -78,24 +78,25 @@ const VerticalNetworksPage = () => {
                   >
                     {/* Header strip: rank box + label + score */}
                     <div className="flex border-b-2 border-dashed border-border">
-                      <div className="w-16 shrink-0 border-r-2 border-dashed border-border bg-muted/40 flex items-center justify-center">
-                        <span className="font-mono text-xl font-bold text-foreground">
+                      <div className="w-20 shrink-0 border-r-2 border-dashed border-border bg-muted/40 flex items-center justify-center py-4">
+                        <span className="font-mono text-3xl font-bold text-foreground leading-none">
                           {String(i + 1).padStart(2, "0")}
                         </span>
                       </div>
-                      <div className="flex-1 px-4 py-3 bg-muted/40 flex items-center justify-between gap-3">
-                        <span className={`font-mono text-[10px] uppercase tracking-widest font-semibold ${isFirst ? "text-foreground" : "text-muted-foreground"}`}>
+                      <div className="flex-1 px-5 py-4 bg-muted/40 flex items-center justify-between gap-3">
+                        <span className={`font-mono text-xs uppercase tracking-widest font-bold ${isFirst ? "text-foreground" : "text-muted-foreground"}`}>
                           {rankLabel}
                         </span>
                         <div className="text-right leading-none">
-                          <div className="font-mono text-[9px] uppercase font-bold text-muted-foreground mb-1">Our score</div>
-                          <div className="font-mono text-lg font-bold text-foreground">
+                          <div className="font-mono text-[11px] uppercase font-bold text-muted-foreground mb-1.5 tracking-wider">Our score</div>
+                          <div className="font-mono text-2xl font-bold text-foreground leading-none">
                             {tp.network!.score.toFixed(1)}
-                            <span className="text-xs font-normal text-muted-foreground">/10</span>
+                            <span className="text-sm font-normal text-muted-foreground">/10</span>
                           </div>
                         </div>
                       </div>
                     </div>
+
 
                     {/* Body */}
                     <div className="flex flex-1 flex-col p-6">
