@@ -45,13 +45,12 @@ export const NetworkComparisonTable = ({ networks }: { networks: Network[] }) =>
       <table className="w-full text-sm table-fixed">
         <colgroup>
           <col className="w-[16%]" />
-          <col className="w-[30%]" />
-          <col className="w-[9%]" />
-          <col className="w-[9%]" />
-          <col className="w-[8%]" />
-          <col className="w-[9%]" />
+          <col className="w-[36%]" />
           <col className="w-[10%]" />
-          <col className="w-[9%]" />
+          <col className="w-[10%]" />
+          <col className="w-[8%]" />
+          <col className="w-[10%]" />
+          <col className="w-[10%]" />
         </colgroup>
         <thead>
           <tr className="border-b-2 border-dashed border-border bg-muted/30">
@@ -61,7 +60,6 @@ export const NetworkComparisonTable = ({ networks }: { networks: Network[] }) =>
             <Th>Trustpilot</Th>
             <Th>Offers</Th>
             <Th>Min&nbsp;payout</Th>
-            <th className="px-4 py-3" />
             <th className="px-4 py-3" />
           </tr>
         </thead>
@@ -76,6 +74,12 @@ export const NetworkComparisonTable = ({ networks }: { networks: Network[] }) =>
                 <p className="text-[13px] text-muted-foreground leading-snug line-clamp-2">
                   {n.shortDescription}
                 </p>
+                <Link
+                  to={`/networks/${n.vertical}/${n.slug}`}
+                  className="mt-2 inline-flex items-center font-mono text-[12px] text-foreground border-b-2 border-dashed border-foreground hover:opacity-70"
+                >
+                  Read review →
+                </Link>
               </td>
               <td className="px-4 py-5">
                 <RatingBadge score={n.score} size="sm" />
@@ -89,11 +93,8 @@ export const NetworkComparisonTable = ({ networks }: { networks: Network[] }) =>
               <td className="px-4 py-5 font-mono text-xs text-muted-foreground whitespace-nowrap">
                 {n.minPayout}
               </td>
-              <td className="px-4 py-5 whitespace-nowrap">
+              <td className="px-4 py-5 whitespace-nowrap text-right">
                 <VisitButton href={n.externalUrl} />
-              </td>
-              <td className="pl-6 pr-4 py-5 whitespace-nowrap text-right">
-                <ReviewLink to={`/networks/${n.vertical}/${n.slug}`} />
               </td>
             </tr>
           ))}
@@ -112,7 +113,6 @@ export const NetworkComparisonTable = ({ networks }: { networks: Network[] }) =>
             <Th>Offers</Th>
             <Th>Min&nbsp;payout</Th>
             <th className="px-4 py-3" />
-            <th className="px-4 py-3" />
           </tr>
         </thead>
         <tbody>
@@ -126,6 +126,12 @@ export const NetworkComparisonTable = ({ networks }: { networks: Network[] }) =>
                 <p className="mt-1 text-[12.5px] text-muted-foreground leading-snug line-clamp-2">
                   {n.shortDescription}
                 </p>
+                <Link
+                  to={`/networks/${n.vertical}/${n.slug}`}
+                  className="mt-2 inline-flex items-center font-mono text-[12px] text-foreground border-b-2 border-dashed border-foreground hover:opacity-70"
+                >
+                  Read review →
+                </Link>
               </td>
               <td className="px-4 py-5">
                 <RatingBadge score={n.score} size="sm" />
@@ -139,11 +145,8 @@ export const NetworkComparisonTable = ({ networks }: { networks: Network[] }) =>
               <td className="px-4 py-5 font-mono text-xs text-muted-foreground whitespace-nowrap">
                 {n.minPayout}
               </td>
-              <td className="px-4 py-5 whitespace-nowrap">
+              <td className="px-4 py-5 whitespace-nowrap text-right">
                 <VisitButton href={n.externalUrl} />
-              </td>
-              <td className="pl-6 pr-4 py-5 whitespace-nowrap text-right">
-                <ReviewLink to={`/networks/${n.vertical}/${n.slug}`} />
               </td>
             </tr>
           ))}
