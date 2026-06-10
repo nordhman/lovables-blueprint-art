@@ -67,14 +67,19 @@ const VerticalNetworksPage = () => {
         <div className="space-y-14">
           {/* Top picks — conversion-optimized, full-width grid */}
           <section>
-            <MetaLabel>Editor's top picks</MetaLabel>
-            <H2 className="mt-1 mb-8">Editor's Top Picks</H2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <MetaLabel>Editor's 3 picks</MetaLabel>
+            <H2 className="mt-1 mb-8">Editor's 3 Picks</H2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {topPicks.map((tp, i) => (
                 <div
                   key={tp.key}
                   className="flex flex-col border-2 border-dashed border-border bg-card rounded p-6 hover:border-foreground transition-colors"
                 >
+                  <PlaceholderImage
+                    label={`${tp.network!.name} logo`}
+                    aspectRatio="wide"
+                    className="mb-5"
+                  />
                   <div className="flex items-center justify-between gap-2">
                     <Meta className="uppercase tracking-wider">#{i + 1} · {tp.label}</Meta>
                     <RatingBadge score={tp.network!.score} size="sm" />
