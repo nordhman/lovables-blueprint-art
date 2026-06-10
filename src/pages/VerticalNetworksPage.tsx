@@ -94,8 +94,8 @@ const VerticalNetworksPage = () => {
 
                     {/* Body */}
                     <div className="flex flex-1 flex-col p-5">
-                      <MetaLabel className="mb-1">{choiceLabel} · {tp.label}</MetaLabel>
-                      <H4 className="mb-2">{tp.network!.name}</H4>
+                      <H4 className="mb-1">{tp.network!.name}</H4>
+                      <MetaLabel className="mb-3 normal-case tracking-normal">{tp.label}</MetaLabel>
                       <BodySmall className="mb-5 flex-1">
                         {tp.network!.shortDescription}{" "}
                         <Link
@@ -106,22 +106,14 @@ const VerticalNetworksPage = () => {
                         </Link>
                       </BodySmall>
 
-                      <div className="flex items-center gap-2">
-                        <Link
-                          to={`/networks/${vertical.slug}/${tp.network!.slug}`}
-                          className="flex-1 rounded-full border-2 border-dashed border-foreground bg-background px-4 py-2 text-center font-mono text-[11px] font-bold uppercase tracking-wider text-foreground hover:bg-muted"
-                        >
-                          Details
-                        </Link>
-                        <a
-                          href={tp.network!.externalUrl}
-                          target="_blank"
-                          rel="noopener noreferrer nofollow sponsored"
-                          className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-full border-2 border-dashed border-foreground bg-foreground px-4 py-2 font-mono text-[11px] font-bold uppercase tracking-wider text-background hover:opacity-80"
-                        >
-                          Visit <ArrowUpRight className="h-3.5 w-3.5" />
-                        </a>
-                      </div>
+                      <a
+                        href={tp.network!.externalUrl}
+                        target="_blank"
+                        rel="noopener noreferrer nofollow sponsored"
+                        className="self-start inline-flex items-center justify-center gap-1.5 rounded-full border-2 border-dashed border-foreground bg-foreground px-5 py-2.5 font-mono text-[11px] font-bold uppercase tracking-wider text-background hover:opacity-80"
+                      >
+                        Visit site <ArrowUpRight className="h-3.5 w-3.5" />
+                      </a>
                     </div>
                   </article>
                 );
