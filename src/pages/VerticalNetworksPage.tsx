@@ -50,7 +50,6 @@ const VerticalNetworksPage = () => {
   return (
     <div>
       <WireframeBreadcrumbs
-        innerClassName="max-w-6xl"
         items={[
           { label: "Home", to: "/" },
           { label: "Networks", to: "/networks" },
@@ -58,7 +57,7 @@ const VerticalNetworksPage = () => {
         ]}
       />
 
-      <WireframeHero size="sm" innerClassName="max-w-6xl">
+      <WireframeHero size="sm">
         <Eyebrow>{vertical.title}</Eyebrow>
         <H1 className="mt-3">Best {vertical.title} Affiliate Networks</H1>
         <Lead className="mt-2 max-w-3xl">{vertical.shortDescription}</Lead>
