@@ -105,7 +105,7 @@ const VerticalNetworksPage = () => {
                             to={`/networks/${vertical.slug}/${tp.network!.slug}`}
                             className="font-mono text-[13px] text-foreground border-b-2 border-dashed border-foreground hover:opacity-70 whitespace-nowrap"
                           >
-                            Read review →
+                            Read full review →
                           </Link>
                         </p>
 
