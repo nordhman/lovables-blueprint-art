@@ -69,7 +69,7 @@ const VerticalNetworksPage = () => {
             <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
               {topPicks.map((tp, i) => {
                 const rankLabel = i === 0 ? "Our #1 pick" : i === 1 ? "Our #2 option" : "Our #3 option";
-                const choiceLabel = i === 0 ? "first choice" : i === 1 ? "second choice" : "third choice";
+                
                 return (
                   <article
                     key={tp.key}
