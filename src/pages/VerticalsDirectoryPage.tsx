@@ -11,6 +11,8 @@ const VerticalsDirectoryPage = () => {
   // hide "broad" — broad networks live in their own directory now
   const items = useMemo(() => verticals.filter((v) => v.slug !== "broad"), []);
   const [selected, setSelected] = useState<string[]>([]);
+  const [open, setOpen] = useState(false);
+
 
   const toggle = (slug: string) =>
     setSelected((p) => (p.includes(slug) ? p.filter((s) => s !== slug) : [...p, slug]));
