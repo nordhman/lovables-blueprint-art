@@ -25,6 +25,8 @@ export interface Network {
   beginnerFriendly: boolean;
   paymentMethods: string[];
   score: number;
+  offerCount: number;
+  minPayout: string;
   pros: string[];
   cons: string[];
   whoShouldJoin: string;
@@ -46,10 +48,24 @@ export const verticals: Vertical[] = [
   { slug: "broad", title: "Broad / General Networks", shortDescription: "Large multi-vertical networks like TradeDoubler, Awin and MaxBounty covering thousands of brands.", commissionModels: ["CPA", "CPS", "CPL", "RevShare", "Hybrid"], networkCount: 5 },
 ];
 
-const mk = (n: Omit<Network, "alternatives"> & { alternatives?: string[] }): Network => ({
-  alternatives: [],
-  ...n,
-});
+// deterministic mock generator for offerCount / minPayout based on slug
+const hash = (s: string) => s.split("").reduce((a, c) => a + c.charCodeAt(0), 0);
+const payoutTiers = ["$25", "$50", "$50", "$100", "$100", "$200", "$250", "$500"];
+const mk = (
+  n: Omit<Network, "alternatives" | "offerCount" | "minPayout"> & {
+    alternatives?: string[];
+    offerCount?: number;
+    minPayout?: string;
+  }
+): Network => {
+  const h = hash(n.slug);
+  return {
+    alternatives: [],
+    offerCount: 80 + (h % 420),
+    minPayout: payoutTiers[h % payoutTiers.length],
+    ...n,
+  };
+};
 
 export const networks: Network[] = [
   // ---------- NUTRA ----------
