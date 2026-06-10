@@ -6,7 +6,6 @@ import { Eyebrow, H1, H2, H4, Lead, BodySmall, Meta, MetaLabel } from "@/compone
 import { NetworkComparisonTable } from "@/components/wireframe/NetworkComparisonTable";
 import { FAQSection } from "@/components/wireframe/FAQSection";
 import { RatingBadge } from "@/components/wireframe/RatingBadge";
-import { PlaceholderImage } from "@/components/wireframe/PlaceholderImage";
 import { getVertical, getNetworksByVertical } from "@/data/networkVerticals";
 import type { BestFor } from "@/data/networkVerticals";
 import NotFound from "./NotFound";
