@@ -124,8 +124,7 @@ const VerticalNetworksPage = () => {
                       </a>
                     </div>
                   </article>
-                );
-              })}
+                ))}
             </div>
           </section>
 
