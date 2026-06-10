@@ -68,60 +68,73 @@ const VerticalNetworksPage = () => {
           <section>
             <H2 className="mb-5">Editor's 3 Picks</H2>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
-              {topPicks.map((tp, i) => (
-                <div
-                  key={tp.key}
-                  className="flex flex-col border-2 border-dashed border-border bg-card rounded hover:border-foreground transition-colors overflow-hidden"
-                >
-                  {/* Wide image with big rank badge */}
-                  <div className="relative h-36 border-b-2 border-dashed border-border bg-muted flex items-center justify-center">
-                    <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
-                      Image · {tp.network!.name}
-                    </span>
-                    <div className="absolute top-3 left-3 flex items-center gap-2 rounded border-2 border-dashed border-foreground bg-background px-3 py-2 text-foreground">
-                      <span className="font-mono text-[11px] uppercase tracking-wider font-bold leading-none">
-                        {i === 0 ? "Our #1 pick" : i === 1 ? "Our #2 pick" : "Our #3 pick"}
-                      </span>
+              {topPicks.map((tp, i) => {
+                const rankLabel = i === 0 ? "Editor's choice" : i === 1 ? "Runner up" : "Also great";
+                const isFirst = i === 0;
+                return (
+                  <div
+                    key={tp.key}
+                    className="flex flex-col border-2 border-dashed border-border bg-card hover:border-foreground transition-colors overflow-hidden"
+                  >
+                    {/* Header strip: rank box + label + score */}
+                    <div className="flex border-b-2 border-dashed border-border">
+                      <div className="w-16 shrink-0 border-r-2 border-dashed border-border bg-muted/40 flex items-center justify-center">
+                        <span className="font-mono text-xl font-bold text-foreground">
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                      </div>
+                      <div className="flex-1 px-4 py-3 bg-muted/40 flex items-center justify-between gap-3">
+                        <span className={`font-mono text-[10px] uppercase tracking-widest font-semibold ${isFirst ? "text-foreground" : "text-muted-foreground"}`}>
+                          {rankLabel}
+                        </span>
+                        <div className="text-right leading-none">
+                          <div className="font-mono text-[9px] uppercase font-bold text-muted-foreground mb-1">Our score</div>
+                          <div className="font-mono text-lg font-bold text-foreground">
+                            {tp.network!.score.toFixed(1)}
+                            <span className="text-xs font-normal text-muted-foreground">/10</span>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                  </div>
 
-
-                  {/* Header row */}
-                  <div className="flex items-start justify-between gap-3 p-4 pb-2">
-                    <div className="min-w-0 flex-1">
-                      <H4 className="truncate">{tp.network!.name}</H4>
+                    {/* Body */}
+                    <div className="flex flex-1 flex-col p-6">
+                      <div className="w-full aspect-video border border-dashed border-border bg-muted/40 mb-5 flex items-center justify-center">
+                        <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+                          {tp.network!.name} logo
+                        </span>
+                      </div>
+                      <H4 className="mb-2">{tp.network!.name}</H4>
+                      <BodySmall>
+                        {tp.network!.shortDescription}{" "}
+                        <Link
+                          to={`/networks/${vertical.slug}/${tp.network!.slug}`}
+                          className="font-medium text-foreground underline decoration-dashed underline-offset-4 hover:decoration-foreground whitespace-nowrap"
+                        >
+                          Read review →
+                        </Link>
+                      </BodySmall>
                     </div>
-                    <div className="flex flex-col items-end gap-1">
-                      <span className="font-mono text-[9px] uppercase tracking-wider text-muted-foreground">Our score</span>
-                      <RatingBadge score={tp.network!.score} size="md" />
-                    </div>
-                  </div>
 
-                  {/* Description with inline Read review */}
-                  <div className="flex flex-1 flex-col px-4 pb-5">
-                    <BodySmall className="line-clamp-4">
-                      {tp.network!.shortDescription}{" "}
-                      <Link
-                        to={`/networks/${vertical.slug}/${tp.network!.slug}`}
-                        className="text-foreground underline decoration-border hover:decoration-foreground transition-colors whitespace-nowrap"
+                    {/* CTA */}
+                    <div className="p-4 border-t-2 border-dashed border-border">
+                      <a
+                        href={tp.network!.externalUrl}
+                        target="_blank"
+                        rel="noopener noreferrer nofollow sponsored"
+                        className={`w-full inline-flex items-center justify-center gap-1.5 px-4 py-3 font-mono text-[12px] uppercase tracking-widest font-bold transition-opacity hover:opacity-80 ${
+                          isFirst
+                            ? "bg-foreground text-background border-2 border-foreground"
+                            : "bg-background text-foreground border-2 border-foreground"
+                        }`}
                       >
-                        Read review →
-                      </Link>
-                    </BodySmall>
-
-                    <a
-                      href={tp.network!.externalUrl}
-                      target="_blank"
-                      rel="noopener noreferrer nofollow sponsored"
-                      className="mt-auto pt-5 inline-flex items-center justify-center gap-1.5"
-                    >
-                      <span className="w-full inline-flex items-center justify-center gap-1.5 border-2 border-dashed border-foreground bg-foreground text-background rounded px-4 py-2.5 font-mono text-[12px] uppercase tracking-wider hover:opacity-80 transition-opacity">
                         Visit site <ArrowUpRight className="h-3.5 w-3.5" />
-                      </span>
-                    </a>
+                      </a>
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
+
 
             </div>
 
