@@ -1,10 +1,8 @@
 import { useParams } from "react-router-dom";
 import { WireframeHero } from "@/components/wireframe/WireframeHero";
 import { WireframeBreadcrumbs } from "@/components/wireframe/WireframeBreadcrumbs";
-import { Eyebrow, H1, H2, Lead, Meta, MetaLabel } from "@/components/wireframe/Typography";
-import { NetworkCard } from "@/components/wireframe/NetworkCard";
-import { ComparisonTable } from "@/components/wireframe/ComparisonTable";
-import { FilterBar } from "@/components/wireframe/FilterBar";
+import { Eyebrow, H1, H2, Lead, Meta } from "@/components/wireframe/Typography";
+import { NetworkComparisonTable } from "@/components/wireframe/NetworkComparisonTable";
 import { getRegion, getNetworksByRegion } from "@/data/networkGeo";
 import NotFound from "./NotFound";
 
