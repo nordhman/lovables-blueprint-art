@@ -1,10 +1,8 @@
 import { useParams } from "react-router-dom";
 import { WireframeHero } from "@/components/wireframe/WireframeHero";
 import { WireframeBreadcrumbs } from "@/components/wireframe/WireframeBreadcrumbs";
-import { Eyebrow, H1, H2, Lead, Meta, MetaLabel } from "@/components/wireframe/Typography";
-import { NetworkCard } from "@/components/wireframe/NetworkCard";
-import { ComparisonTable } from "@/components/wireframe/ComparisonTable";
-import { FilterBar } from "@/components/wireframe/FilterBar";
+import { Eyebrow, H1, H2, Lead, Meta } from "@/components/wireframe/Typography";
+import { NetworkComparisonTable } from "@/components/wireframe/NetworkComparisonTable";
 import { getRegion, getNetworksByRegion } from "@/data/networkGeo";
 import NotFound from "./NotFound";
 
@@ -33,30 +31,15 @@ const GeoNetworksPage = () => {
       </WireframeHero>
 
       <div className="container mx-auto px-4 py-12 space-y-14">
-        <section className="grid lg:grid-cols-[280px_1fr] gap-6">
-          <aside className="lg:sticky lg:top-20 lg:self-start space-y-3">
-            <MetaLabel>Filter</MetaLabel>
-            <FilterBar />
-            <Meta className="block">Prototype — filters are visual only.</Meta>
-          </aside>
-          <div className="space-y-4 min-w-0">
-            <div className="flex items-end justify-between">
-              <H2>Compare networks in {region.title}</H2>
-              <Meta>{networks.length} networks</Meta>
-            </div>
-            <ComparisonTable networks={networks} />
+        <section className="space-y-4">
+          <div className="flex items-end justify-between">
+            <H2>Compare networks in {region.title}</H2>
+            <Meta>{networks.length} networks</Meta>
           </div>
-        </section>
-
-        <section>
-          <H2 className="mb-6">All {region.title} Networks</H2>
-          <div className="grid md:grid-cols-2 gap-4">
-            {networks.map((n) => (
-              <NetworkCard key={`${n.vertical}-${n.slug}`} network={n} />
-            ))}
-          </div>
+          <NetworkComparisonTable networks={networks} />
         </section>
       </div>
+
     </div>
   );
 };

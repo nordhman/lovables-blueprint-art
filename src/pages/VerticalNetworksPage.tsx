@@ -3,9 +3,7 @@ import { WireframeHero } from "@/components/wireframe/WireframeHero";
 import { WireframeBreadcrumbs } from "@/components/wireframe/WireframeBreadcrumbs";
 import { Eyebrow, H1, H2, H4, Lead, BodySmall, Meta, MetaLabel } from "@/components/wireframe/Typography";
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
-import { FilterBar } from "@/components/wireframe/FilterBar";
-import { ComparisonTable } from "@/components/wireframe/ComparisonTable";
-import { NetworkCard } from "@/components/wireframe/NetworkCard";
+import { NetworkComparisonTable } from "@/components/wireframe/NetworkComparisonTable";
 import { FAQSection } from "@/components/wireframe/FAQSection";
 import { RatingBadge } from "@/components/wireframe/RatingBadge";
 import { getVertical, getNetworksByVertical } from "@/data/networkVerticals";
@@ -90,31 +88,15 @@ const VerticalNetworksPage = () => {
           </div>
         </section>
 
-        {/* Filters + table */}
-        <section className="grid lg:grid-cols-[280px_1fr] gap-6">
-          <aside className="lg:sticky lg:top-20 lg:self-start space-y-3">
-            <MetaLabel>Filter</MetaLabel>
-            <FilterBar />
-            <Meta className="block">Prototype — filters are visual only.</Meta>
-          </aside>
-          <div className="space-y-4 min-w-0">
-            <div className="flex items-end justify-between">
-              <H2>Compare {vertical.title} Networks</H2>
-              <Meta>{networks.length} networks</Meta>
-            </div>
-            <ComparisonTable networks={networks} />
+        {/* Comparison table */}
+        <section className="space-y-4">
+          <div className="flex items-end justify-between">
+            <H2>Compare {vertical.title} Networks</H2>
+            <Meta>{networks.length} networks</Meta>
           </div>
+          <NetworkComparisonTable networks={networks} />
         </section>
 
-        {/* Network cards */}
-        <section>
-          <H2 className="mb-6">All {vertical.title} Networks</H2>
-          <div className="grid md:grid-cols-2 gap-4">
-            {networks.map((n) => (
-              <NetworkCard key={n.slug} network={n} />
-            ))}
-          </div>
-        </section>
 
         {/* FAQ */}
         <section>
