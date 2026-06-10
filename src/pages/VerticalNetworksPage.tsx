@@ -2,7 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { ArrowUpRight } from "lucide-react";
 import { WireframeHero } from "@/components/wireframe/WireframeHero";
 import { WireframeBreadcrumbs } from "@/components/wireframe/WireframeBreadcrumbs";
-import { Eyebrow, H1, H2, H4, Lead, Meta } from "@/components/wireframe/Typography";
+import { Eyebrow, H1, H2, H4, Lead, Meta, MetaLabel } from "@/components/wireframe/Typography";
 import { PlaceholderImage } from "@/components/wireframe/PlaceholderImage";
 import { NetworkComparisonTable } from "@/components/wireframe/NetworkComparisonTable";
 import { FAQSection } from "@/components/wireframe/FAQSection";
