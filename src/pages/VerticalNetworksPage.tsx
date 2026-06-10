@@ -70,15 +70,17 @@ const VerticalNetworksPage = () => {
             <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
               {topPicks.map((tp, i) => (
                   <div key={tp.key} className="flex flex-col">
-                    {/* Tag line above card */}
-                    <div className="flex items-center gap-2 pb-2">
-                      <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2 border-dashed border-foreground font-mono text-[11px] font-bold text-foreground">
-                        #{i + 1}
-                      </span>
-                      <span className="font-mono text-[12px] font-bold uppercase tracking-wider text-foreground">
-                        {tp.label}
-                      </span>
-                    </div>
+                    <article className="relative flex flex-1 flex-col border-2 border-dashed border-border bg-card overflow-visible mt-3">
+                      {/* Tag sitting on top border */}
+                      <div className="absolute -top-3 left-4 flex items-center gap-2 bg-background px-2">
+                        <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2 border-dashed border-foreground font-mono text-[11px] font-bold text-foreground bg-background">
+                          #{i + 1}
+                        </span>
+                        <span className="font-mono text-[12px] font-bold uppercase tracking-wider text-foreground">
+                          {tp.label}
+                        </span>
+                      </div>
+
 
                     <article className="flex flex-1 flex-col border-2 border-dashed border-border bg-card overflow-hidden">
                       {/* Image — 3:1 (shorter) */}
