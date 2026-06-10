@@ -18,9 +18,9 @@ const VisitButton = ({ href }: { href: string }) => (
 const ReviewLink = ({ to }: { to: string }) => (
   <Link
     to={to}
-    className="inline-flex items-center font-mono text-[12px] text-foreground border-b-2 border-dashed border-foreground hover:opacity-70 whitespace-nowrap"
+    className="inline-flex items-center font-mono text-[12px] text-foreground hover:opacity-70 whitespace-nowrap"
   >
-    Read review →
+    Read full review →
   </Link>
 );
 
@@ -82,9 +82,9 @@ export const NetworkComparisonTable = ({ networks }: { networks: Network[] }) =>
                 </p>
                 <Link
                   to={`/networks/${n.vertical}/${n.slug}`}
-                  className="mt-2 inline-flex items-center font-mono text-[12px] text-foreground border-b-2 border-dashed border-foreground hover:opacity-70"
+                  className="mt-2 inline-flex items-center font-mono text-[12px] text-foreground hover:opacity-70"
                 >
-                  Read review →
+                  Read full review →
                 </Link>
               </td>
               <td className="px-4 py-3.5">
@@ -136,9 +136,9 @@ export const NetworkComparisonTable = ({ networks }: { networks: Network[] }) =>
                 </p>
                 <Link
                   to={`/networks/${n.vertical}/${n.slug}`}
-                  className="mt-2 inline-flex items-center font-mono text-[12px] text-foreground border-b-2 border-dashed border-foreground hover:opacity-70"
+                  className="mt-2 inline-flex items-center font-mono text-[12px] text-foreground hover:opacity-70"
                 >
-                  Read review →
+                  Read full review →
                 </Link>
               </td>
               <td className="px-4 py-3.5">
