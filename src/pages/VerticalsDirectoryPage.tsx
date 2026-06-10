@@ -4,6 +4,7 @@ import { WireframeBreadcrumbs } from "@/components/wireframe/WireframeBreadcrumb
 import { Eyebrow, H1, H2, Lead, BodySmall, MetaLabel, Meta } from "@/components/wireframe/Typography";
 import { VerticalCard } from "@/components/wireframe/VerticalCard";
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
+import { DirectoryListRow } from "@/components/wireframe/DirectoryListRow";
 import { verticals } from "@/data/networkVerticals";
 
 const VerticalsDirectoryPage = () => {
@@ -59,7 +60,7 @@ const VerticalsDirectoryPage = () => {
               )}
             </div>
           </div>
-          <div className="flex flex-wrap gap-1.5">
+          <div className="flex flex-nowrap md:flex-wrap gap-1.5 overflow-x-auto md:overflow-visible -mx-1 px-1 pb-1 md:pb-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {items.map((v) => {
               const active = selected.includes(v.slug);
               return (
@@ -67,7 +68,7 @@ const VerticalsDirectoryPage = () => {
                   key={v.slug}
                   type="button"
                   onClick={() => toggle(v.slug)}
-                  className={`border-2 border-dashed rounded px-2.5 py-1 font-mono text-[12px] uppercase tracking-wider transition-colors ${
+                  className={`shrink-0 border-2 border-dashed rounded px-2.5 py-1 font-mono text-[12px] uppercase tracking-wider transition-colors ${
                     active
                       ? "border-foreground bg-foreground text-background"
                       : "border-border text-muted-foreground hover:border-foreground hover:text-foreground"
@@ -95,11 +96,26 @@ const VerticalsDirectoryPage = () => {
             <BodySmall>No verticals match your filter. Clear the filter to see all.</BodySmall>
           </WireframeCard>
         ) : (
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {visible.map((v) => (
-              <VerticalCard key={v.slug} vertical={v} />
-            ))}
-          </div>
+          <>
+            {/* Mobile: compact list */}
+            <div className="md:hidden flex flex-col gap-2">
+              {visible.map((v) => (
+                <DirectoryListRow
+                  key={v.slug}
+                  title={v.title}
+                  meta={`${v.networkCount} networks`}
+                  description={v.shortDescription}
+                  to={`/networks/${v.slug}`}
+                />
+              ))}
+            </div>
+            {/* Desktop: grid */}
+            <div className="hidden md:grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {visible.map((v) => (
+                <VerticalCard key={v.slug} vertical={v} />
+              ))}
+            </div>
+          </>
         )}
       </section>
     </div>

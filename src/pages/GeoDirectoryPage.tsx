@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
 import { WireframeHero } from "@/components/wireframe/WireframeHero";
 import { WireframeBreadcrumbs } from "@/components/wireframe/WireframeBreadcrumbs";
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
+import { DirectoryListRow } from "@/components/wireframe/DirectoryListRow";
+import { Link } from "react-router-dom";
 import { Eyebrow, H1, H2, H4, Lead, BodySmall, Meta, MetaLabel } from "@/components/wireframe/Typography";
 import { geoRegions, countNetworksByRegion } from "@/data/networkGeo";
 import { ArrowRight } from "lucide-react";
@@ -33,7 +34,21 @@ const GeoDirectoryPage = () => (
         <H2 className="mt-1">Browse by Region</H2>
       </div>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {/* Mobile: compact list */}
+      <div className="md:hidden flex flex-col gap-2">
+        {geoRegions.map((r) => (
+          <DirectoryListRow
+            key={r.slug}
+            title={r.title}
+            meta={`${countNetworksByRegion(r.slug)} networks`}
+            description={r.shortDescription}
+            to={`/networks/geographic/${r.slug}`}
+          />
+        ))}
+      </div>
+
+      {/* Desktop: grid */}
+      <div className="hidden md:grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {geoRegions.map((r) => (
           <WireframeCard key={r.slug} className="flex flex-col">
             <div className="flex items-start justify-between gap-2 mb-2">
