@@ -70,62 +70,63 @@ const VerticalNetworksPage = () => {
               {topPicks.map((tp, i) => {
                 const rankLabel = i === 0 ? "Our #1 pick" : i === 1 ? "Our #2 option" : "Our #3 option";
                 const choiceLabel = i === 0 ? "first choice" : i === 1 ? "second choice" : "third choice";
-                const isFirst = i === 0;
                 return (
                   <article
                     key={tp.key}
-                    className="flex flex-col border-2 border-dashed border-border bg-card transition-colors hover:bg-muted/30"
+                    className="flex flex-col overflow-hidden border-2 border-dashed border-border bg-card"
                   >
-                    {/* Header strip */}
-                    <div className="flex items-stretch border-b-2 border-dashed border-border">
-                      <div className={`flex w-16 shrink-0 items-center justify-center border-r-2 border-dashed border-border font-mono text-2xl font-bold ${isFirst ? "bg-foreground text-background" : "bg-background text-foreground"}`}>
-                        {i + 1}
+                    {/* Dark header */}
+                    <div className="flex items-center justify-between gap-3 bg-foreground px-5 py-4 text-background">
+                      <div className="flex items-center gap-3">
+                        <div className="flex h-10 w-10 items-center justify-center border-2 border-dashed border-background/60 font-mono text-base font-bold">
+                          {i + 1}
+                        </div>
+                        <span className="font-mono text-[11px] uppercase tracking-wider opacity-80">{rankLabel}</span>
                       </div>
-                      <div className="flex flex-1 items-center justify-between gap-3 px-4 py-3">
-                        <MetaLabel className={isFirst ? "text-foreground" : undefined}>{rankLabel}</MetaLabel>
-                        <div className="text-right">
-                          <MetaLabel className="block leading-none">Our score</MetaLabel>
-                          <div className="font-mono text-xl font-bold leading-tight text-foreground">
-                            {tp.network!.score.toFixed(1)}
-                            <span className="text-xs font-normal text-muted-foreground">/10</span>
-                          </div>
+                      <div className="text-right leading-tight">
+                        <div className="font-mono text-[9px] uppercase tracking-wider opacity-70">Our score</div>
+                        <div className="font-mono text-lg font-bold">
+                          {tp.network!.score.toFixed(1)}
+                          <span className="text-xs font-normal opacity-70">/10</span>
                         </div>
                       </div>
                     </div>
 
                     {/* Body */}
-                    <div className="flex flex-1 flex-col p-4">
+                    <div className="flex flex-1 flex-col p-5">
                       <MetaLabel className="mb-1">{choiceLabel} · {tp.label}</MetaLabel>
                       <H4 className="mb-2">{tp.network!.name}</H4>
-                      <BodySmall className="mb-4 flex-1">{tp.network!.shortDescription}</BodySmall>
+                      <BodySmall className="mb-5 flex-1">
+                        {tp.network!.shortDescription}{" "}
+                        <Link
+                          to={`/networks/${vertical.slug}/${tp.network!.slug}`}
+                          className="font-mono text-[13px] text-foreground underline decoration-dashed underline-offset-4 hover:opacity-70"
+                        >
+                          Read review →
+                        </Link>
+                      </BodySmall>
 
-                      <div className="flex flex-col gap-2">
+                      <div className="flex items-center gap-2">
+                        <Link
+                          to={`/networks/${vertical.slug}/${tp.network!.slug}`}
+                          className="flex-1 rounded-full border-2 border-dashed border-foreground bg-background px-4 py-2 text-center font-mono text-[11px] font-bold uppercase tracking-wider text-foreground hover:bg-muted"
+                        >
+                          Details
+                        </Link>
                         <a
                           href={tp.network!.externalUrl}
                           target="_blank"
                           rel="noopener noreferrer nofollow sponsored"
-                          className={`inline-flex items-center justify-center gap-1.5 whitespace-nowrap border-2 px-4 py-2.5 font-mono text-[12px] font-bold uppercase tracking-wider transition-opacity hover:opacity-80 ${
-                            isFirst
-                              ? "bg-foreground text-background border-foreground"
-                              : "bg-background text-foreground border-foreground"
-                          }`}
+                          className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-full border-2 border-dashed border-foreground bg-foreground px-4 py-2 font-mono text-[11px] font-bold uppercase tracking-wider text-background hover:opacity-80"
                         >
-                          Visit site <ArrowUpRight className="h-3.5 w-3.5" />
+                          Visit <ArrowUpRight className="h-3.5 w-3.5" />
                         </a>
-                        <Link
-                          to={`/networks/${vertical.slug}/${tp.network!.slug}`}
-                          className="text-center font-mono text-[11px] uppercase tracking-wider text-muted-foreground underline decoration-dashed underline-offset-4 hover:text-foreground"
-                        >
-                          Read review →
-                        </Link>
                       </div>
                     </div>
                   </article>
                 );
               })}
             </div>
-
-
           </section>
 
           {/* Comparison table */}
