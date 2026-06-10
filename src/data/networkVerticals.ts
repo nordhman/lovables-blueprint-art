@@ -27,6 +27,7 @@ export interface Network {
   score: number;
   offerCount: number;
   minPayout: string;
+  trustpilotScore: number;
   pros: string[];
   cons: string[];
   whoShouldJoin: string;
@@ -52,10 +53,11 @@ export const verticals: Vertical[] = [
 const hash = (s: string) => s.split("").reduce((a, c) => a + c.charCodeAt(0), 0);
 const payoutTiers = ["$25", "$50", "$50", "$100", "$100", "$200", "$250", "$500"];
 const mk = (
-  n: Omit<Network, "alternatives" | "offerCount" | "minPayout"> & {
+  n: Omit<Network, "alternatives" | "offerCount" | "minPayout" | "trustpilotScore"> & {
     alternatives?: string[];
     offerCount?: number;
     minPayout?: string;
+    trustpilotScore?: number;
   }
 ): Network => {
   const h = hash(n.slug);
@@ -63,6 +65,7 @@ const mk = (
     alternatives: [],
     offerCount: 80 + (h % 420),
     minPayout: payoutTiers[h % payoutTiers.length],
+    trustpilotScore: Math.round((3.2 + (h % 18) / 10) * 10) / 10, // 3.2 – 4.9
     ...n,
   };
 };

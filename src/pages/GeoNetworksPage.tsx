@@ -16,7 +16,6 @@ const GeoNetworksPage = () => {
   return (
     <div>
       <WireframeBreadcrumbs
-        innerClassName="max-w-6xl"
         items={[
           { label: "Home", to: "/" },
           { label: "Networks", to: "/networks" },
@@ -25,14 +24,14 @@ const GeoNetworksPage = () => {
         ]}
       />
 
-      <WireframeHero size="sm" innerClassName="max-w-6xl">
+      <WireframeHero size="sm">
         <Eyebrow>{region.title}</Eyebrow>
         <H1 className="mt-3">Best Affiliate Networks in {region.title}</H1>
         <Lead className="mt-2 max-w-3xl">{region.shortDescription}</Lead>
       </WireframeHero>
 
       <div className="container mx-auto px-4 py-12">
-        <div className="max-w-6xl mx-auto space-y-14">
+        <div className="space-y-14">
           <section className="space-y-4">
             <div className="flex items-end justify-between">
               <H2>Compare networks in {region.title}</H2>
