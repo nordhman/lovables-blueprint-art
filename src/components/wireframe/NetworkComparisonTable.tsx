@@ -38,6 +38,12 @@ const Th = ({ children, className = "" }: { children: React.ReactNode; className
   </th>
 );
 
+const HighlightTh = ({ children }: { children: React.ReactNode }) => (
+  <th className="text-left px-4 py-3 font-mono text-[11px] text-foreground font-bold uppercase tracking-wider">
+    {children}
+  </th>
+);
+
 export const NetworkComparisonTable = ({ networks }: { networks: Network[] }) => (
   <div className="border-2 border-dashed border-border rounded bg-card">
     {/* Desktop: full table */}
