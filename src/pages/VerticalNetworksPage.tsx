@@ -1,8 +1,8 @@
 import { useParams, Link } from "react-router-dom";
+import { ArrowUpRight } from "lucide-react";
 import { WireframeHero } from "@/components/wireframe/WireframeHero";
 import { WireframeBreadcrumbs } from "@/components/wireframe/WireframeBreadcrumbs";
 import { Eyebrow, H1, H2, H4, Lead, BodySmall, Meta, MetaLabel } from "@/components/wireframe/Typography";
-import { WireframeCard } from "@/components/wireframe/WireframeCard";
 import { NetworkComparisonTable } from "@/components/wireframe/NetworkComparisonTable";
 import { FAQSection } from "@/components/wireframe/FAQSection";
 import { RatingBadge } from "@/components/wireframe/RatingBadge";
@@ -63,46 +63,70 @@ const VerticalNetworksPage = () => {
         <Lead className="mt-2 max-w-3xl">{vertical.shortDescription}</Lead>
       </WireframeHero>
 
-      <div className="container mx-auto px-4 py-12 space-y-14">
-        {/* Top picks */}
-        <section>
-          <MetaLabel>Top picks</MetaLabel>
-          <H2 className="mt-1 mb-6">Editor's Top Picks</H2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {topPicks.map((tp) => (
-              <WireframeCard key={tp.key} className="flex flex-col">
-                <Meta className="uppercase tracking-wider">{tp.label}</Meta>
-                <H4 className="mt-2">{tp.network!.name}</H4>
-                <BodySmall className="mt-1 flex-1">{tp.network!.shortDescription}</BodySmall>
-                <div className="mt-3 flex items-center justify-between">
-                  <RatingBadge score={tp.network!.score} size="sm" />
+      <div className="container mx-auto px-4 py-12">
+        <div className="max-w-6xl mx-auto space-y-14">
+          {/* Top picks — conversion-optimized, full-width grid */}
+          <section>
+            <MetaLabel>Top picks</MetaLabel>
+            <H2 className="mt-1 mb-6">Editor's Top Picks</H2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {topPicks.map((tp, i) => (
+                <div
+                  key={tp.key}
+                  className="flex flex-col border-2 border-dashed border-border bg-card rounded p-4 hover:border-foreground transition-colors"
+                >
+                  <div className="flex items-center justify-between gap-2">
+                    <Meta className="uppercase tracking-wider">#{i + 1} · {tp.label}</Meta>
+                    <RatingBadge score={tp.network!.score} size="sm" />
+                  </div>
+                  <H4 className="mt-3">{tp.network!.name}</H4>
+                  <BodySmall className="mt-1 flex-1 line-clamp-3">{tp.network!.shortDescription}</BodySmall>
+
+                  <div className="mt-3 grid grid-cols-2 gap-2 border-t border-dashed border-border pt-3">
+                    <div>
+                      <MetaLabel className="block text-[10px]">Offers</MetaLabel>
+                      <Meta>{tp.network!.offerCount}</Meta>
+                    </div>
+                    <div>
+                      <MetaLabel className="block text-[10px]">Min payout</MetaLabel>
+                      <Meta>{tp.network!.minPayout}</Meta>
+                    </div>
+                  </div>
+
+                  <a
+                    href={tp.network!.externalUrl}
+                    target="_blank"
+                    rel="noopener noreferrer nofollow sponsored"
+                    className="mt-3 inline-flex items-center justify-center gap-1 border-2 border-dashed border-foreground bg-foreground text-background rounded px-3 py-2 font-mono text-[12px] uppercase tracking-wider hover:opacity-80 transition-opacity"
+                  >
+                    Visit site <ArrowUpRight className="h-3 w-3" />
+                  </a>
                   <Link
                     to={`/networks/${vertical.slug}/${tp.network!.slug}`}
-                    className="font-mono text-[12px] text-foreground border-b-2 border-dashed border-foreground hover:opacity-70"
+                    className="mt-2 text-center font-mono text-[12px] text-foreground border-b-2 border-dashed border-foreground hover:opacity-70 self-center"
                   >
-                    Review →
+                    Read review →
                   </Link>
                 </div>
-              </WireframeCard>
-            ))}
-          </div>
-        </section>
+              ))}
+            </div>
+          </section>
 
-        {/* Comparison table */}
-        <section className="space-y-4">
-          <div className="flex items-end justify-between">
-            <H2>Compare {vertical.title} Networks</H2>
-            <Meta>{networks.length} networks</Meta>
-          </div>
-          <NetworkComparisonTable networks={networks} />
-        </section>
+          {/* Comparison table */}
+          <section className="space-y-4">
+            <div className="flex items-end justify-between">
+              <H2>Compare {vertical.title} Networks</H2>
+              <Meta>{networks.length} networks</Meta>
+            </div>
+            <NetworkComparisonTable networks={networks} />
+          </section>
 
-
-        {/* FAQ */}
-        <section>
-          <H2 className="mb-6">Frequently Asked Questions</H2>
-          <FAQSection items={faq} />
-        </section>
+          {/* FAQ */}
+          <section>
+            <H2 className="mb-6">Frequently Asked Questions</H2>
+            <FAQSection items={faq} />
+          </section>
+        </div>
       </div>
     </div>
   );

@@ -30,14 +30,16 @@ const GeoNetworksPage = () => {
         <Lead className="mt-2 max-w-3xl">{region.shortDescription}</Lead>
       </WireframeHero>
 
-      <div className="container mx-auto px-4 py-12 space-y-14">
-        <section className="space-y-4">
-          <div className="flex items-end justify-between">
-            <H2>Compare networks in {region.title}</H2>
-            <Meta>{networks.length} networks</Meta>
-          </div>
-          <NetworkComparisonTable networks={networks} />
-        </section>
+      <div className="container mx-auto px-4 py-12">
+        <div className="max-w-6xl mx-auto space-y-14">
+          <section className="space-y-4">
+            <div className="flex items-end justify-between">
+              <H2>Compare networks in {region.title}</H2>
+              <Meta>{networks.length} networks</Meta>
+            </div>
+            <NetworkComparisonTable networks={networks} />
+          </section>
+        </div>
       </div>
 
     </div>
