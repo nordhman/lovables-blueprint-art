@@ -67,22 +67,22 @@ const VerticalNetworksPage = () => {
         <div className="space-y-14">
           {/* Top picks — conversion-optimized, full-width grid */}
           <section>
-            <MetaLabel>Top picks</MetaLabel>
-            <H2 className="mt-1 mb-6">Editor's Top Picks</H2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <MetaLabel>Editor's top picks</MetaLabel>
+            <H2 className="mt-1 mb-8">Editor's Top Picks</H2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {topPicks.map((tp, i) => (
                 <div
                   key={tp.key}
-                  className="flex flex-col border-2 border-dashed border-border bg-card rounded p-4 hover:border-foreground transition-colors"
+                  className="flex flex-col border-2 border-dashed border-border bg-card rounded p-6 hover:border-foreground transition-colors"
                 >
                   <div className="flex items-center justify-between gap-2">
                     <Meta className="uppercase tracking-wider">#{i + 1} · {tp.label}</Meta>
                     <RatingBadge score={tp.network!.score} size="sm" />
                   </div>
-                  <H4 className="mt-3">{tp.network!.name}</H4>
-                  <BodySmall className="mt-1 flex-1 line-clamp-3">{tp.network!.shortDescription}</BodySmall>
+                  <H4 className="mt-4">{tp.network!.name}</H4>
+                  <BodySmall className="mt-2 flex-1 line-clamp-3">{tp.network!.shortDescription}</BodySmall>
 
-                  <div className="mt-3 grid grid-cols-2 gap-2 border-t border-dashed border-border pt-3">
+                  <div className="mt-5 grid grid-cols-2 gap-3 border-t border-dashed border-border pt-4">
                     <div>
                       <MetaLabel className="block text-[10px]">Offers</MetaLabel>
                       <Meta>{tp.network!.offerCount}</Meta>
@@ -97,15 +97,15 @@ const VerticalNetworksPage = () => {
                     href={tp.network!.externalUrl}
                     target="_blank"
                     rel="noopener noreferrer nofollow sponsored"
-                    className="mt-3 inline-flex items-center justify-center gap-1 border-2 border-dashed border-foreground bg-foreground text-background rounded px-3 py-2 font-mono text-[12px] uppercase tracking-wider hover:opacity-80 transition-opacity"
+                    className="mt-5 inline-flex items-center justify-center gap-1.5 border-2 border-dashed border-foreground bg-foreground text-background rounded px-4 py-2.5 font-mono text-[12px] uppercase tracking-wider hover:opacity-80 transition-opacity"
                   >
-                    Visit site <ArrowUpRight className="h-3 w-3" />
+                    Visit site <ArrowUpRight className="h-3.5 w-3.5" />
                   </a>
                   <Link
                     to={`/networks/${vertical.slug}/${tp.network!.slug}`}
-                    className="mt-2 text-center font-mono text-[12px] text-foreground border-b-2 border-dashed border-foreground hover:opacity-70 self-center"
+                    className="mt-3 text-center font-mono text-[12px] text-foreground border-b-2 border-dashed border-foreground hover:opacity-70 self-center"
                   >
-                    Read review →
+                    Read full review →
                   </Link>
                 </div>
               ))}
