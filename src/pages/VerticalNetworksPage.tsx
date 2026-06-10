@@ -81,8 +81,6 @@ const VerticalNetworksPage = () => {
                         </span>
                       </div>
 
-
-                    <article className="flex flex-1 flex-col border-2 border-dashed border-border bg-card overflow-hidden">
                       {/* Image — 3:1 (shorter) */}
                       <PlaceholderImage
                         label={`${tp.network!.name} image`}
