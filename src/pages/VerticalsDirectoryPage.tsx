@@ -11,6 +11,8 @@ const VerticalsDirectoryPage = () => {
   // hide "broad" — broad networks live in their own directory now
   const items = useMemo(() => verticals.filter((v) => v.slug !== "broad"), []);
   const [selected, setSelected] = useState<string[]>([]);
+  const [open, setOpen] = useState(false);
+
 
   const toggle = (slug: string) =>
     setSelected((p) => (p.includes(slug) ? p.filter((s) => s !== slug) : [...p, slug]));
@@ -43,8 +45,19 @@ const VerticalsDirectoryPage = () => {
 
       <section className="container mx-auto px-4 py-12">
         <div className="mb-8 border-2 border-dashed border-border rounded p-4 bg-card">
-          <div className="flex items-center justify-between mb-3 gap-2 flex-wrap">
-            <MetaLabel>Filter by vertical</MetaLabel>
+          <div className="flex items-center justify-between gap-2 flex-wrap">
+            <div className="flex items-center gap-3">
+              <MetaLabel>Filter by vertical</MetaLabel>
+              {/* Mobile-only toggle */}
+              <button
+                type="button"
+                onClick={() => setOpen((o) => !o)}
+                aria-expanded={open}
+                className="md:hidden font-mono text-[12px] uppercase tracking-wider border-2 border-dashed border-border rounded px-2 py-0.5 text-foreground hover:border-foreground"
+              >
+                {open ? "Hide ▴" : `Show ▾${selected.length ? ` (${selected.length})` : ""}`}
+              </button>
+            </div>
             <div className="flex items-center gap-3">
               <Meta>
                 {selected.length === 0 ? "Showing all" : `${visible.length} of ${items.length} shown`}
@@ -60,7 +73,7 @@ const VerticalsDirectoryPage = () => {
               )}
             </div>
           </div>
-          <div className="flex flex-wrap gap-1.5">
+          <div className={`${open ? "flex" : "hidden"} md:flex flex-wrap gap-1.5 mt-3`}>
             {items.map((v) => {
               const active = selected.includes(v.slug);
               return (
@@ -80,6 +93,7 @@ const VerticalsDirectoryPage = () => {
             })}
           </div>
         </div>
+
 
         <div className="flex items-end justify-between mb-6">
           <div>
