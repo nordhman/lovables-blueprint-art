@@ -64,7 +64,7 @@ const VerticalNetworksPage = () => {
       </WireframeHero>
 
       <div className="container mx-auto px-4 py-12">
-        <div className="max-w-6xl mx-auto space-y-14">
+        <div className="space-y-14">
           {/* Top picks — conversion-optimized, full-width grid */}
           <section>
             <MetaLabel>Top picks</MetaLabel>
