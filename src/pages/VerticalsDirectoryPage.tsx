@@ -96,11 +96,26 @@ const VerticalsDirectoryPage = () => {
             <BodySmall>No verticals match your filter. Clear the filter to see all.</BodySmall>
           </WireframeCard>
         ) : (
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {visible.map((v) => (
-              <VerticalCard key={v.slug} vertical={v} />
-            ))}
-          </div>
+          <>
+            {/* Mobile: compact list */}
+            <div className="md:hidden flex flex-col gap-2">
+              {visible.map((v) => (
+                <DirectoryListRow
+                  key={v.slug}
+                  title={v.title}
+                  meta={`${v.networkCount} networks`}
+                  description={v.shortDescription}
+                  to={`/networks/${v.slug}`}
+                />
+              ))}
+            </div>
+            {/* Desktop: grid */}
+            <div className="hidden md:grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {visible.map((v) => (
+                <VerticalCard key={v.slug} vertical={v} />
+              ))}
+            </div>
+          </>
         )}
       </section>
     </div>
