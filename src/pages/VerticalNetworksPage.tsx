@@ -103,7 +103,7 @@ const VerticalNetworksPage = () => {
                           {tp.network!.shortDescription}{" "}
                           <Link
                             to={`/networks/${vertical.slug}/${tp.network!.slug}`}
-                            className="font-mono text-[13px] text-foreground border-b-2 border-dashed border-foreground hover:opacity-70 whitespace-nowrap"
+                            className="text-foreground underline decoration-dashed decoration-2 underline-offset-4 hover:opacity-70"
                           >
                             Read full review →
                           </Link>
