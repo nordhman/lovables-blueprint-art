@@ -9,7 +9,7 @@ const VisitButton = ({ href }: { href: string }) => (
     href={href}
     target="_blank"
     rel="noopener noreferrer nofollow sponsored"
-    className="inline-flex items-center justify-center gap-1 border-2 border-dashed border-foreground bg-foreground text-background rounded px-3 py-2 font-mono text-[12px] uppercase tracking-wider hover:opacity-80 transition-opacity whitespace-nowrap w-full max-w-[116px]"
+    className="inline-flex items-center justify-center gap-1 border-2 border-dashed border-foreground bg-foreground text-background rounded px-3 py-2 font-mono text-[12px] uppercase tracking-wider hover:opacity-80 transition-opacity whitespace-nowrap min-w-[118px]"
   >
     Visit site <ArrowUpRight className="h-3 w-3" />
   </a>
@@ -44,13 +44,13 @@ export const NetworkComparisonTable = ({ networks }: { networks: Network[] }) =>
     <div className="hidden lg:block overflow-x-auto">
       <table className="w-full text-sm table-fixed">
         <colgroup>
-          <col className="w-[17%]" />
-          <col className="w-[34%]" />
+          <col className="w-[16%]" />
+          <col className="w-[33%]" />
           <col className="w-[10%]" />
           <col className="w-[10%]" />
           <col className="w-[9%]" />
           <col className="w-[10%]" />
-          <col className="w-[10%]" />
+          <col className="w-[12%]" />
         </colgroup>
         <thead>
           <tr className="border-b-2 border-dashed border-border bg-muted/30">
@@ -93,7 +93,7 @@ export const NetworkComparisonTable = ({ networks }: { networks: Network[] }) =>
               <td className="px-4 py-3.5 font-mono text-xs text-muted-foreground whitespace-nowrap">
                 {n.minPayout}
               </td>
-              <td className="px-4 py-3.5 whitespace-nowrap">
+              <td className="px-5 py-3.5 whitespace-nowrap">
                 <div className="flex justify-center">
                   <VisitButton href={n.externalUrl} />
                 </div>
