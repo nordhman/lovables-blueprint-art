@@ -60,7 +60,7 @@ const VerticalsDirectoryPage = () => {
               )}
             </div>
           </div>
-          <div className="flex flex-wrap gap-1.5">
+          <div className="flex flex-nowrap md:flex-wrap gap-1.5 overflow-x-auto md:overflow-visible -mx-1 px-1 pb-1 md:pb-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {items.map((v) => {
               const active = selected.includes(v.slug);
               return (
@@ -68,7 +68,7 @@ const VerticalsDirectoryPage = () => {
                   key={v.slug}
                   type="button"
                   onClick={() => toggle(v.slug)}
-                  className={`border-2 border-dashed rounded px-2.5 py-1 font-mono text-[12px] uppercase tracking-wider transition-colors ${
+                  className={`shrink-0 border-2 border-dashed rounded px-2.5 py-1 font-mono text-[12px] uppercase tracking-wider transition-colors ${
                     active
                       ? "border-foreground bg-foreground text-background"
                       : "border-border text-muted-foreground hover:border-foreground hover:text-foreground"
