@@ -13,7 +13,6 @@ import NotFound from "./NotFound";
 const TOP_PICKS: { key: BestFor; label: string }[] = [
   { key: "overall", label: "Best overall" },
   { key: "beginners", label: "Best for beginners" },
-  { key: "smartlinks", label: "Best smartlink" },
   { key: "high-payouts", label: "Best for high payouts" },
 ];
 
