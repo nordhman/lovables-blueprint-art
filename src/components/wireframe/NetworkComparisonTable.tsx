@@ -62,7 +62,7 @@ export const NetworkComparisonTable = ({ networks }: { networks: Network[] }) =>
           <tr className="border-b-2 border-dashed border-border bg-muted/30">
             <Th>Network</Th>
             <Th>Description</Th>
-            <Th>Our score</Th>
+            <HighlightTh>Our score</HighlightTh>
             <Th>Trustpilot</Th>
             <Th>Offers</Th>
             <Th>Min&nbsp;payout</Th>
@@ -88,7 +88,7 @@ export const NetworkComparisonTable = ({ networks }: { networks: Network[] }) =>
                 </Link>
               </td>
               <td className="px-4 py-3.5">
-                <RatingBadge score={n.score} size="sm" />
+                <RatingBadge score={n.score} size="md" />
               </td>
               <td className="px-4 py-3.5">
                 <TrustpilotBadge score={n.trustpilotScore} />
