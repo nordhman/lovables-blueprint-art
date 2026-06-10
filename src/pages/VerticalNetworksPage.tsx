@@ -78,7 +78,7 @@ const VerticalNetworksPage = () => {
                     <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
                       Image · {tp.network!.name}
                     </span>
-                    <div className="absolute top-2 left-3 flex h-12 w-12 items-center justify-center rounded-full border-2 border-dashed border-foreground bg-background font-mono text-[28px] font-bold leading-none text-foreground">
+                    <div className="absolute top-2 left-3 flex h-14 w-14 items-center justify-center rounded-full border-2 border-dashed border-foreground bg-background font-mono text-[32px] font-bold leading-none text-foreground">
                       {i + 1}
                     </div>
                   </div>
@@ -86,8 +86,7 @@ const VerticalNetworksPage = () => {
                   {/* Header row */}
                   <div className="flex items-start justify-between gap-3 p-4 pb-2">
                     <div className="min-w-0 flex-1">
-                      <Meta className="uppercase tracking-wider">{tp.label}</Meta>
-                      <H4 className="mt-1 truncate">{tp.network!.name}</H4>
+                      <H4 className="truncate">{tp.network!.name}</H4>
                     </div>
                     <RatingBadge score={tp.network!.score} size="md" />
                   </div>
