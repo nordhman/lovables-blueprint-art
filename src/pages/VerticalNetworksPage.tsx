@@ -73,18 +73,18 @@ const VerticalNetworksPage = () => {
                   key={tp.key}
                   className="flex flex-col border-2 border-dashed border-border bg-card rounded hover:border-foreground transition-colors overflow-hidden"
                 >
-                  {/* Wide image with big rank number */}
+                  {/* Wide image with big rank badge */}
                   <div className="relative h-36 border-b-2 border-dashed border-border bg-muted flex items-center justify-center">
                     <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
                       Image · {tp.network!.name}
                     </span>
-                    <div className="absolute top-3 left-3 flex flex-col items-center justify-center rounded border-2 border-dashed border-foreground bg-background px-3 py-1.5 leading-none text-foreground">
-                      <span className="font-mono text-[9px] uppercase tracking-wider text-muted-foreground">
-                        {i === 0 ? "Our #1" : i === 1 ? "Our #2" : "Our #3"} pick
+                    <div className="absolute top-3 left-3 flex items-center gap-2 rounded border-2 border-dashed border-foreground bg-background px-3 py-2 text-foreground">
+                      <span className="font-mono text-[11px] uppercase tracking-wider font-bold leading-none">
+                        {i === 0 ? "Our #1 pick" : i === 1 ? "Our #2 pick" : "Our #3 pick"}
                       </span>
-                      <span className="mt-1 font-mono text-[28px] font-bold">{i + 1}</span>
                     </div>
                   </div>
+
 
                   {/* Header row */}
                   <div className="flex items-start justify-between gap-3 p-4 pb-2">
