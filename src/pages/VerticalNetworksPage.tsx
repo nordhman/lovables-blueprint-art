@@ -74,29 +74,28 @@ const VerticalNetworksPage = () => {
                 return (
                   <article
                     key={tp.key}
-                    className="flex flex-col border-2 border-dashed border-border bg-card"
+                    className="flex flex-col border-2 border-dashed border-border bg-card overflow-hidden"
                   >
-                    {/* Header strip — wireframe style */}
-                    <div className="flex items-center justify-between gap-3 border-b-2 border-dashed border-border px-5 py-3">
-                      <div className="flex items-center gap-3">
-                        <div className="flex h-9 w-9 items-center justify-center border-2 border-dashed border-border font-mono text-sm font-bold text-foreground">
-                          {i + 1}
-                        </div>
-                        <MetaLabel>{rankLabel}</MetaLabel>
-                      </div>
-                      <div className="text-right leading-tight">
-                        <MetaLabel className="block text-[10px]">Our score</MetaLabel>
-                        <div className="font-mono text-base font-bold text-foreground">
-                          {tp.network!.score.toFixed(1)}
-                          <span className="text-xs font-normal text-muted-foreground">/10</span>
-                        </div>
-                      </div>
+                    {/* Image — 2:1 */}
+                    <PlaceholderImage
+                      label={`${tp.network!.name} image`}
+                      aspectRatio="wide"
+                      className="rounded-none border-0 border-b-2 border-dashed border-border"
+                    />
+
+                    {/* Meta row: rank · pick · score */}
+                    <div className="flex items-center justify-between gap-3 border-b-2 border-dashed border-border px-5 py-2.5">
+                      <MetaLabel>{rankLabel} · {tp.label}</MetaLabel>
+                      <Meta className="whitespace-nowrap">
+                        <span className="text-muted-foreground">Score </span>
+                        <span className="font-bold text-foreground">{tp.network!.score.toFixed(1)}</span>
+                        <span className="text-muted-foreground">/10</span>
+                      </Meta>
                     </div>
 
                     {/* Body */}
                     <div className="flex flex-1 flex-col p-5">
-                      <H4 className="mb-1 text-foreground">{tp.network!.name}</H4>
-                      <Meta className="mb-4 block">{tp.label}</Meta>
+                      <H4 className="mb-2 text-foreground">{tp.network!.name}</H4>
                       <p className="mb-5 flex-1 text-[15px] leading-relaxed text-foreground">
                         {tp.network!.shortDescription}{" "}
                         <Link
@@ -111,9 +110,9 @@ const VerticalNetworksPage = () => {
                         href={tp.network!.externalUrl}
                         target="_blank"
                         rel="noopener noreferrer nofollow sponsored"
-                        className="self-start inline-flex items-center justify-center gap-1.5 border-2 border-dashed border-foreground px-5 py-2.5 font-mono text-[12px] uppercase tracking-wider text-foreground hover:bg-foreground hover:text-background transition-colors"
+                        className="w-full inline-flex items-center justify-center gap-2 border-2 border-dashed border-foreground bg-foreground text-background px-5 py-3.5 font-mono text-[13px] font-bold uppercase tracking-wider hover:opacity-80 transition-opacity"
                       >
-                        Visit site <ArrowUpRight className="h-3.5 w-3.5" />
+                        Visit site <ArrowUpRight className="h-4 w-4" />
                       </a>
                     </div>
                   </article>
