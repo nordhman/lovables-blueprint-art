@@ -31,30 +31,15 @@ const GeoNetworksPage = () => {
       </WireframeHero>
 
       <div className="container mx-auto px-4 py-12 space-y-14">
-        <section className="grid lg:grid-cols-[280px_1fr] gap-6">
-          <aside className="lg:sticky lg:top-20 lg:self-start space-y-3">
-            <MetaLabel>Filter</MetaLabel>
-            <FilterBar />
-            <Meta className="block">Prototype — filters are visual only.</Meta>
-          </aside>
-          <div className="space-y-4 min-w-0">
-            <div className="flex items-end justify-between">
-              <H2>Compare networks in {region.title}</H2>
-              <Meta>{networks.length} networks</Meta>
-            </div>
-            <ComparisonTable networks={networks} />
+        <section className="space-y-4">
+          <div className="flex items-end justify-between">
+            <H2>Compare networks in {region.title}</H2>
+            <Meta>{networks.length} networks</Meta>
           </div>
-        </section>
-
-        <section>
-          <H2 className="mb-6">All {region.title} Networks</H2>
-          <div className="grid md:grid-cols-2 gap-4">
-            {networks.map((n) => (
-              <NetworkCard key={`${n.vertical}-${n.slug}`} network={n} />
-            ))}
-          </div>
+          <NetworkComparisonTable networks={networks} />
         </section>
       </div>
+
     </div>
   );
 };
