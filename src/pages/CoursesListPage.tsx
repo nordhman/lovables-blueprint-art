@@ -152,45 +152,93 @@ const CoursesListPage = () => {
             </div>
           )}
 
-          <div className="grid gap-4 max-w-4xl">
-            {courseParts.map((part) => {
-              const totalMin = part.chapters.reduce((sum, m) => sum + m.readMin, 0);
-              return (
-                <Link
-                  key={part.slug}
-                  to={`/courses/list/${part.slug}`}
-                  className="block group"
-                >
-                  <WireframeCard className="group-hover:border-foreground p-0 overflow-hidden">
-                    <div className="flex flex-col md:flex-row">
-                      <div className="md:w-48 shrink-0 border-b-2 md:border-b-0 md:border-r-2 border-dashed border-border">
-                        <PlaceholderImage
-                          label={`${part.eyebrow} cover`}
-                          aspectRatio="square"
-                          className="w-full h-full rounded-none border-0"
-                        />
-                      </div>
-                      <div className="p-5 flex flex-col flex-1">
-                        <div className="flex items-center justify-between mb-2">
-                          <MetaLabel>{part.eyebrow}</MetaLabel>
-                          <span className="font-mono text-xs text-muted-foreground">
-                            {part.chapters.length} chapters · ~{totalMin} min
-                          </span>
+          <div className={isOwn ? "grid lg:grid-cols-[1fr_320px] gap-8 items-start" : ""}>
+            <div className="grid gap-4">
+              {courseParts.map((part) => {
+                const totalMin = part.chapters.reduce((sum, m) => sum + m.readMin, 0);
+                return (
+                  <Link
+                    key={part.slug}
+                    to={`/courses/list/${part.slug}`}
+                    className="block group"
+                  >
+                    <WireframeCard className="group-hover:border-foreground p-0 overflow-hidden">
+                      <div className="flex flex-col md:flex-row">
+                        <div className="md:w-56 shrink-0 border-b-2 md:border-b-0 md:border-r-2 border-dashed border-border">
+                          <PlaceholderImage
+                            label={`${part.eyebrow} cover`}
+                            aspectRatio="square"
+                            className="w-full h-full rounded-none border-0"
+                          />
                         </div>
-                        <H3 className="!text-xl">{part.title}</H3>
-                        <BodySmall className="mt-2 line-clamp-2">{part.description}</BodySmall>
+                        <div className="p-6 flex flex-col flex-1">
+                          <div className="flex items-center justify-between mb-2">
+                            <MetaLabel>{part.eyebrow}</MetaLabel>
+                            <span className="font-mono text-xs text-muted-foreground">
+                              {part.chapters.length} chapters · ~{totalMin} min
+                            </span>
+                          </div>
+                          <H3 className="!text-xl">{part.title}</H3>
+                          <BodySmall className="mt-2 line-clamp-2">{part.description}</BodySmall>
 
-                        <div className="mt-auto pt-4 flex items-center justify-between">
-                          <span className="inline-flex items-center gap-2 font-mono text-sm font-semibold border-b-2 border-dashed border-foreground pb-1 group-hover:border-solid">
-                            Open {part.eyebrow} <ArrowRight className="h-3.5 w-3.5" />
-                          </span>
+                          <div className="mt-auto pt-4 flex items-center justify-between">
+                            <span className="inline-flex items-center gap-2 font-mono text-sm font-semibold border-b-2 border-dashed border-foreground pb-1 group-hover:border-solid">
+                              Open {part.eyebrow} <ArrowRight className="h-3.5 w-3.5" />
+                            </span>
+                          </div>
                         </div>
                       </div>
+                    </WireframeCard>
+                  </Link>
+                );
+              })}
+            </div>
+
+            {isOwn && (
+              <aside className="lg:sticky lg:top-24 space-y-5">
+                {/* About this guide */}
+                <WireframeCard className="p-5">
+                  <MetaLabel className="block mb-3">About this guide</MetaLabel>
+                  <BodySmall className="leading-relaxed">
+                    A no-fluff, beginner-to-intermediate path through affiliate marketing — the same playbook I use across my own sites.
+                  </BodySmall>
+                  <ul className="mt-4 space-y-2">
+                    {[
+                      "13 chapters across 2 parts",
+                      "~2.5 hours of reading total",
+                      "Updated for 2026",
+                      "100% free · No signup",
+                    ].map((t) => (
+                      <li key={t} className="flex items-start gap-2">
+                        <Check className="h-3.5 w-3.5 shrink-0 mt-0.5" />
+                        <span className="text-sm leading-snug">{t}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </WireframeCard>
+
+                {/* About me */}
+                <WireframeCard className="p-5">
+                  <MetaLabel className="block mb-3">About the author</MetaLabel>
+                  <div className="flex items-center gap-3 mb-3">
+                    <PlaceholderImage label="Avatar" aspectRatio="square" className="w-14 h-14 shrink-0" />
+                    <div>
+                      <p className="font-semibold text-sm leading-tight">[ Author name ]</p>
+                      <Meta>Affiliate marketer · 8+ yrs</Meta>
                     </div>
-                  </WireframeCard>
-                </Link>
-              );
-            })}
+                  </div>
+                  <BodySmall className="leading-relaxed">
+                    I've built and sold niche sites, run paid traffic, and tested most of the tools out there. This is the playbook I wish I had when I started.
+                  </BodySmall>
+                  <Link
+                    to="/about"
+                    className="mt-4 inline-flex items-center gap-2 font-mono text-xs font-semibold border-b-2 border-dashed border-foreground pb-0.5 hover:border-solid"
+                  >
+                    More about me <ArrowRight className="h-3 w-3" />
+                  </Link>
+                </WireframeCard>
+              </aside>
+            )}
           </div>
 
           {isOwn && (
