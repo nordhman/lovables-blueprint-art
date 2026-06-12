@@ -25,7 +25,17 @@ const navItems = [
       })),
     ],
   },
-  { label: "Networks", to: "/networks" },
+  {
+    label: "Networks",
+    to: "/networks",
+    children: [
+      { label: "All Networks", to: "/networks" },
+      { label: "By Vertical", to: "/networks/verticals" },
+      { label: "By Geographic", to: "/networks/geographic" },
+      { label: "Broad / General", to: "/networks/broad" },
+      { label: "Top Networks 2026", to: "/best-affiliate-networks" },
+    ],
+  },
   { label: "Blog", to: "/blog" },
   { label: "About", to: "/about" },
   { label: "Contact", to: "/contact" },
