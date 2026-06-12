@@ -78,16 +78,8 @@ const CoursesListPage = () => {
     ? "Hand-picked premium affiliate marketing courses, ranked by rating. Each one is a paid course from an external provider — read my full review or go straight to the course."
     : "Curated courses for affiliate marketing – our own and recommended.";
 
-  const totalModules = ownCourses.reduce((sum, c) => sum + c.modules, 0);
-  const levelOrder: Course["level"][] = ["beginner", "intermediate", "advanced"];
-  const levelLabel: Record<Course["level"], string> = {
-    beginner: "Start here · Foundations",
-    intermediate: "Level up · Growth",
-    advanced: "Go pro · Scale",
-  };
-  const orderedOwnCourses = [...ownCourses].sort(
-    (a, b) => levelOrder.indexOf(a.level) - levelOrder.indexOf(b.level),
-  );
+  const totalModules = courseParts.reduce((sum, p) => sum + p.modules.length, 0);
+  const partsCount = courseParts.length;
 
   return (
     <div>
