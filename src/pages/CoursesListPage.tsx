@@ -6,7 +6,7 @@ import { WireframeHero } from "@/components/wireframe/WireframeHero";
 import { WireframeBreadcrumbs } from "@/components/wireframe/WireframeBreadcrumbs";
 import { Eyebrow, H1, H2, H3, H4, Lead, BodySmall, Meta, MetaLabel } from "@/components/wireframe/Typography";
 import { courses } from "@/data/mockData";
-import { courseParts } from "@/data/coursePartsData";
+import { courseChapters } from "@/data/coursePartsData";
 import { Badge } from "@/components/ui/badge";
 import { Star, Check, ExternalLink, ArrowRight, Clock } from "lucide-react";
 
@@ -78,8 +78,8 @@ const CoursesListPage = () => {
     ? "Hand-picked premium affiliate marketing courses, ranked by rating. Each one is a paid course from an external provider — read my full review or go straight to the course."
     : "Curated courses for affiliate marketing – our own and recommended.";
 
-  const totalChapters = courseParts.reduce((sum, p) => sum + p.chapters.length, 0);
-  const partsCount = courseParts.length;
+  const totalChapters = courseChapters.length;
+  const totalMin = courseChapters.reduce((sum, c) => sum + c.readMin, 0);
 
   return (
     <div>
@@ -115,11 +115,11 @@ const CoursesListPage = () => {
           <div className="mt-8 flex items-center gap-x-8 gap-y-3 flex-wrap">
             <div className="flex items-center gap-2">
               <Check className="h-5 w-5" strokeWidth={2.5} />
-              <span className="font-semibold text-sm">{partsCount} parts</span>
+              <span className="font-semibold text-sm">{totalChapters} kapitel</span>
             </div>
             <div className="flex items-center gap-2">
-              <Check className="h-5 w-5" strokeWidth={2.5} />
-              <span className="font-semibold text-sm">{totalChapters} kapitel totalt</span>
+              <Clock className="h-5 w-5" strokeWidth={2.5} />
+              <span className="font-semibold text-sm">~{totalMin} min total</span>
             </div>
             <div className="flex items-center gap-2">
               <Check className="h-5 w-5" strokeWidth={2.5} />
@@ -143,54 +143,37 @@ const CoursesListPage = () => {
           {isOwn && (
             <div className="mb-10 max-w-3xl">
               <MetaLabel className="inline-block border border-border px-2 py-1 mb-4">
-                [ Choose where to start ]
+                [ Kapitel ]
               </MetaLabel>
-              <H2 className="mb-3">Two parts. Pick the one that fits where you are.</H2>
+              <H2 className="mb-3">Allt du behöver — i fristående kapitel.</H2>
               <Lead>
-                Part 1 takes you from zero to your first live affiliate links. Part 2 picks up after that and shows you how to grow real, scalable income.
+                Läs i valfri ordning. Börja från början om du är ny, eller hoppa direkt in i det kapitel du behöver just nu.
               </Lead>
             </div>
           )}
 
-          <div className="grid gap-4 max-w-4xl">
-            {courseParts.map((part) => {
-              const totalMin = part.chapters.reduce((sum, m) => sum + m.readMin, 0);
-              return (
-                <Link
-                  key={part.slug}
-                  to={`/courses/list/${part.slug}`}
-                  className="block group"
-                >
-                  <WireframeCard className="group-hover:border-foreground p-0 overflow-hidden">
-                    <div className="flex flex-col md:flex-row">
-                      <div className="md:w-48 shrink-0 border-b-2 md:border-b-0 md:border-r-2 border-dashed border-border">
-                        <PlaceholderImage
-                          label={`Part ${part.number} cover`}
-                          aspectRatio="square"
-                          className="w-full h-full rounded-none border-0"
-                        />
-                      </div>
-                      <div className="p-5 flex flex-col flex-1">
-                        <div className="flex items-center justify-between mb-2">
-                          <MetaLabel>{part.eyebrow}</MetaLabel>
-                          <span className="font-mono text-xs text-muted-foreground">
-                            {part.chapters.length} kapitel · ~{totalMin} min
-                          </span>
-                        </div>
-                        <H3 className="!text-xl">{part.title}</H3>
-                        <BodySmall className="mt-2 line-clamp-2">{part.description}</BodySmall>
-
-                        <div className="mt-auto pt-4 flex items-center justify-between">
-                          <span className="inline-flex items-center gap-2 font-mono text-sm font-semibold border-b-2 border-dashed border-foreground pb-1 group-hover:border-solid">
-                            Open Part {part.number} <ArrowRight className="h-3.5 w-3.5" />
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </WireframeCard>
-                </Link>
-              );
-            })}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {courseChapters.map((c, idx) => (
+              <Link
+                key={c.slug}
+                to={`/courses/${c.slug}`}
+                className="block group"
+              >
+                <WireframeCard className="h-full group-hover:border-foreground flex flex-col">
+                  <div className="flex items-center justify-between mb-3">
+                    <MetaLabel>Kapitel {String(idx + 1).padStart(2, "0")}</MetaLabel>
+                    <Meta className="flex items-center gap-1.5">
+                      <Clock className="h-3.5 w-3.5" /> ~{c.readMin} min
+                    </Meta>
+                  </div>
+                  <H4 className="!text-lg">{c.title}</H4>
+                  <BodySmall className="mt-2 flex-1">{c.summary}</BodySmall>
+                  <span className="mt-4 inline-flex items-center gap-2 font-mono text-sm font-semibold border-b-2 border-dashed border-foreground pb-1 self-start group-hover:border-solid">
+                    Open chapter <ArrowRight className="h-3.5 w-3.5" />
+                  </span>
+                </WireframeCard>
+              </Link>
+            ))}
           </div>
 
           {isOwn && (
