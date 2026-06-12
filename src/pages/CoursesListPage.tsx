@@ -92,9 +92,13 @@ const CoursesListPage = () => {
       />
       {/* Hero */}
       <WireframeHero size="sm">
-        <Eyebrow>{isOwn ? "Free learning path" : "Comparison · 2026"}</Eyebrow>
-        <H1 className="mt-3">{title}</H1>
-        <Lead className="mt-4 max-w-4xl">{intro}</Lead>
+        <Eyebrow>{isOwn ? "Free learning path · Choose where to start" : "Comparison · 2026"}</Eyebrow>
+        <H1 className="mt-3">{isOwn ? "Two parts. Pick the one that fits where you are." : title}</H1>
+        <Lead className="mt-4 max-w-4xl">
+          {isOwn ? (
+            <><strong>Foundations</strong> takes you from zero to your first live affiliate links. <strong>Growth & Scale</strong> picks up after that and shows you how to grow real, scalable income.</>
+          ) : intro}
+        </Lead>
         {isAffiliate && (
           <div className="mt-8 flex items-center gap-x-8 gap-y-3 flex-wrap">
             <div className="flex items-center gap-2">
@@ -115,11 +119,11 @@ const CoursesListPage = () => {
           <div className="mt-8 flex items-center gap-x-8 gap-y-3 flex-wrap">
             <div className="flex items-center gap-2">
               <Check className="h-5 w-5" strokeWidth={2.5} />
-              <span className="font-semibold text-sm">{partsCount} parts</span>
+              <span className="font-semibold text-sm">{partsCount} parts · {totalChapters} chapters</span>
             </div>
             <div className="flex items-center gap-2">
               <Check className="h-5 w-5" strokeWidth={2.5} />
-              <span className="font-semibold text-sm">{totalChapters} chapters total</span>
+              <span className="font-semibold text-sm">~2.5 hours total</span>
             </div>
             <div className="flex items-center gap-2">
               <Check className="h-5 w-5" strokeWidth={2.5} />
@@ -128,6 +132,7 @@ const CoursesListPage = () => {
           </div>
         )}
       </WireframeHero>
+
 
       <div className="container mx-auto px-4 py-12">
 
@@ -140,17 +145,8 @@ const CoursesListPage = () => {
             </div>
           )}
 
-          {isOwn && (
-            <div className="mb-10 max-w-3xl">
-              <MetaLabel className="inline-block border border-border px-2 py-1 mb-4">
-                [ Choose where to start ]
-              </MetaLabel>
-              <H2 className="mb-3">Two parts. Pick the one that fits where you are.</H2>
-              <Lead>
-                <strong>Foundations</strong> takes you from zero to your first live affiliate links. <strong>Growth & Scale</strong> picks up after that and shows you how to grow real, scalable income.
-              </Lead>
-            </div>
-          )}
+          {isOwn && null}
+
 
           <div className={isOwn ? "grid lg:grid-cols-[1fr_320px] gap-8 items-start" : ""}>
             <div className="grid gap-4">
