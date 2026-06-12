@@ -5,6 +5,7 @@ import { useLocation } from "react-router-dom";
 import { toolCategories } from "@/data/toolCategories";
 
 const navItems = [
+  { label: "Home", to: "/" },
   {
     label: "Courses",
     to: "/courses",
