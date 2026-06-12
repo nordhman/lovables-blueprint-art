@@ -1,4 +1,4 @@
-export interface PartModule {
+export interface PartChapter {
   slug: string;
   title: string;
   summary: string;
@@ -14,7 +14,7 @@ export interface CoursePart {
   description: string;
   audience: string;
   outcomes: string[];
-  modules: PartModule[];
+  chapters: PartChapter[];
 }
 
 export const courseParts: CoursePart[] = [
@@ -33,7 +33,7 @@ export const courseParts: CoursePart[] = [
       "Join your first affiliate programs",
       "Publish content with your first live affiliate links",
     ],
-    modules: [
+    chapters: [
       { slug: "choose-your-niche", title: "Choosing your niche", summary: "A simple framework for picking a niche with demand, intent and monetization potential.", readMin: 12 },
       { slug: "audience-and-positioning", title: "Audience & positioning", summary: "Who you're for, what you stand for, and why people should listen to you.", readMin: 10 },
       { slug: "pick-your-platform", title: "Pick your platform", summary: "Blog, YouTube, newsletter or social — pros, cons and how to choose.", readMin: 11 },
@@ -57,7 +57,7 @@ export const courseParts: CoursePart[] = [
       "Scale your business with systems, tools and support",
       "Avoid common mistakes that stall growth",
     ],
-    modules: [
+    chapters: [
       { slug: "organic-traffic", title: "Organic traffic strategies", summary: "SEO basics, content clusters and the long game of compounding traffic.", readMin: 15 },
       { slug: "paid-traffic", title: "Paid traffic essentials", summary: "When paid makes sense, where to start, and how to not lose money.", readMin: 12 },
       { slug: "email-and-retention", title: "Email & retention", summary: "Turn one-time visitors into a list that earns on autopilot.", readMin: 11 },

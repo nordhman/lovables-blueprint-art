@@ -23,7 +23,7 @@ const CoursePartPage = () => {
   }
 
   const other = courseParts.find((p) => p.slug !== part.slug);
-  const totalMin = part.modules.reduce((sum, m) => sum + m.readMin, 0);
+  const totalMin = part.chapters.reduce((sum, m) => sum + m.readMin, 0);
 
   return (
     <div>
@@ -47,7 +47,7 @@ const CoursePartPage = () => {
             <div className="mt-6 flex items-center gap-x-6 gap-y-2 flex-wrap">
               <div className="flex items-center gap-2">
                 <Check className="h-4 w-4" strokeWidth={2.5} />
-                <span className="text-sm font-semibold">{part.modules.length} modules</span>
+                <span className="text-sm font-semibold">{part.chapters.length} kapitel</span>
               </div>
               <div className="flex items-center gap-2">
                 <Clock className="h-4 w-4" />
@@ -77,12 +77,12 @@ const CoursePartPage = () => {
           </ul>
         </section>
 
-        {/* Modules grid — no forced order */}
+        {/* Chapters grid — no forced order */}
         <section>
           <div className="flex items-end justify-between gap-4 flex-wrap mb-6">
             <div>
-              <H2>Modules</H2>
-              <BodySmall className="mt-1">Jump into any module — read in any order.</BodySmall>
+              <H2>Kapitel</H2>
+              <BodySmall className="mt-1">Jump into any chapter — read in any order.</BodySmall>
             </div>
             <Badge variant="outline" className="font-mono text-xs border-dashed">
               Self-paced
@@ -90,7 +90,7 @@ const CoursePartPage = () => {
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {part.modules.map((m) => (
+            {part.chapters.map((m) => (
               <Link
                 key={m.slug}
                 to={`/courses/${m.slug}`}
@@ -98,7 +98,7 @@ const CoursePartPage = () => {
               >
                 <WireframeCard className="h-full group-hover:border-foreground flex flex-col">
                   <div className="flex items-center justify-between mb-3">
-                    <MetaLabel>Module</MetaLabel>
+                    <MetaLabel>Kapitel</MetaLabel>
                     <Meta className="flex items-center gap-1.5">
                       <Clock className="h-3.5 w-3.5" /> ~{m.readMin} min
                     </Meta>
@@ -106,7 +106,7 @@ const CoursePartPage = () => {
                   <H4 className="!text-lg">{m.title}</H4>
                   <BodySmall className="mt-2 flex-1">{m.summary}</BodySmall>
                   <span className="mt-4 inline-flex items-center gap-2 font-mono text-sm font-semibold border-b-2 border-dashed border-foreground pb-1 self-start group-hover:border-solid">
-                    Open module <ArrowRight className="h-3.5 w-3.5" />
+                    Open chapter <ArrowRight className="h-3.5 w-3.5" />
                   </span>
                 </WireframeCard>
               </Link>

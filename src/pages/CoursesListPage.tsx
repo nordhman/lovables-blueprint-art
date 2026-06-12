@@ -78,7 +78,7 @@ const CoursesListPage = () => {
     ? "Hand-picked premium affiliate marketing courses, ranked by rating. Each one is a paid course from an external provider — read my full review or go straight to the course."
     : "Curated courses for affiliate marketing – our own and recommended.";
 
-  const totalModules = courseParts.reduce((sum, p) => sum + p.modules.length, 0);
+  const totalChapters = courseParts.reduce((sum, p) => sum + p.chapters.length, 0);
   const partsCount = courseParts.length;
 
   return (
@@ -119,7 +119,7 @@ const CoursesListPage = () => {
             </div>
             <div className="flex items-center gap-2">
               <Check className="h-5 w-5" strokeWidth={2.5} />
-              <span className="font-semibold text-sm">{totalModules} modules total</span>
+              <span className="font-semibold text-sm">{totalChapters} kapitel totalt</span>
             </div>
             <div className="flex items-center gap-2">
               <Check className="h-5 w-5" strokeWidth={2.5} />
@@ -154,7 +154,7 @@ const CoursesListPage = () => {
 
           <div className="grid gap-4 max-w-4xl">
             {courseParts.map((part) => {
-              const totalMin = part.modules.reduce((sum, m) => sum + m.readMin, 0);
+              const totalMin = part.chapters.reduce((sum, m) => sum + m.readMin, 0);
               return (
                 <Link
                   key={part.slug}
@@ -174,7 +174,7 @@ const CoursesListPage = () => {
                         <div className="flex items-center justify-between mb-2">
                           <MetaLabel>{part.eyebrow}</MetaLabel>
                           <span className="font-mono text-xs text-muted-foreground">
-                            {part.modules.length} modules · ~{totalMin} min
+                            {part.chapters.length} kapitel · ~{totalMin} min
                           </span>
                         </div>
                         <H3 className="!text-xl">{part.title}</H3>
