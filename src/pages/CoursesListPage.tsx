@@ -5,9 +5,10 @@ import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
 import { WireframeHero } from "@/components/wireframe/WireframeHero";
 import { WireframeBreadcrumbs } from "@/components/wireframe/WireframeBreadcrumbs";
 import { Eyebrow, H1, H2, H3, H4, Lead, BodySmall, Meta, MetaLabel } from "@/components/wireframe/Typography";
-import { courses, type Course } from "@/data/mockData";
+import { courses } from "@/data/mockData";
+import { courseParts } from "@/data/coursePartsData";
 import { Badge } from "@/components/ui/badge";
-import { Star, Check, ExternalLink } from "lucide-react";
+import { Star, Check, ExternalLink, ArrowRight, Clock } from "lucide-react";
 
 // Wireframe-only enrichment for affiliate (premium) courses
 const affiliateMeta: Record<string, { ourScore: number; trustpilot: number; reviews: number; bestFor: string; tagline: string; pros: string[]; bottomLine: string }> = {
