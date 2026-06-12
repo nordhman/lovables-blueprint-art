@@ -152,7 +152,7 @@ const CoursesListPage = () => {
             </div>
           )}
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid gap-4 max-w-4xl">
             {courseParts.map((part) => {
               const totalMin = part.modules.reduce((sum, m) => sum + m.readMin, 0);
               return (
@@ -161,44 +161,30 @@ const CoursesListPage = () => {
                   to={`/courses/list/${part.slug}`}
                   className="block group"
                 >
-                  <WireframeCard className="h-full group-hover:border-foreground flex flex-col p-0 overflow-hidden">
-                    <div className="border-b-2 border-dashed border-border bg-muted/40 px-6 py-3 flex items-center justify-between">
-                      <MetaLabel>{part.eyebrow}</MetaLabel>
-                      <span className="font-mono text-xs text-muted-foreground">
-                        {part.modules.length} modules
-                      </span>
-                    </div>
-                    <PlaceholderImage
-                      label={`Part ${part.number} cover`}
-                      aspectRatio="video"
-                      className="w-full rounded-none border-0 border-b-2 border-dashed border-border"
-                    />
-                    <div className="p-6 flex flex-col flex-1">
-                      <div className="flex items-baseline gap-3 mb-2">
-                        <span className="font-mono text-xs uppercase tracking-[0.18em] font-bold">
-                          Part {String(part.number).padStart(2, "0")}
-                        </span>
+                  <WireframeCard className="group-hover:border-foreground p-0 overflow-hidden">
+                    <div className="flex flex-col md:flex-row">
+                      <div className="md:w-48 shrink-0 border-b-2 md:border-b-0 md:border-r-2 border-dashed border-border">
+                        <PlaceholderImage
+                          label={`Part ${part.number} cover`}
+                          aspectRatio="square"
+                          className="w-full h-full rounded-none border-0"
+                        />
                       </div>
-                      <H3 className="!text-2xl">{part.title}</H3>
-                      <BodySmall className="mt-3">{part.description}</BodySmall>
+                      <div className="p-5 flex flex-col flex-1">
+                        <div className="flex items-center justify-between mb-2">
+                          <MetaLabel>{part.eyebrow}</MetaLabel>
+                          <span className="font-mono text-xs text-muted-foreground">
+                            {part.modules.length} modules · ~{totalMin} min
+                          </span>
+                        </div>
+                        <H3 className="!text-xl">{part.title}</H3>
+                        <BodySmall className="mt-2 line-clamp-2">{part.description}</BodySmall>
 
-                      <MetaLabel className="block mt-5 mb-2">You'll learn to</MetaLabel>
-                      <ul className="space-y-1.5 mb-5">
-                        {part.outcomes.slice(0, 3).map((o) => (
-                          <li key={o} className="flex items-start gap-2">
-                            <Check className="h-3.5 w-3.5 shrink-0 mt-0.5" />
-                            <span className="text-sm leading-snug">{o}</span>
-                          </li>
-                        ))}
-                      </ul>
-
-                      <div className="mt-auto pt-4 border-t border-dashed border-border flex items-center justify-between">
-                        <Meta className="flex items-center gap-1.5">
-                          <Clock className="h-3.5 w-3.5" /> ~{totalMin} min total
-                        </Meta>
-                        <span className="inline-flex items-center gap-2 font-mono text-sm font-semibold border-b-2 border-dashed border-foreground pb-1 group-hover:border-solid">
-                          Open Part {part.number} <ArrowRight className="h-3.5 w-3.5" />
-                        </span>
+                        <div className="mt-auto pt-4 flex items-center justify-between">
+                          <span className="inline-flex items-center gap-2 font-mono text-sm font-semibold border-b-2 border-dashed border-foreground pb-1 group-hover:border-solid">
+                            Open Part {part.number} <ArrowRight className="h-3.5 w-3.5" />
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </WireframeCard>
