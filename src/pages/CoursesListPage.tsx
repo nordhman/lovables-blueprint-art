@@ -115,7 +115,7 @@ const CoursesListPage = () => {
           <div className="mt-8 flex items-center gap-x-8 gap-y-3 flex-wrap">
             <div className="flex items-center gap-2">
               <Check className="h-5 w-5" strokeWidth={2.5} />
-              <span className="font-semibold text-sm">{ownCourses.length} structured courses</span>
+              <span className="font-semibold text-sm">{partsCount} parts</span>
             </div>
             <div className="flex items-center gap-2">
               <Check className="h-5 w-5" strokeWidth={2.5} />
