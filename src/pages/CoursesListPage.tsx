@@ -145,17 +145,8 @@ const CoursesListPage = () => {
             </div>
           )}
 
-          {isOwn && (
-            <div className="mb-10 max-w-3xl">
-              <MetaLabel className="inline-block border border-border px-2 py-1 mb-4">
-                [ Choose where to start ]
-              </MetaLabel>
-              <H2 className="mb-3">Two parts. Pick the one that fits where you are.</H2>
-              <Lead>
-                <strong>Foundations</strong> takes you from zero to your first live affiliate links. <strong>Growth & Scale</strong> picks up after that and shows you how to grow real, scalable income.
-              </Lead>
-            </div>
-          )}
+          {isOwn && null}
+
 
           <div className={isOwn ? "grid lg:grid-cols-[1fr_320px] gap-8 items-start" : ""}>
             <div className="grid gap-4">
