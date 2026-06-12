@@ -148,63 +148,79 @@ const CoursesListPage = () => {
             </div>
           )}
 
-          <ol className="space-y-4">
-            {orderedOwnCourses.map((course, idx) => {
-              const showLevelHeader =
-                idx === 0 || orderedOwnCourses[idx - 1].level !== course.level;
+          {isOwn && (
+            <div className="mb-10 max-w-3xl">
+              <MetaLabel className="inline-block border border-border px-2 py-1 mb-4">
+                [ Choose where to start ]
+              </MetaLabel>
+              <H2 className="mb-3">Two parts. Pick the one that fits where you are.</H2>
+              <Lead>
+                Part 1 takes you from zero to your first live affiliate links. Part 2 picks up after that and shows you how to grow real, scalable income.
+              </Lead>
+            </div>
+          )}
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {courseParts.map((part) => {
+              const totalMin = part.modules.reduce((sum, m) => sum + m.readMin, 0);
               return (
-                <li key={course.slug}>
-                  {showLevelHeader && (
-                    <div className="flex items-center gap-3 mt-10 first:mt-0 mb-4">
-                      <MetaLabel>{levelLabel[course.level]}</MetaLabel>
-                      <span className="h-px flex-1 bg-border" />
+                <Link
+                  key={part.slug}
+                  to={`/courses/list/${part.slug}`}
+                  className="block group"
+                >
+                  <WireframeCard className="h-full group-hover:border-foreground flex flex-col p-0 overflow-hidden">
+                    <div className="border-b-2 border-dashed border-border bg-muted/40 px-6 py-3 flex items-center justify-between">
+                      <MetaLabel>{part.eyebrow}</MetaLabel>
+                      <span className="font-mono text-xs text-muted-foreground">
+                        {part.modules.length} modules
+                      </span>
                     </div>
-                  )}
-                  <Link to={`/courses/${course.slug}`} className="block group">
-                    <WireframeCard className="group-hover:border-foreground p-0">
-                      <div className="grid md:grid-cols-[64px_220px_1fr_auto] gap-6 items-center px-6 py-5">
-                        {/* Step number */}
-                        <div className="flex md:flex-col items-center md:items-start gap-2">
-                          <MetaLabel className="leading-none">Step</MetaLabel>
-                          <span className="text-4xl font-bold leading-none">
-                            {String(idx + 1).padStart(2, "0")}
-                          </span>
-                        </div>
-
-                        {/* Image */}
-                        <PlaceholderImage label="Course image" aspectRatio="video" className="w-full" />
-
-                        {/* Content */}
-                        <div className="min-w-0">
-                          <div className="flex items-center gap-3 flex-wrap mb-1.5">
-                            <MetaLabel>{course.level}</MetaLabel>
-                            <Meta>· {course.modules} modules</Meta>
-                            <Meta>· ~{course.modules * 15} min read</Meta>
-                          </div>
-                          <H4 className="mt-1">{course.title}</H4>
-                          <BodySmall className="mt-1.5">{course.description}</BodySmall>
-                        </div>
-
-                        {/* CTA */}
-                        <div className="md:pl-4">
-                          <span className="inline-flex items-center gap-2 font-mono text-sm font-semibold border-b-2 border-dashed border-foreground pb-1 group-hover:border-solid">
-                            Start course →
-                          </span>
-                        </div>
+                    <PlaceholderImage
+                      label={`Part ${part.number} cover`}
+                      aspectRatio="video"
+                      className="w-full rounded-none border-0 border-b-2 border-dashed border-border"
+                    />
+                    <div className="p-6 flex flex-col flex-1">
+                      <div className="flex items-baseline gap-3 mb-2">
+                        <span className="font-mono text-xs uppercase tracking-[0.18em] font-bold">
+                          Part {String(part.number).padStart(2, "0")}
+                        </span>
                       </div>
-                    </WireframeCard>
-                  </Link>
-                </li>
+                      <H3 className="!text-2xl">{part.title}</H3>
+                      <BodySmall className="mt-3">{part.description}</BodySmall>
+
+                      <MetaLabel className="block mt-5 mb-2">You'll learn to</MetaLabel>
+                      <ul className="space-y-1.5 mb-5">
+                        {part.outcomes.slice(0, 3).map((o) => (
+                          <li key={o} className="flex items-start gap-2">
+                            <Check className="h-3.5 w-3.5 shrink-0 mt-0.5" />
+                            <span className="text-sm leading-snug">{o}</span>
+                          </li>
+                        ))}
+                      </ul>
+
+                      <div className="mt-auto pt-4 border-t border-dashed border-border flex items-center justify-between">
+                        <Meta className="flex items-center gap-1.5">
+                          <Clock className="h-3.5 w-3.5" /> ~{totalMin} min total
+                        </Meta>
+                        <span className="inline-flex items-center gap-2 font-mono text-sm font-semibold border-b-2 border-dashed border-foreground pb-1 group-hover:border-solid">
+                          Open Part {part.number} <ArrowRight className="h-3.5 w-3.5" />
+                        </span>
+                      </div>
+                    </div>
+                  </WireframeCard>
+                </Link>
               );
             })}
-          </ol>
+          </div>
 
           {isOwn && (
             <div className="mt-16 p-6 border border-dashed border-border bg-muted/40 flex flex-col md:flex-row gap-4 md:items-center md:justify-between max-w-4xl">
               <div>
                 <MetaLabel>Want a faster path?</MetaLabel>
                 <p className="text-sm mt-1.5 text-muted-foreground leading-relaxed max-w-xl">
-                  My free courses cover the fundamentals. If you want a proven, expert-led system, compare the top premium courses I recommend.
+                  My free guide covers the fundamentals. If you want a proven, expert-led system, compare the top premium courses I recommend.
                 </p>
               </div>
               <WireframeCTA
