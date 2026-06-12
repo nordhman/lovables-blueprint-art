@@ -5,6 +5,7 @@ import { WireframeLayout } from "@/components/wireframe/WireframeLayout";
 import HomePage from "./pages/HomePage";
 import CoursesPage from "./pages/CoursesPage";
 import CoursesListPage from "./pages/CoursesListPage";
+import CoursePartPage from "./pages/CoursePartPage";
 
 import CourseDetailPage from "./pages/CourseDetailPage";
 import CourseReviewPage from "./pages/CourseReviewPage";
@@ -38,6 +39,7 @@ const App = () => (
             <Route path="/" element={<HomePage />} />
             <Route path="/courses" element={<CoursesPage />} />
             <Route path="/courses/list" element={<CoursesListPage />} />
+            <Route path="/courses/list/:partSlug" element={<CoursePartPage />} />
             <Route path="/courses/:slug" element={<CourseDetailPage />} />
             <Route path="/courses/:slug/review" element={<CourseReviewPage />} />
             <Route path="/courses/:slug/review/edit" element={<CourseReviewEditPage />} />
