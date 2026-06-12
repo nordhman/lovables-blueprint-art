@@ -115,11 +115,11 @@ const CoursesListPage = () => {
           <div className="mt-8 flex items-center gap-x-8 gap-y-3 flex-wrap">
             <div className="flex items-center gap-2">
               <Check className="h-5 w-5" strokeWidth={2.5} />
-              <span className="font-semibold text-sm">{partsCount} delar</span>
+              <span className="font-semibold text-sm">{partsCount} parts</span>
             </div>
             <div className="flex items-center gap-2">
               <Check className="h-5 w-5" strokeWidth={2.5} />
-              <span className="font-semibold text-sm">{totalChapters} kapitel totalt</span>
+              <span className="font-semibold text-sm">{totalChapters} chapters total</span>
             </div>
             <div className="flex items-center gap-2">
               <Check className="h-5 w-5" strokeWidth={2.5} />
@@ -174,7 +174,7 @@ const CoursesListPage = () => {
                         <div className="flex items-center justify-between mb-2">
                           <MetaLabel>{part.eyebrow}</MetaLabel>
                           <span className="font-mono text-xs text-muted-foreground">
-                            {part.chapters.length} kapitel · ~{totalMin} min
+                            {part.chapters.length} chapters · ~{totalMin} min
                           </span>
                         </div>
                         <H3 className="!text-xl">{part.title}</H3>

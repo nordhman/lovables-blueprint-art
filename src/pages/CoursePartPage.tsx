@@ -47,7 +47,7 @@ const CoursePartPage = () => {
             <div className="mt-6 flex items-center gap-x-6 gap-y-2 flex-wrap">
               <div className="flex items-center gap-2">
                 <Check className="h-4 w-4" strokeWidth={2.5} />
-                <span className="text-sm font-semibold">{part.chapters.length} kapitel</span>
+                <span className="text-sm font-semibold">{part.chapters.length} chapters</span>
               </div>
               <div className="flex items-center gap-2">
                 <Clock className="h-4 w-4" />
@@ -79,7 +79,7 @@ const CoursePartPage = () => {
         <section>
           <div className="flex items-end justify-between gap-4 flex-wrap mb-6">
             <div>
-              <H2>Kapitel</H2>
+              <H2>Chapters</H2>
               <BodySmall className="mt-1">Jump into any chapter — read in any order.</BodySmall>
             </div>
             <Badge variant="outline" className="font-mono text-xs border-dashed">
@@ -92,7 +92,7 @@ const CoursePartPage = () => {
               <Link key={m.slug} to={`/courses/${m.slug}`} className="block group">
                 <WireframeCard className="h-full group-hover:border-foreground flex flex-col">
                   <div className="flex items-center justify-between mb-3">
-                    <MetaLabel>Kapitel</MetaLabel>
+                    <MetaLabel>Chapter</MetaLabel>
                     <Meta className="flex items-center gap-1.5">
                       <Clock className="h-3.5 w-3.5" /> ~{m.readMin} min
                     </Meta>
