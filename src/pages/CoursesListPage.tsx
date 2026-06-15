@@ -195,22 +195,26 @@ const CoursesListPage = () => {
                 <WireframeCard className="p-6">
                   {/* About the author */}
                   <MetaLabel className="block mb-4">About the author</MetaLabel>
-                  <div className="flex flex-col items-center text-center">
-                    <PlaceholderImage label="Avatar" aspectRatio="square" className="w-28 h-28 shrink-0" />
-                    <div className="mt-3">
+                  <div className="flex items-center gap-4">
+                    <PlaceholderImage
+                      label="Avatar"
+                      aspectRatio="square"
+                      className="w-16 h-16 shrink-0 rounded-full"
+                    />
+                    <div className="min-w-0">
                       <p className="font-semibold text-sm leading-tight">[ Author name ]</p>
-                      <Meta>Affiliate marketer · 8+ yrs</Meta>
+                      <Meta className="mt-1 block">Affiliate marketer · 8+ yrs</Meta>
                     </div>
-                    <BodySmall className="leading-relaxed text-center mt-3">
-                      I've built and sold niche sites, run paid traffic, and tested most of the tools out there. This is the playbook I wish I had when I started.
-                    </BodySmall>
-                    <Link
-                      to="/about"
-                      className="mt-3 inline-flex items-center gap-2 font-mono text-xs font-semibold border-b-2 border-dashed border-foreground pb-0.5 hover:border-solid"
-                    >
-                      More about me <ArrowRight className="h-3 w-3" />
-                    </Link>
                   </div>
+                  <BodySmall className="leading-relaxed mt-4">
+                    I've built and sold niche sites, run paid traffic, and tested most of the tools out there. This is the playbook I wish I had when I started.
+                  </BodySmall>
+                  <Link
+                    to="/about"
+                    className="mt-4 inline-flex items-center gap-2 font-mono text-xs font-semibold border-b-2 border-dashed border-foreground pb-0.5 hover:border-solid"
+                  >
+                    More about me <ArrowRight className="h-3 w-3" />
+                  </Link>
 
                   {/* Divider */}
                   <div className="my-6 border-t border-dashed border-border" />
