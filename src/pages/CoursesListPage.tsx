@@ -189,7 +189,7 @@ const CoursesListPage = () => {
                 );
               })}
               {isOwn && (
-                <div className="p-6 border border-dashed border-border bg-muted/40 flex flex-col md:flex-row gap-4 md:items-center md:justify-between opacity-60 blur-[1px] hover:opacity-100 hover:blur-none hover:border-foreground hover:bg-muted/60 transition-all duration-300">
+                <div className="p-6 border border-dashed border-border bg-muted/40 flex flex-col md:flex-row gap-4 md:items-center md:justify-between opacity-60 blur-[4px] hover:opacity-100 hover:blur-none hover:border-foreground hover:bg-muted/60 transition-all duration-300">
                   <div>
                     <MetaLabel>Want a faster path?</MetaLabel>
                     <p className="text-sm mt-1.5 text-muted-foreground leading-relaxed">
