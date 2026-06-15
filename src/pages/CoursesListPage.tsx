@@ -163,7 +163,7 @@ const CoursesListPage = () => {
                         <div className="md:w-64 shrink-0 border-b-2 md:border-b-0 md:border-r-2 border-dashed border-border">
                           <PlaceholderImage
                             label={`${part.eyebrow} cover`}
-                            aspectRatio="square"
+                            aspectRatio="video"
                             className="w-full rounded-none border-0"
                           />
                         </div>
