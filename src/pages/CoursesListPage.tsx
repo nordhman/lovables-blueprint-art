@@ -394,11 +394,6 @@ const CoursesListPage = () => {
         </section>
       )}
 
-      {!isAffiliate && (
-        <div className="mt-12 text-center">
-          <WireframeCTA label="Browse All Courses →" to="/courses" variant="secondary" />
-        </div>
-      )}
 
       {isAffiliate && (
         <div className="mt-16 p-5 border border-dashed border-border bg-muted/40 flex gap-4 items-start max-w-4xl">
