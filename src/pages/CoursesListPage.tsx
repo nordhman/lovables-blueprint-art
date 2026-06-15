@@ -210,23 +210,23 @@ const CoursesListPage = () => {
                 <WireframeCard className="p-6">
                   {/* About the author */}
                   <MetaLabel className="block mb-4">About the author</MetaLabel>
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-start gap-5">
                     <PlaceholderImage
                       label="Avatar"
                       aspectRatio="square"
-                      className="w-16 h-16 shrink-0 rounded-full"
+                      className="w-20 h-20 shrink-0 rounded-full"
                     />
-                    <div className="min-w-0">
+                    <div className="min-w-0 pt-1">
                       <p className="font-semibold text-sm leading-tight">[ Author name ]</p>
-                      <Meta className="mt-1 block">Affiliate marketer · 8+ yrs</Meta>
+                      <Meta className="mt-1.5 block">Affiliate marketer · 8+ yrs</Meta>
                     </div>
                   </div>
-                  <BodySmall className="leading-relaxed mt-4">
+                  <BodySmall className="leading-relaxed mt-5">
                     I've built and sold niche sites, run paid traffic, and tested most of the tools out there. This is the playbook I wish I had when I started.
                   </BodySmall>
                   <Link
                     to="/about"
-                    className="mt-4 inline-flex items-center gap-2 font-mono text-xs font-semibold border-b-2 border-dashed border-foreground pb-0.5 hover:border-solid"
+                    className="mt-5 inline-flex items-center gap-2 font-mono text-xs font-semibold border-b-2 border-dashed border-foreground pb-0.5 hover:border-solid"
                   >
                     More about me <ArrowRight className="h-3 w-3" />
                   </Link>
