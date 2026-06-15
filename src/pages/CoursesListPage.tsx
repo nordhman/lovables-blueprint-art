@@ -160,10 +160,10 @@ const CoursesListPage = () => {
                   >
                     <WireframeCard className="group-hover:border-foreground p-0 overflow-hidden">
                       <div className="flex flex-col md:flex-row">
-                        <div className="md:w-56 shrink-0 border-b-2 md:border-b-0 md:border-r-2 border-dashed border-border">
+                        <div className="md:w-72 shrink-0 border-b-2 md:border-b-0 md:border-r-2 border-dashed border-border">
                           <PlaceholderImage
                             label={`${part.eyebrow} cover`}
-                            aspectRatio="wide"
+                            aspectRatio="video"
                             className="w-full h-full rounded-none border-0"
                           />
                         </div>
