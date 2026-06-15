@@ -210,15 +210,15 @@ const CoursesListPage = () => {
                 <WireframeCard className="p-6">
                   {/* About the author */}
                   <MetaLabel className="block mb-4">About the author</MetaLabel>
-                  <div className="flex items-start gap-5">
+                  <div className="flex flex-col items-center text-center gap-3">
                     <PlaceholderImage
                       label="Avatar"
                       aspectRatio="square"
-                      className="w-20 h-20 shrink-0 rounded-full"
+                      className="w-24 h-24 shrink-0 rounded-full"
                     />
-                    <div className="min-w-0 pt-1">
+                    <div>
                       <p className="font-semibold text-sm leading-tight">[ Author name ]</p>
-                      <Meta className="mt-1.5 block">Affiliate marketer · 8+ yrs</Meta>
+                      <Meta className="mt-1 block">Affiliate marketer · 8+ yrs</Meta>
                     </div>
                   </div>
                   <BodySmall className="leading-relaxed mt-5">
