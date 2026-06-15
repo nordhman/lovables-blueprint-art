@@ -188,6 +188,21 @@ const CoursesListPage = () => {
                   </Link>
                 );
               })}
+              {isOwn && (
+                <div className="p-6 border border-dashed border-border bg-muted/40 flex flex-col md:flex-row gap-4 md:items-center md:justify-between opacity-60 blur-[1px] hover:opacity-100 hover:blur-none hover:border-foreground hover:bg-muted/60 transition-all duration-300">
+                  <div>
+                    <MetaLabel>Want a faster path?</MetaLabel>
+                    <p className="text-sm mt-1.5 text-muted-foreground leading-relaxed">
+                      My free guide covers the fundamentals. If you want a proven, expert-led system, compare the top premium courses I recommend.
+                    </p>
+                  </div>
+                  <WireframeCTA
+                    label="Compare Premium Courses →"
+                    to="/courses/list?type=affiliate"
+                    variant="secondary"
+                  />
+                </div>
+              )}
             </div>
 
             {isOwn && (
@@ -243,21 +258,6 @@ const CoursesListPage = () => {
             )}
           </div>
 
-          {isOwn && (
-            <div className="mt-16 p-6 border border-dashed border-border bg-muted/40 flex flex-col md:flex-row gap-4 md:items-center md:justify-between max-w-4xl">
-              <div>
-                <MetaLabel>Want a faster path?</MetaLabel>
-                <p className="text-sm mt-1.5 text-muted-foreground leading-relaxed max-w-xl">
-                  My free guide covers the fundamentals. If you want a proven, expert-led system, compare the top premium courses I recommend.
-                </p>
-              </div>
-              <WireframeCTA
-                label="Compare Premium Courses →"
-                to="/courses/list?type=affiliate"
-                variant="secondary"
-              />
-            </div>
-          )}
         </section>
       )}
 
