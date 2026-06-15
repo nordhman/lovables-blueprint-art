@@ -163,8 +163,8 @@ const CoursesListPage = () => {
                         <div className="md:w-64 shrink-0 border-b-2 md:border-b-0 md:border-r-2 border-dashed border-border">
                           <PlaceholderImage
                             label={`${part.eyebrow} cover`}
-                            aspectRatio="none"
-                            className="w-full h-full min-h-[180px] rounded-none border-0"
+                            aspectRatio="square"
+                            className="w-full rounded-none border-0"
                           />
                         </div>
                         <div className="p-6 flex flex-col flex-1">
