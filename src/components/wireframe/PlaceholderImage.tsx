@@ -3,7 +3,7 @@ import { ImageIcon } from "lucide-react";
 interface PlaceholderImageProps {
   label?: string;
   className?: string;
-  aspectRatio?: "video" | "square" | "wide" | "portrait" | "4-3";
+  aspectRatio?: "video" | "square" | "wide" | "portrait" | "4-3" | "none";
 }
 
 const aspectMap = {
@@ -12,6 +12,7 @@ const aspectMap = {
   wide: "aspect-[2/1]",
   portrait: "aspect-[3/4]",
   "4-3": "aspect-[4/3]",
+  none: "",
 };
 
 export const PlaceholderImage = ({ label = "Image placeholder", className = "", aspectRatio = "video" }: PlaceholderImageProps) => (
