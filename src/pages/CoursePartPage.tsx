@@ -64,20 +64,8 @@ const CoursePartPage = () => {
       </WireframeHero>
 
       <div className="container mx-auto px-4 py-12">
-        <section className="mb-12 max-w-4xl">
-          <MetaLabel className="block mb-3">What you'll learn</MetaLabel>
-          <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2.5">
-            {part.outcomes.map((o) => (
-              <li key={o} className="flex items-start gap-2">
-                <Check className="h-4 w-4 shrink-0 mt-0.5" />
-                <span className="text-sm leading-snug">{o}</span>
-              </li>
-            ))}
-          </ul>
-        </section>
-
         <section>
-          <div className="flex items-end justify-between gap-4 flex-wrap mb-6">
+          <div className="flex items-end justify-between gap-4 flex-wrap mb-8">
             <div>
               <H2>Chapters</H2>
               <BodySmall className="mt-1">Jump into any chapter — read in any order.</BodySmall>
@@ -87,43 +75,88 @@ const CoursePartPage = () => {
             </Badge>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {part.chapters.map((m) => (
-              <Link key={m.slug} to={`/courses/${m.slug}`} className="block group">
-                <WireframeCard className="h-full group-hover:border-foreground flex flex-col">
-                  <div className="flex items-center justify-between mb-3">
-                    <MetaLabel>Chapter</MetaLabel>
-                    <Meta className="flex items-center gap-1.5">
-                      <Clock className="h-3.5 w-3.5" /> ~{m.readMin} min
-                    </Meta>
+          <div className="grid lg:grid-cols-[1fr_320px] gap-8 items-start">
+            <div className="grid gap-4">
+              {part.chapters.map((m, idx) => (
+                <Link key={m.slug} to={`/courses/${m.slug}`} className="block group">
+                  <WireframeCard className="group-hover:border-foreground p-0 overflow-hidden">
+                    <div className="flex flex-col md:flex-row">
+                      <div className="md:w-[40%] shrink-0 border-b-2 md:border-b-0 md:border-r-2 border-dashed border-border">
+                        <PlaceholderImage
+                          label={`${m.title} cover`}
+                          aspectRatio="video"
+                          className="w-full h-full rounded-none border-0"
+                        />
+                      </div>
+                      <div className="p-6 flex flex-col flex-1">
+                        <div className="flex items-center justify-between mb-2">
+                          <MetaLabel>Chapter {idx + 1}</MetaLabel>
+                          <Meta className="flex items-center gap-1.5">
+                            <Clock className="h-3.5 w-3.5" /> ~{m.readMin} min
+                          </Meta>
+                        </div>
+                        <H4 className="!text-xl">{m.title}</H4>
+                        <BodySmall className="mt-2 line-clamp-2">{m.summary}</BodySmall>
+                        <div className="mt-auto pt-4">
+                          <span className="inline-flex items-center gap-2 font-mono text-sm font-semibold border-b-2 border-dashed border-foreground pb-1 group-hover:border-solid">
+                            Open chapter <ArrowRight className="h-3.5 w-3.5" />
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </WireframeCard>
+                </Link>
+              ))}
+
+              {other && (
+                <div className="p-6 border border-dashed border-border bg-muted/40 flex flex-col md:flex-row gap-4 md:items-center md:justify-between opacity-50 hover:opacity-100 hover:border-foreground hover:bg-muted/60 transition-all duration-300">
+                  <div>
+                    <MetaLabel>Next up · {other.eyebrow}</MetaLabel>
+                    <p className="text-sm mt-1.5 text-muted-foreground leading-relaxed">
+                      {other.tagline}
+                    </p>
                   </div>
-                  <H4 className="!text-lg">{m.title}</H4>
-                  <BodySmall className="mt-2 flex-1">{m.summary}</BodySmall>
-                  <span className="mt-4 inline-flex items-center gap-2 font-mono text-sm font-semibold border-b-2 border-dashed border-foreground pb-1 self-start group-hover:border-solid">
-                    Open chapter <ArrowRight className="h-3.5 w-3.5" />
-                  </span>
-                </WireframeCard>
-              </Link>
-            ))}
+                  <WireframeCTA
+                    label={`Continue to ${other.eyebrow} →`}
+                    to={`/courses/list/${other.slug}`}
+                    variant="secondary"
+                  />
+                </div>
+              )}
+            </div>
+
+            <aside className="lg:sticky lg:top-24">
+              <WireframeCard className="p-6">
+                <MetaLabel className="block mb-3">What you'll learn</MetaLabel>
+                <ul className="space-y-2.5">
+                  {part.outcomes.map((o) => (
+                    <li key={o} className="flex items-start gap-2">
+                      <Check className="h-4 w-4 shrink-0 mt-0.5" />
+                      <span className="text-sm leading-snug">{o}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="my-6 border-t border-dashed border-border" />
+
+                <MetaLabel className="block mb-3">About this part</MetaLabel>
+                <BodySmall className="leading-relaxed">{part.audience}</BodySmall>
+                <ul className="mt-4 space-y-2">
+                  {[
+                    `${part.chapters.length} chapters`,
+                    `~${totalMin} min total`,
+                    "Free · No signup",
+                  ].map((t) => (
+                    <li key={t} className="flex items-start gap-2">
+                      <Check className="h-3.5 w-3.5 shrink-0 mt-0.5" />
+                      <span className="text-sm leading-snug">{t}</span>
+                    </li>
+                  ))}
+                </ul>
+              </WireframeCard>
+            </aside>
           </div>
         </section>
-
-        {other && (
-          <WireframeCard className="mt-16 max-w-4xl">
-            <div className="flex flex-col md:flex-row md:items-center gap-4 md:justify-between">
-              <div>
-                <MetaLabel>Next up · {other.eyebrow}</MetaLabel>
-                <p className="text-base font-bold mt-1.5">{other.title}</p>
-                <p className="text-sm text-muted-foreground mt-1">{other.tagline}</p>
-              </div>
-              <WireframeCTA
-                label={`Continue to ${other.eyebrow} →`}
-                to={`/courses/list/${other.slug}`}
-                variant="secondary"
-              />
-            </div>
-          </WireframeCard>
-        )}
       </div>
     </div>
   );
