@@ -52,7 +52,7 @@ const HomePage = () => (
       <Eyebrow>Our Services</Eyebrow>
       <H2 className="mt-3 mb-2">Affiliate Marketing Essentials</H2>
       <p className="text-muted-foreground mb-8">Everything you need to get started — handpicked courses, reviewed tools, and trusted networks in one place.</p>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
         {features.map((f) => (
           <Link key={f.label} to={f.to}>
             <WireframeCard className="text-center hover:border-foreground">
@@ -76,7 +76,7 @@ const HomePage = () => (
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
           {stats.map((s) => (
             <div key={s.label}>
-              <div className="text-2xl md:text-3xl font-bold">{s.value}</div>
+              <div className={typo.stat}>{s.value}</div>
               <MetaLabel className="mt-1 block">{s.label}</MetaLabel>
             </div>
           ))}

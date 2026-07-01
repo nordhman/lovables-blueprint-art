@@ -4,7 +4,7 @@ import { WireframeCard } from "@/components/wireframe/WireframeCard";
 import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
 import { WireframeHero } from "@/components/wireframe/WireframeHero";
 import { WireframeBreadcrumbs } from "@/components/wireframe/WireframeBreadcrumbs";
-import { Eyebrow, H1, H2, H3, Lead, Meta, MetaLabel } from "@/components/wireframe/Typography";
+import { Eyebrow, H1, H2, H3, Lead, Meta, MetaLabel, typo } from "@/components/wireframe/Typography";
 import { toolCategories, getCategory } from "@/data/toolCategories";
 import { Star, Check, ExternalLink } from "lucide-react";
 
@@ -115,7 +115,7 @@ const TopToolsPage = () => {
                     {/* Rank */}
                     <div className="flex md:flex-col items-center md:items-start gap-2">
                       <MetaLabel className="leading-none">Rank</MetaLabel>
-                      <span className="text-4xl font-bold leading-none">#{idx + 1}</span>
+                      <span className={typo.statLg}>#{idx + 1}</span>
                     </div>
 
                     {/* Logo + Our score */}
@@ -124,7 +124,7 @@ const TopToolsPage = () => {
                       <div className="border-2 border-dashed border-foreground rounded p-3 text-center">
                         <MetaLabel className="block">Our score</MetaLabel>
                         <div className="mt-1">
-                          <span className="text-3xl font-bold">{(tool.ourScore / 2).toFixed(1)}</span>
+                          <span className={typo.stat}>{(tool.ourScore / 2).toFixed(1)}</span>
                           <span className="font-mono text-xs text-muted-foreground">/5</span>
                         </div>
                       </div>
@@ -172,7 +172,7 @@ const TopToolsPage = () => {
                     <div className="flex flex-col items-center gap-4 border-l border-dashed border-border pl-5">
                       <div className="text-center">
                         <MetaLabel className="block">Price</MetaLabel>
-                        <div className="mt-1.5 text-xl font-bold leading-none">{tool.price}</div>
+                        <div className={`mt-1.5 ${typo.statSm}`}>{tool.price}</div>
                       </div>
 
                       <hr className="w-full border-t border-dashed border-border" />

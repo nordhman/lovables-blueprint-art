@@ -19,6 +19,11 @@ export const typo = {
   body: "text-base leading-relaxed",
   bodySmall: "text-[15px] text-muted-foreground leading-relaxed",
 
+  // Stats / big numbers (prices, scores, ranks)
+  stat: "text-2xl md:text-3xl font-bold",
+  statSm: "text-xl font-bold leading-none",
+  statLg: "text-4xl font-bold leading-none",
+
   // Meta / wireframe annotations (always mono)
   meta: "font-mono text-[13px] text-muted-foreground",
   metaLabel: "font-mono text-[13px] text-muted-foreground uppercase tracking-wider",

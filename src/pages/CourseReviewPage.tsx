@@ -1,5 +1,5 @@
 import { useParams, Link } from "react-router-dom";
-import { Eyebrow, H1, H2, H3, H4, Lead, BodySmall, Meta, MetaLabel } from "@/components/wireframe/Typography";
+import { Eyebrow, H1, H2, H3, H4, Lead, BodySmall, Meta, MetaLabel, typo } from "@/components/wireframe/Typography";
 import { PlaceholderImage } from "@/components/wireframe/PlaceholderImage";
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
 import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
@@ -215,24 +215,24 @@ const CourseReviewPage = () => {
                 <div className="bg-background p-5">
                   <dt><MetaLabel>Our score</MetaLabel></dt>
                   <dd className="mt-1.5 flex items-baseline gap-1">
-                    <span className="text-2xl font-bold">{ourScoreOf5.toFixed(1)}</span>
+                    <span className={typo.stat}>{ourScoreOf5.toFixed(1)}</span>
                     <Meta>/5</Meta>
                   </dd>
                 </div>
                 <div className="bg-background p-5">
                   <dt><MetaLabel>Trustpilot</MetaLabel></dt>
                   <dd className="mt-1.5 flex items-baseline gap-1">
-                    <span className="text-2xl font-bold">{m.rating?.toFixed(1) ?? "—"}</span>
+                    <span className={typo.stat}>{m.rating?.toFixed(1) ?? "—"}</span>
                     {m.reviews && <Meta>({m.reviews.toLocaleString()})</Meta>}
                   </dd>
                 </div>
                 <div className="bg-background p-5">
                   <dt><MetaLabel>Price</MetaLabel></dt>
-                  <dd className="mt-1.5 text-2xl font-bold">{course.price}</dd>
+                  <dd className={`mt-1.5 ${typo.stat}`}>{course.price}</dd>
                 </div>
                 <div className="bg-background p-5">
                   <dt><MetaLabel>Refund</MetaLabel></dt>
-                  <dd className="mt-1.5 text-2xl font-bold">{m.refundDays} days</dd>
+                  <dd className={`mt-1.5 ${typo.stat}`}>{m.refundDays} days</dd>
                 </div>
               </dl>
               </div>
@@ -243,7 +243,7 @@ const CourseReviewPage = () => {
               <PlaceholderImage label="Course image (auto)" aspectRatio="video" />
               <div className="mt-5 text-center">
                 <MetaLabel>Price</MetaLabel>
-                <div className="text-2xl font-bold mt-1.5">{course.price}</div>
+                <div className={`${typo.stat} mt-1.5`}>{course.price}</div>
                 <Meta className="block mt-1.5">{m.refundDays}-day money-back guarantee</Meta>
               </div>
               <a
@@ -296,7 +296,7 @@ const CourseReviewPage = () => {
       </div>
 
       <div className="container mx-auto px-4">
-        <div className="max-w-6xl py-14 md:py-16 space-y-16">
+        <div className="max-w-6xl py-12 space-y-16">
         {/* VERDICT — TL;DR */}
         <section>
           <SectionHeader id="verdict" eyebrow="TL;DR" title="Our verdict" source={{ type: "manual", label: "you write this" }} />
@@ -305,7 +305,7 @@ const CourseReviewPage = () => {
               <p className="text-base leading-relaxed">{m.verdict}</p>
               <div className="border-2 border-dashed border-foreground rounded p-4 text-center min-w-[140px]">
                 <MetaLabel>Our score</MetaLabel>
-                <div className="text-2xl font-bold mt-1.5">{ourScoreOf5.toFixed(1)}</div>
+                <div className={`${typo.stat} mt-1.5`}>{ourScoreOf5.toFixed(1)}</div>
                 <Meta>out of 5</Meta>
                 <div className="mt-2 flex justify-center">
                   <Stars rating={ourScoreOf5} size="sm" />
@@ -512,7 +512,7 @@ const CourseReviewPage = () => {
           <WireframeCard className="p-10 text-center bg-muted/30">
             <Eyebrow>Ready to start?</Eyebrow>
             <H2 className="mt-4">Get {course.title}</H2>
-            <div className="mt-4 text-3xl font-bold">{course.price}</div>
+            <div className={`mt-4 ${typo.stat}`}>{course.price}</div>
             <BodySmall className="mt-2">One-time payment · {m.refundDays}-day money-back guarantee</BodySmall>
             <div className="mt-6 flex items-center justify-center">
               <a

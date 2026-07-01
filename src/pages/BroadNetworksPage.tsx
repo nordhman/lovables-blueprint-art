@@ -67,13 +67,13 @@ const BroadNetworksPage = () => {
         </Lead>
       </WireframeHero>
 
-      <div className="container mx-auto px-4 py-10">
+      <div className="container mx-auto px-4 py-12">
         <div className="space-y-12">
           {/* Top picks */}
           {topPicks.length > 0 && (
             <section>
               <H2 className="mb-5">Editor's 3 Picks</H2>
-              <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
                 {topPicks.map((tp, i) => (
                   <div key={tp.key} className="flex flex-col">
                     <article className="relative flex flex-1 flex-col border-2 border-dashed border-border bg-card overflow-visible mt-4">

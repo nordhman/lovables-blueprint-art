@@ -124,7 +124,7 @@ const VerticalsDirectoryPage = () => {
               ))}
             </div>
             {/* Desktop: grid */}
-            <div className="hidden md:grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="hidden md:grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {visible.map((v) => (
                 <VerticalCard key={v.slug} vertical={v} />
               ))}

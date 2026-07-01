@@ -40,8 +40,7 @@ const colorTokens = [
 const spacingRules = [
   { rule: "py-12", usage: "Standard section padding (vertical)" },
   { rule: "py-16", usage: "Extra-large sections (homepage only)" },
-  { rule: "gap-6", usage: "Card grids (tools, blog, courses)" },
-  { rule: "gap-5", usage: "Network card grids" },
+  { rule: "gap-6", usage: "All card grids" },
   { rule: "gap-2 / gap-3", usage: "Inline badges, chips and small clusters" },
   { rule: "p-4", usage: "Inner padding of every card/box" },
 ];
@@ -106,6 +105,14 @@ const StyleGuidePage = () => (
         <div>
           <MetaLabel>BodySmall — card text</MetaLabel>
           <BodySmall>Slightly smaller muted text used inside cards and lists.</BodySmall>
+        </div>
+        <div>
+          <MetaLabel>Stat / StatSm / StatLg — big numbers (scores, prices, ranks)</MetaLabel>
+          <div className="flex flex-wrap items-baseline gap-6 mt-1">
+            <span className={typo.statLg}>#1</span>
+            <span className={typo.stat}>$149</span>
+            <span className={typo.statSm}>9.2</span>
+          </div>
         </div>
         <div>
           <MetaLabel>Meta / MetaLabel — annotations (mono)</MetaLabel>
