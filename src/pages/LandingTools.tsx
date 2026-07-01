@@ -1,6 +1,6 @@
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
 import { WireframeHero } from "@/components/wireframe/WireframeHero";
-import { Eyebrow, H1, H2 } from "@/components/wireframe/Typography";
+import { Eyebrow, H1, H2, H5 } from "@/components/wireframe/Typography";
 import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
 import { tools } from "@/data/mockData";
 import { Star, CheckCircle } from "lucide-react";
@@ -25,7 +25,7 @@ const LandingTools = () => (
         <div className="grid md:grid-cols-3 gap-4 mt-6">
           {tools.slice(0, 3).map((tool) => (
             <WireframeCard key={tool.slug}>
-              <h3 className="font-semibold text-sm">{tool.name}</h3>
+              <H5>{tool.name}</H5>
               <span className="font-mono text-xs text-muted-foreground">{tool.price}</span>
               <p className="text-xs text-muted-foreground mt-2">{tool.description}</p>
               <WireframeCTA label="Try →" to="#" variant="secondary" className="text-xs py-1 px-3 mt-3" />

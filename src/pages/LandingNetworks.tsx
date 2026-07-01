@@ -1,5 +1,5 @@
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
-import { Eyebrow, H1, H2 } from "@/components/wireframe/Typography";
+import { Eyebrow, H1, H2, H5 } from "@/components/wireframe/Typography";
 import { WireframeHero } from "@/components/wireframe/WireframeHero";
 import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
 import { networks } from "@/data/mockData";
@@ -27,7 +27,7 @@ const LandingNetworks = () => (
             <WireframeCard key={n.slug}>
               <div className="flex items-center gap-2 mb-2">
                 <Globe className="h-4 w-4 text-muted-foreground" />
-                <h3 className="font-semibold text-sm">{n.name}</h3>
+                <H5>{n.name}</H5>
               </div>
               <p className="text-xs text-muted-foreground">{n.description}</p>
               <WireframeCTA label="Join →" to="#" variant="secondary" className="text-xs py-1 px-3 mt-3" />

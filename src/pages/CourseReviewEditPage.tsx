@@ -1,5 +1,5 @@
 import { useParams, Link } from "react-router-dom";
-import { H1 } from "@/components/wireframe/Typography";
+import { H1, H3, H4 } from "@/components/wireframe/Typography";
 import { useState } from "react";
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
 import { SourceBadge } from "@/components/wireframe/SourceBadge";
@@ -72,7 +72,7 @@ const CourseReviewEditPage = () => {
         ]}
       />
 
-      <div className="container mx-auto px-4 py-8 max-w-4xl">
+      <div className="container mx-auto px-4 py-12 max-w-4xl">
 
 
       <div className="flex items-center justify-between mb-6 gap-3 flex-wrap">
@@ -109,7 +109,7 @@ const CourseReviewEditPage = () => {
         <WireframeCard className="p-6 mt-8">
           <div className="flex items-center gap-2 mb-4">
             <Bot className="h-5 w-5" />
-            <h2 className="text-xl font-bold">Paste source URLs</h2>
+            <H3>Paste source URLs</H3>
           </div>
           <p className="text-sm text-muted-foreground mb-6">
             We'll scrape these and pre-fill the factual fields (price, curriculum, instructor, ratings, quotes).
@@ -159,7 +159,7 @@ const CourseReviewEditPage = () => {
       {step === "scraping" && (
         <WireframeCard className="p-10 mt-8 text-center">
           <Bot className="h-10 w-10 mx-auto animate-pulse" />
-          <h2 className="text-xl font-bold mt-4">Fetching data…</h2>
+          <H3 className="mt-4">Fetching data…</H3>
           <div className="mt-6 max-w-sm mx-auto space-y-2 text-left font-mono text-xs text-muted-foreground">
             <div className="flex items-center gap-2"><CheckCircle2 className="h-3 w-3" /> Scraping official site</div>
             <div className="flex items-center gap-2"><CheckCircle2 className="h-3 w-3" /> Extracting curriculum & price</div>
@@ -176,7 +176,7 @@ const CourseReviewEditPage = () => {
           <section>
             <div className="flex items-center gap-2 mb-3">
               <Bot className="h-4 w-4" />
-              <h2 className="text-lg font-bold">Auto-filled (review & adjust if needed)</h2>
+              <H4>Auto-filled (review & adjust if needed)</H4>
             </div>
             <div className="space-y-4">
               <FieldRow label="Price" source={{ type: "auto", label: "official site" }}>
@@ -228,7 +228,7 @@ const CourseReviewEditPage = () => {
           <section>
             <div className="flex items-center gap-2 mb-3">
               <PenLine className="h-4 w-4" />
-              <h2 className="text-lg font-bold">Your take (this is what makes it rank)</h2>
+              <H4>Your take (this is what makes it rank)</H4>
             </div>
             <div className="space-y-4">
               <FieldRow label="Intro / context" source={{ type: "manual", label: "you write" }} hint="200–300 words. Unique angle. Critical for SEO.">

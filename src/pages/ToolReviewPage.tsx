@@ -3,7 +3,7 @@ import { WireframeHero } from "@/components/wireframe/WireframeHero";
 import { WireframeBreadcrumbs } from "@/components/wireframe/WireframeBreadcrumbs";
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
 import { PlaceholderImage } from "@/components/wireframe/PlaceholderImage";
-import { Eyebrow, H1, H2, H3, Lead, Meta, MetaLabel, BodySmall } from "@/components/wireframe/Typography";
+import { Eyebrow, H1, H2, H3, Lead, Meta, MetaLabel, BodySmall, typo } from "@/components/wireframe/Typography";
 import { getCategory } from "@/data/toolCategories";
 import { Star, Check, ExternalLink } from "lucide-react";
 
@@ -101,14 +101,14 @@ const ToolReviewPage = () => {
             <div className="text-center">
               <MetaLabel className="block">Our score</MetaLabel>
               <div className="mt-1">
-                <span className="text-4xl font-bold">{(tool.ourScore / 2).toFixed(1)}</span>
+                <span className={typo.statLg}>{(tool.ourScore / 2).toFixed(1)}</span>
                 <span className="font-mono text-xs text-muted-foreground">/5</span>
               </div>
             </div>
             <hr className="w-full border-t border-dashed border-border" />
             <div className="text-center">
               <MetaLabel className="block">Price</MetaLabel>
-              <div className="mt-1.5 text-xl font-bold leading-none">{tool.price}</div>
+              <div className={`mt-1.5 ${typo.statSm}`}>{tool.price}</div>
             </div>
             <a
               href={tool.externalUrl}

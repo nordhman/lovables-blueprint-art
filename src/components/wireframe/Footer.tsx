@@ -30,6 +30,7 @@ export const Footer = () => (
           <div className="space-y-2">
             <Link to="/about" className="block text-sm hover:text-foreground text-muted-foreground">About</Link>
             <Link to="/contact" className="block text-sm hover:text-foreground text-muted-foreground">Contact</Link>
+            <Link to="/styleguide" className="block text-sm hover:text-foreground text-muted-foreground">Style Guide</Link>
           </div>
         </div>
       </div>

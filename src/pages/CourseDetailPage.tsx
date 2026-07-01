@@ -1,5 +1,5 @@
 import { useParams, Link } from "react-router-dom";
-import { Eyebrow, H1, H2, H3, Lead, BodySmall, Meta, MetaLabel } from "@/components/wireframe/Typography";
+import { Eyebrow, H1, H2, H3, H4, Lead, BodySmall, Meta, MetaLabel, typo } from "@/components/wireframe/Typography";
 import { PlaceholderImage } from "@/components/wireframe/PlaceholderImage";
 import { WireframeCard } from "@/components/wireframe/WireframeCard";
 import { WireframeCTA } from "@/components/wireframe/WireframeCTA";
@@ -130,7 +130,7 @@ const CourseDetailPage = () => {
                 <div className="flex items-start gap-4">
                   <div className="shrink-0 w-14 text-center">
                     <MetaLabel className="block leading-none">Module</MetaLabel>
-                    <span className="text-2xl font-bold leading-none block mt-1">
+                    <span className={`${typo.stat} leading-none block mt-1`}>
                       {String(m.number).padStart(2, "0")}
                     </span>
                   </div>
@@ -162,7 +162,7 @@ const CourseDetailPage = () => {
           {/* Related CTA */}
           <WireframeCard className="text-center py-8 mt-12">
             <Eyebrow>Next step</Eyebrow>
-            <h3 className="text-lg font-bold mt-3">Ready to go beyond the basics?</h3>
+            <H4 className="mt-3">Ready to go beyond the basics?</H4>
             <p className="text-sm text-muted-foreground mt-1">
               Compare the top expert-led premium courses I recommend.
             </p>

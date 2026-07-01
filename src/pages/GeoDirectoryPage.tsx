@@ -48,7 +48,7 @@ const GeoDirectoryPage = () => (
       </div>
 
       {/* Desktop: grid */}
-      <div className="hidden md:grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="hidden md:grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {geoRegions.map((r) => (
           <WireframeCard key={r.slug} className="flex flex-col">
             <div className="flex items-start justify-between gap-2 mb-2">
