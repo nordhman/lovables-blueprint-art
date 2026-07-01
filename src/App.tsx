@@ -25,6 +25,7 @@ import ToolReviewPage from "./pages/ToolReviewPage";
 
 import LandingNetworks from "./pages/LandingNetworks";
 import AboutPage from "./pages/AboutPage";
+import StyleGuidePage from "./pages/StyleGuidePage";
 import ContactPage from "./pages/ContactPage";
 import NotFound from "./pages/NotFound";
 
@@ -59,6 +60,7 @@ const App = () => (
             
             <Route path="/best-affiliate-networks" element={<LandingNetworks />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/styleguide" element={<StyleGuidePage />} />
             <Route path="/contact" element={<ContactPage />} />
           </Route>
           <Route path="*" element={<NotFound />} />
