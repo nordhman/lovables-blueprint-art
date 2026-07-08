@@ -49,6 +49,16 @@
 
     --header-background: 0 0% 20%;
     --header-foreground: 0 0% 96%;
+
+    /* AffiliateTour brand palette (Styleguide 2) — HSL triplets.
+       Hex reference (estimated, refine here):
+       green #17A589 · green-dark #0E8074 · charcoal #2A3B47
+       blue #1B3A5C · gray-bg #F5F6F7 */
+    --brand-green: 168 75% 37%;
+    --brand-green-dark: 174 80% 28%;
+    --brand-charcoal: 205 26% 22%;
+    --brand-blue: 211 55% 23%;
+    --brand-gray-bg: 210 11% 96%;
   }
 }
 

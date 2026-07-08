@@ -31,6 +31,7 @@ export const Footer = () => (
             <Link to="/about" className="block text-sm hover:text-foreground text-muted-foreground">About</Link>
             <Link to="/contact" className="block text-sm hover:text-foreground text-muted-foreground">Contact</Link>
             <Link to="/styleguide" className="block text-sm hover:text-foreground text-muted-foreground">Style Guide</Link>
+            <Link to="/styleguide-2" className="block text-sm hover:text-foreground text-muted-foreground">Style Guide 2 (Color)</Link>
           </div>
         </div>
       </div>
